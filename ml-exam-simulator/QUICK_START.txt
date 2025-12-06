@@ -1,0 +1,128 @@
+╔══════════════════════════════════════════════════════════════════╗
+║                                                                  ║
+║        CS171 ML FINAL EXAM SIMULATOR - QUICK START GUIDE       ║
+║                                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
+
+🎯 FASTEST WAY TO START:
+
+   1. Simply DOUBLE-CLICK on "index.html"
+   2. The simulator will open in your default browser
+   3. Start practicing!
+
+   That's it! No installation, no setup required.
+
+───────────────────────────────────────────────────────────────────
+
+📚 WHAT YOU GET:
+
+   ✓ 580+ True/False questions
+   ✓ 60+ Short Answer questions
+   ✓ Real exam format (30 T/F + 5 SA)
+   ✓ Timed and untimed modes
+   ✓ Detailed explanations
+   ✓ Progress tracking
+   ✓ Question flagging
+   ✓ Comprehensive review
+
+───────────────────────────────────────────────────────────────────
+
+🚀 ALTERNATIVE SETUP (If needed):
+
+   If double-clicking doesn't work, use a local server:
+
+   OPTION A - Python (Easiest):
+   
+      cd path/to/ml-exam-simulator
+      python3 -m http.server 8000
+      
+      Then visit: http://localhost:8000
+
+   OPTION B - VS Code:
+   
+      1. Open folder in VS Code
+      2. Install "Live Server" extension
+      3. Right-click index.html → "Open with Live Server"
+
+───────────────────────────────────────────────────────────────────
+
+💡 STUDY TIPS:
+
+   1. Start with "Full Exam" mode to simulate real conditions
+   2. Use "Untimed" mode first if you're nervous about timing
+   3. Flag difficult questions and review them
+   4. Read ALL explanations, even for correct answers
+   5. Compare your short answers to sample answers
+   6. Take multiple practice exams
+   7. Focus on topics where you score lowest
+
+───────────────────────────────────────────────────────────────────
+
+⌨️ KEYBOARD SHORTCUTS:
+
+   ← →   Navigate between questions
+   Ctrl+F / Cmd+F   Flag current question
+
+───────────────────────────────────────────────────────────────────
+
+📁 FOLDER STRUCTURE:
+
+   ml-exam-simulator/
+   ├── index.html ← DOUBLE-CLICK THIS FILE
+   ├── css/
+   │   └── styles.css
+   ├── js/
+   │   ├── questions.js (Question bank)
+   │   ├── exam.js (Exam logic)
+   │   └── ui.js (UI functions)
+   ├── README.md (Detailed documentation)
+   └── QUICK_START.txt (This file)
+
+───────────────────────────────────────────────────────────────────
+
+⚠️ TROUBLESHOOTING:
+
+   Problem: Page looks broken
+   Solution: Make sure all files are in correct folders
+            Try using a local server (see above)
+
+   Problem: Questions don't load
+   Solution: Check browser console (F12)
+            Refresh the page
+            Try a different browser
+
+   Problem: Timer not working
+   Solution: Make sure JavaScript is enabled
+            Try Chrome or Firefox
+
+───────────────────────────────────────────────────────────────────
+
+✅ CHECKLIST BEFORE EXAM:
+
+   □ Taken at least 3 full practice exams
+   □ Scored consistently above 70%
+   □ Reviewed all flagged questions
+   □ Read explanations for missed questions
+   □ Practiced short answers
+   □ Managed time well in timed mode
+   □ Prepared your allowed cheat sheet
+
+───────────────────────────────────────────────────────────────────
+
+🎓 GOOD LUCK ON YOUR EXAM!
+
+   Remember: This is a study tool to supplement your learning.
+   Also review your:
+   - Lecture notes and slides
+   - Course textbook
+   - Assignments and quizzes
+   - Practice problems
+
+   You've got this! 💪
+
+───────────────────────────────────────────────────────────────────
+
+For detailed documentation, see README.md
+For issues, check browser console (F12) for errors
+
+Last Updated: December 2025
