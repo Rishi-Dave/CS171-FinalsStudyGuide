@@ -1,0 +1,321 @@
+{
+  "topic": "Unsupervised Learning: Density & Evaluation",
+  "questionType": "truefalse",
+  "questions": [
+    {
+      "id": "T/F 436",
+      "topic": "DBSCAN",
+      "question": "Density-Based Clustering methods like DBSCAN are motivated by the need to discover clusters of arbitrary shapes and handle noise.",
+      "answer": true,
+      "reasoning": "Density-based clustering (DBSCAN) aims to discover arbitrary shapes and handle noise."
+    },
+    {
+      "id": "T/F 437",
+      "topic": "DBSCAN",
+      "question": "DBSCAN requires only one parameter: the maximum radius of the neighborhood (Eps).",
+      "answer": false,
+      "reasoning": "DBSCAN requires two parameters: Eps (maximum radius) and MinPts (minimum number of points in Eps-neighborhood)."
+    },
+    {
+      "id": "T/F 438",
+      "topic": "DBSCAN",
+      "question": "A point q is a \"core point\" in DBSCAN if its Eps-neighborhood contains at least MinPts number of points.",
+      "answer": true,
+      "reasoning": "The core point condition is $"
+    },
+    {
+      "id": "T/F 439",
+      "topic": "DBSCAN",
+      "question": "Point p is directly density-reachable from point q only if p belongs to N Eps ​ (q), regardless of whether q is a core point.",
+      "answer": false,
+      "reasoning": "q must satisfy the core point condition: $"
+    },
+    {
+      "id": "T/F 440",
+      "topic": "DBSCAN",
+      "question": "The notion of \"density-reachable\" is symmetric in DBSCAN.",
+      "answer": false,
+      "reasoning": "\"Density-reachable\" is not symmetric, as the starting point must be a core point."
+    },
+    {
+      "id": "T/F 441",
+      "topic": "DBSCAN",
+      "question": "DBSCAN defines a cluster as a maximal set of density-connected points.",
+      "answer": true,
+      "reasoning": "A cluster is defined as a maximal set of density-connected points."
+    },
+    {
+      "id": "T/F 442",
+      "topic": "DBSCAN",
+      "question": "Points labeled as \"noise\" by DBSCAN are potential outliers.",
+      "answer": true,
+      "reasoning": "All points marked as \"noise\" are potential outliers."
+    },
+    {
+      "id": "T/F 443",
+      "topic": "DBSCAN",
+      "question": "DBSCAN does not require the number of clusters as a parameter, unlike K-means.",
+      "answer": true,
+      "reasoning": "DBSCAN does not require the number of clusters as a parameter."
+    },
+    {
+      "id": "T/F 444",
+      "topic": "DBSCAN",
+      "question": "The naïve implementation of DBSCAN has a time complexity of O(n 2 ), where n is the number of data points.",
+      "answer": true,
+      "reasoning": "Naïve implementation complexity is O(n 2 )."
+    },
+    {
+      "id": "T/F 445",
+      "topic": "DBSCAN",
+      "question": "The result of DBSCAN is entirely deterministic, regardless of the order in which points are processed.",
+      "answer": false,
+      "reasoning": "The result is not entirely deterministic, as border points may end up in different clusters depending on the processing order."
+    },
+    {
+      "id": "T/F 446",
+      "topic": "DBSCAN",
+      "question": "If a spatial index like an R*-Tree is used, the time complexity of DBSCAN can be improved by achieving logarithmic retrieval of neighborhood points.",
+      "answer": true,
+      "reasoning": "Using a spatial index can lead to logarithmic retrieval of neighborhood points."
+    },
+    {
+      "id": "T/F 447",
+      "topic": "DBSCAN",
+      "question": "A point p is a \"border point\" if it is density-reachable from a core point but is not a core point itself.",
+      "answer": true,
+      "reasoning": "Border points are density-reachable but do not satisfy the core point condition."
+    },
+    {
+      "id": "T/F 448",
+      "topic": "LOF",
+      "question": "The Local Outlier Factor (LOF) algorithm balances local density against how far away a point is from a dense neighborhood.",
+      "answer": true,
+      "reasoning": "LOF involves a trade off between local density and how far away a point is from a dense neighborhood."
+    },
+    {
+      "id": "T/F 449",
+      "topic": "Evaluation",
+      "question": "Intrinsic clustering evaluation methods use ground truth labels to assess the quality of the clusters.",
+      "answer": false,
+      "reasoning": "Intrinsic methods (unsupervised) are used when ground truth is unavailable. Extrinsic methods (supervised) use ground truth."
+    },
+    {
+      "id": "T/F 450",
+      "topic": "Evaluation",
+      "question": "The Silhouette Coefficient is an intrinsic measure that quantifies the similarity of an object to its own cluster (cohesion) versus other clusters (separation).",
+      "answer": true,
+      "reasoning": "The Silhouette Coefficient measures cohesion versus separation and is an intrinsic measure."
+    },
+    {
+      "id": "T/F 451",
+      "topic": "Evaluation",
+      "question": "The Hopkins Statistic is used to assess if a dataset has non-random structure by measuring how far the data is from being uniformly distributed.",
+      "answer": true,
+      "reasoning": "Hopkins Statistic assesses spatial randomness by measuring how far away the data is from being uniformly distributed."
+    },
+    {
+      "id": "T/F 452",
+      "topic": "Evaluation",
+      "question": "If the Hopkins Statistic H is close to 1, it suggests the data is highly clustered.",
+      "answer": true,
+      "reasoning": "If data is highly clustered, H is close to 1."
+    },
+    {
+      "id": "T/F 453",
+      "topic": "Evaluation",
+      "question": "The \"elbow finding\" technique uses the average Silhouette coefficient plotted against K to suggest the optimal number of clusters.",
+      "answer": false,
+      "reasoning": "The \"elbow finding\" technique uses the SSE plotted against K to find the point of diminishing returns, which is a suggestion for K."
+    },
+    {
+      "id": "T/F 454",
+      "topic": "Evaluation",
+      "question": "Cluster homogeneity requires that items belonging to the same category should be grouped in the same cluster.",
+      "answer": false,
+      "reasoning": "Homogeneity requires that clusters should not mix items belonging to different categories (purer, the better)."
+    },
+    {
+      "id": "T/F 455",
+      "topic": "Evaluation",
+      "question": "Cluster completeness requires that objects belonging to the same category should be assigned to the same cluster.",
+      "answer": true,
+      "reasoning": "Completeness requires assigning objects of the same category to the same cluster."
+    },
+    {
+      "id": "T/F 456",
+      "topic": "Evaluation",
+      "question": "The \"Rag bag\" constraint suggests that mixing a heterogeneous object into a clean cluster should be penalized less than mixing it into a highly noisy cluster.",
+      "answer": false,
+      "reasoning": "Mixing a heterogeneous object into a pure cluster should be penalized more than putting it into a rag bag."
+    },
+    {
+      "id": "T/F 457",
+      "topic": "Evaluation",
+      "question": "Normalized Mutual Information (NMI) measures the overlap between two clusterings (our result and ground truth) using an information-theoretic approach.",
+      "answer": true,
+      "reasoning": "NMI measures the overlap using an information theoretic way."
+    },
+    {
+      "id": "T/F 458",
+      "topic": "Evaluation",
+      "question": "The Silhouette coefficient compares the nearest neighbor distances of data points in a cluster with the nearest neighbor distances of random points.",
+      "answer": false,
+      "reasoning": "The Silhouette coefficient compares cohesion (similarity to own cluster a(i)) vs. separation (dissimilarity to other clusters b(i))."
+    },
+    {
+      "id": "T/F 459",
+      "topic": "Evaluation",
+      "question": "The Silhouette coefficient ranges from 0 to 1, where 1 indicates perfect clustering.",
+      "answer": false,
+      "reasoning": "The Silhouette coefficient ranges from -1 to 1."
+    },
+    {
+      "id": "T/F 460",
+      "topic": "Evaluation",
+      "question": "Extrinsic clustering evaluation requires human judges to evaluate the coherence and quality of the generated clusters.",
+      "answer": true,
+      "reasoning": "Evaluation can involve asking human judges (using HITs) to evaluate quality, such as in Word or Topic Intrusion tasks."
+    },
+    {
+      "id": "T/F 461",
+      "topic": "DBSCAN",
+      "question": "If using R ∗ -Trees, the complexity of DBSCAN improves because distance computation becomes instantaneous.",
+      "answer": false,
+      "reasoning": "The complexity improves because neighborhood points can be retrieved logarithmically, not because distance computation is instantaneous."
+    },
+    {
+      "id": "T/F 462",
+      "topic": "Evaluation",
+      "question": "The 'elbow finding' method for determining K is reliable because the SSE value is typically invariant to the random initialization used in K-means.",
+      "answer": false,
+      "reasoning": "Because K-means uses random initialization, multiple runs are needed to estimate SSE accurately."
+    },
+    {
+      "id": "T/F 463",
+      "topic": "Evaluation",
+      "question": "The two constraints of cluster homogeneity and cluster completeness are the most fundamental restrictions required for any clustering evaluation metric.",
+      "answer": true,
+      "reasoning": "Constraints 1 (Homogeneity) and 2 (Completeness) are the most basic restrictions."
+    },
+    {
+      "id": "T/F 464",
+      "topic": "LOF",
+      "question": "The Local Outlier Factor score provides a local outlier score that is invariant to the local density of the neighborhood.",
+      "answer": false,
+      "reasoning": "LOF involves a trade-off between local density and the distance from a dense neighborhood."
+    },
+    {
+      "id": "T/F 465",
+      "topic": "Evaluation",
+      "question": "A highly clustered dataset results in a Hopkins Statistic H close to 0.5.",
+      "answer": false,
+      "reasoning": "If D is uniformly distributed, H is close to 0.5; if highly clustered, H is close to 1."
+    },
+    {
+      "id": "T/F 466",
+      "topic": "Evaluation",
+      "question": "In the Small Cluster Preservation constraint, splitting a small category into pieces is considered less harmful than splitting a large category into pieces.",
+      "answer": false,
+      "reasoning": "Splitting a small category is considered more harmful."
+    },
+    {
+      "id": "T/F 467",
+      "topic": "Advanced Unsupervised",
+      "question": "In Matrix Factorization, the rank of a matrix is the maximum number of rank-one matrices that add up to that matrix.",
+      "answer": false,
+      "reasoning": "Rank is the minimum number of rank-one matrices that add up to that matrix."
+    },
+    {
+      "id": "T/F 468",
+      "topic": "Advanced Unsupervised",
+      "question": "The SVD decomposition of data matrix X is UΣV T , where Σ holds the left singular vectors.",
+      "answer": false,
+      "reasoning": "U and V hold the left and right singular vectors; Σ holds the singular values."
+    },
+    {
+      "id": "T/F 469",
+      "topic": "Advanced Unsupervised",
+      "question": "The Eckart Young Theorem guarantees that the truncated SVD approximation X k ​ (using the first k singular vectors) is the best rank-k approximation that minimizes the squared error.",
+      "answer": true,
+      "reasoning": "If k<rank(X), the truncated SVD gives the best rank k approximation minimizing squared error."
+    },
+    {
+      "id": "T/F 470",
+      "topic": "Advanced Unsupervised",
+      "question": "Latent Semantic Indexing (LSI) uses SVD to map query vectors and documents into a lower-dimensional \"concept space.\"",
+      "answer": true,
+      "reasoning": "LSI maps query vectors into \"concept space\" using SVD."
+    },
+    {
+      "id": "T/F 471",
+      "topic": "Advanced Unsupervised",
+      "question": "Non-Negative Matrix Factorization (NMF) requires that the matrix factors U and V must contain only non-positive elements.",
+      "answer": false,
+      "reasoning": "NMF requires that U and V are element-wise ≥0 (non-negative)."
+    },
+    {
+      "id": "T/F 472",
+      "topic": "Advanced Unsupervised",
+      "question": "NMF is often preferred over SVD/PCA when interpretation requires a \"sum-of-parts\" representation.",
+      "answer": true,
+      "reasoning": "NMF helps with interpretation and is good for \"sum-of-parts\" representation."
+    },
+    {
+      "id": "T/F 473",
+      "topic": "Advanced Unsupervised",
+      "question": "Collaborative Filtering often uses matrix factorization to approximate the user-item interaction matrix X as UV T , where U represents users in latent space and V represents items in latent space.",
+      "answer": true,
+      "reasoning": "Collaborative Filtering approximates X≈UV T ."
+    },
+    {
+      "id": "T/F 474",
+      "topic": "Advanced Unsupervised",
+      "question": "An Autoencoder is a neural network architecture designed primarily to predict a future value of a time series.",
+      "answer": false,
+      "reasoning": "An autoencoder is a deep neural network used for dimensionality reduction by predicting its own input data (general encoder/decoder architecture)."
+    },
+    {
+      "id": "T/F 475",
+      "topic": "Advanced Unsupervised",
+      "question": "Co-clustering (or biclustering) is a technique used only in the context of biological data, such as gene expression matrices.",
+      "answer": false,
+      "reasoning": "While commonly used in biological data, matrix representation (like User-Item or Gene-Experiment) can represent various data types."
+    },
+    {
+      "id": "T/F 476",
+      "topic": "DBSCAN",
+      "question": "If DBSCAN is implemented using a spatial index, its theoretical worst-case complexity remains O(n 2 ).",
+      "answer": false,
+      "reasoning": "Using a spatial index can improve complexity by providing logarithmic retrieval."
+    },
+    {
+      "id": "T/F 477",
+      "topic": "Evaluation",
+      "question": "The elbow method typically looks for an abrupt change in the Silhouette Coefficient plot to suggest the optimal K.",
+      "answer": false,
+      "reasoning": "The elbow method looks for an abrupt change (knee) in the SSE plot."
+    },
+    {
+      "id": "T/F 478",
+      "topic": "Advanced Unsupervised",
+      "question": "The singular values σ i ​ in SVD are non-negative and are typically sorted in ascending order.",
+      "answer": false,
+      "reasoning": "Singular values are non-negative and sorted in descending order."
+    },
+    {
+      "id": "T/F 479",
+      "topic": "Advanced Unsupervised",
+      "question": "In the context of fraud detection, dense blocks in a graph's adjacency matrix often correspond to highly fraudulent activity.",
+      "answer": true,
+      "reasoning": "Fraud looks like dense blocks (bipartite cores) in the adjacency matrix."
+    },
+    {
+      "id": "T/F 480",
+      "topic": "Advanced Unsupervised",
+      "question": "The autoencoder is a supervised learning method because it requires labeled data to predict the output.",
+      "answer": false,
+      "reasoning": "Autoencoders are unsupervised, trained to predict the input data itself. Topic 9: Frequent Pattern Mining & Association Rules (40 Questions) ID Topic Question Answer Reasoning"
+    }
+  ]
+}

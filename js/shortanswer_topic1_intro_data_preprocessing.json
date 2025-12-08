@@ -1,0 +1,78 @@
+{
+  "topic": "ML Introduction, Data, and Preprocessing",
+  "questionType": "shortanswer",
+  "questions": [
+    {
+      "id": "SA 1",
+      "topic": "ML Intro",
+      "question": "Define Machine Learning (ML) using the framework involving performance, task, and experience.",
+      "reasoning": "ML is the study of algorithms that improve their performance at some task with experience."
+    },
+    {
+      "id": "SA 2",
+      "topic": "ML Intro",
+      "question": "Explain the difference between supervised and unsupervised learning, providing one example of a task for each.",
+      "reasoning": "Supervised learning uses labeled examples to learn a model that generalizes to unseen examples (e.g., Classification). Unsupervised learning uses unlabeled data to learn a model that identifies structure in the data (e.g., Clustering)."
+    },
+    {
+      "id": "SA 3",
+      "topic": "Data Stats",
+      "question": "Describe the key statistical differences between a symmetric data distribution and a positively skewed distribution in terms of their mean, median, and mode.",
+      "reasoning": "In a symmetric distribution, the mean, median, and mode are approximately equal. In a positively skewed distribution, the mean is generally greater than the median, and the mode is typically the smallest measure (the distribution trails off towards larger values)."
+    },
+    {
+      "id": "SA 4",
+      "topic": "Data Viz",
+      "question": "Explain why correlation does not imply causation, drawing on a visualization concept discussed in the course.",
+      "reasoning": "Although good visualization helps correlations stand out, correlation ≠ causation. The Anscombe's Quartet showed that datasets can yield the same standard statistical summaries (like mean, variance, and regression coefficients) but look very different visually when plotted, highlighting that correlation alone does not prove a causal connection."
+    },
+    {
+      "id": "SA 5",
+      "topic": "Data Prep",
+      "question": "Identify and briefly describe two data normalization methods used in data preprocessing, explaining the primary goal of each.",
+      "reasoning": "1. Min-max normalization: Scales values to a new specific range (e.g., [0.0, 1.0]). The primary goal is to bring data to a common range and ensure consistency, preventing larger range features from dominating computations. 2. Z-score normalization: Centers the data (subtracts the mean) and scales it (divides by the standard deviation). This standardizes the data distribution to avoid artifacts caused by a large mean or deviation affecting computations."
+    },
+    {
+      "id": "SA 6",
+      "topic": "Data Prep",
+      "question": "Why is the Mean Squared Error (MSE) of an estimator typically high for simple models (underfitting) and high-complexity models (overfitting)? Relate your answer to the Bias-Variance Decomposition.",
+      "reasoning": "MSE (E[(y - h(x))^2]) can be decomposed into bias^2 + variance + unavoidable error. Simple models (underfitting) have high bias (due to being too simple). High-complexity models (overfitting) have high variance (being too sensitive to training noise). Both result in a high total error."
+    },
+    {
+      "id": "SA 7",
+      "topic": "Data Prep",
+      "question": "Describe the Curse of Dimensionality, focusing on its impact on distance-based algorithms like k-NN.",
+      "reasoning": "The Curse of Dimensionality refers to the phenomenon where, as dimensionality increases, data becomes increasingly sparse. This causes density and distance between points to become less meaningful. For k-NN, this means the distance between neighbors can be dominated by irrelevant attributes, making it hard to effectively identify true nearest neighbors."
+    },
+    {
+      "id": "SA 8",
+      "topic": "Clustering",
+      "question": "Explain the concepts of density-reachable and density-connected points in DBSCAN, and state which one is symmetric and why symmetry is important for cluster definition.",
+      "reasoning": "Density-reachable requires a chain of points where each successive point is directly density-reachable from a core point. This relationship is not symmetric. Density-connected is symmetric, stating that two points p and q are density-connected if there is a point o from which both p and q are density-reachable. The symmetric notion of density-connectedness is necessary to properly define a cluster as a maximal set of density-connected points."
+    },
+    {
+      "id": "SA 9",
+      "topic": "Sampling",
+      "question": "You are analyzing a data stream and need a representative sample of size M. Explain how Reservoir Sampling works and why it is preferable to simply taking the first M items.",
+      "reasoning": "Reservoir Sampling is designed for data streams where the full size N is unknown. It ensures that every item encountered has a uniform probability M/N of being in the final sample. It is preferable because simply taking the first M items would result in a potentially biased sample."
+    },
+    {
+      "id": "SA 10",
+      "topic": "Data Prep",
+      "question": "Give an example scenario of data integration and explain the challenge of entity identification.",
+      "reasoning": "Data integration combines data from multiple sources. An example scenario is merging two customer databases where the same person is identified differently (e.g., \"Bill Clinton\" versus \"William Clinton\"). The entity identification/resolution challenge is recognizing that these different representations refer to the same real-world entity."
+    },
+    {
+      "id": "SA 11",
+      "topic": "Sampling",
+      "question": "When and why is Stratified Sampling preferable to Simple Random Sampling?",
+      "reasoning": "Stratified sampling is preferable when the data is skewed or exhibits class imbalance. It partitions the data (e.g., by class) and draws proportional samples from each partition. This ensures proportional representation from every class/category, whereas simple random sampling may have very poor performance in the presence of skew."
+    },
+    {
+      "id": "SA 12",
+      "topic": "Data Dist",
+      "question": "Define the Manhattan distance (L1 norm) and the Euclidean distance (L2 norm) using the general Minkowski distance formula, and explain what metric property helps reduce distance computations.",
+      "reasoning": "Manhattan distance is the L1 norm (p=1), also called the city block distance. Euclidean distance is the L2 norm (p=2). The distance measure is a metric if it satisfies Positive-definiteness, Symmetry, and the Triangle Inequality. The Symmetry property (d(i, j) = d(j, i)) can be exploited to reduce computations because not all pairs need to be computed twice. The Triangle Inequality can also be used to accelerate/approximate computations."
+    }
+  ]
+}

@@ -1,0 +1,356 @@
+{
+  "topic": "Basic Statistics and Visualization",
+  "questionType": "truefalse",
+  "questions": [
+    {
+      "id": "T/F 56",
+      "topic": "Stats",
+      "question": "The sample mean is the weighted arithmetic mean when all weights are equal.",
+      "answer": true,
+      "reasoning": "The arithmetic mean is the weighted mean where all weights w i ​ are 1."
+    },
+    {
+      "id": "T/F 57",
+      "topic": "Stats",
+      "question": "A trimmed mean involves replacing extreme values with the median before calculating the mean.",
+      "answer": false,
+      "reasoning": "A trimmed mean involves chopping off (excluding) extreme values."
+    },
+    {
+      "id": "T/F 58",
+      "topic": "Stats",
+      "question": "A unimodal distribution has two values that occur most frequently.",
+      "answer": false,
+      "reasoning": "A unimodal distribution has one mode; bimodal has two."
+    },
+    {
+      "id": "T/F 59",
+      "topic": "Stats",
+      "question": "The Inter-Quartile Range (IQR) is calculated as the difference between the maximum value and the minimum value.",
+      "answer": false,
+      "reasoning": "IQR is calculated as Q3 - Q1."
+    },
+    {
+      "id": "T/F 60",
+      "topic": "Stats",
+      "question": "The five-number summary consists of the mean, Q1, median, Q3, and standard deviation.",
+      "answer": false,
+      "reasoning": "The five-number summary is min, Q1, median, Q3, max."
+    },
+    {
+      "id": "T/F 61",
+      "topic": "Stats",
+      "question": "In a boxplot, outliers are typically plotted individually outside the whiskers.",
+      "answer": true,
+      "reasoning": "Outliers are points beyond a specified threshold (usually 1.5 x IQR) and are plotted individually in a boxplot."
+    },
+    {
+      "id": "T/F 62",
+      "topic": "Stats",
+      "question": "The standard deviation is the square of the variance.",
+      "answer": false,
+      "reasoning": "Standard deviation (s or σ) is the square root of the variance (s 2 or σ 2 )."
+    },
+    {
+      "id": "T/F 63",
+      "topic": "Visualization",
+      "question": "Histograms display tabulated frequencies using bars, where the bars must be adjacent to represent non-overlapping intervals.",
+      "answer": true,
+      "reasoning": "A histogram is a graph display of tabulated frequencies shown as adjacent bars, where categories are usually specified as non-overlapping intervals."
+    },
+    {
+      "id": "T/F 64",
+      "topic": "Visualization",
+      "question": "Normalizing a histogram provides an estimate of the cumulative distribution function of the variable.",
+      "answer": false,
+      "reasoning": "Normalizing the histogram gives an estimate of the probability density of the variable."
+    },
+    {
+      "id": "T/F 65",
+      "topic": "Visualization",
+      "question": "Histograms are always preferable to boxplots because histograms show the exact values of the min, Q1, median, Q3, and max.",
+      "answer": false,
+      "reasoning": "Boxplots show the five-number summary. However, two different distributions can have the same boxplot, meaning histograms often tell more than boxplots because they reveal the distribution shape."
+    },
+    {
+      "id": "T/F 66",
+      "topic": "Visualization",
+      "question": "Scatter plots are primarily used to inspect multidimensional data (many features) directly.",
+      "answer": false,
+      "reasoning": "Scatter plots provide a first look at bivariate data (two variables), but scatterplot matrices can be very hard to inspect if the number of features is very large."
+    },
+    {
+      "id": "T/F 67",
+      "topic": "Stats",
+      "question": "A dataset exhibiting Anscombe's Quartet shows four different distributions that have identical standard statistical summaries, such as mean, variance, and linear regression coefficients.",
+      "answer": true,
+      "reasoning": "Anscombe's quartet consists of four datasets that yield the same standard output (statistics and regression line equation) from a typical regression program, yet look very different visually."
+    },
+    {
+      "id": "T/F 68",
+      "topic": "Stats",
+      "question": "Pearson's correlation coefficient ranges from 0 to 1, where 1 indicates perfectly anti-correlated variables.",
+      "answer": false,
+      "reasoning": "Pearson's correlation coefficient ranges from -1 to 1, where -1 indicates perfectly anti-correlated variables."
+    },
+    {
+      "id": "T/F 69",
+      "topic": "Stats",
+      "question": "If two variables have a Pearson correlation coefficient close to zero, we can assume there is a causal connection between them.",
+      "answer": false,
+      "reasoning": "A correlation coefficient near zero indicates that they are uncorrelated, but correlation does not imply causation."
+    },
+    {
+      "id": "T/F 70",
+      "topic": "Stats",
+      "question": "The L2 norm distance is known as the Manhattan distance.",
+      "answer": false,
+      "reasoning": "The L2 norm is the Euclidean distance, while the L1 norm is the Manhattan distance."
+    },
+    {
+      "id": "T/F 71",
+      "topic": "Visualization",
+      "question": "If data is perfectly anti-correlated, the scatter plot would generally show a trend where as one variable increases, the other decreases.",
+      "answer": true,
+      "reasoning": "Negatively correlated data shows this inverse relationship."
+    },
+    {
+      "id": "T/F 72",
+      "topic": "Visualization",
+      "question": "Principal Component Analysis (PCA) performs dimensionality reduction by finding a projection that minimizes the variation captured in the data.",
+      "answer": false,
+      "reasoning": "PCA finds a projection that captures the largest amount of variation in the data."
+    },
+    {
+      "id": "T/F 73",
+      "topic": "Visualization",
+      "question": "Multidimensional Scaling (MDS) takes a distance matrix as input and computes a low-dimensional representation that attempts to respect the original distances.",
+      "answer": true,
+      "reasoning": "MDS takes an N×N distance matrix and computes a low-dimensional representation so that points respect the original distances."
+    },
+    {
+      "id": "T/F 74",
+      "topic": "Visualization",
+      "question": "The degree distribution of real-world graphs, such as follower networks, is often normally distributed (Gaussian).",
+      "answer": false,
+      "reasoning": "In real applications, such as follower graphs, skewed degree distributions are frequently encountered, often following a power law, not a normal distribution."
+    },
+    {
+      "id": "T/F 75",
+      "topic": "Stats",
+      "question": "For a power law distribution, the mean is always well defined and finite.",
+      "answer": false,
+      "reasoning": "Sometimes the mean is not well defined, and the variance is infinite, particularly for α<3 in a power law distribution p(x)∼x −a ."
+    },
+    {
+      "id": "T/F 76",
+      "topic": "Visualization",
+      "question": "A boxplot cannot show if a variable follows a bimodal or multimodal distribution.",
+      "answer": true,
+      "reasoning": "A boxplot cannot show if a variable follows a unimodal or multimodal distribution; histograms are needed for this."
+    },
+    {
+      "id": "T/F 77",
+      "topic": "Stats",
+      "question": "In a heavily skewed distribution, the mean is typically equal to the median.",
+      "answer": false,
+      "reasoning": "The mean and median are only equal in symmetric distributions; in heavily skewed data, they differ."
+    },
+    {
+      "id": "T/F 78",
+      "topic": "Visualization",
+      "question": "A scatterplot of two variables can indicate whether there is any discriminative structure that can be separated by a line.",
+      "answer": true,
+      "reasoning": "Scatterplots provide a first look at bivariate data to see clusters of points, helping determine separability."
+    },
+    {
+      "id": "T/F 79",
+      "topic": "Stats",
+      "question": "A distance function that satisfies symmetry, d(i,j)=d(j,i), is an example of a metric.",
+      "answer": true,
+      "reasoning": "Symmetry is one of the three properties required for a distance function to be a metric."
+    },
+    {
+      "id": "T/F 80",
+      "topic": "Stats",
+      "question": "The formula for variance involves squaring the difference between each data point and the mean of the distribution.",
+      "answer": true,
+      "reasoning": "Variance σ 2 is n 1 ​ ∑ i=1 n ​ (x i ​ −μ) 2 ."
+    },
+    {
+      "id": "T/F 81",
+      "topic": "Stats",
+      "question": "An outlier in a boxplot is typically defined as a value that is higher or lower than 1.5 times the Inter-Quartile Range (IQR).",
+      "answer": true,
+      "reasoning": "An outlier is usually defined as a value higher/lower than 1.5×IQR."
+    },
+    {
+      "id": "T/F 82",
+      "topic": "Visualization",
+      "question": "The ends of the box in a boxplot correspond to the minimum and maximum values in the dataset.",
+      "answer": false,
+      "reasoning": "The ends of the box are at the first and third quartiles (Q1 and Q3)."
+    },
+    {
+      "id": "T/F 83",
+      "topic": "Stats",
+      "question": "The mean excluding bold values (56.5) is lower than the mean including bold values (101.5) as calculated in the source example, suggesting the bold values are higher extreme values.",
+      "answer": true,
+      "reasoning": "The mean excluding bold values is 56.5, and the mean including bold values is 101.5."
+    },
+    {
+      "id": "T/F 84",
+      "topic": "Visualization",
+      "question": "If data sets yield the same standard regression output, a scatterplot is unnecessary for analyzing the relationship between variables.",
+      "answer": false,
+      "reasoning": "Anscombe's Quartet demonstrates that datasets can yield the exact same statistical output but look visually different, making visualization crucial for understanding the underlying relationship."
+    },
+    {
+      "id": "T/F 85",
+      "topic": "Visualization",
+      "question": "The two long vertical streaks near the top (posterior region) in the fMRI prediction images for 'celery' and 'airplane' are the left and right fusiform gyri.",
+      "answer": true,
+      "reasoning": "The long red and blue vertical streaks near the top (posterior region) of the predicted and observed images are the left and right fusiform gyri."
+    },
+    {
+      "id": "T/F 86",
+      "topic": "Stats",
+      "question": "Minkowski distance is also known as L p ​ Norm.",
+      "answer": true,
+      "reasoning": "Minkowski distance is known as L p ​ Norm."
+    },
+    {
+      "id": "T/F 87",
+      "topic": "Stats",
+      "question": "The Euclidean distance is an example of the L 1 ​ norm.",
+      "answer": false,
+      "reasoning": "Euclidean distance is the L 2 ​ norm."
+    },
+    {
+      "id": "T/F 88",
+      "topic": "Stats",
+      "question": "In the context of metrics, the Triangle Inequality property can be used to accelerate computations.",
+      "answer": true,
+      "reasoning": "The Triangle Inequality property can be used to accelerate/approximate computations."
+    },
+    {
+      "id": "T/F 89",
+      "topic": "Stats",
+      "question": "The Pearson correlation coefficient must be calculated on centered data to provide a valid measure of linear association.",
+      "answer": false,
+      "reasoning": "Pearson's coefficient is defined as the covariance of the two variables divided by the product of their standard deviations, which does not require centering beforehand, as centering is implicit in covariance calculation."
+    },
+    {
+      "id": "T/F 90",
+      "topic": "Visualization",
+      "question": "A correlation matrix provides a graphical representation of pairwise correlation coefficients between multiple features.",
+      "answer": true,
+      "reasoning": "A correlation matrix visualizes the correlation coefficients between pairs of variables."
+    },
+    {
+      "id": "T/F 91",
+      "topic": "Visualization",
+      "question": "If a histogram of data exhibits two distinct peaks, it is considered bimodal.",
+      "answer": true,
+      "reasoning": "A histogram pattern showing two peaks is labeled as bimodal."
+    },
+    {
+      "id": "T/F 92",
+      "topic": "Visualization",
+      "question": "If a variable is positively skewed, the distribution trails off towards smaller values.",
+      "answer": false,
+      "reasoning": "If a variable is positively skewed, the distribution trails off towards larger values (the mean is to the right of the median)."
+    },
+    {
+      "id": "T/F 93",
+      "topic": "Stats",
+      "question": "The mean is more susceptible to the influence of outliers than the median.",
+      "answer": true,
+      "reasoning": "The median is described as more robust with respect to skew compared to the mean, implying the mean is more sensitive to extreme values (outliers)."
+    },
+    {
+      "id": "T/F 94",
+      "topic": "Visualization",
+      "question": "The whisker in a boxplot extends up to the maximum value that is not considered an outlier.",
+      "answer": true,
+      "reasoning": "Whiskers extend to the Minimum and Maximum (non-outlier values)."
+    },
+    {
+      "id": "T/F 95",
+      "topic": "Visualization",
+      "question": "The height of the box in a boxplot represents the Inter-Quartile Range (IQR).",
+      "answer": true,
+      "reasoning": "The ends of the box are Q1 and Q3, so the height is the IQR."
+    },
+    {
+      "id": "T/F 96",
+      "topic": "Visualization",
+      "question": "In a scatterplot matrix of the Iris dataset, features (petal length, petal width) show strong positive correlation.",
+      "answer": true,
+      "reasoning": "The scatterplot for (petal_length, petal_width) shows clear visual correlation and separability in the Iris dataset."
+    },
+    {
+      "id": "T/F 97",
+      "topic": "Visualization",
+      "question": "A primary motivation for using visualization techniques like scatterplots is to get an intuitive idea of the data characteristics and distribution.",
+      "answer": true,
+      "reasoning": "Visualization is useful to \"Eye-ball\" the data and get an idea of the characteristics and distribution."
+    },
+    {
+      "id": "T/F 98",
+      "topic": "Stats",
+      "question": "The density of points is critical to clustering and outlier analysis, but it becomes less meaningful as dimensionality increases.",
+      "answer": true,
+      "reasoning": "As dimensionality increases, data becomes increasingly sparse, making density and distance between points less meaningful (Curse of Dimensionality)."
+    },
+    {
+      "id": "T/F 99",
+      "topic": "Stats",
+      "question": "The Mean Squared Error (MSE) of an estimator h(x) can be decomposed into bias, variance, and irreducible (unavoidable) error.",
+      "answer": true,
+      "reasoning": "E[(y−h(x)) 2 ]=bias 2 +variance+unavoidable error."
+    },
+    {
+      "id": "T/F 100",
+      "topic": "Stats",
+      "question": "Highly correlated variables should be treated as independent in machine learning models to improve generalization.",
+      "answer": false,
+      "reasoning": "Highly correlated features may lead to redundancy."
+    },
+    {
+      "id": "T/F 101",
+      "topic": "Visualization",
+      "question": "PCA works by minimizing the reconstruction error of the original data when projected onto a smaller space.",
+      "answer": true,
+      "reasoning": "PCA finds the best low rank approximation, which minimizes the squared error (Eckart Young Theorem)."
+    },
+    {
+      "id": "T/F 102",
+      "topic": "Visualization",
+      "question": "PCA is equivalent to SVD applied to centered data.",
+      "answer": true,
+      "reasoning": "SVD gives PCA in centered data."
+    },
+    {
+      "id": "T/F 103",
+      "topic": "Stats",
+      "question": "The standard error of the mean (SEM) is calculated as the standard deviation divided by the square root of the number of samples.",
+      "answer": true,
+      "reasoning": "SEM is defined as σ/ n ​ ."
+    },
+    {
+      "id": "T/F 104",
+      "topic": "Stats",
+      "question": "The term 'L1 norm' is also referred to as the city block distance or Manhattan distance.",
+      "answer": true,
+      "reasoning": "p=1 is the Manhattan (city block, L1 norm) distance."
+    },
+    {
+      "id": "T/F 105",
+      "topic": "Stats",
+      "question": "The concept of \"sparsity\" in vector representations is often promoted by using L2 norm regularization.",
+      "answer": false,
+      "reasoning": "L1 norm regularization (Lasso) promotes sparsity (forcing coefficients exactly to zero), while L2 norm regularization (Ridge) generally gives small but non-zero values. Topic 3: Data Preprocessing (65 Questions) ID Topic Question Answer Reasoning"
+    }
+  ]
+}

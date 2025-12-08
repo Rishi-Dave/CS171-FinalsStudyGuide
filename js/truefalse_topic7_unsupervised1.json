@@ -1,0 +1,391 @@
+{
+  "topic": "Unsupervised Learning I (Clustering Methods)",
+  "questionType": "truefalse",
+  "questions": [
+    {
+      "id": "T/F 381",
+      "topic": "Clustering Intro",
+      "question": "Clustering is a process that groups similar data objects together such that they are dissimilar to objects in other groups.",
+      "answer": true,
+      "reasoning": "A cluster is a collection of objects similar within the group and dissimilar to objects in other groups."
+    },
+    {
+      "id": "T/F 382",
+      "topic": "Clustering Intro",
+      "question": "High intra-class similarity means clusters are cohesive, while low inter-class similarity means they are distinctive.",
+      "answer": true,
+      "reasoning": "Good clustering requires maximizing intra-class similarity (cohesive) and minimizing inter-class similarity (distinctive)."
+    },
+    {
+      "id": "T/F 383",
+      "topic": "Clustering Intro",
+      "question": "Clustering is generally only useful as a stand-alone tool for data distribution insight, not as a preprocessing step.",
+      "answer": false,
+      "reasoning": "Clustering is useful both as a stand-alone tool and as a preprocessing step for other algorithms like regression or classification."
+    },
+    {
+      "id": "T/F 384",
+      "topic": "Clustering Intro",
+      "question": "In the context of data mining, compression can be achieved by using cluster centroids instead of all the original data points.",
+      "answer": true,
+      "reasoning": "Using cluster centroids instead of all data is an example of compression."
+    },
+    {
+      "id": "T/F 385",
+      "topic": "Clustering Intro",
+      "question": "The partitioning approach to clustering constructs a hierarchical decomposition of the data based on some criterion.",
+      "answer": false,
+      "reasoning": "The partitioning approach constructs various partitions evaluated by a criterion (e.g., k-means). Hierarchical approaches create a hierarchical decomposition."
+    },
+    {
+      "id": "T/F 386",
+      "topic": "K-Means",
+      "question": "The K-means algorithm minimizes the Sum of Squared Errors (SSE), defined as the sum of squared Euclidean distances between each point and its assigned centroid.",
+      "answer": true,
+      "reasoning": "K-means minimizes the sum of squared distances, E=∑∑ p∈C i ​ ​ (p−c i ​ ) 2 , where c i ​ is the centroid."
+    },
+    {
+      "id": "T/F 387",
+      "topic": "K-Means",
+      "question": "The optimal solution for partitioning n objects into k clusters can be found efficiently using Lloyd's algorithm in polynomial time with respect to n.",
+      "answer": false,
+      "reasoning": "Finding the optimal solution is NP-Hard; K-means is a heuristic method."
+    },
+    {
+      "id": "T/F 388",
+      "topic": "K-Means",
+      "question": "The complexity of the K-means (Lloyd's algorithm) is O(tkn), where t is the number of iterations, k is the number of clusters, and n is the number of objects.",
+      "answer": true,
+      "reasoning": "The efficiency is O(tkn), and normally k,t≪n."
+    },
+    {
+      "id": "T/F 389",
+      "topic": "K-Means",
+      "question": "K-means is guaranteed to terminate at the global optimum of the SSE function.",
+      "answer": false,
+      "reasoning": "K-means often terminates at a local optimum."
+    },
+    {
+      "id": "T/F 390",
+      "topic": "K-Means",
+      "question": "If K-means is poorly initialized, it may result in empty clusters (centroids with no points assigned).",
+      "answer": true,
+      "reasoning": "Empty clusters can occur due to a bad choice of K or a poor initialization."
+    },
+    {
+      "id": "T/F 391",
+      "topic": "K-Means",
+      "question": "K-means++ is an initialization method designed to choose initial centroids that are close to each other.",
+      "answer": false,
+      "reasoning": "K-means++ chooses the second centroid with probability proportional to D(x j ​ ,c 1 ​ ) 2 , which gives a point far enough from c 1 ​ ."
+    },
+    {
+      "id": "T/F 392",
+      "topic": "K-Means",
+      "question": "K-means is highly robust to noisy data and outliers because it uses the mean to calculate centroids.",
+      "answer": false,
+      "reasoning": "K-means is sensitive to noisy data and outliers because the mean can be substantially distorted by extreme values."
+    },
+    {
+      "id": "T/F 393",
+      "topic": "K-Medoids",
+      "question": "In K-medoids, the cluster center is represented by an artificial point that minimizes the squared Euclidean distance to all points in the cluster.",
+      "answer": false,
+      "reasoning": "K-medoids uses a medoid, which is an actual data object in the cluster, whose average dissimilarity to all objects is minimal."
+    },
+    {
+      "id": "T/F 394",
+      "topic": "K-Medoids",
+      "question": "The PAM (Partitioning Around Medoids) algorithm scales well for very large datasets due to its iterative optimization.",
+      "answer": false,
+      "reasoning": "PAM does not scale well for large datasets because it checks all substitutions of medoids with non-medoids at every iteration."
+    },
+    {
+      "id": "T/F 395",
+      "topic": "Hierarchical",
+      "question": "Hierarchical clustering requires the user to specify the number of clusters (k) in advance.",
+      "answer": false,
+      "reasoning": "Hierarchical clustering does not require k as an input, but it requires a termination condition."
+    },
+    {
+      "id": "T/F 396",
+      "topic": "Hierarchical",
+      "question": "Agglomerative hierarchical clustering follows a top-down (divisive) approach.",
+      "answer": false,
+      "reasoning": "Agglomerative clustering (AGNES) is a bottom-up approach."
+    },
+    {
+      "id": "T/F 397",
+      "topic": "Hierarchical",
+      "question": "In hierarchical clustering, a dendrogram represents the nested partitioning of data objects.",
+      "answer": true,
+      "reasoning": "Hierarchical clustering results in a dendrogram, which is a tree of clusters."
+    },
+    {
+      "id": "T/F 398",
+      "topic": "Hierarchical",
+      "question": "Cutting the dendrogram at the desired level results in a set of partitions, where each connected component forms a cluster.",
+      "answer": true,
+      "reasoning": "A clustering is obtained by cutting the dendrogram at the desired level."
+    },
+    {
+      "id": "T/F 399",
+      "topic": "Hierarchical",
+      "question": "Single linkage computes the distance between two clusters based on the largest distance between any element in one cluster and any element in the other.",
+      "answer": false,
+      "reasoning": "Single link uses the smallest distance between elements. The largest distance is used by Complete link."
+    },
+    {
+      "id": "T/F 400",
+      "topic": "Hierarchical",
+      "question": "Single linkage clustering tends to find clusters based on local proximities, whereas complete linkage relies on global proximities.",
+      "answer": true,
+      "reasoning": "Single linkage finds local proximities; Complete linkage finds global proximities."
+    },
+    {
+      "id": "T/F 401",
+      "topic": "Hierarchical",
+      "question": "AGNES (Agglomerative Nesting) starts with all objects in one cluster and recursively splits them.",
+      "answer": false,
+      "reasoning": "AGNES starts with all points in different clusters and merges nodes (bottom-up)."
+    },
+    {
+      "id": "T/F 402",
+      "topic": "Hierarchical",
+      "question": "DIANA (Divisive Analysis) starts with all objects belonging to the same cluster and recursively splits them until a termination condition is met.",
+      "answer": true,
+      "reasoning": "DIANA starts with all objects in the same cluster and splits them (top-down)."
+    },
+    {
+      "id": "T/F 403",
+      "topic": "Hierarchical",
+      "question": "Solving DIANA optimally involves considering 2 n −1 ways of partitioning n objects, which is computationally inexpensive.",
+      "answer": false,
+      "reasoning": "Considering 2 n −1 ways is very expensive; DIANA uses greedy heuristics to reduce complexity."
+    },
+    {
+      "id": "T/F 404",
+      "topic": "Hierarchical",
+      "question": "The single-linkage hierarchical clustering problem is mathematically equivalent to finding the Minimum Spanning Tree (MST) in a connected, weighted, and undirected graph.",
+      "answer": true,
+      "reasoning": "Single-linkage and MST problems are equivalent."
+    },
+    {
+      "id": "T/F 405",
+      "topic": "K-Means",
+      "question": "The K-means algorithm uses \"greedy optimization,\" similar to Kruskal's algorithm for MST.",
+      "answer": false,
+      "reasoning": "K-means uses \"alternating optimization\" or \"block coordinate descent\". Kruskal's is greedy optimization."
+    },
+    {
+      "id": "T/F 406",
+      "topic": "K-Means",
+      "question": "The use of gradient descent is generally beneficial for solving K-means, allowing it to always converge to the optimal solution.",
+      "answer": false,
+      "reasoning": "K-means (Lloyd's algorithm) uses alternating optimization, not typical gradient descent, and is not guaranteed to find the optimal solution."
+    },
+    {
+      "id": "T/F 407",
+      "topic": "K-Means",
+      "question": "If random initialization of centroids for K-means is poor, this may result in empty clusters.",
+      "answer": true,
+      "reasoning": "Empty clusters can result from a poor initialization."
+    },
+    {
+      "id": "T/F 408",
+      "topic": "K-Means",
+      "question": "K-means clustering can be viewed as a form of compression of N data points to K centroids, minimizing the approximation error.",
+      "answer": true,
+      "reasoning": "K-means minimizes approximation error of representing every data point by its nearest centroid."
+    },
+    {
+      "id": "T/F 409",
+      "topic": "K-Means",
+      "question": "For K-means clustering, the error will always be exactly 0 if we set the number of clusters K equal to log(N), where N is the number of data points.",
+      "answer": false,
+      "reasoning": "The error is only guaranteed to be 0 if K=N (each point is its own centroid)."
+    },
+    {
+      "id": "T/F 410",
+      "topic": "K-Means",
+      "question": "In practice, to achieve better performance in clustering accuracy for K-means, it is recommended to use the same initialization every time rather than initializing randomly.",
+      "answer": false,
+      "reasoning": "Random initialization is used to explore different local optima; for better performance, one should not use the same initialization every time (e.g., using K-means++ or multiple random restarts)."
+    },
+    {
+      "id": "T/F 411",
+      "topic": "Hierarchical",
+      "question": "The DIANA (Divisive Analysis) hierarchical clustering algorithm traces exactly the same clusters as a bottom-up (agglomerative) approach would do.",
+      "answer": false,
+      "reasoning": "DIANA and AGNES perform hierarchical decomposition, but DIANA is divisive (top-down) and AGNES is agglomerative (bottom-up). They may not trace the same clusters, especially since DIANA uses greedy heuristics."
+    },
+    {
+      "id": "T/F 412",
+      "topic": "K-Means",
+      "question": "Solving K-means clustering optimally is an NP-Hard problem.",
+      "answer": true,
+      "reasoning": "The optimal solution for partitioning is NP-Hard."
+    },
+    {
+      "id": "T/F 413",
+      "topic": "K-Means",
+      "question": "If there are 3 actual clusters in the data and we choose K=10 for K-means, the algorithm will automatically return exactly 3 non-empty clusters.",
+      "answer": false,
+      "reasoning": "K-means will attempt to find 10 clusters, and may result in more than 3 non-empty clusters or potentially empty clusters."
+    },
+    {
+      "id": "T/F 414",
+      "topic": "Clustering Intro",
+      "question": "A key challenge in cluster analysis is scalability, requiring algorithms to work only on small samples of data instead of the entire dataset.",
+      "answer": false,
+      "reasoning": "Scalability requires clustering all the data instead of only samples."
+    },
+    {
+      "id": "T/F 415",
+      "topic": "K-Medoids",
+      "question": "K-Medoids minimizes the Manhattan distance, whereas K-Means minimizes the Euclidean distance.",
+      "answer": true,
+      "reasoning": "The medoid minimizes the Manhattan distance (in 1D/median context, generalized to K-medoids). K-Means minimizes Euclidean distance."
+    },
+    {
+      "id": "T/F 416",
+      "topic": "Hierarchical",
+      "question": "The centroid linkage method calculates the distance between two clusters by measuring the distance between their medoids.",
+      "answer": false,
+      "reasoning": "Centroid linkage uses the distance between the centroids (means). Medoid linkage uses the distance between the medoids."
+    },
+    {
+      "id": "T/F 417",
+      "topic": "Hierarchical",
+      "question": "The agglomerative clustering approach (AGNES) uses single-link distance by default, meaning it merges clusters with the least dissimilarity.",
+      "answer": true,
+      "reasoning": "AGNES uses the single-link approach, merging nodes with the least dissimilarity (minimum distance)."
+    },
+    {
+      "id": "T/F 418",
+      "topic": "Hierarchical",
+      "question": "In DIANA, complexity is reduced by using a greedy heuristic that picks the object with maximum dissimilarity from the rest and moving it to a new cluster.",
+      "answer": true,
+      "reasoning": "DIANA uses greedy heuristics, including picking the max dissimilarity object to start a new cluster."
+    },
+    {
+      "id": "T/F 419",
+      "topic": "Clustering Intro",
+      "question": "An important partitioning criterion in clustering is the similarity measure used, which can be distance-based (e.g., Euclidean) or connectivity-based (e.g., density).",
+      "answer": true,
+      "reasoning": "Similarity measures can be distance-based or connectivity-based."
+    },
+    {
+      "id": "T/F 420",
+      "topic": "K-Means",
+      "question": "When performing K-means, the SSE necessarily decreases or stays the same with every iteration.",
+      "answer": true,
+      "reasoning": "K-means uses an alternating optimization approach where each step (assignment or centroid recalculation) reduces or maintains the SSE until convergence to a local minimum."
+    },
+    {
+      "id": "T/F 421",
+      "topic": "K-Means",
+      "question": "Because K-means utilizes random initialization, multiple runs are necessary to obtain a good estimate of the SSE and Silhouette score.",
+      "answer": true,
+      "reasoning": "Because K-means uses randomized initialization, multiple iterations per K value are needed to get a good estimate."
+    },
+    {
+      "id": "T/F 422",
+      "topic": "K-Medoids",
+      "question": "The medoid of a cluster is defined as the object whose minimum dissimilarity to all objects in the cluster is minimal.",
+      "answer": false,
+      "reasoning": "The medoid is the data object whose average dissimilarity to all objects in the cluster is minimal."
+    },
+    {
+      "id": "T/F 423",
+      "topic": "Clustering Intro",
+      "question": "Outlier detection is a possible application for clustering, where outliers are often viewed as points far away from any cluster.",
+      "answer": true,
+      "reasoning": "Outlier detection is listed as a clustering application."
+    },
+    {
+      "id": "T/F 424",
+      "topic": "Clustering Intro",
+      "question": "Soft clustering requires that every data object is exclusively assigned to exactly one cluster.",
+      "answer": false,
+      "reasoning": "Hard clustering requires exclusive assignment. Soft clustering allows for soft or fuzzy boundaries."
+    },
+    {
+      "id": "T/F 425",
+      "topic": "K-Means",
+      "question": "The efficiency of K-means is primarily dependent on the number of features (dimensions) rather than the number of data points.",
+      "answer": false,
+      "reasoning": "Efficiency is O(tkn), dependent on iterations (t), clusters (k), and objects (n)."
+    },
+    {
+      "id": "T/F 426",
+      "topic": "Hierarchical",
+      "question": "Divisive hierarchical clustering is typically implemented by finding the single best split of a cluster into two parts to reduce computational complexity.",
+      "answer": false,
+      "reasoning": "Finding the best split of a cluster into two is computationally expensive. Divisive methods (like DIANA) use greedy splits satisfying a threshold instead."
+    },
+    {
+      "id": "T/F 427",
+      "topic": "K-Means",
+      "question": "If K-means is run on data containing a substantial outlier, the final SSE value is expected to be significantly larger compared to running K-means on the original data without the outlier.",
+      "answer": true,
+      "reasoning": "K-means is sensitive to outliers, and the outlier will increase the SSE dramatically."
+    },
+    {
+      "id": "T/F 428",
+      "topic": "Clustering Intro",
+      "question": "Dendrograms are graphs used to represent the results of partition-based clustering algorithms like K-means.",
+      "answer": false,
+      "reasoning": "Dendrograms represent the results of Hierarchical clustering."
+    },
+    {
+      "id": "T/F 429",
+      "topic": "Hierarchical",
+      "question": "Greedy algorithms, such as Kruskal's algorithm for Minimum Spanning Tree, are guaranteed to provide a globally optimal solution in some cases.",
+      "answer": true,
+      "reasoning": "In some cases (like MST using Kruskal's), greedy optimization yields a global optimum."
+    },
+    {
+      "id": "T/F 430",
+      "topic": "K-Means",
+      "question": "K-means should only be used if the data distribution is known to be Gaussian.",
+      "answer": false,
+      "reasoning": "K-means is a heuristic method applicable to continuous n-dimensional space."
+    },
+    {
+      "id": "T/F 431",
+      "topic": "Clustering Intro",
+      "question": "The quality of a clustering method relies solely on the similarity measure used and is independent of the resulting cluster patterns.",
+      "answer": false,
+      "reasoning": "Quality depends on the similarity measure AND the method's ability to discover hidden patterns."
+    },
+    {
+      "id": "T/F 432",
+      "topic": "Hierarchical",
+      "question": "The concept of single-linkage clustering relies on minimizing the maximum pairwise distance between two clusters.",
+      "answer": false,
+      "reasoning": "Single-linkage minimizes the minimum pairwise distance (local patterns)."
+    },
+    {
+      "id": "T/F 433",
+      "topic": "K-Means",
+      "question": "Lloyd's algorithm for K-means is a form of block coordinate descent.",
+      "answer": true,
+      "reasoning": "K-means (Lloyd's algorithm) uses \"alternating optimization\" or \"block coordinate descent\"."
+    },
+    {
+      "id": "T/F 434",
+      "topic": "K-Means",
+      "question": "In K-means, the term 'error' for a data point is defined as the absolute distance from that point to its nearest centroid.",
+      "answer": false,
+      "reasoning": "Error per point is the Euclidean distance, and SSE sums the squared Euclidean distances."
+    },
+    {
+      "id": "T/F 435",
+      "topic": "K-Means",
+      "question": "The K-means algorithm requires all features to be transformed to categorical variables before clustering can begin.",
+      "answer": false,
+      "reasoning": "K-means operates on objects in a continuous n-dimensional space (numerical data). Topic 8: Unsupervised Learning: Density & Evaluation (50 Questions) ID Topic Question Answer Reasoning"
+    }
+  ]
+}

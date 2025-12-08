@@ -1,0 +1,496 @@
+{
+  "topic": "Supervised Learning I (Regression, Classification, Decision Trees)",
+  "questionType": "truefalse",
+  "questions": [
+    {
+      "id": "T/F 171",
+      "topic": "Regression",
+      "question": "Linear Regression is an unsupervised learning model used primarily to find clusters in data.",
+      "answer": false,
+      "reasoning": "Linear Regression is a supervised learning model used for numerical prediction (regression)."
+    },
+    {
+      "id": "T/F 172",
+      "topic": "Regression",
+      "question": "The hypothesis function for linear regression h θ ​ (x) is defined as a linear combination of input features x i ​ and parameters θ i ​ .",
+      "answer": true,
+      "reasoning": "The hypothesis h θ ​ (x) is approximated as a linear function of x: h θ ​ (x)=θ 0 ​ +θ 1 ​ x 1 ​ +θ 2 ​ x 2 ​ +…."
+    },
+    {
+      "id": "T/F 173",
+      "topic": "Regression",
+      "question": "In linear regression notation, the parameter θ 0 ​ is often referred to as the bias term.",
+      "answer": true,
+      "reasoning": "θ 0 ​ is the bias term."
+    },
+    {
+      "id": "T/F 174",
+      "topic": "Regression",
+      "question": "The convention of setting x 0 ​ =1 is used in linear regression to incorporate the bias term θ 0 ​ into the vector product θ T x.",
+      "answer": true,
+      "reasoning": "Setting x 0 ​ =1 allows h(x) to be written as θ T x, incorporating θ 0 ​ ."
+    },
+    {
+      "id": "T/F 175",
+      "topic": "Regression",
+      "question": "The cost function J(θ) used in Linear Regression is the familiar least-squares cost function, aiming to minimize the sum of squared errors between predicted and actual values.",
+      "answer": true,
+      "reasoning": "J(θ) is the cost function that measures the sum of squared errors (Least Mean Squares)."
+    },
+    {
+      "id": "T/F 176",
+      "topic": "Regression",
+      "question": "The optimization problem posed by the linear regression cost function has multiple local optima.",
+      "answer": false,
+      "reasoning": "The optimization problem for linear regression has only one global optimum and no other local optima."
+    },
+    {
+      "id": "T/F 177",
+      "topic": "Gradient Descent",
+      "question": "Gradient Descent is an optimization method that involves iteratively taking steps in a direction proportional to the negative of the gradient of the objective function.",
+      "answer": true,
+      "reasoning": "Gradient Descent iteratively takes steps proportional to the negative of the gradient."
+    },
+    {
+      "id": "T/F 178",
+      "topic": "Gradient Descent",
+      "question": "The learning rate α in Gradient Descent determines the total number of iterations required for convergence.",
+      "answer": false,
+      "reasoning": "The learning rate α determines the step size taken in the direction of the gradient."
+    },
+    {
+      "id": "T/F 179",
+      "topic": "Gradient Descent",
+      "question": "If the learning rate α is too large, the algorithm may converge faster but may also exhibit oscillations or a large residual error.",
+      "answer": true,
+      "reasoning": "A large α means fast convergence but possible oscillations and larger residual error."
+    },
+    {
+      "id": "T/F 180",
+      "topic": "Gradient Descent",
+      "question": "Batch Gradient Descent (BGD) computes the parameter update based on a single training example at a time.",
+      "answer": false,
+      "reasoning": "BGD looks at every example in the entire training set on every step."
+    },
+    {
+      "id": "T/F 181",
+      "topic": "Gradient Descent",
+      "question": "Stochastic Gradient Descent (SGD) is generally much more computationally expensive per step than Batch Gradient Descent when the dataset is very large.",
+      "answer": false,
+      "reasoning": "SGD takes a step based on the gradient of a single training example, making it generally faster and more lightweight than BGD, which scans the entire dataset."
+    },
+    {
+      "id": "T/F 182",
+      "topic": "Gradient Descent",
+      "question": "The LMS update rule (Widrow-Hoff learning rule) states that the magnitude of the update is inversely proportional to the error term.",
+      "answer": false,
+      "reasoning": "The magnitude of the update is proportional to the error term (y (i) −h θ ​ (x (i) ))."
+    },
+    {
+      "id": "T/F 183",
+      "topic": "Gradient Descent",
+      "question": "Batch Gradient Descent and Stochastic Gradient Descent have the same computational cost per parameter update.",
+      "answer": false,
+      "reasoning": "BGD scans the entire training set for one update, while SGD uses only one example, so SGD is faster per update."
+    },
+    {
+      "id": "T/F 184",
+      "topic": "Decision Trees",
+      "question": "Decision Tree Induction is a bottom-up, non-recursive classification method.",
+      "answer": false,
+      "reasoning": "Decision Tree Induction is constructed in a top-down recursive divide-and-conquer manner."
+    },
+    {
+      "id": "T/F 185",
+      "topic": "Decision Trees",
+      "question": "The splitting criteria used in decision tree induction are based on heuristics or statistical measures, such as information gain.",
+      "answer": true,
+      "reasoning": "Test attributes are selected based on a heuristic or statistical measure (e.g., information gain)."
+    },
+    {
+      "id": "T/F 186",
+      "topic": "Decision Trees",
+      "question": "A decision tree stops partitioning when all samples for a given node belong to the same class.",
+      "answer": true,
+      "reasoning": "This is one of the stopping conditions for partitioning."
+    },
+    {
+      "id": "T/F 187",
+      "topic": "Decision Trees",
+      "question": "The primary goal of splitting criteria like Information Gain is to minimize the \"impurity\" of the resulting node partitions.",
+      "answer": true,
+      "reasoning": "The goal is to create a \"pure\" set of data points. Entropy quantifies uncertainty/impurity, and information gain seeks to reduce it."
+    },
+    {
+      "id": "T/F 188",
+      "topic": "Decision Trees",
+      "question": "Entropy is a measure that quantifies uncertainty in a distribution, where high entropy corresponds to high purity.",
+      "answer": false,
+      "reasoning": "High entropy corresponds to high uncertainty/impurity."
+    },
+    {
+      "id": "T/F 189",
+      "topic": "Decision Trees",
+      "question": "Information Gain (ID3) measures how informative a split is by calculating the difference between the entropy of the parent node and the average entropy of the children nodes.",
+      "answer": true,
+      "reasoning": "Information gained by branching on attribute A is calculated as Gain(A)=Info(D)−Info A ​ (D)."
+    },
+    {
+      "id": "T/F 190",
+      "topic": "Decision Trees",
+      "question": "If a decision tree encounters a continuous-valued attribute, it determines the best split point by sorting the values and testing midpoints between adjacent values as potential split points.",
+      "answer": true,
+      "reasoning": "For continuous-valued attributes, the values are sorted, and the midpoint between adjacent values is considered a possible split point."
+    },
+    {
+      "id": "T/F 191",
+      "topic": "Decision Trees",
+      "question": "The Information Gain criterion is biased towards attributes that have a small number of distinct values.",
+      "answer": false,
+      "reasoning": "Information gain is biased towards attributes with a large number of values, such as a unique ID field."
+    },
+    {
+      "id": "T/F 192",
+      "topic": "Decision Trees",
+      "question": "The Gain Ratio (used in C4.5) attempts to overcome the bias of Information Gain by normalizing it using the \"entropy\" of the split itself (SplitInfo(A)).",
+      "answer": true,
+      "reasoning": "C4.5 uses Gain Ratio to normalize Information Gain using SplitInfo(A)."
+    },
+    {
+      "id": "T/F 193",
+      "topic": "Decision Trees",
+      "question": "The Gini Index (used in CART) aims to minimize impurity, where impurity is calculated based on the relative frequency of each class in the dataset.",
+      "answer": true,
+      "reasoning": "gini(D) is defined based on the relative frequency p j ​ of class j in D."
+    },
+    {
+      "id": "T/F 194",
+      "topic": "Decision Trees",
+      "question": "CART (Classification and Regression Trees) creates multi-way splits based on multiple features simultaneously.",
+      "answer": false,
+      "reasoning": "CART creates binary decision trees, and each split is based on a single feature (univariate splits)."
+    },
+    {
+      "id": "T/F 195",
+      "topic": "Decision Trees",
+      "question": "The Minimum Description Length (MDL) principle prefers the simplest solution, aiming to minimize the number of bits required to encode the tree and the errors.",
+      "answer": true,
+      "reasoning": "MDL principle, related to Occam's Razor, prefers the simplest solution, specifically minimizing bits to encode the tree and the errors."
+    },
+    {
+      "id": "T/F 196",
+      "topic": "Decision Trees",
+      "question": "Decision trees are unpopular because they are difficult to convert into simple and easy-to-understand classification rules.",
+      "answer": false,
+      "reasoning": "Decision trees are popular because they are convertible to simple and easy-to-understand classification rules."
+    },
+    {
+      "id": "T/F 197",
+      "topic": "Regression",
+      "question": "Linear Regression can only be applied when there is a single feature x 1 ​ predicting the target variable y.",
+      "answer": false,
+      "reasoning": "Linear regression can handle multiple features (e.g., x 1 ​ ,x 2 ​ ,…x n ​ )."
+    },
+    {
+      "id": "T/F 198",
+      "topic": "Regression",
+      "question": "The core idea of linear regression using gradient descent is that the parameters are estimated by minimizing the sum of squared errors.",
+      "answer": true,
+      "reasoning": "Linear regression minimizes the sum of squared errors between the actual value and the predicted one (Least Mean Squares)."
+    },
+    {
+      "id": "T/F 199",
+      "topic": "Gradient Descent",
+      "question": "If the convergence tolerance tol is reached in gradient descent, it means the maximum number of iterations has been met.",
+      "answer": false,
+      "reasoning": "Convergence is met when either max_iter is reached OR the relative improvement in cost is not greater than the tolerance tol."
+    },
+    {
+      "id": "T/F 200",
+      "topic": "Decision Trees",
+      "question": "If a decision tree node still contains samples from different classes, partitioning must stop if there are no remaining attributes for further splitting.",
+      "answer": true,
+      "reasoning": "If no attributes remain, the algorithm stops and uses the majority vote for the leaf."
+    },
+    {
+      "id": "T/F 201",
+      "topic": "Decision Trees",
+      "question": "Decision tree training follows a generally greedy procedure.",
+      "answer": true,
+      "reasoning": "Decision tree induction uses a basic (greedy) algorithm."
+    },
+    {
+      "id": "T/F 202",
+      "topic": "Decision Trees",
+      "question": "The Information Gain criterion measures the reduction in entropy between the parent node and the children nodes.",
+      "answer": true,
+      "reasoning": "Information gain measures how informative a split is by calculating the reduction in entropy (uncertainty)."
+    },
+    {
+      "id": "T/F 203",
+      "topic": "Decision Trees",
+      "question": "The Gini Index aims to maximize the purity of the resulting partition D ′ (reduction in impurity Δgini(A)) when splitting on attribute A.",
+      "answer": true,
+      "reasoning": "The objective is to minimize gini(D A ​ ) or maximize the reduction in impurity Δgini(A)=gini(D)−gini A ​ (D)."
+    },
+    {
+      "id": "T/F 204",
+      "topic": "Decision Trees",
+      "question": "Decision trees cannot handle continuous or numerical features and only work with categorical features.",
+      "answer": false,
+      "reasoning": "Decision trees can handle continuous-valued attributes by determining a best split point (midpoint)."
+    },
+    {
+      "id": "T/F 205",
+      "topic": "Gradient Descent",
+      "question": "If the learning rate in gradient descent is too small, the algorithm will likely converge quickly to the optimal solution.",
+      "answer": false,
+      "reasoning": "A small α leads to slow convergence."
+    },
+    {
+      "id": "T/F 206",
+      "topic": "Gradient Descent",
+      "question": "If the learning rate is too high, gradient descent may oscillate between two different points around the optimal solution.",
+      "answer": true,
+      "reasoning": "A large α can lead to oscillations."
+    },
+    {
+      "id": "T/F 207",
+      "topic": "Regression",
+      "question": "If the objective function value in linear regression starts increasing significantly, it might suggest that the learning rate is set too high.",
+      "answer": true,
+      "reasoning": "A large learning rate can cause oscillations or divergence, preventing the loss function from stabilizing or minimizing."
+    },
+    {
+      "id": "T/F 208",
+      "topic": "Classification",
+      "question": "The core goal of supervised learning is to learn a mapping between a data point (in feature space) and a target variable, such that this mapping generalizes to unseen data.",
+      "answer": true,
+      "reasoning": "Supervised learning aims to learn a model that can generalize to unseen examples based on labeled training data."
+    },
+    {
+      "id": "T/F 209",
+      "topic": "Classification",
+      "question": "Supervised learning is a trivial task because we can simply learn a look-up table between data points and their label.",
+      "answer": false,
+      "reasoning": "Generalization to unseen data is the key challenge, which a simple look-up table would not achieve."
+    },
+    {
+      "id": "T/F 210",
+      "topic": "Regression",
+      "question": "If you include the number of bedrooms (x 2 ​ ) as an input feature alongside living area (x 1 ​ ) in a linear regression model predicting housing prices, the coefficient θ 2 ​ will necessarily be positive.",
+      "answer": false,
+      "reasoning": "In the source example, θ 2 ​ (for the number of bedrooms) was found to be −8.738."
+    },
+    {
+      "id": "T/F 211",
+      "topic": "Regression",
+      "question": "The derivation of the gradient for J(θ) for a single training example (x,y) requires calculating the derivative of 2 1 ​ (h θ ​ (x)−y) 2 with respect to θ j ​ .",
+      "answer": true,
+      "reasoning": "This derivative calculation is shown in the derivation steps."
+    },
+    {
+      "id": "T/F 212",
+      "topic": "Gradient Descent",
+      "question": "Stochastic Gradient Descent can start making progress right away, whereas Batch Gradient Descent must scan the entire training set before taking its first step.",
+      "answer": true,
+      "reasoning": "BGD scans the entire training set before a single step; SGD makes progress with each example it sees."
+    },
+    {
+      "id": "T/F 213",
+      "topic": "Gradient Descent",
+      "question": "In the context of large datasets, SGD usually gets θ close to the minimum much slower than BGD.",
+      "answer": false,
+      "reasoning": "SGD often gets θ \"close\" to the minimum much faster than BGD."
+    },
+    {
+      "id": "T/F 214",
+      "topic": "Decision Trees",
+      "question": "In the process of determining a split point for a continuous attribute, typically the maximum value of the attribute is used as the optimal split point.",
+      "answer": false,
+      "reasoning": "The midpoint between each pair of adjacent sorted values is considered a possible split point."
+    },
+    {
+      "id": "T/F 215",
+      "topic": "Decision Trees",
+      "question": "Decision trees are highly valued because they often produce comparable classification accuracy to other methods while maintaining faster learning speed.",
+      "answer": true,
+      "reasoning": "Decision trees have relatively faster learning speed and comparable classification accuracy with other methods."
+    },
+    {
+      "id": "T/F 216",
+      "topic": "Regression",
+      "question": "The choice of the Least Mean Squares cost function in linear regression is fundamentally decided by the underlying assumption that the noise term ϵ (i) is independent, identically distributed (IID) according to a Gaussian distribution.",
+      "answer": true,
+      "reasoning": "Assuming Gaussian IID noise leads directly to the optimization objective of minimizing J(θ), the LMS function."
+    },
+    {
+      "id": "T/F 217",
+      "topic": "Regression",
+      "question": "If Linear Regression is successful, the residual errors y (i) −h θ ​ (x (i) ) should ideally follow a Bernoulli distribution.",
+      "answer": false,
+      "reasoning": "The underlying probabilistic assumption is that the error term ϵ (i) follows a Gaussian distribution."
+    },
+    {
+      "id": "T/F 218",
+      "topic": "Gradient Descent",
+      "question": "Gradient ascent, which maximizes an objective function, uses the update rule θ j ​ :=θ j ​ +α ∂θ j ​ ∂ ​ J(θ).",
+      "answer": true,
+      "reasoning": "Gradient ascent involves moving in the positive direction of the gradient: θ:=θ+α∇ θ ​ l(θ)."
+    },
+    {
+      "id": "T/F 219",
+      "topic": "DT Evaluation",
+      "question": "If a model is too simple for a given task, we run the risk of underfitting.",
+      "answer": true,
+      "reasoning": "Underfitting occurs when the model is too simple."
+    },
+    {
+      "id": "T/F 220",
+      "topic": "DT Evaluation",
+      "question": "Overfitting can be conceptually studied as a function of model complexity.",
+      "answer": true,
+      "reasoning": "Overfitting is explicitly shown as increasing with model complexity in the bias-variance tradeoff figures."
+    },
+    {
+      "id": "T/F 221",
+      "topic": "DT Evaluation",
+      "question": "Prepruning involves halting tree construction early if splitting a node results in the goodness measure falling below a threshold, but it can be difficult to choose the appropriate threshold.",
+      "answer": true,
+      "reasoning": "Prepruning halts construction early based on a threshold, and difficulty lies in choosing an appropriate threshold."
+    },
+    {
+      "id": "T/F 222",
+      "topic": "DT Evaluation",
+      "question": "Postpruning involves removing branches from a \"fully grown\" tree and requires a separate set of data (hold-out set) to decide the best pruned tree.",
+      "answer": true,
+      "reasoning": "Postpruning removes branches from a fully grown tree and uses data different from the training set to select the best pruned tree."
+    },
+    {
+      "id": "T/F 223",
+      "topic": "DT Evaluation",
+      "question": "In the general strategy against overfitting, training should stop when the performance on the hold-out set begins to deteriorate, even if performance on the training data continues to improve.",
+      "answer": true,
+      "reasoning": "Stop training when accuracy/performance starts deteriorating for the hold-out set."
+    },
+    {
+      "id": "T/F 224",
+      "topic": "Decision Trees",
+      "question": "The Gini index is a clustering evaluation metric and is not used in decision tree classification.",
+      "answer": false,
+      "reasoning": "The Gini Index is used in CART for decision tree splitting."
+    },
+    {
+      "id": "T/F 225",
+      "topic": "Decision Trees",
+      "question": "If a nominal feature has values {low, medium, high}, an admissible subset for a split using CART is {low, medium, high}.",
+      "answer": false,
+      "reasoning": "The subset {low, medium, high} and the empty set are excluded because they are not useful splits."
+    },
+    {
+      "id": "T/F 226",
+      "topic": "Regression",
+      "question": "The LMS update rule (for linear regression) and the stochastic gradient ascent update rule (for logistic regression) are mathematically identical in form, although the hypothesis function h θ ​ (x) differs.",
+      "answer": true,
+      "reasoning": "The update rules look identical, but h θ ​ (x) is non-linear for Logistic Regression."
+    },
+    {
+      "id": "T/F 227",
+      "topic": "Complexity",
+      "question": "The P complexity class contains all problems that can be solved in polynomial time using a deterministic Turing machine.",
+      "answer": true,
+      "reasoning": "P contains problems solvable in polynomial time using a deterministic machine."
+    },
+    {
+      "id": "T/F 228",
+      "topic": "Complexity",
+      "question": "The RSA algorithm relies on the fact that factorizing a large integer into prime factors is a problem belonging to the NP complexity class.",
+      "answer": true,
+      "reasoning": "The RSA algorithm is based on the fact that prime factorization is NP-hard."
+    },
+    {
+      "id": "T/F 229",
+      "topic": "Complexity",
+      "question": "Non-convex optimization, like that often found in deep learning, is an example of an NP-hard problem.",
+      "answer": true,
+      "reasoning": "Non-convex optimization is NP-hard."
+    },
+    {
+      "id": "T/F 230",
+      "topic": "Complexity",
+      "question": "The Longest Common Subsequence problem is classified as being NP-Complete or NP-Hard.",
+      "answer": true,
+      "reasoning": "Longest Common Subsequence is listed as a popular NP problem."
+    },
+    {
+      "id": "T/F 231",
+      "topic": "Regression",
+      "question": "When plotting the convergence of gradient descent, if a learning rate is too low, the cost function may never reach its minimum within a reasonable number of iterations.",
+      "answer": true,
+      "reasoning": "A small α means slow convergence, potentially stopping due to max iterations before reaching the minimum."
+    },
+    {
+      "id": "T/F 232",
+      "topic": "Regression",
+      "question": "The linear regression cost function J(θ) is an example of a convex optimization problem.",
+      "answer": true,
+      "reasoning": "Linear regression is an example of convex optimization."
+    },
+    {
+      "id": "T/F 233",
+      "topic": "Regression",
+      "question": "The calculation of the gradient descent update for the j-th parameter, θ j ​ , depends on all input features x i ​ , including those where i =j.",
+      "answer": false,
+      "reasoning": "The derivative ∂θ j ​ ∂ ​ J(θ) zeros out all terms θ i ​ x i ​ for i =j because they are constant with respect to θ j ​ ."
+    },
+    {
+      "id": "T/F 234",
+      "topic": "Decision Trees",
+      "question": "The Information Gain criterion measures uncertainty using a measure quantified information-theoretically (Entropy).",
+      "answer": true,
+      "reasoning": "Uncertainty is quantified information-theoretically using Entropy."
+    },
+    {
+      "id": "T/F 235",
+      "topic": "Decision Trees",
+      "question": "For a nominal attribute with K distinct values, the CART algorithm needs to examine all 2 K −2 possible partitions into two subsets D 1 ​ and D 2 ​ .",
+      "answer": true,
+      "reasoning": "For categorical attributes, the CART algorithm needs to examine all partitions into two subsets D 1 ​ and D 2 ​ ."
+    },
+    {
+      "id": "T/F 236",
+      "topic": "Regression",
+      "question": "The Least Mean Squares (LMS) algorithm is also known as the Widrow-Hoff learning rule.",
+      "answer": true,
+      "reasoning": "The LMS update rule is also known as the Widrow-Hoff learning rule."
+    },
+    {
+      "id": "T/F 237",
+      "topic": "Regression",
+      "question": "If y is discrete-valued (e.g., 0 or 1), it is generally acceptable to use linear regression to predict y given x.",
+      "answer": false,
+      "reasoning": "It is easy to construct examples where linear regression performs poorly for discrete outcomes, and h θ ​ (x) should not take values outside for classification."
+    },
+    {
+      "id": "T/F 238",
+      "topic": "Regression",
+      "question": "The calculation of the cost function J(θ) in linear regression requires iterating over all m training examples.",
+      "answer": true,
+      "reasoning": "J(θ)= 2m 1 ​ ∑ i=1 m ​ (h θ ​ (x (i) )−y (i) ) 2 requires summing over all m training examples."
+    },
+    {
+      "id": "T/F 239",
+      "topic": "DT Evaluation",
+      "question": "Underfitting typically occurs when the model complexity is too high relative to the underlying data structure.",
+      "answer": false,
+      "reasoning": "Underfitting is associated with models that are too simple."
+    },
+    {
+      "id": "T/F 240",
+      "topic": "DT Evaluation",
+      "question": "The Bias-Variance Tradeoff illustrates that highly complex models tend to have high bias and low variance.",
+      "answer": false,
+      "reasoning": "More complex models have lower bias but higher variance. Topic 5: Supervised Learning II (Bayes, k-NN, Logistic Regression, Regularization) (70 Questions) ID Topic Question Answer Reasoning"
+    }
+  ]
+}

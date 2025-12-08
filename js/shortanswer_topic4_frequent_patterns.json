@@ -1,0 +1,36 @@
+{
+  "topic": "Frequent Pattern Mining & Association Rules",
+  "questionType": "shortanswer",
+  "questions": [
+    {
+      "id": "SA 50",
+      "topic": "Freq. Patterns",
+      "question": "Outline the purpose of Max-Patterns and explain why mining them is preferable to mining all frequent itemsets when the minimum support threshold is low.",
+      "reasoning": "Max-Patterns are frequent itemsets X for which no frequent superset Y ⊃ X exists. When the minimum support (minsup) is low, there can be an exponential number of frequent itemsets. Mining max-patterns significantly reduces the number of patterns and rules needed to represent the data, addressing the combinatorial complexity."
+    },
+    {
+      "id": "SA 51",
+      "topic": "Freq. Patterns",
+      "question": "Define the Apriori Property (Anti-monotonicity) of frequent patterns and explain its role in the Apriori algorithm.",
+      "reasoning": "The Apriori Property states that any subset of a frequent itemset must also be frequent. Its role is the pruning principle: if an itemset fails to be frequent (is not \"large\"), then all of its supersets must also be infrequent, allowing the algorithm to avoid generating or testing those supersets, thus speeding up the search."
+    },
+    {
+      "id": "SA 52",
+      "topic": "Freq. Patterns",
+      "question": "Define Lift and explain what values of Lift > 1, Lift = 1, and Lift < 1 indicate.",
+      "reasoning": "Lift measures the correlation between two itemsets A and B, calculated as Lift = P(A ∪ B) / (P(A) P(B)). If Lift = 1, A and B are independent; if Lift > 1, they are positively correlated; and if Lift < 1, they are negatively correlated."
+    },
+    {
+      "id": "SA 53",
+      "topic": "Freq. Patterns",
+      "question": "Why is the property of Null Invariance important for an association rule interestingness measure, and why do simple measures like Lift often fail to satisfy it?",
+      "reasoning": "Null Invariance is the property that a measure's value does not change based on the number of transactions containing neither item (\"null transactions\"). It is important because it ensures the measure is stable and not sensitive to fluctuations in the total number of transactions. Lift fails to satisfy this property, which means it can be misleading (e.g., suggesting a rule is strong when it may be neutral)."
+    },
+    {
+      "id": "SA 54",
+      "topic": "Freq. Patterns",
+      "question": "What is the distinction between (relative) support and confidence for an association rule X → Y?",
+      "reasoning": "(Relative) Support (s) is the fraction of transactions that contain both X and Y (X ∪ Y), representing the probability P(X ∪ Y). Confidence (c) is the conditional probability that a transaction contains Y given that it contains X, representing P(Y|X)."
+    }
+  ]
+}

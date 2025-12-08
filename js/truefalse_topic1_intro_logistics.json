@@ -1,0 +1,391 @@
+{
+  "topic": "Introduction, Logistics, and Data Types",
+  "questionType": "truefalse",
+  "questions": [
+    {
+      "id": "T/F 1",
+      "topic": "Logistics",
+      "question": "The final exam contributes 20% to the overall grade, matching the weight of the midterm exam.",
+      "answer": false,
+      "reasoning": "The final exam contributes 35% of the grade, while the midterm contributes 20%."
+    },
+    {
+      "id": "T/F 2",
+      "topic": "Logistics",
+      "question": "Assignments are typically required to be implemented from scratch, meaning students should avoid using existing library calls that perform the entire required operation.",
+      "answer": true,
+      "reasoning": "Students must implement methods from scratch, and may not use existing library calls that basically perform the operation requested."
+    },
+    {
+      "id": "T/F 3",
+      "topic": "Logistics",
+      "question": "For coding assignments, a short video walkthrough is a mandatory component, and if missing, the entire assignment component will not be graded.",
+      "answer": true,
+      "reasoning": "The video walkthrough is a mandatory component, and if missing, the entire assignment component will not be graded, although the walkthrough itself is graded up to 5%."
+    },
+    {
+      "id": "T/F 4",
+      "topic": "Logistics",
+      "question": "The core expectation in this course is the memorization of all material presented in the slides.",
+      "answer": false,
+      "reasoning": "The instructor expects intuitive high-level understanding rather than memorization of all material in the slides."
+    },
+    {
+      "id": "T/F 5",
+      "topic": "Logistics",
+      "question": "Instances of academic misconduct will be reported only if substantial portions of code are copied without citation.",
+      "answer": false,
+      "reasoning": "Instances of academic misconduct will be reported if identified, regardless of scale."
+    },
+    {
+      "id": "T/F 6",
+      "topic": "Logistics",
+      "question": "Changing variable and function names from an online source and presenting it as one's own work is considered acceptable as long as the original code structure is modified.",
+      "answer": false,
+      "reasoning": "Changing variable and function names from an online source and presenting it as your own work still counts as plagiarism."
+    },
+    {
+      "id": "T/F 7",
+      "topic": "Logistics",
+      "question": "When submitting questions to the TAs, the preferred method is to use Canvas.",
+      "answer": true,
+      "reasoning": "Students are asked to use Canvas for questions to the TA."
+    },
+    {
+      "id": "T/F 8",
+      "topic": "Logistics",
+      "question": "If a student receives help from an AI-powered tool like ChatGPT, they must clearly describe the help received and document how they produced their own implementation based on that help.",
+      "answer": true,
+      "reasoning": "If help is received from AI tools, the student should clearly describe the help and document how they produced their own implementation."
+    },
+    {
+      "id": "T/F 9",
+      "topic": "ML Intro",
+      "question": "Machine Learning algorithms are studied based on how they improve their performance at some task with experience.",
+      "answer": true,
+      "reasoning": "Machine Learning is the study of algorithms that improve their performance at some task with experience."
+    },
+    {
+      "id": "T/F 10",
+      "topic": "Data Types",
+      "question": "Data objects are also commonly referred to as samples, instances, data points, or tuples.",
+      "answer": true,
+      "reasoning": "Data objects are also called samples, examples, instances, data points, objects, or tuples."
+    },
+    {
+      "id": "T/F 11",
+      "topic": "Data Types",
+      "question": "In a database context, data objects correspond to columns, while attributes correspond to rows.",
+      "answer": false,
+      "reasoning": "Database rows correspond to data objects, and columns correspond to attributes."
+    },
+    {
+      "id": "T/F 12",
+      "topic": "Data Types",
+      "question": "Nominal features are those that have a meaningful order or ranking, such as army rankings or grades.",
+      "answer": false,
+      "reasoning": "Ordinal features have a meaningful order or ranking, while nominal/categorical features are categories or \"names of things\"."
+    },
+    {
+      "id": "T/F 13",
+      "topic": "Data Types",
+      "question": "A binary feature is fundamentally a numerical feature type.",
+      "answer": false,
+      "reasoning": "A binary feature is a nominal feature with only two states (0 and 1)."
+    },
+    {
+      "id": "T/F 14",
+      "topic": "Data Types",
+      "question": "For asymmetric binary features, the convention is often to assign 1 to the least important outcome.",
+      "answer": false,
+      "reasoning": "The convention for asymmetric binary features is to assign 1 to the most important outcome."
+    },
+    {
+      "id": "T/F 15",
+      "topic": "Data Types",
+      "question": "Discrete features always have a finite set of values.",
+      "answer": false,
+      "reasoning": "Discrete features have a finite or countably infinite set of values."
+    },
+    {
+      "id": "T/F 16",
+      "topic": "Data Types",
+      "question": "Continuous features are typically represented as integer variables.",
+      "answer": false,
+      "reasoning": "Continuous features typically have real numbers as values and are represented as floating-point variables."
+    },
+    {
+      "id": "T/F 17",
+      "topic": "Data Types",
+      "question": "One-hot encoding is a method used to represent nominal/categorical features.",
+      "answer": true,
+      "reasoning": "One-hot encoding is a convenient way of representing categorical features."
+    },
+    {
+      "id": "T/F 18",
+      "topic": "Data Types",
+      "question": "In one-hot encoding, all positions corresponding to categories not taken by a data point must be stored as '0' in the resulting vector.",
+      "answer": false,
+      "reasoning": "All 0s can be implied, meaning there is no need to store them as actual numbers."
+    },
+    {
+      "id": "T/F 19",
+      "topic": "Data Types",
+      "question": "Transaction data and document data are both considered types of record data.",
+      "answer": true,
+      "reasoning": "Records types include relational records, data matrix, document data (term-frequency vector), and transaction data."
+    },
+    {
+      "id": "T/F 20",
+      "topic": "Data Types",
+      "question": "Molecular structures and knowledge graphs are examples of graph and network data types.",
+      "answer": true,
+      "reasoning": "Graph and network data types include molecular structures and knowledge graphs."
+    },
+    {
+      "id": "T/F 21",
+      "topic": "Data Types",
+      "question": "Data mining is defined as the process of extracting implicit, previously unknown, and potentially useful patterns or knowledge from huge amounts of data.",
+      "answer": true,
+      "reasoning": "Data mining is the extraction of interesting (non-trivial, implicit, previously unknown and potentially useful) patterns or knowledge from huge amounts of data."
+    },
+    {
+      "id": "T/F 22",
+      "topic": "Data Types",
+      "question": "Classification is an example of unsupervised learning because the class labels are known in the training data.",
+      "answer": false,
+      "reasoning": "Classification is an example of supervised learning because it uses labeled examples to learn a model."
+    },
+    {
+      "id": "T/F 23",
+      "topic": "Data Types",
+      "question": "Clustering is a supervised learning task aimed at grouping data when class labels are unknown.",
+      "answer": false,
+      "reasoning": "Clustering is an unsupervised learning task where the class label is unknown, aiming to group data to form new categories."
+    },
+    {
+      "id": "T/F 24",
+      "topic": "Data Types",
+      "question": "The principle of clustering involves minimizing intra-class similarity while maximizing interclass similarity.",
+      "answer": false,
+      "reasoning": "The principle of clustering involves maximizing intra-class similarity and minimizing interclass similarity."
+    },
+    {
+      "id": "T/F 25",
+      "topic": "Data Types",
+      "question": "Outlier analysis and association rule mining are categories of data mining methods distinct from classification and clustering.",
+      "answer": true,
+      "reasoning": "Outlier & Anomaly Detection and Association and Rule Mining are listed alongside Classification & Regression and Clustering as classes of methods."
+    },
+    {
+      "id": "T/F 26",
+      "topic": "Data Types",
+      "question": "The \"Beer and Diaper\" example is a frequently cited application for classification tasks.",
+      "answer": false,
+      "reasoning": "The \"Beer and Diaper\" scenario is a recurring theme when describing frequent pattern analysis and association rule mining."
+    },
+    {
+      "id": "T/F 27",
+      "topic": "Data Types",
+      "question": "Data Science is an alternative name for Data Mining or Knowledge Discovery in Databases (KDD).",
+      "answer": true,
+      "reasoning": "Alternative names for Data Mining include Data Science and Knowledge Discovery (mining) in databases (KDD)."
+    },
+    {
+      "id": "T/F 28",
+      "topic": "ML Intro",
+      "question": "Regression models typically predict categorical class labels (discrete or nominal).",
+      "answer": false,
+      "reasoning": "Regression models continuous-valued functions, predicting unknown or missing numerical values."
+    },
+    {
+      "id": "T/F 29",
+      "topic": "ML Intro",
+      "question": "Classification models predict continuous-valued outputs.",
+      "answer": false,
+      "reasoning": "Classification models predict categorical class labels (discrete or nominal)."
+    },
+    {
+      "id": "T/F 30",
+      "topic": "ML Intro",
+      "question": "The training set for model construction must be independent of the test set used for performance estimation.",
+      "answer": true,
+      "reasoning": "The test set must be independent of the training set to avoid bad outcomes."
+    },
+    {
+      "id": "T/F 31",
+      "topic": "Data Types",
+      "question": "Temporal data is an alternative name for graph data.",
+      "answer": false,
+      "reasoning": "Temporal data (time-series) is a separate type of data from Graph and network data."
+    },
+    {
+      "id": "T/F 32",
+      "topic": "Logistics",
+      "question": "The quizzes and exams are typically administered in-class using Canvas, requiring students to bring a laptop and their student ID.",
+      "answer": true,
+      "reasoning": "Quizzes and exams are in-class but administered via Canvas, requiring a laptop and student ID."
+    },
+    {
+      "id": "T/F 33",
+      "topic": "Logistics",
+      "question": "The format for quizzes usually includes True/False and Multiple Choice questions, but the midterm and final also include open-ended questions.",
+      "answer": true,
+      "reasoning": "Quizzes use T/F and Multiple Choice, while the Midterm/Final use the same plus some open-ended questions."
+    },
+    {
+      "id": "T/F 34",
+      "topic": "Data Types",
+      "question": "The four main stages of the Data Science Pipeline are Raw Data, Pre-processing, Analysis, and Post-proc.",
+      "answer": false,
+      "reasoning": "The data science pipeline includes Raw Data, Pre-processing, Analysis, Evaluation, Interpretation, Visualization, and Knowledge."
+    },
+    {
+      "id": "T/F 35",
+      "topic": "Data Types",
+      "question": "Supervised learning relies on labeled examples, whereas unsupervised learning uses unlabeled data to find structure.",
+      "answer": true,
+      "reasoning": "Supervised learning uses labeled examples, while unsupervised learning uses unlabeled data to identify structure."
+    },
+    {
+      "id": "T/F 36",
+      "topic": "ML Intro",
+      "question": "If we are predicting a stock price today, this would generally be considered a classification task.",
+      "answer": false,
+      "reasoning": "Stock market prediction is listed as an example of regression."
+    },
+    {
+      "id": "T/F 37",
+      "topic": "Data Types",
+      "question": "In the context of credit card fraud detection, deciding whether a transaction is real or fraudulent in real time is an example of a classification task.",
+      "answer": true,
+      "reasoning": "Classifying a transaction as real or fraudulent is a classification task."
+    },
+    {
+      "id": "T/F 38",
+      "topic": "Data Types",
+      "question": "The term \"feature\" represents a characteristic of a data object.",
+      "answer": true,
+      "reasoning": "Features (or attributes, dimensions, variables) are data fields representing a characteristic of a data object."
+    },
+    {
+      "id": "T/F 39",
+      "topic": "Data Types",
+      "question": "The Lmax norm distance is the minimum difference between any component of two vectors.",
+      "answer": false,
+      "reasoning": "The Lmax norm (L∞ norm or supremum distance) is the maximum difference between any component (attribute) of the vectors."
+    },
+    {
+      "id": "T/F 40",
+      "topic": "Data Types",
+      "question": "The Hamming distance is an example of the Manhattan (L1 norm) distance, specifically measuring the number of bits that are different between two binary vectors.",
+      "answer": true,
+      "reasoning": "The Hamming distance is an example of the Manhattan (city block, L1 norm) distance."
+    },
+    {
+      "id": "T/F 41",
+      "topic": "Data Types",
+      "question": "The distance property of symmetry, d(i,j)=d(j,i), is only useful theoretically but does not help reduce computations in practice.",
+      "answer": false,
+      "reasoning": "The symmetry property can be exploited to reduce computations, as there is no need to compute all pairs of distances."
+    },
+    {
+      "id": "T/F 42",
+      "topic": "Data Types",
+      "question": "A distance measure must satisfy Positive-definiteness, Symmetry, and Triangle Inequality to be considered a metric.",
+      "answer": true,
+      "reasoning": "A distance that satisfies d(i,j)>0 if i =j and d(i,i)=0 (Positive-definiteness), d(i,j)=d(j,i) (Symmetry), and d(i,j)≤d(i,k)+d(k,j) (Triangle Inequality) is a metric."
+    },
+    {
+      "id": "T/F 43",
+      "topic": "Data Types",
+      "question": "The Triangle Inequality property ensures that points close to a central point will also be far away from each other.",
+      "answer": false,
+      "reasoning": "The Triangle Inequality property, if a central point is defined, ensures that points close to the \"center\" will also be close to each other."
+    },
+    {
+      "id": "T/F 44",
+      "topic": "Data Types",
+      "question": "Cosine similarity is a typical measure used to rank documents by calculating the similarity between document and query vectors in a Vector Space Model.",
+      "answer": true,
+      "reasoning": "Documents are ranked by distance, and cosine similarity is a common similarity measure used in the Vector Space Model."
+    },
+    {
+      "id": "T/F 45",
+      "topic": "Data Types",
+      "question": "The cosine similarity metric can typically take values higher than 1.",
+      "answer": false,
+      "reasoning": "The cosine similarity ranges from -1 to 1; for non-negative data (like Bag of Words vectors), it ranges from."
+    },
+    {
+      "id": "T/F 46",
+      "topic": "Data Types",
+      "question": "The Simple Matching Coefficient is primarily used for asymmetric binary or categorical attributes.",
+      "answer": false,
+      "reasoning": "The Simple Matching Coefficient is typically used for symmetric binary/categorical attributes."
+    },
+    {
+      "id": "T/F 47",
+      "topic": "Data Types",
+      "question": "The Jaccard Similarity measure is generally preferred over the Simple Matching Coefficient when dealing with highly asymmetric binary features, such as comparing shopping carts.",
+      "answer": true,
+      "reasoning": "Jaccard Similarity is suitable for asymmetric binary/categorical attributes, recognizing that comparing items that are not present (like 1 million items not in a cart) can overwhelm the comparison."
+    },
+    {
+      "id": "T/F 48",
+      "topic": "Data Types",
+      "question": "The Vector Space Model is also known as Bag of Words.",
+      "answer": true,
+      "reasoning": "The Vector Space Model is also known as Bag of Words."
+    },
+    {
+      "id": "T/F 49",
+      "topic": "Data Types",
+      "question": "In the Vector Space Model, documents and queries are represented by a vector of term weights.",
+      "answer": true,
+      "reasoning": "In the Vector Space Model (Bag of Words), documents and queries are represented by a vector of term weights."
+    },
+    {
+      "id": "T/F 50",
+      "topic": "ML Intro",
+      "question": "The two main steps in the supervised learning process are model optimization and knowledge extraction.",
+      "answer": false,
+      "reasoning": "The two main steps are Model construction/Training and Model usage/Testing."
+    },
+    {
+      "id": "T/F 51",
+      "topic": "Data Types",
+      "question": "The mean is generally considered more robust than the median with respect to data skew.",
+      "answer": false,
+      "reasoning": "The median is more robust with respect to skew compared to the mean."
+    },
+    {
+      "id": "T/F 52",
+      "topic": "Data Types",
+      "question": "In a negatively skewed distribution, the mode would typically be smaller than the median.",
+      "answer": false,
+      "reasoning": "In a negatively skewed distribution, the mode is typically the largest measure, followed by the median, and then the mean."
+    },
+    {
+      "id": "T/F 53",
+      "topic": "Data Types",
+      "question": "If the mean, median, and mode are approximately the same, the data distribution is generally considered symmetric.",
+      "answer": true,
+      "reasoning": "For symmetric data, the median, mean, and mode are approximately equal."
+    },
+    {
+      "id": "T/F 54",
+      "topic": "Data Types",
+      "question": "Principal Component Analysis (PCA) is an effective dimensionality reduction technique that works primarily for numeric data.",
+      "answer": true,
+      "reasoning": "PCA is an effective dimensionality reduction technique, and works for numeric data only."
+    },
+    {
+      "id": "T/F 55",
+      "topic": "Data Types",
+      "question": "t-Distributed Stochastic Neighbor Embedding (t-SNE) is a linear projection method that respects distances between points.",
+      "answer": false,
+      "reasoning": "t-SNE is a non-linear projection of points to a low-dimensional space. Topic 2: Basic Statistics and Visualization (55 Questions) ID Topic Question Answer Reasoning"
+    }
+  ]
+}

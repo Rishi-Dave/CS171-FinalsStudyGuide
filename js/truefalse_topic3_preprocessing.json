@@ -1,0 +1,461 @@
+{
+  "topic": "Data Preprocessing",
+  "questionType": "truefalse",
+  "questions": [
+    {
+      "id": "T/F 106",
+      "topic": "Data Cleaning",
+      "question": "A common strategy for handling missing values when performing classification is to ignore the data point entirely if the class label is missing.",
+      "answer": true,
+      "reasoning": "Ignoring the data point is usually done when the class label is missing (when doing classification)."
+    },
+    {
+      "id": "T/F 107",
+      "topic": "Data Cleaning",
+      "question": "Filling in missing data with the attribute mean for all samples belonging to the same class is considered a less sophisticated method than using a global constant.",
+      "answer": false,
+      "reasoning": "Filling missing values with the mean for all samples in the same class is a smarter method than using a global constant like \"unknown\"."
+    },
+    {
+      "id": "T/F 108",
+      "topic": "Data Cleaning",
+      "question": "Noisy data refers to data that is lacking attribute values or containing only aggregate data.",
+      "answer": false,
+      "reasoning": "Noisy data contains noise, errors, or outliers. Lacking attribute values refers to incomplete data."
+    },
+    {
+      "id": "T/F 109",
+      "topic": "Data Integration",
+      "question": "Entity identification, or resolution, is the problem of identifying real-world entities that appear across multiple data sources, such as linking \"Bill Clinton\" to \"William Clinton.\"",
+      "answer": true,
+      "reasoning": "Entity identification/resolution identifies real-world entities from multiple data sources."
+    },
+    {
+      "id": "T/F 110",
+      "topic": "Data Integration",
+      "question": "Schema integration primarily deals with resolving conflicts in data values, such as converting between metric and British units.",
+      "answer": false,
+      "reasoning": "Schema integration deals with integrating metadata (e.g., A.cust-id ≡ B.cust-num). Resolving data value conflicts is a separate challenge in data integration."
+    },
+    {
+      "id": "T/F 111",
+      "topic": "Data Integration",
+      "question": "Redundant data can often be detected using correlation analysis.",
+      "answer": true,
+      "reasoning": "Redundant attributes may be detected by correlation analysis."
+    },
+    {
+      "id": "T/F 112",
+      "topic": "Data Reduction",
+      "question": "The Curse of Dimensionality refers to the phenomenon where model performance increases and then rapidly drops as the number of features increases.",
+      "answer": true,
+      "reasoning": "This describes the Hughes Phenomenon, which is a key aspect of the Curse of Dimensionality."
+    },
+    {
+      "id": "T/F 113",
+      "topic": "Data Reduction",
+      "question": "As dimensions increase, the ratio of the distance to the furthest point versus the distance to the closest point approaches zero.",
+      "answer": true,
+      "reasoning": "The ratio of the furthest to closest point diminishes as the number of dimensions grows."
+    },
+    {
+      "id": "T/F 114",
+      "topic": "Data Reduction",
+      "question": "Dimensionality reduction techniques like PCA help to eliminate irrelevant features and reduce noise.",
+      "answer": true,
+      "reasoning": "Dimensionality reduction helps eliminate irrelevant features, reduce noise, and avoid the curse of dimensionality."
+    },
+    {
+      "id": "T/F 115",
+      "topic": "Data Reduction",
+      "question": "PCA is generally ineffective for dimensionality reduction because it only works for numeric data.",
+      "answer": false,
+      "reasoning": "PCA is a key dimensionality reduction technique and works only for numeric data."
+    },
+    {
+      "id": "T/F 116",
+      "topic": "Data Reduction",
+      "question": "An irrelevant attribute is one that is highly correlated with another attribute in the dataset.",
+      "answer": false,
+      "reasoning": "Irrelevant attributes contain no useful information for the mining task. Highly correlated attributes are considered redundant."
+    },
+    {
+      "id": "T/F 117",
+      "topic": "Data Reduction",
+      "question": "Step-wise feature selection typically starts by eliminating the worst attribute first.",
+      "answer": false,
+      "reasoning": "Step-wise feature elimination involves repeatedly eliminating the worst attribute. Step-wise selection picks the best single attribute first."
+    },
+    {
+      "id": "T/F 118",
+      "topic": "Data Reduction",
+      "question": "Mapping data to a new space using techniques like Fourier or Wavelet transforms is considered a type of feature extraction methodology.",
+      "answer": true,
+      "reasoning": "Mapping data to a new space is one of the three general methodologies for feature generation (Attribute extraction, Mapping data to new space, Attribute construction)."
+    },
+    {
+      "id": "T/F 119",
+      "topic": "Data Reduction",
+      "question": "Dimensionality reduction is usually considered a task-dependent process, meaning it relies on a downstream task like classification.",
+      "answer": false,
+      "reasoning": "Dimensionality reduction can be task dependent or task independent (retaining information of the original space without depending on a downstream task)."
+    },
+    {
+      "id": "T/F 120",
+      "topic": "Sampling",
+      "question": "The goal of numerosity reduction is to reduce the number of features in the data representation.",
+      "answer": false,
+      "reasoning": "Numerosity reduction reduces data volume by choosing alternative, smaller forms of data representation. Dimensionality reduction reduces the number of features."
+    },
+    {
+      "id": "T/F 121",
+      "topic": "Sampling",
+      "question": "Histograms, sampling, and Wavelets are considered data sketches—summaries of data, especially useful for data streams.",
+      "answer": true,
+      "reasoning": "Wavelets, histograms and sampling are data sketches."
+    },
+    {
+      "id": "T/F 122",
+      "topic": "Sampling",
+      "question": "Simple random sampling without replacement means that once an object is selected for the sample, it is immediately placed back into the population and can be selected again.",
+      "answer": false,
+      "reasoning": "Sampling without replacement means the object is removed from the population."
+    },
+    {
+      "id": "T/F 123",
+      "topic": "Sampling",
+      "question": "Stratified sampling is especially useful when dealing with skewed data to ensure proportional representation from every class or category.",
+      "answer": true,
+      "reasoning": "Stratified sampling is used in conjunction with skewed data and ensures proportional representation."
+    },
+    {
+      "id": "T/F 124",
+      "topic": "Sampling",
+      "question": "Reservoir sampling is a technique used to obtain a simple random sample from a data stream where the full size N is unknown initially.",
+      "answer": true,
+      "reasoning": "Reservoir sampling is designed for streaming data to achieve a uniformly random sample."
+    },
+    {
+      "id": "T/F 125",
+      "topic": "Sampling",
+      "question": "In Reservoir sampling, the probability of keeping the i-th item decreases as i increases.",
+      "answer": true,
+      "reasoning": "When the reservoir is full, the data[i] is kept with probability M/i, where M is the reservoir size, hence the probability decreases as i increases."
+    },
+    {
+      "id": "T/F 126",
+      "topic": "Transformation",
+      "question": "The Fourier Transform expresses any signal as a combination of elementary signals, specifically sine and cosine waves.",
+      "answer": true,
+      "reasoning": "Any signal can be expressed as a combination of elementary signals (sine and cosine wave) using the Fourier Transform."
+    },
+    {
+      "id": "T/F 127",
+      "topic": "Transformation",
+      "question": "The highest value in the Fourier domain corresponds to the shortest frequency present in the data.",
+      "answer": false,
+      "reasoning": "The highest value in the Fourier domain is the main periodicity in the data."
+    },
+    {
+      "id": "T/F 128",
+      "topic": "Transformation",
+      "question": "The Discrete Wavelet Transform (DWT) is similar to the Discrete Fourier Transform (DFT) but provides better lossy compression and is localized in space.",
+      "answer": true,
+      "reasoning": "DWT is similar to DFT but offers better lossy compression and is localized in space."
+    },
+    {
+      "id": "T/F 129",
+      "topic": "Transformation",
+      "question": "The Haar Wavelet decomposition is efficient because its complexity is O(NlogN), similar to the Fast Fourier Transform.",
+      "answer": false,
+      "reasoning": "The Haar Wavelet decomposition has a complexity of O(N), which is more efficient than the Fast Fourier Transform, which is O(NlogN)."
+    },
+    {
+      "id": "T/F 130",
+      "topic": "Transformation",
+      "question": "The Haar Wavelet decomposition is known for being highly sensitive to the presence of noise and outliers.",
+      "answer": false,
+      "reasoning": "Haar Wavelet decomposition offers effective removal of outliers and is insensitive to noise."
+    },
+    {
+      "id": "T/F 131",
+      "topic": "Transformation",
+      "question": "Log normalization is generally recommended for count data and is often used to compress the dynamic range of the data.",
+      "answer": true,
+      "reasoning": "Log normalization compresses the dynamic range of non-negative data and is good for count data."
+    },
+    {
+      "id": "T/F 132",
+      "topic": "Transformation",
+      "question": "Min-max normalization maps attribute values to a specific range, such as [0.0, 1.0].",
+      "answer": true,
+      "reasoning": "Min-max normalization scales values to a new range, [new_minA, new_maxA]."
+    },
+    {
+      "id": "T/F 133",
+      "topic": "Transformation",
+      "question": "Z-score normalization ensures all features are standardized by centering (mean subtraction) and scaling (division by standard deviation).",
+      "answer": true,
+      "reasoning": "Z-score normalization ensures features are standardized using centering (μ subtraction) and scaling (σ division)."
+    },
+    {
+      "id": "T/F 134",
+      "topic": "Transformation",
+      "question": "TF-IDF normalization attempts to boost the importance of very frequent terms that might otherwise drown out less frequent but useful terms.",
+      "answer": false,
+      "reasoning": "TF-IDF normalization handles the issue where very frequent terms can \"drown\" less frequent useful terms. The inverse document frequency (IDF) part specifically down-weights frequent terms found across many documents."
+    },
+    {
+      "id": "T/F 135",
+      "topic": "Transformation",
+      "question": "The term frequency weight (tf ij ​ ) measures the importance of a term in the entire collection of documents.",
+      "answer": false,
+      "reasoning": "Term frequency weight measures the importance of a term in a document. Inverse document frequency (IDF) measures importance in the collection."
+    },
+    {
+      "id": "T/F 136",
+      "topic": "Data Cleaning",
+      "question": "An example of inconsistent data is when a dataset uses ratings \"1, 2, 3\" and is later updated to use ratings \"A, B, C.\"",
+      "answer": true,
+      "reasoning": "This describes a discrepancy in codes or names, which falls under inconsistent data."
+    },
+    {
+      "id": "T/F 137",
+      "topic": "Data Cleaning",
+      "question": "Intentional \"dirty\" data, such as disguised missing data (e.g., using Jan. 1 as everyone’s birthday), can be prone to occurring when using self-declared data.",
+      "answer": true,
+      "reasoning": "Intentional or disguised missing data often occurs with self-declared data."
+    },
+    {
+      "id": "T/F 138",
+      "topic": "Data Integration",
+      "question": "Crowdsourcing platforms can be used to handle data cleaning and integration tasks by leveraging human intelligence tasks (HITs).",
+      "answer": true,
+      "reasoning": "Crowdsourcing leverages humans to do difficult work, using HITs, and can be used for data cleaning and integration, including labeling unlabeled data."
+    },
+    {
+      "id": "T/F 139",
+      "topic": "Data Reduction",
+      "question": "The possible combinations of subspaces grows exponentially as dimensionality increases.",
+      "answer": true,
+      "reasoning": "The possible combinations of subspaces will grow exponentially in high dimensions."
+    },
+    {
+      "id": "T/F 140",
+      "topic": "Data Reduction",
+      "question": "Dimensionality reduction techniques inherently allow for easier visualization of high-dimensional data.",
+      "answer": true,
+      "reasoning": "Dimensionality reduction allows for easier visualization of the data."
+    },
+    {
+      "id": "T/F 141",
+      "topic": "Data Reduction",
+      "question": "The Apriori property is the key principle behind the PCA algorithm.",
+      "answer": false,
+      "reasoning": "The Apriori property is fundamental to Frequent Pattern Mining (like the Apriori algorithm)."
+    },
+    {
+      "id": "T/F 142",
+      "topic": "Data Reduction",
+      "question": "One heuristic method for feature selection is to select the best single attribute based on attribute independence assumption, possibly chosen by significance tests.",
+      "answer": true,
+      "reasoning": "Choosing the best single attribute under the attribute independence assumption (via significance tests) is a typical heuristic method."
+    },
+    {
+      "id": "T/F 143",
+      "topic": "Data Reduction",
+      "question": "Data sketches, such as sampling or histograms, are categorized as parametric methods of numerosity reduction.",
+      "answer": false,
+      "reasoning": "Histograms and sampling are non-parametric methods of numerosity reduction, as they do not assume models."
+    },
+    {
+      "id": "T/F 144",
+      "topic": "Data Reduction",
+      "question": "Wavelet transforms preserve the relative distance between objects at different levels of resolution, which can help natural clusters become more distinguishable.",
+      "answer": true,
+      "reasoning": "Data transformed by Wavelets preserve relative distance between objects, allowing natural clusters to become more distinguishable."
+    },
+    {
+      "id": "T/F 145",
+      "topic": "Data Reduction",
+      "question": "Equal-width partitioning for histograms means that the range of attribute values in each bucket is proportional to the frequency count.",
+      "answer": false,
+      "reasoning": "Equal-width means equal bucket range. Equal-frequency (or depth) means the frequency count is approximately equal per bucket."
+    },
+    {
+      "id": "T/F 146",
+      "topic": "Transformation",
+      "question": "Centering data (subtracting the mean) and dividing by the standard deviation is primarily done to ensure that all features have the same range, like.",
+      "answer": false,
+      "reasoning": "This process (Z-score normalization) ensures all features are \"standardized\" and avoids artifacts due to a large mean or deviation. Min-max normalization achieves the range."
+    },
+    {
+      "id": "T/F 147",
+      "topic": "Data Cleaning",
+      "question": "If customer income is missing in sales data because the data was considered unimportant at the time of entry, this would be classified as noisy data.",
+      "answer": false,
+      "reasoning": "This is an example of incomplete (missing) data, where data was not entered."
+    },
+    {
+      "id": "T/F 148",
+      "topic": "Data Reduction",
+      "question": "The time complexity of solving K-means optimally (by enumerating all partitions) is NP-Hard.",
+      "answer": true,
+      "reasoning": "Finding the optimal partition for K clusters is NP-Hard."
+    },
+    {
+      "id": "T/F 149",
+      "topic": "Data Reduction",
+      "question": "Dimensionality reduction refers to the reduction of the number of data points in a dataset.",
+      "answer": false,
+      "reasoning": "Dimensionality reduction is the reduction of the number of attributes or features."
+    },
+    {
+      "id": "T/F 150",
+      "topic": "Data Reduction",
+      "question": "PCA and t-SNE can only be used when there are more than 1000 features in the data.",
+      "answer": false,
+      "reasoning": "PCA and t-SNE are generally used for visualization or reduction regardless of the number of features, as long as the data is high-dimensional enough to warrant it."
+    },
+    {
+      "id": "T/F 151",
+      "topic": "Sampling",
+      "question": "Reservoir sampling is an effective technique that only works for static datasets, not data streams.",
+      "answer": false,
+      "reasoning": "Reservoir sampling specifically works for data streams."
+    },
+    {
+      "id": "T/F 152",
+      "topic": "Sampling",
+      "question": "When sampling from data with class imbalance, simple random sampling often provides representative samples of the whole dataset.",
+      "answer": false,
+      "reasoning": "Simple random sampling may have very poor performance in the presence of skew. Stratified sampling is preferred for imbalance."
+    },
+    {
+      "id": "T/F 153",
+      "topic": "Transformation",
+      "question": "The Fourier transform is useful as a data mining tool because the highest value in the Fourier domain indicates the main periodicity in the data.",
+      "answer": true,
+      "reasoning": "The highest value in the Fourier domain is the main periodicity in our data."
+    },
+    {
+      "id": "T/F 154",
+      "topic": "Data Cleaning",
+      "question": "If we are dealing with missing data, we can use a machine learning model to predict and fill in the missing values (e.g., imputation).",
+      "answer": true,
+      "reasoning": "Missing data may need to be inferred, often using methods like predicting the most probable value (inference-based)."
+    },
+    {
+      "id": "T/F 155",
+      "topic": "Data Reduction",
+      "question": "If a high-dimensional data point is projected to a low-dimensional space using SVD, the SVD matrices must be computed only once on the training data and then applied to the test data.",
+      "answer": true,
+      "reasoning": "When SVD is used for dimensionality reduction for k-NN, only the training data is decomposed, and the test data points are projected onto that SVD space."
+    },
+    {
+      "id": "T/F 156",
+      "topic": "Data Reduction",
+      "question": "The computational cost of the Haar Wavelet decomposition is O(NlogN).",
+      "answer": false,
+      "reasoning": "The Haar Wavelet decomposition has complexity O(N)."
+    },
+    {
+      "id": "T/F 157",
+      "topic": "Data Reduction",
+      "question": "The definition of a Max-Pattern states that an itemset X is a max-pattern if X is frequent and there exists at least one frequent super-pattern Y⊃X.",
+      "answer": false,
+      "reasoning": "An itemset X is a max-pattern if it is frequent and there exists no frequent super-pattern Y⊃X."
+    },
+    {
+      "id": "T/F 158",
+      "topic": "Data Reduction",
+      "question": "Numerosity reduction methods include techniques like histograms and sampling.",
+      "answer": true,
+      "reasoning": "Numerosity reduction includes non-parametric methods like histograms and sampling."
+    },
+    {
+      "id": "T/F 159",
+      "topic": "Transformation",
+      "question": "The goal of log normalization is generally to exaggerate small differences in low-count data.",
+      "answer": false,
+      "reasoning": "Log normalization compresses the dynamic range of the data."
+    },
+    {
+      "id": "T/F 160",
+      "topic": "Data Cleaning",
+      "question": "An error such as Salary=\"−10\" is an example of noisy data.",
+      "answer": true,
+      "reasoning": "This is given as an example of noisy data (an error)."
+    },
+    {
+      "id": "T/F 161",
+      "topic": "Data Reduction",
+      "question": "One of the goals of data reduction is to improve mining speed and quality because complex data analysis may take a very long time on the complete dataset.",
+      "answer": true,
+      "reasoning": "Data reduction aims to obtain a reduced representation to improve performance, as complex analysis may take too long on the complete set."
+    },
+    {
+      "id": "T/F 162",
+      "topic": "Data Reduction",
+      "question": "The kernel trick allows SVMs to implicitly map data into a higher-dimensional space without explicitly computing the high-dimensional coordinates.",
+      "answer": true,
+      "reasoning": "The kernel trick applies a kernel function k() to the dot product, eliminating the need to transform the actual data."
+    },
+    {
+      "id": "T/F 163",
+      "topic": "Data Reduction",
+      "question": "One approach for feature generation is attribute construction, which involves combining existing features to create new ones.",
+      "answer": true,
+      "reasoning": "Attribute construction is a methodology for feature generation that often involves combining features."
+    },
+    {
+      "id": "T/F 164",
+      "topic": "Data Reduction",
+      "question": "For a time series, the discrete wavelet transform (DWT) captures both signal frequencies and the times when they occur.",
+      "answer": true,
+      "reasoning": "DWT captures signal frequencies and times (i.e., localized) when they occur."
+    },
+    {
+      "id": "T/F 165",
+      "topic": "Data Reduction",
+      "question": "In sequential pattern mining, the Apriori property states that any superset of a frequent itemset must also be frequent.",
+      "answer": false,
+      "reasoning": "The Apriori property states that any subset of a frequent itemset must be frequent, or equivalently, if an itemset is infrequent, all of its supersets must be infrequent."
+    },
+    {
+      "id": "T/F 166",
+      "topic": "Data Reduction",
+      "question": "For Gaussian noise models in linear regression, maximizing the log-likelihood is mathematically equivalent to minimizing the Least Mean Squares cost function.",
+      "answer": true,
+      "reasoning": "Maximizing the log likelihood l(θ) is equivalent to minimizing the Least Mean Squares cost function J(θ) under the assumption of Gaussian IID noise."
+    },
+    {
+      "id": "T/F 167",
+      "topic": "Data Reduction",
+      "question": "In step-wise attribute elimination, the best single attribute is selected first.",
+      "answer": false,
+      "reasoning": "Step-wise elimination repeatedly eliminates the worst attribute."
+    },
+    {
+      "id": "T/F 168",
+      "topic": "Data Reduction",
+      "question": "The time complexity of the Apriori algorithm is O(MN) where M is the number of distinct items and N is the max length of transactions.",
+      "answer": false,
+      "reasoning": "MN is the worst-case number of itemsets that can be generated, which is exponential, not the complexity of the algorithm itself."
+    },
+    {
+      "id": "T/F 169",
+      "topic": "Data Reduction",
+      "question": "Min-max normalization is particularly effective at suppressing skew that may hide interesting patterns.",
+      "answer": false,
+      "reasoning": "Log normalization is often used to suppress skew."
+    },
+    {
+      "id": "T/F 170",
+      "topic": "Data Reduction",
+      "question": "In the context of the Iris dataset in the assignments, PCA showed worse separability of the classes than t-SNE in the resulting 2D scatterplots.",
+      "answer": false,
+      "reasoning": "Both PCA and t-SNE showed good separability in the visualization plots for the Iris dataset. Topic 4: Supervised Learning I (Regression, Classification Intro, DTs) (70 Questions) ID Topic Question Answer Reasoning"
+    }
+  ]
+}

@@ -1,0 +1,496 @@
+{
+  "topic": "Supervised Learning: Advanced & Evaluation",
+  "questionType": "truefalse",
+  "questions": [
+    {
+      "id": "T/F 311",
+      "topic": "Evaluation",
+      "question": "The Classifier Accuracy is defined as the percentage of test set instances that are correctly classified, calculated as (TP+TN)/All.",
+      "answer": true,
+      "reasoning": "Accuracy is (TP+TN)/All."
+    },
+    {
+      "id": "T/F 312",
+      "topic": "Evaluation",
+      "question": "The Error Rate is calculated as the sum of True Positives and False Negatives, divided by all instances.",
+      "answer": false,
+      "reasoning": "Error rate is 1−accuracy, or (FP+FN)/All."
+    },
+    {
+      "id": "T/F 313",
+      "topic": "Evaluation",
+      "question": "Sensitivity (True Positive recognition rate) is calculated as TN/N.",
+      "answer": false,
+      "reasoning": "Sensitivity is TP/P. TN/N is Specificity."
+    },
+    {
+      "id": "T/F 314",
+      "topic": "Evaluation",
+      "question": "Precision measures completeness—the percentage of positive instances the classifier labeled as positive.",
+      "answer": false,
+      "reasoning": "Precision measures exactness (what % labeled positive are actually positive). Recall (or Sensitivity) measures completeness."
+    },
+    {
+      "id": "T/F 315",
+      "topic": "Evaluation",
+      "question": "In classification evaluation, precision and recall typically have an inverse relationship.",
+      "answer": true,
+      "reasoning": "There is an inverse relationship between precision & recall."
+    },
+    {
+      "id": "T/F 316",
+      "topic": "Evaluation",
+      "question": "The F-score is the arithmetic mean of precision and recall.",
+      "answer": false,
+      "reasoning": "The F-score is the harmonic mean of precision and recall."
+    },
+    {
+      "id": "T/F 317",
+      "topic": "Evaluation",
+      "question": "In the Holdout method, the given data is partitioned into two independent sets: the training set and the validation set.",
+      "answer": false,
+      "reasoning": "The partitions are the training set and the test set."
+    },
+    {
+      "id": "T/F 318",
+      "topic": "Evaluation",
+      "question": "Random subsampling is a variation of the holdout method where the process is repeated k times and the accuracy is averaged.",
+      "answer": true,
+      "reasoning": "Random sampling repeats the holdout k times, and the accuracy is averaged."
+    },
+    {
+      "id": "T/F 319",
+      "topic": "Evaluation",
+      "question": "In k-fold cross-validation, the data is partitioned into k mutually exclusive subsets, and each subset is used once as the training set.",
+      "answer": false,
+      "reasoning": "In k-fold cross-validation, the i-th subset D i ​ is used as the test set and the others are used as the training set."
+    },
+    {
+      "id": "T/F 320",
+      "topic": "Evaluation",
+      "question": "Leave-one-out cross-validation is equivalent to k-fold cross-validation where k is the number of tuples in the dataset.",
+      "answer": true,
+      "reasoning": "Leave-one-out sets k folds equal to the number of tuples."
+    },
+    {
+      "id": "T/F 321",
+      "topic": "Evaluation",
+      "question": "Stratified cross-validation ensures that the class distribution in each fold is approximately the same as the distribution in the initial data.",
+      "answer": true,
+      "reasoning": "Folds are stratified so that class distribution is approximately the same."
+    },
+    {
+      "id": "T/F 322",
+      "topic": "Evaluation",
+      "question": "When comparing two classifiers, the null hypothesis states that the difference between the two error rates is statistically significant.",
+      "answer": false,
+      "reasoning": "The null hypothesis typically states that the observed effect is random (e.g., \"our two classifiers perform the same\")."
+    },
+    {
+      "id": "T/F 323",
+      "topic": "Evaluation",
+      "question": "A t-test is used to compare the mean error rates of two classifiers by assuming the samples follow a Gaussian distribution.",
+      "answer": false,
+      "reasoning": "The t-test assumes samples follow a t-distribution (Student's t-distribution)."
+    },
+    {
+      "id": "T/F 324",
+      "topic": "Evaluation",
+      "question": "If a t-test results in a p-value less than sig/2, the null hypothesis is rejected, concluding that the difference between classifiers is statistically significant.",
+      "answer": true,
+      "reasoning": "If p-value < sig/2, the null hypothesis is rejected."
+    },
+    {
+      "id": "T/F 325",
+      "topic": "Evaluation",
+      "question": "Error bars often visualize the mean ± standard deviation, or confidence intervals, of a performance measure.",
+      "answer": true,
+      "reasoning": "Error bars visualize mean ± error (SEM, STD, or Confidence intervals)."
+    },
+    {
+      "id": "T/F 326",
+      "topic": "Evaluation",
+      "question": "If the error bars for the mean accuracies of two classifiers significantly overlap, this often points toward a problem in statistical significance.",
+      "answer": true,
+      "reasoning": "When there is overlap, this may point to problems in significance (i.e., the difference is not significant)."
+    },
+    {
+      "id": "T/F 327",
+      "topic": "Advanced Supervised",
+      "question": "The Perceptron algorithm uses a sigmoid activation function to perform linear regression.",
+      "answer": false,
+      "reasoning": "The Perceptron performs linear regression if the activation function is f(x)=x."
+    },
+    {
+      "id": "T/F 328",
+      "topic": "Advanced Supervised",
+      "question": "If the perceptron uses the activation function f(x)=x, it performs linear regression.",
+      "answer": true,
+      "reasoning": "When activation is f(x)=x, it performs linear regression."
+    },
+    {
+      "id": "T/F 329",
+      "topic": "Advanced Supervised",
+      "question": "The standard Perceptron, using a linear decision surface, is capable of classifying non-linearly separable data.",
+      "answer": false,
+      "reasoning": "The Perceptron still defines a linear decision surface and can only separate linearly separable data."
+    },
+    {
+      "id": "T/F 330",
+      "topic": "Advanced Supervised",
+      "question": "The solution to handling non-linear data using neural networks is to add more units and layers, forming a Multi-layer Feed-Forward Neural Network.",
+      "answer": true,
+      "reasoning": "Adding more Perceptron units and layers forms the Multi-layer Feed-Forward Neural Network, capable of handling non-linear functions."
+    },
+    {
+      "id": "T/F 331",
+      "topic": "Advanced Supervised",
+      "question": "In a feed-forward neural network, the weights may cycle back to an input unit or a unit in a previous layer.",
+      "answer": false,
+      "reasoning": "The network is feed-forward, meaning none of the weights cycle back to an input unit or to an output unit of a previous layer."
+    },
+    {
+      "id": "T/F 332",
+      "topic": "Advanced Supervised",
+      "question": "Neural networks can approximate any function given enough hidden units and training data.",
+      "answer": true,
+      "reasoning": "Given enough hidden units and training data, they can closely approximate any function."
+    },
+    {
+      "id": "T/F 333",
+      "topic": "Advanced Supervised",
+      "question": "Training a neural network via Backpropagation involves modifying weights in the \"backwards\" direction, from the output layer down to the input layer.",
+      "answer": true,
+      "reasoning": "Modifications are made in the \"backwards\" direction: from the output layer down to the first hidden layer."
+    },
+    {
+      "id": "T/F 334",
+      "topic": "Advanced Supervised",
+      "question": "A major strength of neural networks is their high interpretability, as the symbolic meaning behind the learned weights is easy to understand.",
+      "answer": false,
+      "reasoning": "A weakness of neural networks is their poor interpretability; it is difficult to interpret the symbolic meaning of weights/hidden units."
+    },
+    {
+      "id": "T/F 335",
+      "topic": "Advanced Supervised",
+      "question": "Support Vector Machines (SVMs) aim to find the linear decision boundary that minimizes the distance from the nearest data points (support vectors).",
+      "answer": false,
+      "reasoning": "SVMs aim to find the line that maximizes the distance (margin) from the Support Vectors."
+    },
+    {
+      "id": "T/F 336",
+      "topic": "Advanced Supervised",
+      "question": "Maximizing the margin width in a linear SVM is equivalent to minimizing the magnitude of the weight vector, $ w",
+      "answer": null,
+      "reasoning": ""
+    },
+    {
+      "id": "T/F 337",
+      "topic": "Advanced Supervised",
+      "question": "The linear SVM optimization problem is a Quadratically Constrained Quadratic Program (QCQP) that can be solved optimally.",
+      "answer": true,
+      "reasoning": "Training a linear SVM involves solving a QCQP, which can be solved optimally."
+    },
+    {
+      "id": "T/F 338",
+      "topic": "Advanced Supervised",
+      "question": "The decision boundary in a linear SVM is determined solely by the data points closest to the boundary, known as the support vectors.",
+      "answer": true,
+      "reasoning": "The line can be determined solely by the support vectors."
+    },
+    {
+      "id": "T/F 339",
+      "topic": "Advanced Supervised",
+      "question": "The Kernel Trick allows SVMs to classify non-linearly separable data by implicitly mapping the data to a high-dimensional space where separation might be linear.",
+      "answer": true,
+      "reasoning": "The Kernel Trick allows SVM to handle non-linearly separable data by implicitly transforming it to a higher dimension."
+    },
+    {
+      "id": "T/F 340",
+      "topic": "Advanced Supervised",
+      "question": "The complexity of a trained SVM classifier is characterized by the dimensionality of the data rather than the number of support vectors.",
+      "answer": false,
+      "reasoning": "Complexity is characterized by the number of support vectors, independent of the data dimensionality."
+    },
+    {
+      "id": "T/F 341",
+      "topic": "Advanced Supervised",
+      "question": "SVM algorithms are generally learned in batch mode using quadratic programming techniques.",
+      "answer": true,
+      "reasoning": "SVM is a deterministic algorithm, expensive to learn, and learned in batch mode using quadratic programming."
+    },
+    {
+      "id": "T/F 342",
+      "topic": "Advanced Supervised",
+      "question": "Neural networks are generally nondeterministic algorithms for learning.",
+      "answer": true,
+      "reasoning": "Neural networks are typically non-deterministic algorithms."
+    },
+    {
+      "id": "T/F 343",
+      "topic": "Ensemble Methods",
+      "question": "An ensemble method relies on combining predictions from a collection of \"weak learners\" to create a stronger overall model.",
+      "answer": true,
+      "reasoning": "Ensemble methods combine models to increase accuracy, using a collection of weak learners to make a strong learner."
+    },
+    {
+      "id": "T/F 344",
+      "topic": "Ensemble Methods",
+      "question": "Bootstrapping is a technique that involves sampling the training data with replacement to create multiple training sets of the same size as the original set.",
+      "answer": true,
+      "reasoning": "Bootstrapping involves sampling the set D of d tuples with replacement to create training sets D i ​ of size d."
+    },
+    {
+      "id": "T/F 345",
+      "topic": "Ensemble Methods",
+      "question": "Bagging (Bootstrap Aggregation) combines decisions by taking a simple arithmetic average of the predictions made by each classifier.",
+      "answer": false,
+      "reasoning": "Bagging uses a majority vote based approach."
+    },
+    {
+      "id": "T/F 346",
+      "topic": "Ensemble Methods",
+      "question": "Random Forests introduce randomness only through the bootstrap sampling of the training data.",
+      "answer": false,
+      "reasoning": "Random Forests also introduce randomness through a random selection of features considered for splitting at each node."
+    },
+    {
+      "id": "T/F 347",
+      "topic": "Ensemble Methods",
+      "question": "The out-of-bag error in Random Forest uses the training samples that were included in the bootstrap sample for evaluation.",
+      "answer": false,
+      "reasoning": "Out-of-bag error uses only the trees that did not have x i ​ in their bootstrap sample."
+    },
+    {
+      "id": "T/F 348",
+      "topic": "Class Imbalance",
+      "question": "Traditional classification methods are often poorly suited for class-imbalanced data because they assume a balanced distribution and equal error costs.",
+      "answer": true,
+      "reasoning": "Traditional methods assume balanced distribution and equal error costs, making them unsuitable for imbalanced data."
+    },
+    {
+      "id": "T/F 349",
+      "topic": "Class Imbalance",
+      "question": "Oversampling involves randomly eliminating tuples from the negative class (majority class).",
+      "answer": false,
+      "reasoning": "Oversampling involves re-sampling data from the positive (minority) class. Under-sampling eliminates tuples from the negative class."
+    },
+    {
+      "id": "T/F 350",
+      "topic": "Class Imbalance",
+      "question": "SMOTE (Synthetic Minority Oversampling Technique) works by generating synthetic data points along lines connecting nearest neighbors of minority class examples.",
+      "answer": true,
+      "reasoning": "SMOTE generates synthetic data points along the lines connecting nearest neighbors of minority class examples."
+    },
+    {
+      "id": "T/F 351",
+      "topic": "Transfer Learning",
+      "question": "In Transfer Learning, a new classifier is built for a target task by applying knowledge learned from one or more source tasks.",
+      "answer": true,
+      "reasoning": "Transfer learning extracts knowledge from source tasks and applies it to a target task."
+    },
+    {
+      "id": "T/F 352",
+      "topic": "Transfer Learning",
+      "question": "In deep transfer learning, an existing network trained on a large dataset (like ImageNet) can be repurposed by replacing the convolutional layers and retraining the fully connected layer.",
+      "answer": false,
+      "reasoning": "The 'classifier' part (the last fully connected layers) is substituted/retrained, while the earlier layers (which learned features) are reused."
+    },
+    {
+      "id": "T/F 353",
+      "topic": "Explaining Black Box",
+      "question": "LIME (Local Interpretable Model-Agnostic Explanations) works by globally approximating the complicated model with a complex neural network.",
+      "answer": false,
+      "reasoning": "LIME locally approximates the complicated model with a linear one, then uses the linear model to explain local decisions."
+    },
+    {
+      "id": "T/F 354",
+      "topic": "Deep Learning",
+      "question": "Convolutional Neural Networks (CNNs) reduce the number of parameters compared to fully connected layers because each pixel is written as a linear combination of its value and the convolution filter weights.",
+      "answer": true,
+      "reasoning": "Conv filters reduce the number of parameters, leading to more efficient training than a gigantic fully-connected set of layers."
+    },
+    {
+      "id": "T/F 355",
+      "topic": "Deep Learning",
+      "question": "The ImageNet challenge was instrumental in the revolution of computer vision research.",
+      "answer": true,
+      "reasoning": "ImageNet created a benchmark challenge that helped revolutionize computer vision research."
+    },
+    {
+      "id": "T/F 356",
+      "topic": "Evaluation",
+      "question": "The Bias-Variance Tradeoff suggests that if a model is complex, the bias tends to be high, and the variance tends to be low.",
+      "answer": false,
+      "reasoning": "More complex models have lower bias, but the variance increases with complexity."
+    },
+    {
+      "id": "T/F 357",
+      "topic": "Evaluation",
+      "question": "In the Bias-Variance decomposition, the \"unavoidable error\" can typically be eliminated by increasing the amount of training data.",
+      "answer": false,
+      "reasoning": "The error is decomposed into bias 2 , variance, and unavoidable error."
+    },
+    {
+      "id": "T/F 358",
+      "topic": "Evaluation",
+      "question": "When classifying instances with a Logistic Regression classifier, generating a Precision-Recall curve involves varying the classification probability threshold.",
+      "answer": true,
+      "reasoning": "Generating the PR curve involves varying the threshold and recording precision and recall."
+    },
+    {
+      "id": "T/F 359",
+      "topic": "Evaluation",
+      "question": "If a classifier increases its prediction threshold from 0.5 to 0.7, this generally results in higher recall and lower precision.",
+      "answer": false,
+      "reasoning": "A higher threshold means the model is more confident, resulting in higher precision and lower recall."
+    },
+    {
+      "id": "T/F 360",
+      "topic": "Evaluation",
+      "question": "When interpreting a Precision-Recall curve, a model that performs ideally would maintain high precision even as recall approaches 1.0.",
+      "answer": true,
+      "reasoning": "The ideal curve shows high precision across all recall levels."
+    },
+    {
+      "id": "T/F 361",
+      "topic": "Evaluation",
+      "question": "The F β ​ measure assigns β times as much weight to precision as to recall.",
+      "answer": false,
+      "reasoning": "F β ​ assigns β times as much weight to recall as to precision."
+    },
+    {
+      "id": "T/F 362",
+      "topic": "Advanced Supervised",
+      "question": "SVMs are generally more robust to noisy data than Neural Networks because they focus primarily on the support vectors.",
+      "answer": false,
+      "reasoning": "The source states that Neural Networks have a high tolerance to noisy data."
+    },
+    {
+      "id": "T/F 363",
+      "topic": "Advanced Supervised",
+      "question": "Using kernels in SVM allows the model to learn very complex functions.",
+      "answer": true,
+      "reasoning": "Using kernels allows SVMs to learn very complex functions."
+    },
+    {
+      "id": "T/F 364",
+      "topic": "Advanced Supervised",
+      "question": "SVM is often preferred over Neural Networks because it provides stronger generalization properties due to its mathematical foundation in maximizing the margin.",
+      "answer": true,
+      "reasoning": "SVM has nice generalization properties."
+    },
+    {
+      "id": "T/F 365",
+      "topic": "Advanced Supervised",
+      "question": "The Perceptron algorithm uses the LMS update rule, which is also called the Widrow-Hoff learning rule.",
+      "answer": true,
+      "reasoning": "The Perceptron training update is essentially the LMS rule (Widrow-Hoff learning rule)."
+    },
+    {
+      "id": "T/F 366",
+      "topic": "Advanced Supervised",
+      "question": "Discriminative classifiers learn a boundary that separates positive and negative labels.",
+      "answer": true,
+      "reasoning": "A discriminative classifier can be viewed as learning a boundary that separates \"+\" and \"-\" labels."
+    },
+    {
+      "id": "T/F 367",
+      "topic": "Advanced Supervised",
+      "question": "The Perceptron performs logistic regression when using the sigmoid function as the activation function.",
+      "answer": true,
+      "reasoning": "The Perceptron performs logistic regression when the activation function is the logistic/sigmoid function."
+    },
+    {
+      "id": "T/F 368",
+      "topic": "Advanced Supervised",
+      "question": "The computational cost of finding the optimal separating hyperplane in linear SVM is generally solved using linear programming techniques.",
+      "answer": false,
+      "reasoning": "It is solved using Quadratic Programming techniques (QCQP)."
+    },
+    {
+      "id": "T/F 369",
+      "topic": "Evaluation",
+      "question": "In the Bias-Variance Tradeoff, when a model is underfitting, both bias and variance are typically high.",
+      "answer": false,
+      "reasoning": "Underfitting is characterized by high bias and low variance."
+    },
+    {
+      "id": "T/F 370",
+      "topic": "Ensemble Methods",
+      "question": "Random Forest is known for being insensitive to the number of attributes selected for consideration at each split, and is generally faster than many other ensemble methods.",
+      "answer": true,
+      "reasoning": "Random Forest is insensitive to the number of attributes chosen and generally faster than other methods."
+    },
+    {
+      "id": "T/F 371",
+      "topic": "Ensemble Methods",
+      "question": "Random Forest can be used for feature selection by measuring the difference in out-of-bag error when a feature's values are randomly permuted.",
+      "answer": true,
+      "reasoning": "Measuring the difference in out-of-bag error between original and permuted data gives a notion of importance."
+    },
+    {
+      "id": "T/F 372",
+      "topic": "Class Imbalance",
+      "question": "One strategy for handling class imbalance is penalizing the algorithm more heavily when it makes a mistake on the majority class.",
+      "answer": false,
+      "reasoning": "Penalization is used to penalize the algorithm more when it makes a mistake on the minority class."
+    },
+    {
+      "id": "T/F 373",
+      "topic": "Transfer Learning",
+      "question": "Traditional learning frameworks typically assume that the training data and test data are drawn from the same feature space and distribution, regardless of the task.",
+      "answer": true,
+      "reasoning": "Traditional learning builds a new classifier for each new task, relying on consistent data/task spaces."
+    },
+    {
+      "id": "T/F 374",
+      "topic": "Deep Learning",
+      "question": "The key reasons for the recent resurgence of Neural Networks include the need for more complex algorithms and the decrease in data availability.",
+      "answer": false,
+      "reasoning": "The comeback was fueled by the availability of a lot of data, computational power, and new algorithmic advances."
+    },
+    {
+      "id": "T/F 375",
+      "topic": "Evaluation",
+      "question": "Purity and Normalized Mutual Information (NMI) are examples of intrinsic evaluation methods for clustering.",
+      "answer": false,
+      "reasoning": "Purity and NMI are extrinsic (supervised) methods, comparing clustering against ground truth."
+    },
+    {
+      "id": "T/F 376",
+      "topic": "Evaluation",
+      "question": "If a classifier uses a threshold of 0.5, it predicts class 1 if the probability p(x)≥0.5 and class 0 otherwise.",
+      "answer": true,
+      "reasoning": "This is the normal operating procedure for logistic regression classifiers."
+    },
+    {
+      "id": "T/F 377",
+      "topic": "Advanced Supervised",
+      "question": "The RBF (Radial Basis Function) is an example of a popular kernel function used in SVMs.",
+      "answer": true,
+      "reasoning": "RBF is listed as a common kernel."
+    },
+    {
+      "id": "T/F 378",
+      "topic": "Advanced Supervised",
+      "question": "SVM with a small number of support vectors can have poor generalization when the data dimensionality is high.",
+      "answer": false,
+      "reasoning": "SVM with a small number of support vectors can have good generalization, even in high dimensions."
+    },
+    {
+      "id": "T/F 379",
+      "topic": "Evaluation",
+      "question": "When performing leave-one-out cross-validation, the variance of the error estimate tends to be high compared to 10-fold cross-validation.",
+      "answer": true,
+      "reasoning": "(Information from outside the source, but implicit in the model selection context.)"
+    },
+    {
+      "id": "T/F 380",
+      "topic": "Advanced Supervised",
+      "question": "The derivation of the gradient for logistic regression simplifies nicely because the derivative of the sigmoid function, g ′ (z), equals g(z)(1−g(z)).",
+      "answer": true,
+      "reasoning": "This property is explicitly shown to simplify the derivative. Topic 7: Unsupervised Learning I (Clustering Methods) (75 Questions) ID Topic Question Answer Reasoning"
+    }
+  ]
+}

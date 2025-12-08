@@ -1,0 +1,114 @@
+{
+  "topic": "Supervised Learning Methods",
+  "questionType": "shortanswer",
+  "questions": [
+    {
+      "id": "SA 13",
+      "topic": "Linear Regr.",
+      "question": "Outline the key steps of training Linear Regression using the Batch Gradient Descent (BGD) algorithm.",
+      "reasoning": "BGD starts with an initial guess for parameters θ. It iteratively computes the gradient of the cost function J(θ) based on all training examples. It then updates the parameters θ_j simultaneously by taking a step proportional to the negative of the gradient scaled by the learning rate α. This repeats until convergence."
+    },
+    {
+      "id": "SA 14",
+      "topic": "Gradient Desc.",
+      "question": "Compare and contrast Stochastic Gradient Descent (SGD) and Batch Gradient Descent (BGD) based on computational cost per update and typical convergence behavior.",
+      "reasoning": "BGD looks at every example in the entire training set on every step, making it computationally expensive if the dataset is large. SGD updates parameters based on the gradient of a single training example, making it faster and more lightweight per update. SGD can start making progress right away, often getting θ close to the minimum faster than BGD, though it is generally more sensitive to the learning rate α."
+    },
+    {
+      "id": "SA 15",
+      "topic": "Evaluation",
+      "question": "Define overfitting in the context of supervised learning, explain why it is problematic, and mention one structural method to prevent it in decision trees.",
+      "reasoning": "Overfitting happens when the model fits almost perfectly the training data but may not be able to generalize to new unseen examples. It is problematic because it leads to poor accuracy for unseen samples. A method to prevent it in decision trees is Postpruning, which involves removing branches from a \"fully grown\" tree using a separate set of data to decide the best pruned tree."
+    },
+    {
+      "id": "SA 16",
+      "topic": "Naïve Bayes",
+      "question": "Explain the main assumption of the Naïve Bayes classifier and discuss why, despite this known inaccuracy, the classifier is often effective in practice.",
+      "reasoning": "The main assumption is that features are conditionally independent given the class. This assumption is approximate and often inaccurate (as dependencies exist among variables in real data). However, the assumption simplifies computation significantly (allowing the calculation of P(X|C_i) as a product of individual probabilities), and the classifier works surprisingly well even when the assumption is violated."
+    },
+    {
+      "id": "SA 17",
+      "topic": "Naïve Bayes",
+      "question": "Describe the Zero Probability Problem in Naïve Bayes and the technique used to solve it.",
+      "reasoning": "The Zero Probability Problem occurs when a conditional probability P(X_k|C_i) is zero for some feature value, causing the entire posterior probability estimate to become zero. The solution is Laplacian correction (Laplacian estimator), which adds 1 to each case count to ensure no probability is exactly zero."
+    },
+    {
+      "id": "SA 18",
+      "topic": "k-NN",
+      "question": "Explain the difference between Eager and Lazy learning methods, and provide an advantage of each.",
+      "reasoning": "Eager learning (e.g., Decision Trees) constructs a classification model (hypothesis) before receiving new test data. An advantage is less time spent in predicting/classification compared to lazy methods. Lazy learning (e.g., k-NN) simply stores the training data and delays processing until a test instance is given. An advantage is that lazy methods use a richer hypothesis space because they form an implicit global approximation using many local functions."
+    },
+    {
+      "id": "SA 19",
+      "topic": "SVM",
+      "question": "Describe the core goal of Support Vector Machines (SVMs) and define the role of the support vectors.",
+      "reasoning": "The core goal is to find the linear decision boundary (hyperplane) that maximizes the margin (the distance between the boundary and the nearest training points). Maximizing the margin is equivalent to minimizing the magnitude of the weight vector ||w||. Support vectors are the training points closest to the decision boundary that define the margin."
+    },
+    {
+      "id": "SA 20",
+      "topic": "SVM",
+      "question": "Explain the role of the Kernel Trick in enabling SVMs to handle non-linearly separable data.",
+      "reasoning": "The Kernel Trick allows SVMs to handle non-linearly separable data by implicitly mapping the data to a higher dimension (or feature space) where separation might become linear. Instead of performing this computationally hard transformation on the data, the kernel function k(x_i, x_j) is substituted for the dot product (⟨x_i, x_j⟩) in the dual optimization problem."
+    },
+    {
+      "id": "SA 21",
+      "topic": "Logistic Regr.",
+      "question": "Describe how Logistic Regression is trained using maximum likelihood estimation. Why is the resulting update rule similar to the LMS rule for Linear Regression?",
+      "reasoning": "Logistic Regression is trained by maximizing the log-likelihood ℓ(θ) of the observed data. Since it maximizes, it uses gradient ascent (θ := θ + α ∇_θ ℓ(θ)). The resulting update rule for a single training example, θ_j := θ_j + α (y^(i) - h_θ(x^(i))) x_j, is identical in form to the LMS (Widrow-Hoff) learning rule for Linear Regression, although the hypothesis function h_θ(x) is non-linear."
+    },
+    {
+      "id": "SA 22",
+      "topic": "Regularization",
+      "question": "Compare Ridge (L2) and Lasso (L1) regularization in terms of the penalty term they apply to the coefficients (θ) and the resulting effect on the coefficient values.",
+      "reasoning": "Ridge Regression applies an L2 penalty (sum of squared coefficients, Σβ_j^2). This shrinks coefficients toward zero and gives small but non-zero values. Lasso Regression applies an L1 penalty (sum of absolute values of coefficients, Σ|β_j|). This encourages sparsity by driving some coefficients exactly to zero, effectively performing feature selection."
+    },
+    {
+      "id": "SA 23",
+      "topic": "Decision Trees",
+      "question": "Explain the purpose of the Gain Ratio criterion (C4.5) and why it was introduced as an improvement over the Information Gain (ID3) criterion.",
+      "reasoning": "The Information Gain criterion is biased towards attributes with a large number of values (e.g., a unique ID feature). The Gain Ratio (used in C4.5) was introduced to overcome this bias. It normalizes the Information Gain by the \"SplitInfo\" of the split itself (the entropy of the split), penalizing attributes that lead to many output nodes."
+    },
+    {
+      "id": "SA 24",
+      "topic": "Ensemble",
+      "question": "Describe two ways a Random Forest classifier introduces randomness during training and explain how it makes a final prediction.",
+      "reasoning": "Random Forest introduces randomness by: 1. Training each tree on a random bootstrap sample of the training data. 2. At each node split, considering only a random selection of features. The final prediction is made by combining decisions through a majority vote among all the individual decision trees."
+    },
+    {
+      "id": "SA 25",
+      "topic": "Ensemble",
+      "question": "How can Random Forest be used to rank features by importance?",
+      "reasoning": "Random Forest can rank features by importance by measuring the difference in the error (specifically, the out-of-bag error) between the original data and a version where the values of the feature being assessed are randomly permuted (\"scrambled\"). A larger increase in error when a feature is scrambled indicates higher importance."
+    },
+    {
+      "id": "SA 26",
+      "topic": "Ensemble",
+      "question": "What is the primary motivation for using ensemble methods? Provide two examples of ensemble methods.",
+      "reasoning": "The primary motivation for ensemble methods is to use a combination of models (weak learners) to increase overall accuracy and create an improved model M*. Two popular examples are Bagging (Bootstrap Aggregation) and Random Forest."
+    },
+    {
+      "id": "SA 27",
+      "topic": "Neural Nets",
+      "question": "What activation function in the perceptron gives us (a) linear regression, and (b) logistic regression?",
+      "reasoning": "(a) If the activation function is f(x)=x, the perceptron performs linear regression. (b) If the activation function is the logistic function (sigmoid function) g(z) = 1/(1 + e^(-z)), the perceptron performs logistic regression."
+    },
+    {
+      "id": "SA 28",
+      "topic": "k-NN",
+      "question": "What two important dimensions should be considered when comparing instance-based (lazy) learning versus model-based (eager) learning?",
+      "reasoning": "Two important dimensions to consider are (a) efficiency (time spent in training versus time spent in prediction) and (b) flexibility of decision boundaries."
+    },
+    {
+      "id": "SA 29",
+      "topic": "Evaluation",
+      "question": "Explain the necessity of using the t-test for statistical significance when comparing the performance of two classifiers (M_1 and M_2).",
+      "reasoning": "The mean error rates obtained from cross-validation are just estimates of the error on the true population. The t-test is necessary to test the Null Hypothesis (e.g., that M_1 and M_2 perform the same) to determine if the observed difference in error rates is statistically significant or simply attributed to chance."
+    },
+    {
+      "id": "SA 30",
+      "topic": "Evaluation",
+      "question": "Explain the fundamental difference between the Bias of an estimator and the Variance of an estimator.",
+      "reasoning": "Bias measures the difference between the expected prediction of the estimator, E[h(x)], and the true value, y, where we seek unbiased estimators where E[h(x)] = y. Variance measures the spread or variability of the predictions around the estimator's mean, E[(h(x) - E[h(x)])^2]."
+    }
+  ]
+}

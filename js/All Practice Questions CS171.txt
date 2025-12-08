@@ -1,0 +1,3545 @@
+﻿I apologize for the oversight in the numbering and continuity of the Short Answer questions in the previous response. Here is the complete and corrected list of 54 practice short answer questions, covering all necessary topics for your final exam.
+Practice Short Answer Questions (54 Questions Total)
+Topic 1: ML Introduction, Data, and Preprocessing (12 Questions)
+ID
+	Topic
+	Question
+	Reasoning
+	SA 1
+	ML Intro
+	Define Machine Learning (ML) using the framework involving performance, task, and experience.
+	ML is the study of algorithms that improve their performance at some task with experience.
+	SA 2
+	ML Intro
+	Explain the difference between supervised and unsupervised learning, providing one example of a task for each.
+	Supervised learning uses labeled examples to learn a model that generalizes to unseen examples (e.g., Classification). Unsupervised learning uses unlabeled data to learn a model that identifies structure in the data (e.g., Clustering).
+	SA 3
+	Data Stats
+	Describe the key statistical differences between a symmetric data distribution and a positively skewed distribution in terms of their mean, median, and mode.
+	In a symmetric distribution, the mean, median, and mode are approximately equal. In a positively skewed distribution, the mean is generally greater than the median, and the mode is typically the smallest measure (the distribution trails off towards larger values).
+	SA 4
+	Data Viz
+	Explain why correlation does not imply causation, drawing on a visualization concept discussed in the course.
+	Although good visualization helps correlations stand out, correlation $\neq$ causation. The Anscombe's Quartet showed that datasets can yield the same standard statistical summaries (like mean, variance, and regression coefficients) but look very different visually when plotted, highlighting that correlation alone does not prove a causal connection.
+	SA 5
+	Data Prep
+	Identify and briefly describe two data normalization methods used in data preprocessing, explaining the primary goal of each.
+	1. Min-max normalization: Scales values to a new specific range (e.g., $[0.0, 1.0]$). The primary goal is to bring data to a common range and ensure consistency, preventing larger range features from dominating computations. 2. Z-score normalization: Centers the data (subtracts the mean) and scales it (divides by the standard deviation). This standardizes the data distribution to avoid artifacts caused by a large mean or deviation affecting computations.
+	SA 6
+	Data Prep
+	Why is the Mean Squared Error (MSE) of an estimator typically high for simple models (underfitting) and high-complexity models (overfitting)? Relate your answer to the Bias-Variance Decomposition.
+	MSE (E[$(y - h(x))^2$]) can be decomposed into bias$^2$ + variance + unavoidable error. Simple models (underfitting) have high bias (due to being too simple). High-complexity models (overfitting) have high variance (being too sensitive to training noise). Both result in a high total error.
+	SA 7
+	Data Prep
+	Describe the Curse of Dimensionality, focusing on its impact on distance-based algorithms like k-NN.
+	The Curse of Dimensionality refers to the phenomenon where, as dimensionality increases, data becomes increasingly sparse. This causes density and distance between points to become less meaningful. For k-NN, this means the distance between neighbors can be dominated by irrelevant attributes, making it hard to effectively identify true nearest neighbors.
+	SA 8
+	Clustering
+	Explain the concepts of density-reachable and density-connected points in DBSCAN, and state which one is symmetric and why symmetry is important for cluster definition.
+	Density-reachable requires a chain of points where each successive point is directly density-reachable from a core point. This relationship is not symmetric. Density-connected is symmetric, stating that two points $p$ and $q$ are density-connected if there is a point $o$ from which both $p$ and $q$ are density-reachable. The symmetric notion of density-connectedness is necessary to properly define a cluster as a maximal set of density-connected points.
+	SA 9
+	Sampling
+	You are analyzing a data stream and need a representative sample of size $M$. Explain how Reservoir Sampling works and why it is preferable to simply taking the first $M$ items.
+	Reservoir Sampling is designed for data streams where the full size $N$ is unknown. It ensures that every item encountered has a uniform probability $M/N$ of being in the final sample. It is preferable because simply taking the first $M$ items would result in a potentially biased sample.
+	SA 10
+	Data Prep
+	Give an example scenario of data integration and explain the challenge of entity identification.
+	Data integration combines data from multiple sources. An example scenario is merging two customer databases where the same person is identified differently (e.g., "Bill Clinton" versus "William Clinton"). The entity identification/resolution challenge is recognizing that these different representations refer to the same real-world entity.
+	SA 11
+	Sampling
+	When and why is Stratified Sampling preferable to Simple Random Sampling?
+	Stratified sampling is preferable when the data is skewed or exhibits class imbalance. It partitions the data (e.g., by class) and draws proportional samples from each partition. This ensures proportional representation from every class/category, whereas simple random sampling may have very poor performance in the presence of skew.
+	SA 12
+	Data Dist
+	Define the Manhattan distance ($L_1$ norm) and the Euclidean distance ($L_2$ norm) using the general Minkowski distance formula, and explain what metric property helps reduce distance computations.
+	Manhattan distance is the $L_1$ norm ($p=1$), also called the city block distance. Euclidean distance is the $L_2$ norm ($p=2$). The distance measure is a metric if it satisfies Positive-definiteness, Symmetry, and the Triangle Inequality. The Symmetry property ($d(i, j) = d(j, i)$) can be exploited to reduce computations because not all pairs need to be computed twice. The Triangle Inequality can also be used to accelerate/approximate computations.
+	Topic 2: Supervised Learning Methods (18 Questions)
+ID
+	Topic
+	Question
+	Reasoning
+	SA 13
+	Linear Regr.
+	Outline the key steps of training Linear Regression using the Batch Gradient Descent (BGD) algorithm.
+	BGD starts with an initial guess for parameters $\theta$. It iteratively computes the gradient of the cost function $J(\theta)$ based on all training examples. It then updates the parameters $\theta_j$ simultaneously by taking a step proportional to the negative of the gradient scaled by the learning rate $\alpha$. This repeats until convergence.
+	SA 14
+	Gradient Desc.
+	Compare and contrast Stochastic Gradient Descent (SGD) and Batch Gradient Descent (BGD) based on computational cost per update and typical convergence behavior.
+	BGD looks at every example in the entire training set on every step, making it computationally expensive if the dataset is large. SGD updates parameters based on the gradient of a single training example, making it faster and more lightweight per update. SGD can start making progress right away, often getting $\theta$ close to the minimum faster than BGD, though it is generally more sensitive to the learning rate $\alpha$.
+	SA 15
+	Evaluation
+	Define overfitting in the context of supervised learning, explain why it is problematic, and mention one structural method to prevent it in decision trees.
+	Overfitting happens when the model fits almost perfectly the training data but may not be able to generalize to new unseen examples. It is problematic because it leads to poor accuracy for unseen samples. A method to prevent it in decision trees is Postpruning, which involves removing branches from a "fully grown" tree using a separate set of data to decide the best pruned tree.
+	SA 16
+	Naïve Bayes
+	Explain the main assumption of the Naïve Bayes classifier and discuss why, despite this known inaccuracy, the classifier is often effective in practice.
+	The main assumption is that features are conditionally independent given the class. This assumption is approximate and often inaccurate (as dependencies exist among variables in real data). However, the assumption simplifies computation significantly (allowing the calculation of $P(X
+	SA 17
+	Naïve Bayes
+	Describe the Zero Probability Problem in Naïve Bayes and the technique used to solve it.
+	The Zero Probability Problem occurs when a conditional probability $P(X_k
+	SA 18
+	k-NN
+	Explain the difference between Eager and Lazy learning methods, and provide an advantage of each.
+	Eager learning (e.g., Decision Trees) constructs a classification model (hypothesis) before receiving new test data. An advantage is less time spent in predicting/classification compared to lazy methods. Lazy learning (e.g., k-NN) simply stores the training data and delays processing until a test instance is given. An advantage is that lazy methods use a richer hypothesis space because they form an implicit global approximation using many local functions.
+	SA 19
+	SVM
+	Describe the core goal of Support Vector Machines (SVMs) and define the role of the support vectors.
+	The core goal is to find the linear decision boundary (hyperplane) that maximizes the margin (the distance between the boundary and the nearest training points). Maximizing the margin is equivalent to minimizing the magnitude of the weight vector $
+	SA 20
+	SVM
+	Explain the role of the Kernel Trick in enabling SVMs to handle non-linearly separable data.
+	The Kernel Trick allows SVMs to handle non-linearly separable data by implicitly mapping the data to a higher dimension (or feature space) where separation might become linear. Instead of performing this computationally hard transformation on the data, the kernel function $k(x_i, x_j)$ is substituted for the dot product ($\langle x_i, x_j \rangle$) in the dual optimization problem.
+	SA 21
+	Logistic Regr.
+	Describe how Logistic Regression is trained using maximum likelihood estimation. Why is the resulting update rule similar to the LMS rule for Linear Regression?
+	Logistic Regression is trained by maximizing the log-likelihood $\ell(\theta)$ of the observed data. Since it maximizes, it uses gradient ascent ($\theta := \theta + \alpha \nabla_\theta \ell(\theta)$). The resulting update rule for a single training example, $\theta_j := \theta_j + \alpha (y^{(i)} - h_\theta(x^{(i)})) x_j$, is identical in form to the LMS (Widrow-Hoff) learning rule for Linear Regression, although the hypothesis function $h_\theta(x)$ is non-linear.
+	SA 22
+	Regularization
+	Compare Ridge ($L_2$) and Lasso ($L_1$) regularization in terms of the penalty term they apply to the coefficients ($\theta$) and the resulting effect on the coefficient values.
+	Ridge Regression applies an $L_2$ penalty (sum of squared coefficients, $\sum \beta_j^2$). This shrinks coefficients toward zero and gives small but non-zero values. Lasso Regression applies an $L_1$ penalty (sum of absolute values of coefficients, $\sum
+	SA 23
+	Decision Trees
+	Explain the purpose of the Gain Ratio criterion (C4.5) and why it was introduced as an improvement over the Information Gain (ID3) criterion.
+	The Information Gain criterion is biased towards attributes with a large number of values (e.g., a unique ID feature). The Gain Ratio (used in C4.5) was introduced to overcome this bias. It normalizes the Information Gain by the "SplitInfo" of the split itself (the entropy of the split), penalizing attributes that lead to many output nodes.
+	SA 24
+	Ensemble
+	Describe two ways a Random Forest classifier introduces randomness during training and explain how it makes a final prediction.
+	Random Forest introduces randomness by: 1. Training each tree on a random bootstrap sample of the training data. 2. At each node split, considering only a random selection of features. The final prediction is made by combining decisions through a majority vote among all the individual decision trees.
+	SA 25
+	Ensemble
+	How can Random Forest be used to rank features by importance?
+	Random Forest can rank features by importance by measuring the difference in the error (specifically, the out-of-bag error) between the original data and a version where the values of the feature being assessed are randomly permuted ("scrambled"). A larger increase in error when a feature is scrambled indicates higher importance.
+	SA 26
+	Ensemble
+	What is the primary motivation for using ensemble methods? Provide two examples of ensemble methods.
+	The primary motivation for ensemble methods is to use a ** combination of models (weak learners)** to increase overall accuracy and create an improved model $M^*$. Two popular examples are Bagging (Bootstrap Aggregation) and Random Forest.
+	SA 27
+	Neural Nets
+	What activation function in the perceptron gives us (a) linear regression, and (b) logistic regression?
+	(a) If the activation function is $f(x)=x$, the perceptron performs linear regression. (b) If the activation function is the logistic function (sigmoid function) $g(z) = 1/(1 + e^{-z})$, the perceptron performs logistic regression.
+	SA 28
+	k-NN
+	What two important dimensions should be considered when comparing instance-based (lazy) learning versus model-based (eager) learning?
+	Two important dimensions to consider are (a) efficiency (time spent in training versus time spent in prediction) and (b) flexibility of decision boundaries.
+	SA 29
+	Evaluation
+	Explain the necessity of using the $t$-test for statistical significance when comparing the performance of two classifiers ($M_1$ and $M_2$).
+	The mean error rates obtained from cross-validation are just estimates of the error on the true population. The $t$-test is necessary to test the Null Hypothesis (e.g., that $M_1$ and $M_2$ perform the same) to determine if the observed difference in error rates is statistically significant or simply attributed to chance.
+	SA 30
+	Evaluation
+	Explain the fundamental difference between the Bias of an estimator and the Variance of an estimator.
+	Bias measures the difference between the expected prediction of the estimator, $\text{E}[h(x)]$, and the true value, $y$, where we seek unbiased estimators where $\text{E}[h(x)] = y$. Variance measures the spread or variability of the predictions around the estimator's mean, $\text{E}[(h(x) - \text{E}[h(x)])^2]$.
+	Topic 3: Unsupervised Learning Methods (19 Questions)
+ID
+	Topic
+	Question
+	Reasoning
+	SA 31
+	K-Means
+	Describe the goal of the K-means clustering algorithm and specify the distance measure and cluster representative used.
+	The goal is to partition a database $D$ into $K$ clusters such that the Sum of Squared Errors (SSE) is minimized. K-means uses the Euclidean distance and represents each cluster by its centroid (the mean of all points in the cluster).
+	SA 32
+	K-Means
+	Explain the Elbow Method (Knee Finding) used to estimate the optimal number of clusters $K$.
+	The Elbow Method plots the SSE (Sum of Squared Errors) as a function of $K$. As $K$ increases, SSE naturally decreases. The optimal $K$ is typically found at the point where diminishing returns are observed—where the error starts decreasing at a much slower rate, forming a "knee" or "elbow" in the curve.
+	SA 33
+	Evaluation
+	Define the Silhouette Coefficient and explain what its value indicates regarding the quality of clustering for a given object.
+	The Silhouette Coefficient is an intrinsic measure that quantifies the similarity of an object to objects within its own cluster (cohesion, $a(i)$) versus objects in other clusters (separation, $b(i)$). It ranges from -1 to 1. A score close to +1 indicates the object is well-clustered (high cohesion/good separation).
+	SA 34
+	K-Means
+	Explain why K-means clustering is generally considered highly sensitive to outliers, whereas K-medoids might be more robust.
+	K-means is sensitive to outliers because it uses the mean (centroid) as the cluster representative. Since the mean can be substantially distorted by extreme values (outliers), the resulting SSE will be dramatically increased. K-medoids uses the medoid (an actual data object minimizing average dissimilarity), which is inherently more robust to outliers than the mean.
+	SA 35
+	K-Medoids
+	Describe the key operational difference between K-means (Lloyd's algorithm) and K-medoids (PAM).
+	K-means is a heuristic method where the cluster center is the centroid (the mean, which may not be an actual data point). K-medoids (PAM) is a heuristic method where the cluster center is the medoid, which is an actual data object in the cluster.
+	SA 36
+	Evaluation
+	Define the constraints of Cluster Homogeneity and Cluster Completeness, and explain why they are considered fundamental restrictions for evaluation metrics.
+	Cluster Homogeneity requires that clusters should not mix items belonging to different categories (the purer, the better). Cluster Completeness requires that objects belonging to the same category should be grouped in the same cluster. They are considered the most basic restrictions that any evaluation metric must hold, referring to the goals of keeping same-category items together and different-category items apart.
+	SA 37
+	Hierarchical
+	Outline the two main operational differences between Agglomerative (AGNES) and Divisive (DIANA) hierarchical clustering approaches.
+	1. Direction: AGNES is bottom-up (starts with all points in separate clusters and merges them). DIANA is top-down (starts with all objects in one cluster and recursively splits them). 2. Operation: AGNES merges nodes with the least dissimilarity. DIANA splits clusters based on criteria, typically using greedy heuristics to reduce complexity instead of searching for the optimal split.
+	SA 38
+	Hierarchical
+	How is Single Linkage distance calculated between two clusters $K_i$ and $K_j$, and what effect does this method have on the resulting clusters?
+	Single Linkage distance is the smallest distance between an element in cluster $K_i$ and an element in cluster $K_j$. By focusing on local proximity, single linkage clustering tends to find clusters based on local similarities/patterns.
+	SA 39
+	Dim. Reduction
+	Describe the role of Matrix Factorization (e.g., using SVD) in Dimensionality Reduction, relating it to the Eckart Young Theorem.
+	SVD decomposes the data matrix $X$ into lower rank matrices, effectively projecting the data into a low-dimensional latent space. The Eckart Young Theorem guarantees that the truncated SVD (keeping the first $r$ singular vectors/values) provides the best rank $r$ approximation of the original data that minimizes the squared error.
+	SA 40
+	SVD
+	Explain how Latent Semantic Indexing (LSI) uses SVD to handle queries against a document collection.
+	LSI uses SVD to map documents and queries into a lower-dimensional "concept space". A query vector, initially in keyword space, is transformed into a "concept vector" in the LSI space by multiplying it by the SVD matrices derived from the term-document matrix. Similarity (e.g., cosine similarity) is then calculated in this reduced concept space.
+	SA 41
+	Data Dist
+	In the context of clustering, explain why the Jaccard similarity coefficient is preferred over the Simple Matching Coefficient (SMC) when comparing highly asymmetric binary attributes (e.g., two customer shopping carts).
+	The SMC is suitable for symmetric binary attributes. For highly asymmetric data (where most items are $0/0$ matches), the SMC would be overwhelmed by the vast number of non-contained items (null entries), resulting in an artificially high, irrelevant similarity. The Jaccard similarity coefficient ignores $0/0$ matches and focuses only on shared presence and total presence (non-zero entries), making it suitable for asymmetric data.
+	SA 42
+	Advanced Unsup.
+	Describe the architecture and primary function of an Autoencoder.
+	An Autoencoder is a neural network used for dimensionality reduction. It follows a general Encoder/Decoder architecture. The Encoder maps the high-dimensional input to a low-dimensional representation (the bottleneck layer), and the Decoder attempts to reconstruct the original input from that low-dimensional representation.
+	SA 43
+	Evaluation
+	Explain the purpose of the Hopkins Statistic and what a value close to 1 indicates.
+	The Hopkins Statistic is used to assess clustering tendency (if non-random structure exists in the data). It measures how far away the data distribution is from being uniformly distributed. If the statistic $H$ is close to 1, it suggests the data is highly clustered.
+	SA 44
+	Neural Nets
+	Why are Convolutional Neural Networks (CNNs) generally more efficient to train for image tasks than traditional fully-connected Multi-layer Perceptrons?
+	CNNs are more efficient because they drastically reduce the number of parameters compared to fully-connected layers. This parameter reduction occurs because convolutional filters share weights across spatial locations, whereas a fully connected layer would require a weight for every input unit connected to every output unit.
+	SA 45
+	Adv. Unsup.
+	Describe the goal of Collaborative Filtering and how Matrix Factorization is used to achieve this goal.
+	The goal of Collaborative Filtering is to recommend new items based on a user’s viewing or rating pattern (e.g., recommend new movies). Matrix Factorization approximates the User-Item interaction matrix $X$ as $X \approx U V^T$, where $U$ and $V$ hold low-rank representations of users and items, respectively. Predictions for unseen ratings are made by calculating the dot product of the corresponding user and item latent factor vectors.
+	SA 46
+	DBSCAN
+	In the context of DBSCAN, explain what a point labeled as "noise" means.
+	A point labeled as "noise" is a point that is not a core point (does not meet the $MinPts$ condition in its $Eps$-neighborhood) and is not density-reachable from any core point. Such points are considered potential outliers.
+	SA 47
+	Evaluation
+	Describe the process of using crowdsourcing (Human Intelligence Tasks/HITs) to evaluate the quality of topics learned by a Topic Model (Extrinsic Evaluation).
+	This involves tasks like Word Intrusion or Topic Intrusion. Human judges are given a set of words/topics (e.g., extracted by the model) and are asked to detect an injected intruder word or topic. If judges can successfully detect the intruder, it indicates that the learned topics are coherent and of good quality.
+	SA 48
+	Supervised
+	Why is Naive Bayes classification considered a generative model, while Logistic Regression is considered a discriminative model?
+	Naive Bayes is a generative model because it learns the joint probability distribution by modeling **$P(X
+	SA 49
+	Hierarchical
+	Explain why using Single Linkage hierarchical clustering is mathematically equivalent to solving the Minimum Spanning Tree (MST) problem.
+	It has been shown that the two problems are equivalent. The definition of distance in Single Linkage (minimum distance between elements in two clusters) links points based on the same local proximity criteria used to connect vertices with minimal weight edges to construct the Minimum Spanning Tree.
+	Topic 4: Frequent Pattern Mining & Association Rules (5 Questions)
+ID
+	Topic
+	Question
+	Reasoning
+	SA 50
+	Freq. Patterns
+	Outline the purpose of Max-Patterns and explain why mining them is preferable to mining all frequent itemsets when the minimum support threshold is low.
+	Max-Patterns are frequent itemsets $X$ for which no frequent superset $Y \supset X$ exists. When the minimum support ($\text{minsup}$) is low, there can be an exponential number of frequent itemsets. Mining max-patterns significantly reduces the number of patterns and rules needed to represent the data, addressing the combinatorial complexity.
+	SA 51
+	Freq. Patterns
+	Define the Apriori Property (Anti-monotonicity) of frequent patterns and explain its role in the Apriori algorithm.
+	The Apriori Property states that any subset of a frequent itemset must also be frequent. Its role is the pruning principle: if an itemset fails to be frequent (is not "large"), then all of its supersets must also be infrequent, allowing the algorithm to avoid generating or testing those supersets, thus speeding up the search.
+	SA 52
+	Freq. Patterns
+	Define Lift and explain what values of Lift $> 1$, Lift $= 1$, and Lift $< 1$ indicate.
+	Lift measures the correlation between two itemsets $A$ and $B$, calculated as $\text{Lift} = \frac{P(A \cup B)}{P(A) P(B)}$. If Lift $= 1$, $A$ and $B$ are independent; if Lift $> 1$, they are positively correlated; and if Lift $< 1$, they are negatively correlated.
+	SA 53
+	Freq. Patterns
+	Why is the property of Null Invariance important for an association rule interestingness measure, and why do simple measures like Lift often fail to satisfy it?
+	Null Invariance is the property that a measure's value does not change based on the number of transactions containing neither item ("null transactions"). It is important because it ensures the measure is stable and not sensitive to fluctuations in the total number of transactions. Lift fails to satisfy this property, which means it can be misleading (e.g., suggesting a rule is strong when it may be neutral).
+	SA 54
+	Freq. Patterns
+	What is the distinction between (relative) support and confidence for an association rule $X \to Y$?
+	(Relative) Support ($s$) is the fraction of transactions that contain both $X$ and $Y$ ($X \cup Y$), representing the probability $P(X \cup Y)$. Confidence ($c$) is the conditional probability that a transaction contains $Y$ given that it contains $X$, representing $P(Y
+	This comprehensive set of practice questions continues the preparation for your final exam, covering the breadth of the course material, organized by topic, ensuring coverage of key concepts and details necessary for your final exam.
+Practice True/False Questions (Continuation: T/F 511-570)
+Topic 9: Frequent Pattern Mining & Association Rules (Continuation)
+ID
+	Topic
+	Question
+	Answer
+	Reasoning
+	T/F 511
+	Freq. Patterns
+	When generating candidate $k$-itemsets from $L_{k-1}$ in the Apriori algorithm, the initial self-joining step is followed by a pruning step that removes itemsets whose proper subsets are already known to be frequent.
+	False
+	The pruning step removes candidate itemsets whose proper subsets are not found in $L_{k-1}$, based on the anti-monotonicity property.
+	T/F 512
+	Freq. Patterns
+	The confidence of an association rule $X \to Y$ is not a reliable indicator of correlation because it ignores the support of $Y$.
+	False
+	Confidence is unreliable because it does not take into account the prior probability $P(Y)$, meaning $Y$ might be frequent regardless of $X$.
+	T/F 513
+	Freq. Patterns
+	If we observe Lift $= 0.5$ for the rule $A \to B$, this suggests that customers buying $A$ are less likely to buy $B$ than the general population.
+	True
+	Lift $< 1$ indicates a negative correlation, meaning $P(B
+	T/F 514
+	Freq. Patterns
+	Swap Randomization is primarily used to assess whether a data mining result is surprising by generating random datasets that maintain the original matrix's marginal distributions (row and column sums).
+	True
+	Swap randomization creates random datasets maintaining row and column sums (margins) to test significance against randomness.
+	T/F 515
+	Freq. Patterns
+	A key purpose of mining Max-Patterns is to ensure that all frequent itemsets, regardless of length, are found efficiently.
+	False
+	Max-Patterns aim to reduce the massive number of frequent itemsets by returning only those frequent patterns that have no frequent superset.
+	T/F 516
+	Freq. Patterns
+	The process of generating strong association rules involves iterating through all possible subsets of frequent itemsets and calculating their confidence against a minimum confidence threshold.
+	True
+	For each frequent itemset, all non-empty subsets are generated, and confidence is computed to output rules above the confidence threshold.
+	T/F 517
+	Freq. Patterns
+	The Apriori algorithm's efficiency relies heavily on the assumption that itemsets must be kept in a specific (e.g., alphabetical) canonical order to avoid generating and counting redundant itemsets.
+	True
+	If the item ordering is not preserved (e.g., alphabetical order), the algorithm may end up counting redundant itemsets.
+	T/F 518
+	Freq. Patterns
+	The standard join step in Apriori combines two frequent $k$-itemsets if they agree on their first $k-2$ elements.
+	False
+	Two itemsets of size $k$ can be joined if they agree on their first $k-1$ elements to form a candidate itemset of size $k+1$ (or generally, two itemsets of size $i-1$ are joined if they agree on their first $i-2$ elements to form a candidate of size $i$),.
+	T/F 519
+	Freq. Patterns
+	The Kulczynski measure generally prefers patterns where the presence of one item strongly implies the presence of the other (balanced patterns).
+	False
+	Kulczynski tends to favor skewed patterns (e.g., advisor-advisee relationships).
+	T/F 520
+	Freq. Patterns
+	Both lift and the $\chi^2$ test are insensitive to null transactions (transactions containing neither item in the rule).
+	False
+	Lift and $\chi^2$ are not null invariant and can be misleading,.
+	Topic 10: Advanced Unsupervised & Dimensionality Reduction (25 Questions)
+ID
+	Topic
+	Question
+	Answer
+	Reasoning
+	T/F 521
+	Dim. Reduction
+	PCA finds a projection that captures the largest amount of variation in the data and is applicable only to numeric data.
+	True
+	PCA finds a projection that captures the largest amount of variation in data, and works for numeric data only.
+	T/F 522
+	Dim. Reduction
+	The SVD of a data matrix $X = U \Sigma V^T$ requires that the singular values $\Sigma$ are arranged in ascending order.
+	False
+	The singular values $\sigma_i$ are non-negative and are typically sorted in descending order.
+	T/F 523
+	Dim. Reduction
+	The Eckart Young Theorem states that the full SVD decomposition is the best possible approximation of the data matrix $X$.
+	False
+	The Eckart Young Theorem guarantees that the truncated SVD approximation is the best rank $r$ approximation that minimizes the squared error,,.
+	T/F 524
+	Dim. Reduction
+	When using SVD for dimensionality reduction in k-NN, the training data must be decomposed, and the test data must be centered using the training mean before projection.
+	True
+	We only decompose the training data, and the test data points must be projected to the SVD space using the factor matrix that corresponds to the features,.
+	T/F 525
+	Dim. Reduction
+	Latent Semantic Indexing (LSI) uses SVD to map documents and queries into a higher-dimensional semantic space.
+	False
+	LSI maps them into a lower-dimensional "concept space".
+	T/F 526
+	NMF/Autoencoder
+	Non-Negative Matrix Factorization (NMF) requires that the decomposed matrices $U$ and $V$ contain only positive or zero elements, which aids in interpretability for "sum-of-parts" representation.
+	True
+	NMF requires $U, V$ to be element-wise $\geq 0$ and is good for "sum-of-parts" representation.
+	T/F 527
+	NMF/Autoencoder
+	An Autoencoder is an example of a neural network used for supervised classification when the output layer is set to the same size as the input layer.
+	False
+	An Autoencoder is primarily used for dimensionality reduction (unsupervised) by predicting its own input data,.
+	T/F 528
+	K-NN/SVD
+	In Assignment 2, the K-NN accuracy typically performed worst when the SVD approximation rank ($r$) was set to $r=1$.
+	True
+	The model generally does not perform as well with just one dimension compared to 2 or 3 components.
+	T/F 529
+	K-NN/SVD
+	Using SVD for dimensionality reduction in k-NN requires centering the training data but not the test data before projection.
+	False
+	The training data is centered, and the test data must also be centered (using the training mean) before projection onto the reduced space.
+	T/F 530
+	K-Means
+	The time complexity of the K-means algorithm (Lloyd's algorithm) is $O(tkn)$, which is generally efficient because $k$ (number of clusters) and $t$ (iterations) are usually much smaller than $n$ (number of objects).
+	True
+	K-means is efficient with complexity $O(tkn)$, where $k, t \ll n$.
+	T/F 531
+	K-Means
+	The K-means cost function (SSE) is guaranteed to decrease or stay the same in every iteration until convergence to a global optimum.
+	False
+	The SSE decreases or stays the same until convergence to a local optimum.
+	T/F 532
+	K-Medoids
+	K-medoids clustering uses the medoid, defined as the data object whose average dissimilarity to all objects in the cluster is minimal, making it an actual data object.
+	True
+	The medoid is an actual data object whose average dissimilarity to all objects in the cluster is minimal.
+	T/F 533
+	Hierarchical
+	Divisive hierarchical clustering typically employs a computationally expensive strategy of exhaustively checking all possible ways to split a cluster into two.
+	False
+	Finding the optimal split is expensive, so divisive methods like DIANA use greedy heuristics for partitioning to reduce complexity.
+	T/F 534
+	Hierarchical
+	AGNES (Agglomerative Nesting) uses a bottom-up approach, starting with all points as individual clusters and recursively merging the two clusters with the maximum distance.
+	False
+	AGNES merges nodes with the least dissimilarity (minimum distance).
+	T/F 535
+	DBSCAN
+	If a point $q$ is a border point in DBSCAN, it must satisfy the core point condition.
+	False
+	A border point is density-reachable from a core point but does not satisfy the core point condition.
+	T/F 536
+	DBSCAN
+	DBSCAN's "density-reachable" property is symmetric, which is crucial for defining a cluster as a maximal set of density-connected points.
+	False
+	"Density-reachable" is not symmetric because the starting point must be a core point.
+	T/F 537
+	Evaluation
+	The Hopkins Statistic provides a measure of how well separated the discovered clusters are (cohesion vs separation).
+	False
+	The Silhouette Coefficient measures cohesion vs. separation. The Hopkins Statistic assesses if non-random structure exists (clustering tendency).
+	T/F 538
+	Evaluation
+	When using the Elbow Method (Knee Finding), one plots the average Silhouette coefficient against $K$ to find the optimal number of clusters.
+	False
+	The Elbow Method plots the SSE (Sum of Squared Errors) against $K$.
+	T/F 539
+	Evaluation
+	Extrinsic clustering evaluation methods require the availability of ground truth labels for comparison.
+	True
+	Extrinsic (supervised) methods compare a clustering against the ground truth.
+	T/F 540
+	Evaluation
+	The two basic constraints required for any clustering evaluation metric are Cluster Homogeneity (clusters shouldn't mix categories) and Cluster Completeness (same category items go together).
+	True
+	Homogeneity and Completeness are the most basic restrictions any evaluation metric must hold,.
+	T/F 541
+	Freq. Patterns
+	The $L_0$ "pseudonorm" (counting non-zero entries) is often relaxed using $L_1$ regularization because optimizing for $L_0$ is computationally hard.
+	True
+	$L_1$ norm is a convex relaxation of the $L_0$ pseudonorm, which is very computationally hard to optimize.
+	T/F 542
+	Regularization
+	Ridge regression ($L_2$ penalty) is often preferred over Lasso ($L_1$ penalty) because it guarantees a sparse solution where many coefficients are exactly zero.
+	False
+	Lasso ($L_1$) encourages sparsity (exactly zero coefficients); Ridge ($L_2$) typically yields small but non-zero values,.
+	T/F 543
+	Supervised
+	The Perceptron performs linear regression if the activation function is the sigmoid function.
+	False
+	Perceptron performs linear regression if activation is $f(x)=x$, and performs logistic regression if activation is sigmoid.
+	T/F 544
+	Supervised
+	When evaluating a classifier using a Precision-Recall (PR) curve, increasing the classification probability threshold generally results in higher precision and lower recall.
+	True
+	A higher threshold means greater confidence, resulting in higher precision and lower recall.
+	T/F 545
+	Logistics
+	The final exam contributes $20%$ to the overall grade.
+	False
+	The final exam contributes $35%$ of the grade.
+	Topic 11: Miscellaneous Advanced Concepts, Evaluation, and Logistics (25 Questions)
+ID
+	Topic
+	Question
+	Answer
+	Reasoning
+	T/F 546
+	Freq. Patterns
+	Null invariance is a desirable property for interestingness measures because it ensures the measure is sensitive to fluctuations in the total number of transactions.
+	False
+	Null invariance means the measure value does not change with the number of null transactions, offering stability against total transaction fluctuations.
+	T/F 547
+	Logistic Regression
+	Since the decision boundary of Logistic Regression is defined by $\theta^T x > 0$, the resulting boundary is necessarily linear in the feature space $X$.
+	True
+	The decision rule for $Y=1$ leads to a condition that defines a linear decision boundary.
+	T/F 548
+	Evaluation
+	In $k$-fold cross-validation, the portion of data used for testing (the size of one fold) changes in size in each iteration.
+	False
+	The data is partitioned into $k$ mutually exclusive subsets of approximately equal size, so the size of the test set remains approximately constant.
+	T/F 549
+	Evaluation
+	The F-score is calculated as the arithmetic mean of precision and recall.
+	False
+	The F-score is the harmonic mean of precision and recall.
+	T/F 550
+	Clustering
+	The time complexity of K-medoids (PAM algorithm) does not scale well for large datasets because it checks all substitutions of medoids with non-medoids at every iteration.
+	True
+	PAM does not scale well for large data sets because it checks all substitutions of medoids with non-medoids at every iteration.
+	T/F 551
+	Datasets
+	For the Iris dataset used in the assignments, the pair of features (petal length, sepal width) showed high visual separability of the classes.
+	True
+	The pair (petal length, sepal width) was recalled from Assignment 1 as showing high visual separability.
+	T/F 552
+	Regression
+	If the learning rate $\alpha$ in Gradient Descent is too small, the algorithm may converge quickly but may also miss the minimum.
+	False
+	A small $\alpha$ leads to slow convergence.
+	T/F 553
+	Regression
+	The probabilistic interpretation of Linear Regression that uses the Least Mean Squares objective function assumes that the error term $\epsilon^{(i)}$ is IID according to a Bernoulli distribution.
+	False
+	It assumes the error term $\epsilon^{(i)}$ is IID according to a Gaussian distribution (Normal distribution).
+	T/F 554
+	Decision Trees
+	Decision Tree induction uses a basic (greedy) algorithm to recursively split the training data based on feature-based criteria.
+	True
+	Decision tree training follows a generally greedy procedure,.
+	T/F 555
+	Decision Trees
+	Decision trees cannot handle numerical features and must discretize them first.
+	False
+	Decision trees can handle continuous-valued attributes by determining the best split point (midpoint).
+	T/F 556
+	Lazy Learning
+	Instance-based learning (lazy learning) may be faster than model-based learning (eager learning) during training because it simply stores the data until classification.
+	True
+	Lazy methods spend less time in training but more time in predicting,.
+	T/F 557
+	K-NN
+	When using k-NN, if a distance function satisfies the properties of a metric, the Symmetry property can be used to accelerate computations.
+	True
+	The Symmetry property $d(i, j) = d(j, i)$ can be exploited to reduce computations,.
+	T/F 558
+	Data Types
+	The Boxplot summarizes the following quantities: Min, Q1, Q2 (50th percentile), Q3 (75th percentile), and Max.
+	True
+	The five-number summary consists of min, Q1, median (Q2), Q3, max,.
+	T/F 559
+	Data Reduction
+	Dimensionality reduction typically refers to the reduction of the number of data points (samples) in a dataset.
+	False
+	Dimensionality reduction reduces the number of features/attributes,.
+	T/F 560
+	Evaluation
+	For the Iris dataset in Assignment 3, increasing the number of clusters $K$ from 2 to 5 typically causes the mean SSE to increase due to diminishing returns.
+	False
+	As $K$ increases, the error naturally decreases.
+	T/F 561
+	Evaluation
+	The Bias-Variance Tradeoff shows that if a model is too simple for a task, we run the risk of underfitting, characterized by high bias.
+	True
+	Underfitting occurs when the model is too simple, associated with high bias,,.
+	T/F 562
+	Dimensionality
+	PCA and t-SNE are generally useful for dimensionality reduction regardless of whether the dataset has a very large number of features (e.g., > 1000).
+	False
+	PCA and t-SNE can be used regardless of whether the data has $>1000$ features.
+	T/F 563
+	Data Prep
+	Z-score normalization involves centering (by subtracting the mean) and scaling (by dividing by the standard deviation) the variable.
+	True
+	Z-score normalization uses mean subtraction (centering) and division by standard deviation (scaling),.
+	T/F 564
+	Data Prep
+	The Haar wavelet transform has a time complexity of $O(N \log N)$, similar to the Fast Fourier Transform.
+	False
+	Haar Wavelet decomposition has complexity $O(N)$, which is more efficient than the Fast Fourier Transform $O(N \log N)$.
+	T/F 565
+	Visualization
+	A boxplot can usually show whether a variable follows a unimodal or multimodal distribution pattern.
+	False
+	A boxplot cannot show if a variable follows a unimodal or multimodal distribution; histograms are needed for this,.
+	T/F 566
+	Logistics
+	If a student uses an existing library call from Scikit-learn that performs the entire required operation for an assignment, this is acceptable as long as they cite the source.
+	False
+	Students must implement methods from scratch, and may not use existing library calls that basically perform the operation requested.
+	T/F 567
+	Logistics
+	The grading scheme assigns 20% to the midterm and 35% to the final exam.
+	True
+	Midterm exam is 20%; Final exam is 35%.
+	T/F 568
+	Logistics
+	Missing the mandatory short video walkthrough for a coding assignment will result in a 5% grade reduction on the assignment component.
+	False
+	If the video walkthrough is missing, the entire assignment component will not be graded.
+	T/F 569
+	Logistics
+	When communicating with the TAs regarding course questions, students should primarily use email for quick responses.
+	False
+	Students should use Canvas for questions to the TA.
+	T/F 570
+	Classification
+	The goal of supervised learning is to learn a mapping between a data point and a target variable, such that this mapping generalizes to data we have seen during training.
+	False
+	The mapping must generalize to unseen examples,.
+	Practice Short Answer Questions (Continuation: Questions 20-50)
+Topic 5: Frequent Pattern Mining & Association Rules (5 Questions)
+20. Explain the difference between Support and Confidence measures for an association rule $X \to Y$ using probability notation.
+
+   * Reasoning: Support ($s$) measures how frequently $X$ and $Y$ occur together in the dataset, calculated as the probability $P(X \cup Y)$,. Confidence ($c$) measures the conditional probability that a transaction contains $Y$ given that it contains $X$, calculated as $P(Y|X)$,.
+   21. Why might the rule "Buy coffee $\to$ buy milk" be found as a frequent rule with high confidence, yet be considered misleading or uninteresting?
+
+      * Reasoning: This rule can be misleading because Support and Confidence are not good measures to indicate correlations. It might be frequent/high confidence if $P(\text{Milk})$ is very high overall (high prior probability), even if $P(\text{Milk}|\text{Coffee})$ is not significantly higher than $P(\text{Milk})$ alone. If, for example, 85% of customers buy milk, and the rule confidence is 80%, the rule suggests a negative or neutral correlation,.
+      22. What does it mean for a measure of interestingness to be Null Invariant, and why is this a desirable property?
+
+         * Reasoning: Null Invariance means that the measure's value does not change with the number of transactions that contain neither of the items we are interested in (null transactions). This is desirable because total transaction numbers fluctuate daily, and Null Invariance guarantees stability in the measure and ensures the measure is not sensitive to total transaction fluctuations.
+         23. Describe the function of the Apriori pruning step, citing the underlying property that makes it work.
+
+            * Reasoning: The Apriori pruning step ensures that if any itemset is found to be infrequent (fails to be 'large'), all of its supersets should not be generated or tested. This is based on the Apriori Property (Anti-monotonicity), which states that any subset of a frequent itemset must be frequent.
+            24. When comparing two itemsets, $A$ and $B$, why is the Jaccard similarity (Coherence) said to prefer balanced patterns while the Kulczynski measure favors skewed patterns?
+
+               * Reasoning: In the context of frequent patterns, Coherence (Jaccard) prefers balanced patterns (e.g., two comparable collaborators), while Kulczynski tends to favor skewed patterns (e.g., advisor-advisee relationships).
+Topic 6: Unsupervised Learning (Clustering) (10 Questions)
+               25. Outline the steps of the K-means clustering algorithm (Lloyd's algorithm) until convergence.
+
+                  * Reasoning: 1. Initialization: Pick $K$ points at random and set them as initial centroids,. 2. Assignment: Assign each data point to the nearest centroid (according to Euclidean distance),. 3. Update: Compute new cluster centroids as the mean of all points assigned to that cluster,. 4. Repeat: Iterate steps 2 and 3 while cluster assignments don't change or until a convergence criterion (like minimal SSE change) is met,.
+                  26. Explain what the SSE (Sum of Squared Errors) measures in K-means and how the algorithm minimizes it.
+
+                     * Reasoning: SSE measures the total error of approximating every data point by its assigned centroid,. It is defined as the sum of squared Euclidean distances between each point and its assigned centroid. K-means minimizes SSE using alternating optimization, where subsequent assignments and mean calculations ensure the SSE decreases or stays the same in every iteration,.
+                     27. Describe K-means++ initialization and explain why it is an improvement over simple random initialization.
+
+                        * Reasoning: K-means++ chooses the initial centroids such that subsequent centroids are far away from already chosen centroids. It starts by choosing a random point as $c_1$. It then selects the next centroid $c_2$ with probability proportional to the squared distance $D(x_j, c_1)^2$. This method helps avoid poor local optima resulting from simple random placement.
+                        28. Explain two limitations of the K-means clustering algorithm.
+
+                           * Reasoning: 1. K-means is sensitive to noisy data and outliers because the mean (centroid) can be substantially distorted by extreme values. 2. It requires specifying $K$ (the number of clusters) in advance. 3. It is only applicable to objects in a continuous n-dimensional space.
+                           29. When performing hierarchical clustering, compare Single Linkage and Complete Linkage in terms of how distance between clusters is defined.
+
+                              * Reasoning: Single Linkage computes the distance between two clusters based on the smallest distance (minimum pairwise distance) between an element in one cluster and an element in the other, tending to find local patterns,. Complete Linkage computes the distance based on the largest distance between elements, tending to find clusters based on global proximities,.
+                              30. What is the goal of density-based clustering methods like DBSCAN, and what two parameters do they require?
+
+                                 * Reasoning: The motivation is to discover clusters of arbitrary shapes and handle noise. DBSCAN requires two parameters: Eps (Maximum radius of the neighborhood) and MinPts (Minimum number of points in an Eps-neighborhood).
+                                 31. Explain the meaning of a core point and a border point in DBSCAN.
+
+                                    * Reasoning: A core point is a point $q$ whose Eps-neighborhood contains at least $MinPts$ number of points. A border point is a non-core point that is density-reachable from a core point but does not satisfy the core point condition.
+                                    32. Describe two different ways to determine the optimal number of clusters $K$ when ground truth labels are unavailable.
+
+                                       * Reasoning: 1. Elbow Method (Knee Finding): Plot the SSE (Sum of Squared Errors) versus $K$. The optimal $K$ is suggested where the decrease in SSE shows diminishing returns (the "knee" of the curve),. 2. Silhouette Coefficient: Calculate the average Silhouette Coefficient for different values of $K$. The value of $K$ that maximizes the Silhouette Coefficient (which measures cohesion vs. separation) often indicates good clustering quality.
+                                       33. Define Cluster Homogeneity and Cluster Completeness, and explain why they are considered fundamental restrictions for evaluation metrics.
+
+                                          * Reasoning: Cluster Homogeneity requires that clusters should not mix items belonging to different categories (the purer, the better),. Cluster Completeness requires that items belonging to the same category should be grouped in the same cluster,. These are the two most basic restrictions any clustering evaluation metric must hold.
+                                          34. Why is the optimal solution for K-means clustering considered NP-Hard?
+
+                                             * Reasoning: Finding the optimal partition of $N$ objects into $K$ clusters such that the SSE is globally minimized is an NP-Hard problem. This is because exhaustively enumerating all possible partitions is computationally infeasible. K-means uses a heuristic method (Lloyd's algorithm) to find a local optimum instead,.
+Topic 7: Advanced Unsupervised Techniques (10 Questions)
+                                             35. Explain the significance of the Eckart Young Theorem in the context of dimensionality reduction using SVD.
+
+                                                * Reasoning: The SVD decomposes the data matrix $X$. The Eckart Young Theorem guarantees that if we choose to keep only the first $r$ singular vectors and values (truncated SVD), the resulting matrix reconstruction $X_r$ is the best rank $r$ approximation of the original data matrix $X$ that minimizes the squared error,,.
+                                                36. Contrast the underlying principles of PCA/SVD versus Non-Negative Matrix Factorization (NMF) in terms of constraints and interpretability.
+
+                                                   * Reasoning: PCA/SVD factors a matrix without explicit sign constraints, seeking maximum variance captured,. NMF enforces the constraint that the resulting factor matrices ($U$ and $V$) must be element-wise non-negative ($\ge 0$). This constraint aids in interpretation, often resulting in a clear "sum-of-parts" representation.
+                                                   37. Describe the architecture and primary function of an Autoencoder.
+
+                                                      * Reasoning: An Autoencoder is a neural network model used for dimensionality reduction (an unsupervised task),. Its architecture features an Encoder that maps high-dimensional input to a low-dimensional latent projection, and a Decoder that reconstructs the input from this projection, effectively forcing the network to learn a compressed representation.
+                                                      38. In the context of the K-NN assignment (Assignment 2), explain the critical steps required to apply SVD for dimensionality reduction to both training and test data.
+
+                                                         * Reasoning: 1. The training data must be centered (mean subtracted). 2. SVD is computed only on the centered training data,,. 3. The test data must also be centered using the mean calculated from the training data. 4. Both sets are then projected into the lower $r$-dimensional space using the appropriate truncated $V^T$ matrix (the right singular vectors).
+                                                         39. How does Collaborative Filtering typically utilize matrix factorization to make predictions?
+
+                                                            * Reasoning: Matrix Factorization approximates the User-Item matrix $X$ as $X \approx U V^T$, where $U$ holds user latent factors and $V$ holds item latent factors. To predict an unknown rating, the model calculates the dot product of the corresponding user latent factor vector and item latent factor vector.
+                                                            40. Explain the purpose of Co-clustering (or Biclustering) and provide an example of where it is used.
+
+                                                               * Reasoning: Co-clustering groups rows and columns simultaneously in a matrix. It is used to find dense, coherent submatrices or blocks. An example application is in biological data analysis (e.g., Gene Expression data), where co-clusters might correspond to different types of cancer.
+                                                               41. Define the three properties required for a distance function to be considered a metric, and specify which one helps reduce computation.
+
+                                                                  * Reasoning: The three properties are: 1. Positive-definiteness: $d(i, j) > 0$ if $i \neq j$, and $d(i, i) = 0$. 2. Symmetry: $d(i, j) = d(j, i)$. 3. Triangle Inequality: $d(i, j) \leq d(i, k) + d(k, j)$. The Symmetry property can be exploited to reduce computations.
+                                                                  42. Describe how the Local Outlier Factor (LOF) algorithm determines which points are considered outliers.
+
+                                                                     * Reasoning: LOF assigns an "outlier score" based on a tradeoff between local density and how far away a point is from a dense neighborhood. A point is considered a local outlier if its local density is relatively low compared to the local densities of its $k$ nearest neighbors.
+                                                                     43. What is the significance of the high value in the Fourier domain when analyzing data treated as a signal?
+
+                                                                        * Reasoning: The highest value in the Fourier domain corresponds to the main periodicity present in the data,,.
+                                                                        44. In the context of fraud detection using graphs, what structure are SVD and matrix factorization often used to detect?
+
+                                                                           * Reasoning: SVD and matrix factorization are used to detect dense blocks (or bipartite cores) in the graph's adjacency matrix, which often correspond to highly fraudulent activity.
+Topic 8: Advanced Supervised Learning & Evaluation (6 Questions)
+                                                                           45. Explain the core idea of Bagging (Bootstrap Aggregation) and how it combines the decisions of multiple classifiers.
+
+                                                                              * Reasoning: Bagging involves creating multiple training sets ($D_i$) by sampling with replacement (bootstrapping) from the original dataset $D$,. A separate classifier ($M_i$) is learned for each $D_i$. The final decision is reached by majority vote among the predictions of all individual classifiers.
+                                                                              46. How does SMOTE address the class imbalance problem in training data?
+
+                                                                                 * Reasoning: SMOTE (Synthetic Minority Oversampling Technique) addresses imbalance by oversampling the minority class through generating synthetic data points,. It achieves this by finding $k$ nearest neighbors of minority examples and generating new, synthetic data points along the lines connecting these neighbors.
+                                                                                 47. Define Transfer Learning and provide an example scenario where it would be beneficial (e.g., using a deep network).
+
+                                                                                    * Reasoning: Transfer Learning extracts knowledge learned from one or more source tasks and applies that knowledge to a target task. In deep learning, a network trained on a large dataset (which learned a nice set of features) can have its final classification layer substituted and retrained for a new problem with limited data.
+                                                                                    48. Describe LIME (Local Interpretable Model-Agnostic Explanations) and its approach to explaining a black-box model's prediction.
+
+                                                                                       * Reasoning: LIME aims to locally approximate a complicated "black box" model (like a complex Neural Network) with a linear, interpretable model. It then uses this local linear model to explain the black box's local decision for a specific data point.
+                                                                                       49. Explain why a $t$-test is required for statistical significance when comparing the mean error rates of two classifiers ($M_1$ and $M_2$) obtained via cross-validation.
+
+                                                                                          * Reasoning: The mean error rates are estimates, and the $t$-test is used to determine if the observed difference is statistically significant or if it is merely attributed to chance,. It operates by testing the Null Hypothesis (that the two classifiers perform the same),.
+                                                                                          50. In the context of the Bias-Variance Tradeoff, describe the typical characteristics of underfitting (simple model) versus overfitting (complex model) regarding bias and variance.
+
+                                                                                             * Reasoning: Underfitting (simple model) is characterized by high bias and low variance,,. Overfitting (complex model) is characterized by low bias but high variance,.
+Practice True/False Questions (570 Questions Total)
+Topic 1: Introduction, Logistics, and Data Types (55 Questions)
+ID
+	Topic
+	Question
+	Answer
+	Reasoning
+	T/F 1
+	Logistics
+	The final exam contributes 20% to the overall grade, matching the weight of the midterm exam.
+	False
+	The final exam contributes 35% of the grade, while the midterm contributes 20%.
+	T/F 2
+	Logistics
+	Assignments are typically required to be implemented from scratch, meaning students should avoid using existing library calls that perform the entire required operation.
+	True
+	Students must implement methods from scratch, and may not use existing library calls that basically perform the operation requested.
+	T/F 3
+	Logistics
+	For coding assignments, a short video walkthrough is a mandatory component, and if missing, the entire assignment component will not be graded.
+	True
+	The video walkthrough is a mandatory component, and if missing, the entire assignment component will not be graded, although the walkthrough itself is graded up to 5%.
+	T/F 4
+	Logistics
+	The core expectation in this course is the memorization of all material presented in the slides.
+	False
+	The instructor expects intuitive high-level understanding rather than memorization of all material in the slides.
+	T/F 5
+	Logistics
+	Instances of academic misconduct will be reported only if substantial portions of code are copied without citation.
+	False
+	Instances of academic misconduct will be reported if identified, regardless of scale.
+	T/F 6
+	Logistics
+	Changing variable and function names from an online source and presenting it as one's own work is considered acceptable as long as the original code structure is modified.
+	False
+	Changing variable and function names from an online source and presenting it as your own work still counts as plagiarism.
+	T/F 7
+	Logistics
+	When submitting questions to the TAs, the preferred method is to use Canvas.
+	True
+	Students are asked to use Canvas for questions to the TA.
+	T/F 8
+	Logistics
+	If a student receives help from an AI-powered tool like ChatGPT, they must clearly describe the help received and document how they produced their own implementation based on that help.
+	True
+	If help is received from AI tools, the student should clearly describe the help and document how they produced their own implementation.
+	T/F 9
+	ML Intro
+	Machine Learning algorithms are studied based on how they improve their performance at some task with experience.
+	True
+	Machine Learning is the study of algorithms that improve their performance at some task with experience.
+	T/F 10
+	Data Types
+	Data objects are also commonly referred to as samples, instances, data points, or tuples.
+	True
+	Data objects are also called samples, examples, instances, data points, objects, or tuples.
+	T/F 11
+	Data Types
+	In a database context, data objects correspond to columns, while attributes correspond to rows.
+	False
+	Database rows correspond to data objects, and columns correspond to attributes.
+	T/F 12
+	Data Types
+	Nominal features are those that have a meaningful order or ranking, such as army rankings or grades.
+	False
+	Ordinal features have a meaningful order or ranking, while nominal/categorical features are categories or "names of things".
+	T/F 13
+	Data Types
+	A binary feature is fundamentally a numerical feature type.
+	False
+	A binary feature is a nominal feature with only two states (0 and 1).
+	T/F 14
+	Data Types
+	For asymmetric binary features, the convention is often to assign 1 to the least important outcome.
+	False
+	The convention for asymmetric binary features is to assign 1 to the most important outcome.
+	T/F 15
+	Data Types
+	Discrete features always have a finite set of values.
+	False
+	Discrete features have a finite or countably infinite set of values.
+	T/F 16
+	Data Types
+	Continuous features are typically represented as integer variables.
+	False
+	Continuous features typically have real numbers as values and are represented as floating-point variables.
+	T/F 17
+	Data Types
+	One-hot encoding is a method used to represent nominal/categorical features.
+	True
+	One-hot encoding is a convenient way of representing categorical features.
+	T/F 18
+	Data Types
+	In one-hot encoding, all positions corresponding to categories not taken by a data point must be stored as '0' in the resulting vector.
+	False
+	All 0s can be implied, meaning there is no need to store them as actual numbers.
+	T/F 19
+	Data Types
+	Transaction data and document data are both considered types of record data.
+	True
+	Records types include relational records, data matrix, document data (term-frequency vector), and transaction data.
+	T/F 20
+	Data Types
+	Molecular structures and knowledge graphs are examples of graph and network data types.
+	True
+	Graph and network data types include molecular structures and knowledge graphs.
+	T/F 21
+	Data Types
+	Data mining is defined as the process of extracting implicit, previously unknown, and potentially useful patterns or knowledge from huge amounts of data.
+	True
+	Data mining is the extraction of interesting (non-trivial, implicit, previously unknown and potentially useful) patterns or knowledge from huge amounts of data.
+	T/F 22
+	Data Types
+	Classification is an example of unsupervised learning because the class labels are known in the training data.
+	False
+	Classification is an example of supervised learning because it uses labeled examples to learn a model.
+	T/F 23
+	Data Types
+	Clustering is a supervised learning task aimed at grouping data when class labels are unknown.
+	False
+	Clustering is an unsupervised learning task where the class label is unknown, aiming to group data to form new categories.
+	T/F 24
+	Data Types
+	The principle of clustering involves minimizing intra-class similarity while maximizing interclass similarity.
+	False
+	The principle of clustering involves maximizing intra-class similarity and minimizing interclass similarity.
+	T/F 25
+	Data Types
+	Outlier analysis and association rule mining are categories of data mining methods distinct from classification and clustering.
+	True
+	Outlier & Anomaly Detection and Association and Rule Mining are listed alongside Classification & Regression and Clustering as classes of methods.
+	T/F 26
+	Data Types
+	The "Beer and Diaper" example is a frequently cited application for classification tasks.
+	False
+	The "Beer and Diaper" scenario is a recurring theme when describing frequent pattern analysis and association rule mining.
+	T/F 27
+	Data Types
+	Data Science is an alternative name for Data Mining or Knowledge Discovery in Databases (KDD).
+	True
+	Alternative names for Data Mining include Data Science and Knowledge Discovery (mining) in databases (KDD).
+	T/F 28
+	ML Intro
+	Regression models typically predict categorical class labels (discrete or nominal).
+	False
+	Regression models continuous-valued functions, predicting unknown or missing numerical values.
+	T/F 29
+	ML Intro
+	Classification models predict continuous-valued outputs.
+	False
+	Classification models predict categorical class labels (discrete or nominal).
+	T/F 30
+	ML Intro
+	The training set for model construction must be independent of the test set used for performance estimation.
+	True
+	The test set must be independent of the training set to avoid bad outcomes.
+	T/F 31
+	Data Types
+	Temporal data is an alternative name for graph data.
+	False
+	Temporal data (time-series) is a separate type of data from Graph and network data.
+	T/F 32
+	Logistics
+	The quizzes and exams are typically administered in-class using Canvas, requiring students to bring a laptop and their student ID.
+	True
+	Quizzes and exams are in-class but administered via Canvas, requiring a laptop and student ID.
+	T/F 33
+	Logistics
+	The format for quizzes usually includes True/False and Multiple Choice questions, but the midterm and final also include open-ended questions.
+	True
+	Quizzes use T/F and Multiple Choice, while the Midterm/Final use the same plus some open-ended questions.
+	T/F 34
+	Data Types
+	The four main stages of the Data Science Pipeline are Raw Data, Pre-processing, Analysis, and Post-proc.
+	False
+	The data science pipeline includes Raw Data, Pre-processing, Analysis, Evaluation, Interpretation, Visualization, and Knowledge.
+	T/F 35
+	Data Types
+	Supervised learning relies on labeled examples, whereas unsupervised learning uses unlabeled data to find structure.
+	True
+	Supervised learning uses labeled examples, while unsupervised learning uses unlabeled data to identify structure.
+	T/F 36
+	ML Intro
+	If we are predicting a stock price today, this would generally be considered a classification task.
+	False
+	Stock market prediction is listed as an example of regression.
+	T/F 37
+	Data Types
+	In the context of credit card fraud detection, deciding whether a transaction is real or fraudulent in real time is an example of a classification task.
+	True
+	Classifying a transaction as real or fraudulent is a classification task.
+	T/F 38
+	Data Types
+	The term "feature" represents a characteristic of a data object.
+	True
+	Features (or attributes, dimensions, variables) are data fields representing a characteristic of a data object.
+	T/F 39
+	Data Types
+	The Lmax norm distance is the minimum difference between any component of two vectors.
+	False
+	The Lmax norm (L∞ norm or supremum distance) is the maximum difference between any component (attribute) of the vectors.
+	T/F 40
+	Data Types
+	The Hamming distance is an example of the Manhattan (L1 norm) distance, specifically measuring the number of bits that are different between two binary vectors.
+	True
+	The Hamming distance is an example of the Manhattan (city block, L1 norm) distance.
+	T/F 41
+	Data Types
+	The distance property of symmetry, d(i,j)=d(j,i), is only useful theoretically but does not help reduce computations in practice.
+	False
+	The symmetry property can be exploited to reduce computations, as there is no need to compute all pairs of distances.
+	T/F 42
+	Data Types
+	A distance measure must satisfy Positive-definiteness, Symmetry, and Triangle Inequality to be considered a metric.
+	True
+	A distance that satisfies d(i,j)>0 if i
+=j and d(i,i)=0 (Positive-definiteness), d(i,j)=d(j,i) (Symmetry), and d(i,j)≤d(i,k)+d(k,j) (Triangle Inequality) is a metric.
+	T/F 43
+	Data Types
+	The Triangle Inequality property ensures that points close to a central point will also be far away from each other.
+	False
+	The Triangle Inequality property, if a central point is defined, ensures that points close to the "center" will also be close to each other.
+	T/F 44
+	Data Types
+	Cosine similarity is a typical measure used to rank documents by calculating the similarity between document and query vectors in a Vector Space Model.
+	True
+	Documents are ranked by distance, and cosine similarity is a common similarity measure used in the Vector Space Model.
+	T/F 45
+	Data Types
+	The cosine similarity metric can typically take values higher than 1.
+	False
+	The cosine similarity ranges from -1 to 1; for non-negative data (like Bag of Words vectors), it ranges from.
+	T/F 46
+	Data Types
+	The Simple Matching Coefficient is primarily used for asymmetric binary or categorical attributes.
+	False
+	The Simple Matching Coefficient is typically used for symmetric binary/categorical attributes.
+	T/F 47
+	Data Types
+	The Jaccard Similarity measure is generally preferred over the Simple Matching Coefficient when dealing with highly asymmetric binary features, such as comparing shopping carts.
+	True
+	Jaccard Similarity is suitable for asymmetric binary/categorical attributes, recognizing that comparing items that are not present (like 1 million items not in a cart) can overwhelm the comparison.
+	T/F 48
+	Data Types
+	The Vector Space Model is also known as Bag of Words.
+	True
+	The Vector Space Model is also known as Bag of Words.
+	T/F 49
+	Data Types
+	In the Vector Space Model, documents and queries are represented by a vector of term weights.
+	True
+	In the Vector Space Model (Bag of Words), documents and queries are represented by a vector of term weights.
+	T/F 50
+	ML Intro
+	The two main steps in the supervised learning process are model optimization and knowledge extraction.
+	False
+	The two main steps are Model construction/Training and Model usage/Testing.
+	T/F 51
+	Data Types
+	The mean is generally considered more robust than the median with respect to data skew.
+	False
+	The median is more robust with respect to skew compared to the mean.
+	T/F 52
+	Data Types
+	In a negatively skewed distribution, the mode would typically be smaller than the median.
+	False
+	In a negatively skewed distribution, the mode is typically the largest measure, followed by the median, and then the mean.
+	T/F 53
+	Data Types
+	If the mean, median, and mode are approximately the same, the data distribution is generally considered symmetric.
+	True
+	For symmetric data, the median, mean, and mode are approximately equal.
+	T/F 54
+	Data Types
+	Principal Component Analysis (PCA) is an effective dimensionality reduction technique that works primarily for numeric data.
+	True
+	PCA is an effective dimensionality reduction technique, and works for numeric data only.
+	T/F 55
+	Data Types
+	t-Distributed Stochastic Neighbor Embedding (t-SNE) is a linear projection method that respects distances between points.
+	False
+	t-SNE is a non-linear projection of points to a low-dimensional space.
+	Topic 2: Basic Statistics and Visualization (55 Questions)
+ID
+	Topic
+	Question
+	Answer
+	Reasoning
+	T/F 56
+	Stats
+	The sample mean is the weighted arithmetic mean when all weights are equal.
+	True
+	The arithmetic mean is the weighted mean where all weights w
+i
+​
+are 1.
+	T/F 57
+	Stats
+	A trimmed mean involves replacing extreme values with the median before calculating the mean.
+	False
+	A trimmed mean involves chopping off (excluding) extreme values.
+	T/F 58
+	Stats
+	A unimodal distribution has two values that occur most frequently.
+	False
+	A unimodal distribution has one mode; bimodal has two.
+	T/F 59
+	Stats
+	The Inter-Quartile Range (IQR) is calculated as the difference between the maximum value and the minimum value.
+	False
+	IQR is calculated as Q3 - Q1.
+	T/F 60
+	Stats
+	The five-number summary consists of the mean, Q1, median, Q3, and standard deviation.
+	False
+	The five-number summary is min, Q1, median, Q3, max.
+	T/F 61
+	Stats
+	In a boxplot, outliers are typically plotted individually outside the whiskers.
+	True
+	Outliers are points beyond a specified threshold (usually 1.5 x IQR) and are plotted individually in a boxplot.
+	T/F 62
+	Stats
+	The standard deviation is the square of the variance.
+	False
+	Standard deviation (s or σ) is the square root of the variance (s
+2
+or σ
+2
+).
+	T/F 63
+	Visualization
+	Histograms display tabulated frequencies using bars, where the bars must be adjacent to represent non-overlapping intervals.
+	True
+	A histogram is a graph display of tabulated frequencies shown as adjacent bars, where categories are usually specified as non-overlapping intervals.
+	T/F 64
+	Visualization
+	Normalizing a histogram provides an estimate of the cumulative distribution function of the variable.
+	False
+	Normalizing the histogram gives an estimate of the probability density of the variable.
+	T/F 65
+	Visualization
+	Histograms are always preferable to boxplots because histograms show the exact values of the min, Q1, median, Q3, and max.
+	False
+	Boxplots show the five-number summary. However, two different distributions can have the same boxplot, meaning histograms often tell more than boxplots because they reveal the distribution shape.
+	T/F 66
+	Visualization
+	Scatter plots are primarily used to inspect multidimensional data (many features) directly.
+	False
+	Scatter plots provide a first look at bivariate data (two variables), but scatterplot matrices can be very hard to inspect if the number of features is very large.
+	T/F 67
+	Stats
+	A dataset exhibiting Anscombe's Quartet shows four different distributions that have identical standard statistical summaries, such as mean, variance, and linear regression coefficients.
+	True
+	Anscombe's quartet consists of four datasets that yield the same standard output (statistics and regression line equation) from a typical regression program, yet look very different visually.
+	T/F 68
+	Stats
+	Pearson's correlation coefficient ranges from 0 to 1, where 1 indicates perfectly anti-correlated variables.
+	False
+	Pearson's correlation coefficient ranges from -1 to 1, where -1 indicates perfectly anti-correlated variables.
+	T/F 69
+	Stats
+	If two variables have a Pearson correlation coefficient close to zero, we can assume there is a causal connection between them.
+	False
+	A correlation coefficient near zero indicates that they are uncorrelated, but correlation does not imply causation.
+	T/F 70
+	Stats
+	The L2 norm distance is known as the Manhattan distance.
+	False
+	The L2 norm is the Euclidean distance, while the L1 norm is the Manhattan distance.
+	T/F 71
+	Visualization
+	If data is perfectly anti-correlated, the scatter plot would generally show a trend where as one variable increases, the other decreases.
+	True
+	Negatively correlated data shows this inverse relationship.
+	T/F 72
+	Visualization
+	Principal Component Analysis (PCA) performs dimensionality reduction by finding a projection that minimizes the variation captured in the data.
+	False
+	PCA finds a projection that captures the largest amount of variation in the data.
+	T/F 73
+	Visualization
+	Multidimensional Scaling (MDS) takes a distance matrix as input and computes a low-dimensional representation that attempts to respect the original distances.
+	True
+	MDS takes an N×N distance matrix and computes a low-dimensional representation so that points respect the original distances.
+	T/F 74
+	Visualization
+	The degree distribution of real-world graphs, such as follower networks, is often normally distributed (Gaussian).
+	False
+	In real applications, such as follower graphs, skewed degree distributions are frequently encountered, often following a power law, not a normal distribution.
+	T/F 75
+	Stats
+	For a power law distribution, the mean is always well defined and finite.
+	False
+	Sometimes the mean is not well defined, and the variance is infinite, particularly for α<3 in a power law distribution p(x)∼x
+−a
+.
+	T/F 76
+	Visualization
+	A boxplot cannot show if a variable follows a bimodal or multimodal distribution.
+	True
+	A boxplot cannot show if a variable follows a unimodal or multimodal distribution; histograms are needed for this.
+	T/F 77
+	Stats
+	In a heavily skewed distribution, the mean is typically equal to the median.
+	False
+	The mean and median are only equal in symmetric distributions; in heavily skewed data, they differ.
+	T/F 78
+	Visualization
+	A scatterplot of two variables can indicate whether there is any discriminative structure that can be separated by a line.
+	True
+	Scatterplots provide a first look at bivariate data to see clusters of points, helping determine separability.
+	T/F 79
+	Stats
+	A distance function that satisfies symmetry, d(i,j)=d(j,i), is an example of a metric.
+	True
+	Symmetry is one of the three properties required for a distance function to be a metric.
+	T/F 80
+	Stats
+	The formula for variance involves squaring the difference between each data point and the mean of the distribution.
+	True
+	Variance σ
+2
+is
+n
+1
+​
+∑
+i=1
+n
+​
+(x
+i
+​
+−μ)
+2
+.
+	T/F 81
+	Stats
+	An outlier in a boxplot is typically defined as a value that is higher or lower than 1.5 times the Inter-Quartile Range (IQR).
+	True
+	An outlier is usually defined as a value higher/lower than 1.5×IQR.
+	T/F 82
+	Visualization
+	The ends of the box in a boxplot correspond to the minimum and maximum values in the dataset.
+	False
+	The ends of the box are at the first and third quartiles (Q1 and Q3).
+	T/F 83
+	Stats
+	The mean excluding bold values (56.5) is lower than the mean including bold values (101.5) as calculated in the source example, suggesting the bold values are higher extreme values.
+	True
+	The mean excluding bold values is 56.5, and the mean including bold values is 101.5.
+	T/F 84
+	Visualization
+	If data sets yield the same standard regression output, a scatterplot is unnecessary for analyzing the relationship between variables.
+	False
+	Anscombe's Quartet demonstrates that datasets can yield the exact same statistical output but look visually different, making visualization crucial for understanding the underlying relationship.
+	T/F 85
+	Visualization
+	The two long vertical streaks near the top (posterior region) in the fMRI prediction images for 'celery' and 'airplane' are the left and right fusiform gyri.
+	True
+	The long red and blue vertical streaks near the top (posterior region) of the predicted and observed images are the left and right fusiform gyri.
+	T/F 86
+	Stats
+	Minkowski distance is also known as L
+p
+​
+Norm.
+	True
+	Minkowski distance is known as L
+p
+​
+Norm.
+	T/F 87
+	Stats
+	The Euclidean distance is an example of the L
+1
+​
+norm.
+	False
+	Euclidean distance is the L
+2
+​
+norm.
+	T/F 88
+	Stats
+	In the context of metrics, the Triangle Inequality property can be used to accelerate computations.
+	True
+	The Triangle Inequality property can be used to accelerate/approximate computations.
+	T/F 89
+	Stats
+	The Pearson correlation coefficient must be calculated on centered data to provide a valid measure of linear association.
+	False
+	Pearson's coefficient is defined as the covariance of the two variables divided by the product of their standard deviations, which does not require centering beforehand, as centering is implicit in covariance calculation.
+	T/F 90
+	Visualization
+	A correlation matrix provides a graphical representation of pairwise correlation coefficients between multiple features.
+	True
+	A correlation matrix visualizes the correlation coefficients between pairs of variables.
+	T/F 91
+	Visualization
+	If a histogram of data exhibits two distinct peaks, it is considered bimodal.
+	True
+	A histogram pattern showing two peaks is labeled as bimodal.
+	T/F 92
+	Visualization
+	If a variable is positively skewed, the distribution trails off towards smaller values.
+	False
+	If a variable is positively skewed, the distribution trails off towards larger values (the mean is to the right of the median).
+	T/F 93
+	Stats
+	The mean is more susceptible to the influence of outliers than the median.
+	True
+	The median is described as more robust with respect to skew compared to the mean, implying the mean is more sensitive to extreme values (outliers).
+	T/F 94
+	Visualization
+	The whisker in a boxplot extends up to the maximum value that is not considered an outlier.
+	True
+	Whiskers extend to the Minimum and Maximum (non-outlier values).
+	T/F 95
+	Visualization
+	The height of the box in a boxplot represents the Inter-Quartile Range (IQR).
+	True
+	The ends of the box are Q1 and Q3, so the height is the IQR.
+	T/F 96
+	Visualization
+	In a scatterplot matrix of the Iris dataset, features (petal length, petal width) show strong positive correlation.
+	True
+	The scatterplot for (petal_length, petal_width) shows clear visual correlation and separability in the Iris dataset.
+	T/F 97
+	Visualization
+	A primary motivation for using visualization techniques like scatterplots is to get an intuitive idea of the data characteristics and distribution.
+	True
+	Visualization is useful to "Eye-ball" the data and get an idea of the characteristics and distribution.
+	T/F 98
+	Stats
+	The density of points is critical to clustering and outlier analysis, but it becomes less meaningful as dimensionality increases.
+	True
+	As dimensionality increases, data becomes increasingly sparse, making density and distance between points less meaningful (Curse of Dimensionality).
+	T/F 99
+	Stats
+	The Mean Squared Error (MSE) of an estimator h(x) can be decomposed into bias, variance, and irreducible (unavoidable) error.
+	True
+	E[(y−h(x))
+2
+]=bias
+2
++variance+unavoidable error.
+	T/F 100
+	Stats
+	Highly correlated variables should be treated as independent in machine learning models to improve generalization.
+	False
+	Highly correlated features may lead to redundancy.
+	T/F 101
+	Visualization
+	PCA works by minimizing the reconstruction error of the original data when projected onto a smaller space.
+	True
+	PCA finds the best low rank approximation, which minimizes the squared error (Eckart Young Theorem).
+	T/F 102
+	Visualization
+	PCA is equivalent to SVD applied to centered data.
+	True
+	SVD gives PCA in centered data.
+	T/F 103
+	Stats
+	The standard error of the mean (SEM) is calculated as the standard deviation divided by the square root of the number of samples.
+	True
+	SEM is defined as σ/
+n
+
+​
+.
+	T/F 104
+	Stats
+	The term 'L1 norm' is also referred to as the city block distance or Manhattan distance.
+	True
+	p=1 is the Manhattan (city block, L1 norm) distance.
+	T/F 105
+	Stats
+	The concept of "sparsity" in vector representations is often promoted by using L2 norm regularization.
+	False
+	L1 norm regularization (Lasso) promotes sparsity (forcing coefficients exactly to zero), while L2 norm regularization (Ridge) generally gives small but non-zero values.
+	Topic 3: Data Preprocessing (65 Questions)
+ID
+	Topic
+	Question
+	Answer
+	Reasoning
+	T/F 106
+	Data Cleaning
+	A common strategy for handling missing values when performing classification is to ignore the data point entirely if the class label is missing.
+	True
+	Ignoring the data point is usually done when the class label is missing (when doing classification).
+	T/F 107
+	Data Cleaning
+	Filling in missing data with the attribute mean for all samples belonging to the same class is considered a less sophisticated method than using a global constant.
+	False
+	Filling missing values with the mean for all samples in the same class is a smarter method than using a global constant like "unknown".
+	T/F 108
+	Data Cleaning
+	Noisy data refers to data that is lacking attribute values or containing only aggregate data.
+	False
+	Noisy data contains noise, errors, or outliers. Lacking attribute values refers to incomplete data.
+	T/F 109
+	Data Integration
+	Entity identification, or resolution, is the problem of identifying real-world entities that appear across multiple data sources, such as linking "Bill Clinton" to "William Clinton."
+	True
+	Entity identification/resolution identifies real-world entities from multiple data sources.
+	T/F 110
+	Data Integration
+	Schema integration primarily deals with resolving conflicts in data values, such as converting between metric and British units.
+	False
+	Schema integration deals with integrating metadata (e.g., A.cust-id ≡ B.cust-num). Resolving data value conflicts is a separate challenge in data integration.
+	T/F 111
+	Data Integration
+	Redundant data can often be detected using correlation analysis.
+	True
+	Redundant attributes may be detected by correlation analysis.
+	T/F 112
+	Data Reduction
+	The Curse of Dimensionality refers to the phenomenon where model performance increases and then rapidly drops as the number of features increases.
+	True
+	This describes the Hughes Phenomenon, which is a key aspect of the Curse of Dimensionality.
+	T/F 113
+	Data Reduction
+	As dimensions increase, the ratio of the distance to the furthest point versus the distance to the closest point approaches zero.
+	True
+	The ratio of the furthest to closest point diminishes as the number of dimensions grows.
+	T/F 114
+	Data Reduction
+	Dimensionality reduction techniques like PCA help to eliminate irrelevant features and reduce noise.
+	True
+	Dimensionality reduction helps eliminate irrelevant features, reduce noise, and avoid the curse of dimensionality.
+	T/F 115
+	Data Reduction
+	PCA is generally ineffective for dimensionality reduction because it only works for numeric data.
+	False
+	PCA is a key dimensionality reduction technique and works only for numeric data.
+	T/F 116
+	Data Reduction
+	An irrelevant attribute is one that is highly correlated with another attribute in the dataset.
+	False
+	Irrelevant attributes contain no useful information for the mining task. Highly correlated attributes are considered redundant.
+	T/F 117
+	Data Reduction
+	Step-wise feature selection typically starts by eliminating the worst attribute first.
+	False
+	Step-wise feature elimination involves repeatedly eliminating the worst attribute. Step-wise selection picks the best single attribute first.
+	T/F 118
+	Data Reduction
+	Mapping data to a new space using techniques like Fourier or Wavelet transforms is considered a type of feature extraction methodology.
+	True
+	Mapping data to a new space is one of the three general methodologies for feature generation (Attribute extraction, Mapping data to new space, Attribute construction).
+	T/F 119
+	Data Reduction
+	Dimensionality reduction is usually considered a task-dependent process, meaning it relies on a downstream task like classification.
+	False
+	Dimensionality reduction can be task dependent or task independent (retaining information of the original space without depending on a downstream task).
+	T/F 120
+	Sampling
+	The goal of numerosity reduction is to reduce the number of features in the data representation.
+	False
+	Numerosity reduction reduces data volume by choosing alternative, smaller forms of data representation. Dimensionality reduction reduces the number of features.
+	T/F 121
+	Sampling
+	Histograms, sampling, and Wavelets are considered data sketches—summaries of data, especially useful for data streams.
+	True
+	Wavelets, histograms and sampling are data sketches.
+	T/F 122
+	Sampling
+	Simple random sampling without replacement means that once an object is selected for the sample, it is immediately placed back into the population and can be selected again.
+	False
+	Sampling without replacement means the object is removed from the population.
+	T/F 123
+	Sampling
+	Stratified sampling is especially useful when dealing with skewed data to ensure proportional representation from every class or category.
+	True
+	Stratified sampling is used in conjunction with skewed data and ensures proportional representation.
+	T/F 124
+	Sampling
+	Reservoir sampling is a technique used to obtain a simple random sample from a data stream where the full size N is unknown initially.
+	True
+	Reservoir sampling is designed for streaming data to achieve a uniformly random sample.
+	T/F 125
+	Sampling
+	In Reservoir sampling, the probability of keeping the i-th item decreases as i increases.
+	True
+	When the reservoir is full, the data[i] is kept with probability M/i, where M is the reservoir size, hence the probability decreases as i increases.
+	T/F 126
+	Transformation
+	The Fourier Transform expresses any signal as a combination of elementary signals, specifically sine and cosine waves.
+	True
+	Any signal can be expressed as a combination of elementary signals (sine and cosine wave) using the Fourier Transform.
+	T/F 127
+	Transformation
+	The highest value in the Fourier domain corresponds to the shortest frequency present in the data.
+	False
+	The highest value in the Fourier domain is the main periodicity in the data.
+	T/F 128
+	Transformation
+	The Discrete Wavelet Transform (DWT) is similar to the Discrete Fourier Transform (DFT) but provides better lossy compression and is localized in space.
+	True
+	DWT is similar to DFT but offers better lossy compression and is localized in space.
+	T/F 129
+	Transformation
+	The Haar Wavelet decomposition is efficient because its complexity is O(NlogN), similar to the Fast Fourier Transform.
+	False
+	The Haar Wavelet decomposition has a complexity of O(N), which is more efficient than the Fast Fourier Transform, which is O(NlogN).
+	T/F 130
+	Transformation
+	The Haar Wavelet decomposition is known for being highly sensitive to the presence of noise and outliers.
+	False
+	Haar Wavelet decomposition offers effective removal of outliers and is insensitive to noise.
+	T/F 131
+	Transformation
+	Log normalization is generally recommended for count data and is often used to compress the dynamic range of the data.
+	True
+	Log normalization compresses the dynamic range of non-negative data and is good for count data.
+	T/F 132
+	Transformation
+	Min-max normalization maps attribute values to a specific range, such as [0.0, 1.0].
+	True
+	Min-max normalization scales values to a new range, [new_minA, new_maxA].
+	T/F 133
+	Transformation
+	Z-score normalization ensures all features are standardized by centering (mean subtraction) and scaling (division by standard deviation).
+	True
+	Z-score normalization ensures features are standardized using centering (μ subtraction) and scaling (σ division).
+	T/F 134
+	Transformation
+	TF-IDF normalization attempts to boost the importance of very frequent terms that might otherwise drown out less frequent but useful terms.
+	False
+	TF-IDF normalization handles the issue where very frequent terms can "drown" less frequent useful terms. The inverse document frequency (IDF) part specifically down-weights frequent terms found across many documents.
+	T/F 135
+	Transformation
+	The term frequency weight (tf
+ij
+​
+) measures the importance of a term in the entire collection of documents.
+	False
+	Term frequency weight measures the importance of a term in a document. Inverse document frequency (IDF) measures importance in the collection.
+	T/F 136
+	Data Cleaning
+	An example of inconsistent data is when a dataset uses ratings "1, 2, 3" and is later updated to use ratings "A, B, C."
+	True
+	This describes a discrepancy in codes or names, which falls under inconsistent data.
+	T/F 137
+	Data Cleaning
+	Intentional "dirty" data, such as disguised missing data (e.g., using Jan. 1 as everyone’s birthday), can be prone to occurring when using self-declared data.
+	True
+	Intentional or disguised missing data often occurs with self-declared data.
+	T/F 138
+	Data Integration
+	Crowdsourcing platforms can be used to handle data cleaning and integration tasks by leveraging human intelligence tasks (HITs).
+	True
+	Crowdsourcing leverages humans to do difficult work, using HITs, and can be used for data cleaning and integration, including labeling unlabeled data.
+	T/F 139
+	Data Reduction
+	The possible combinations of subspaces grows exponentially as dimensionality increases.
+	True
+	The possible combinations of subspaces will grow exponentially in high dimensions.
+	T/F 140
+	Data Reduction
+	Dimensionality reduction techniques inherently allow for easier visualization of high-dimensional data.
+	True
+	Dimensionality reduction allows for easier visualization of the data.
+	T/F 141
+	Data Reduction
+	The Apriori property is the key principle behind the PCA algorithm.
+	False
+	The Apriori property is fundamental to Frequent Pattern Mining (like the Apriori algorithm).
+	T/F 142
+	Data Reduction
+	One heuristic method for feature selection is to select the best single attribute based on attribute independence assumption, possibly chosen by significance tests.
+	True
+	Choosing the best single attribute under the attribute independence assumption (via significance tests) is a typical heuristic method.
+	T/F 143
+	Data Reduction
+	Data sketches, such as sampling or histograms, are categorized as parametric methods of numerosity reduction.
+	False
+	Histograms and sampling are non-parametric methods of numerosity reduction, as they do not assume models.
+	T/F 144
+	Data Reduction
+	Wavelet transforms preserve the relative distance between objects at different levels of resolution, which can help natural clusters become more distinguishable.
+	True
+	Data transformed by Wavelets preserve relative distance between objects, allowing natural clusters to become more distinguishable.
+	T/F 145
+	Data Reduction
+	Equal-width partitioning for histograms means that the range of attribute values in each bucket is proportional to the frequency count.
+	False
+	Equal-width means equal bucket range. Equal-frequency (or depth) means the frequency count is approximately equal per bucket.
+	T/F 146
+	Transformation
+	Centering data (subtracting the mean) and dividing by the standard deviation is primarily done to ensure that all features have the same range, like.
+	False
+	This process (Z-score normalization) ensures all features are "standardized" and avoids artifacts due to a large mean or deviation. Min-max normalization achieves the range.
+	T/F 147
+	Data Cleaning
+	If customer income is missing in sales data because the data was considered unimportant at the time of entry, this would be classified as noisy data.
+	False
+	This is an example of incomplete (missing) data, where data was not entered.
+	T/F 148
+	Data Reduction
+	The time complexity of solving K-means optimally (by enumerating all partitions) is NP-Hard.
+	True
+	Finding the optimal partition for K clusters is NP-Hard.
+	T/F 149
+	Data Reduction
+	Dimensionality reduction refers to the reduction of the number of data points in a dataset.
+	False
+	Dimensionality reduction is the reduction of the number of attributes or features.
+	T/F 150
+	Data Reduction
+	PCA and t-SNE can only be used when there are more than 1000 features in the data.
+	False
+	PCA and t-SNE are generally used for visualization or reduction regardless of the number of features, as long as the data is high-dimensional enough to warrant it.
+	T/F 151
+	Sampling
+	Reservoir sampling is an effective technique that only works for static datasets, not data streams.
+	False
+	Reservoir sampling specifically works for data streams.
+	T/F 152
+	Sampling
+	When sampling from data with class imbalance, simple random sampling often provides representative samples of the whole dataset.
+	False
+	Simple random sampling may have very poor performance in the presence of skew. Stratified sampling is preferred for imbalance.
+	T/F 153
+	Transformation
+	The Fourier transform is useful as a data mining tool because the highest value in the Fourier domain indicates the main periodicity in the data.
+	True
+	The highest value in the Fourier domain is the main periodicity in our data.
+	T/F 154
+	Data Cleaning
+	If we are dealing with missing data, we can use a machine learning model to predict and fill in the missing values (e.g., imputation).
+	True
+	Missing data may need to be inferred, often using methods like predicting the most probable value (inference-based).
+	T/F 155
+	Data Reduction
+	If a high-dimensional data point is projected to a low-dimensional space using SVD, the SVD matrices must be computed only once on the training data and then applied to the test data.
+	True
+	When SVD is used for dimensionality reduction for k-NN, only the training data is decomposed, and the test data points are projected onto that SVD space.
+	T/F 156
+	Data Reduction
+	The computational cost of the Haar Wavelet decomposition is O(NlogN).
+	False
+	The Haar Wavelet decomposition has complexity O(N).
+	T/F 157
+	Data Reduction
+	The definition of a Max-Pattern states that an itemset X is a max-pattern if X is frequent and there exists at least one frequent super-pattern Y⊃X.
+	False
+	An itemset X is a max-pattern if it is frequent and there exists no frequent super-pattern Y⊃X.
+	T/F 158
+	Data Reduction
+	Numerosity reduction methods include techniques like histograms and sampling.
+	True
+	Numerosity reduction includes non-parametric methods like histograms and sampling.
+	T/F 159
+	Transformation
+	The goal of log normalization is generally to exaggerate small differences in low-count data.
+	False
+	Log normalization compresses the dynamic range of the data.
+	T/F 160
+	Data Cleaning
+	An error such as Salary="−10" is an example of noisy data.
+	True
+	This is given as an example of noisy data (an error).
+	T/F 161
+	Data Reduction
+	One of the goals of data reduction is to improve mining speed and quality because complex data analysis may take a very long time on the complete dataset.
+	True
+	Data reduction aims to obtain a reduced representation to improve performance, as complex analysis may take too long on the complete set.
+	T/F 162
+	Data Reduction
+	The kernel trick allows SVMs to implicitly map data into a higher-dimensional space without explicitly computing the high-dimensional coordinates.
+	True
+	The kernel trick applies a kernel function k() to the dot product, eliminating the need to transform the actual data.
+	T/F 163
+	Data Reduction
+	One approach for feature generation is attribute construction, which involves combining existing features to create new ones.
+	True
+	Attribute construction is a methodology for feature generation that often involves combining features.
+	T/F 164
+	Data Reduction
+	For a time series, the discrete wavelet transform (DWT) captures both signal frequencies and the times when they occur.
+	True
+	DWT captures signal frequencies and times (i.e., localized) when they occur.
+	T/F 165
+	Data Reduction
+	In sequential pattern mining, the Apriori property states that any superset of a frequent itemset must also be frequent.
+	False
+	The Apriori property states that any subset of a frequent itemset must be frequent, or equivalently, if an itemset is infrequent, all of its supersets must be infrequent.
+	T/F 166
+	Data Reduction
+	For Gaussian noise models in linear regression, maximizing the log-likelihood is mathematically equivalent to minimizing the Least Mean Squares cost function.
+	True
+	Maximizing the log likelihood l(θ) is equivalent to minimizing the Least Mean Squares cost function J(θ) under the assumption of Gaussian IID noise.
+	T/F 167
+	Data Reduction
+	In step-wise attribute elimination, the best single attribute is selected first.
+	False
+	Step-wise elimination repeatedly eliminates the worst attribute.
+	T/F 168
+	Data Reduction
+	The time complexity of the Apriori algorithm is O(MN) where M is the number of distinct items and N is the max length of transactions.
+	False
+	MN is the worst-case number of itemsets that can be generated, which is exponential, not the complexity of the algorithm itself.
+	T/F 169
+	Data Reduction
+	Min-max normalization is particularly effective at suppressing skew that may hide interesting patterns.
+	False
+	Log normalization is often used to suppress skew.
+	T/F 170
+	Data Reduction
+	In the context of the Iris dataset in the assignments, PCA showed worse separability of the classes than t-SNE in the resulting 2D scatterplots.
+	False
+	Both PCA and t-SNE showed good separability in the visualization plots for the Iris dataset.
+	Topic 4: Supervised Learning I (Regression, Classification Intro, DTs) (70 Questions)
+ID
+	Topic
+	Question
+	Answer
+	Reasoning
+	T/F 171
+	Regression
+	Linear Regression is an unsupervised learning model used primarily to find clusters in data.
+	False
+	Linear Regression is a supervised learning model used for numerical prediction (regression).
+	T/F 172
+	Regression
+	The hypothesis function for linear regression h
+θ
+​
+(x) is defined as a linear combination of input features x
+i
+​
+and parameters θ
+i
+​
+.
+	True
+	The hypothesis h
+θ
+​
+(x) is approximated as a linear function of x: h
+θ
+​
+(x)=θ
+0
+​
++θ
+1
+​
+x
+1
+​
++θ
+2
+​
+x
+2
+​
++….
+	T/F 173
+	Regression
+	In linear regression notation, the parameter θ
+0
+​
+is often referred to as the bias term.
+	True
+	θ
+0
+​
+is the bias term.
+	T/F 174
+	Regression
+	The convention of setting x
+0
+​
+=1 is used in linear regression to incorporate the bias term θ
+0
+​
+into the vector product θ
+T
+x.
+	True
+	Setting x
+0
+​
+=1 allows h(x) to be written as θ
+T
+x, incorporating θ
+0
+​
+.
+	T/F 175
+	Regression
+	The cost function J(θ) used in Linear Regression is the familiar least-squares cost function, aiming to minimize the sum of squared errors between predicted and actual values.
+	True
+	J(θ) is the cost function that measures the sum of squared errors (Least Mean Squares).
+	T/F 176
+	Regression
+	The optimization problem posed by the linear regression cost function has multiple local optima.
+	False
+	The optimization problem for linear regression has only one global optimum and no other local optima.
+	T/F 177
+	Gradient Descent
+	Gradient Descent is an optimization method that involves iteratively taking steps in a direction proportional to the negative of the gradient of the objective function.
+	True
+	Gradient Descent iteratively takes steps proportional to the negative of the gradient.
+	T/F 178
+	Gradient Descent
+	The learning rate α in Gradient Descent determines the total number of iterations required for convergence.
+	False
+	The learning rate α determines the step size taken in the direction of the gradient.
+	T/F 179
+	Gradient Descent
+	If the learning rate α is too large, the algorithm may converge faster but may also exhibit oscillations or a large residual error.
+	True
+	A large α means fast convergence but possible oscillations and larger residual error.
+	T/F 180
+	Gradient Descent
+	Batch Gradient Descent (BGD) computes the parameter update based on a single training example at a time.
+	False
+	BGD looks at every example in the entire training set on every step.
+	T/F 181
+	Gradient Descent
+	Stochastic Gradient Descent (SGD) is generally much more computationally expensive per step than Batch Gradient Descent when the dataset is very large.
+	False
+	SGD takes a step based on the gradient of a single training example, making it generally faster and more lightweight than BGD, which scans the entire dataset.
+	T/F 182
+	Gradient Descent
+	The LMS update rule (Widrow-Hoff learning rule) states that the magnitude of the update is inversely proportional to the error term.
+	False
+	The magnitude of the update is proportional to the error term (y
+(i)
+−h
+θ
+​
+(x
+(i)
+)).
+	T/F 183
+	Gradient Descent
+	Batch Gradient Descent and Stochastic Gradient Descent have the same computational cost per parameter update.
+	False
+	BGD scans the entire training set for one update, while SGD uses only one example, so SGD is faster per update.
+	T/F 184
+	Decision Trees
+	Decision Tree Induction is a bottom-up, non-recursive classification method.
+	False
+	Decision Tree Induction is constructed in a top-down recursive divide-and-conquer manner.
+	T/F 185
+	Decision Trees
+	The splitting criteria used in decision tree induction are based on heuristics or statistical measures, such as information gain.
+	True
+	Test attributes are selected based on a heuristic or statistical measure (e.g., information gain).
+	T/F 186
+	Decision Trees
+	A decision tree stops partitioning when all samples for a given node belong to the same class.
+	True
+	This is one of the stopping conditions for partitioning.
+	T/F 187
+	Decision Trees
+	The primary goal of splitting criteria like Information Gain is to minimize the "impurity" of the resulting node partitions.
+	True
+	The goal is to create a "pure" set of data points. Entropy quantifies uncertainty/impurity, and information gain seeks to reduce it.
+	T/F 188
+	Decision Trees
+	Entropy is a measure that quantifies uncertainty in a distribution, where high entropy corresponds to high purity.
+	False
+	High entropy corresponds to high uncertainty/impurity.
+	T/F 189
+	Decision Trees
+	Information Gain (ID3) measures how informative a split is by calculating the difference between the entropy of the parent node and the average entropy of the children nodes.
+	True
+	Information gained by branching on attribute A is calculated as Gain(A)=Info(D)−Info
+A
+​
+(D).
+	T/F 190
+	Decision Trees
+	If a decision tree encounters a continuous-valued attribute, it determines the best split point by sorting the values and testing midpoints between adjacent values as potential split points.
+	True
+	For continuous-valued attributes, the values are sorted, and the midpoint between adjacent values is considered a possible split point.
+	T/F 191
+	Decision Trees
+	The Information Gain criterion is biased towards attributes that have a small number of distinct values.
+	False
+	Information gain is biased towards attributes with a large number of values, such as a unique ID field.
+	T/F 192
+	Decision Trees
+	The Gain Ratio (used in C4.5) attempts to overcome the bias of Information Gain by normalizing it using the "entropy" of the split itself (SplitInfo(A)).
+	True
+	C4.5 uses Gain Ratio to normalize Information Gain using SplitInfo(A).
+	T/F 193
+	Decision Trees
+	The Gini Index (used in CART) aims to minimize impurity, where impurity is calculated based on the relative frequency of each class in the dataset.
+	True
+	gini(D) is defined based on the relative frequency p
+j
+​
+of class j in D.
+	T/F 194
+	Decision Trees
+	CART (Classification and Regression Trees) creates multi-way splits based on multiple features simultaneously.
+	False
+	CART creates binary decision trees, and each split is based on a single feature (univariate splits).
+	T/F 195
+	Decision Trees
+	The Minimum Description Length (MDL) principle prefers the simplest solution, aiming to minimize the number of bits required to encode the tree and the errors.
+	True
+	MDL principle, related to Occam's Razor, prefers the simplest solution, specifically minimizing bits to encode the tree and the errors.
+	T/F 196
+	Decision Trees
+	Decision trees are unpopular because they are difficult to convert into simple and easy-to-understand classification rules.
+	False
+	Decision trees are popular because they are convertible to simple and easy-to-understand classification rules.
+	T/F 197
+	Regression
+	Linear Regression can only be applied when there is a single feature x
+1
+​
+predicting the target variable y.
+	False
+	Linear regression can handle multiple features (e.g., x
+1
+​
+,x
+2
+​
+,…x
+n
+​
+).
+	T/F 198
+	Regression
+	The core idea of linear regression using gradient descent is that the parameters are estimated by minimizing the sum of squared errors.
+	True
+	Linear regression minimizes the sum of squared errors between the actual value and the predicted one (Least Mean Squares).
+	T/F 199
+	Gradient Descent
+	If the convergence tolerance tol is reached in gradient descent, it means the maximum number of iterations has been met.
+	False
+	Convergence is met when either max_iter is reached OR the relative improvement in cost is not greater than the tolerance tol.
+	T/F 200
+	Decision Trees
+	If a decision tree node still contains samples from different classes, partitioning must stop if there are no remaining attributes for further splitting.
+	True
+	If no attributes remain, the algorithm stops and uses the majority vote for the leaf.
+	T/F 201
+	Decision Trees
+	Decision tree training follows a generally greedy procedure.
+	True
+	Decision tree induction uses a basic (greedy) algorithm.
+	T/F 202
+	Decision Trees
+	The Information Gain criterion measures the reduction in entropy between the parent node and the children nodes.
+	True
+	Information gain measures how informative a split is by calculating the reduction in entropy (uncertainty).
+	T/F 203
+	Decision Trees
+	The Gini Index aims to maximize the purity of the resulting partition D
+′
+(reduction in impurity Δgini(A)) when splitting on attribute A.
+	True
+	The objective is to minimize gini(D
+A
+​
+) or maximize the reduction in impurity Δgini(A)=gini(D)−gini
+A
+​
+(D).
+	T/F 204
+	Decision Trees
+	Decision trees cannot handle continuous or numerical features and only work with categorical features.
+	False
+	Decision trees can handle continuous-valued attributes by determining a best split point (midpoint).
+	T/F 205
+	Gradient Descent
+	If the learning rate in gradient descent is too small, the algorithm will likely converge quickly to the optimal solution.
+	False
+	A small α leads to slow convergence.
+	T/F 206
+	Gradient Descent
+	If the learning rate is too high, gradient descent may oscillate between two different points around the optimal solution.
+	True
+	A large α can lead to oscillations.
+	T/F 207
+	Regression
+	If the objective function value in linear regression starts increasing significantly, it might suggest that the learning rate is set too high.
+	True
+	A large learning rate can cause oscillations or divergence, preventing the loss function from stabilizing or minimizing.
+	T/F 208
+	Classification
+	The core goal of supervised learning is to learn a mapping between a data point (in feature space) and a target variable, such that this mapping generalizes to unseen data.
+	True
+	Supervised learning aims to learn a model that can generalize to unseen examples based on labeled training data.
+	T/F 209
+	Classification
+	Supervised learning is a trivial task because we can simply learn a look-up table between data points and their label.
+	False
+	Generalization to unseen data is the key challenge, which a simple look-up table would not achieve.
+	T/F 210
+	Regression
+	If you include the number of bedrooms (x
+2
+​
+) as an input feature alongside living area (x
+1
+​
+) in a linear regression model predicting housing prices, the coefficient θ
+2
+​
+will necessarily be positive.
+	False
+	In the source example, θ
+2
+​
+(for the number of bedrooms) was found to be −8.738.
+	T/F 211
+	Regression
+	The derivation of the gradient for J(θ) for a single training example (x,y) requires calculating the derivative of
+2
+1
+​
+(h
+θ
+​
+(x)−y)
+2
+with respect to θ
+j
+​
+.
+	True
+	This derivative calculation is shown in the derivation steps.
+	T/F 212
+	Gradient Descent
+	Stochastic Gradient Descent can start making progress right away, whereas Batch Gradient Descent must scan the entire training set before taking its first step.
+	True
+	BGD scans the entire training set before a single step; SGD makes progress with each example it sees.
+	T/F 213
+	Gradient Descent
+	In the context of large datasets, SGD usually gets θ close to the minimum much slower than BGD.
+	False
+	SGD often gets θ "close" to the minimum much faster than BGD.
+	T/F 214
+	Decision Trees
+	In the process of determining a split point for a continuous attribute, typically the maximum value of the attribute is used as the optimal split point.
+	False
+	The midpoint between each pair of adjacent sorted values is considered a possible split point.
+	T/F 215
+	Decision Trees
+	Decision trees are highly valued because they often produce comparable classification accuracy to other methods while maintaining faster learning speed.
+	True
+	Decision trees have relatively faster learning speed and comparable classification accuracy with other methods.
+	T/F 216
+	Regression
+	The choice of the Least Mean Squares cost function in linear regression is fundamentally decided by the underlying assumption that the noise term ϵ
+(i)
+is independent, identically distributed (IID) according to a Gaussian distribution.
+	True
+	Assuming Gaussian IID noise leads directly to the optimization objective of minimizing J(θ), the LMS function.
+	T/F 217
+	Regression
+	If Linear Regression is successful, the residual errors y
+(i)
+−h
+θ
+​
+(x
+(i)
+) should ideally follow a Bernoulli distribution.
+	False
+	The underlying probabilistic assumption is that the error term ϵ
+(i)
+follows a Gaussian distribution.
+	T/F 218
+	Gradient Descent
+	Gradient ascent, which maximizes an objective function, uses the update rule θ
+j
+​
+:=θ
+j
+​
++α
+∂θ
+j
+​
+∂
+​
+J(θ).
+	True
+	Gradient ascent involves moving in the positive direction of the gradient: θ:=θ+α∇
+θ
+​
+l(θ).
+	T/F 219
+	DT Evaluation
+	If a model is too simple for a given task, we run the risk of underfitting.
+	True
+	Underfitting occurs when the model is too simple.
+	T/F 220
+	DT Evaluation
+	Overfitting can be conceptually studied as a function of model complexity.
+	True
+	Overfitting is explicitly shown as increasing with model complexity in the bias-variance tradeoff figures.
+	T/F 221
+	DT Evaluation
+	Prepruning involves halting tree construction early if splitting a node results in the goodness measure falling below a threshold, but it can be difficult to choose the appropriate threshold.
+	True
+	Prepruning halts construction early based on a threshold, and difficulty lies in choosing an appropriate threshold.
+	T/F 222
+	DT Evaluation
+	Postpruning involves removing branches from a "fully grown" tree and requires a separate set of data (hold-out set) to decide the best pruned tree.
+	True
+	Postpruning removes branches from a fully grown tree and uses data different from the training set to select the best pruned tree.
+	T/F 223
+	DT Evaluation
+	In the general strategy against overfitting, training should stop when the performance on the hold-out set begins to deteriorate, even if performance on the training data continues to improve.
+	True
+	Stop training when accuracy/performance starts deteriorating for the hold-out set.
+	T/F 224
+	Decision Trees
+	The Gini index is a clustering evaluation metric and is not used in decision tree classification.
+	False
+	The Gini Index is used in CART for decision tree splitting.
+	T/F 225
+	Decision Trees
+	If a nominal feature has values {low, medium, high}, an admissible subset for a split using CART is {low, medium, high}.
+	False
+	The subset {low, medium, high} and the empty set are excluded because they are not useful splits.
+	T/F 226
+	Regression
+	The LMS update rule (for linear regression) and the stochastic gradient ascent update rule (for logistic regression) are mathematically identical in form, although the hypothesis function h
+θ
+​
+(x) differs.
+	True
+	The update rules look identical, but h
+θ
+​
+(x) is non-linear for Logistic Regression.
+	T/F 227
+	Complexity
+	The P complexity class contains all problems that can be solved in polynomial time using a deterministic Turing machine.
+	True
+	P contains problems solvable in polynomial time using a deterministic machine.
+	T/F 228
+	Complexity
+	The RSA algorithm relies on the fact that factorizing a large integer into prime factors is a problem belonging to the NP complexity class.
+	True
+	The RSA algorithm is based on the fact that prime factorization is NP-hard.
+	T/F 229
+	Complexity
+	Non-convex optimization, like that often found in deep learning, is an example of an NP-hard problem.
+	True
+	Non-convex optimization is NP-hard.
+	T/F 230
+	Complexity
+	The Longest Common Subsequence problem is classified as being NP-Complete or NP-Hard.
+	True
+	Longest Common Subsequence is listed as a popular NP problem.
+	T/F 231
+	Regression
+	When plotting the convergence of gradient descent, if a learning rate is too low, the cost function may never reach its minimum within a reasonable number of iterations.
+	True
+	A small α means slow convergence, potentially stopping due to max iterations before reaching the minimum.
+	T/F 232
+	Regression
+	The linear regression cost function J(θ) is an example of a convex optimization problem.
+	True
+	Linear regression is an example of convex optimization.
+	T/F 233
+	Regression
+	The calculation of the gradient descent update for the j-th parameter, θ
+j
+​
+, depends on all input features x
+i
+​
+, including those where i
+=j.
+	False
+	The derivative
+∂θ
+j
+​
+∂
+​
+J(θ) zeros out all terms θ
+i
+​
+x
+i
+​
+for i
+=j because they are constant with respect to θ
+j
+​
+.
+	T/F 234
+	Decision Trees
+	The Information Gain criterion measures uncertainty using a measure quantified information-theoretically (Entropy).
+	True
+	Uncertainty is quantified information-theoretically using Entropy.
+	T/F 235
+	Decision Trees
+	For a nominal attribute with K distinct values, the CART algorithm needs to examine all 2
+K
+−2 possible partitions into two subsets D
+1
+​
+and D
+2
+​
+.
+	True
+	For categorical attributes, the CART algorithm needs to examine all partitions into two subsets D
+1
+​
+and D
+2
+​
+.
+	T/F 236
+	Regression
+	The Least Mean Squares (LMS) algorithm is also known as the Widrow-Hoff learning rule.
+	True
+	The LMS update rule is also known as the Widrow-Hoff learning rule.
+	T/F 237
+	Regression
+	If y is discrete-valued (e.g., 0 or 1), it is generally acceptable to use linear regression to predict y given x.
+	False
+	It is easy to construct examples where linear regression performs poorly for discrete outcomes, and h
+θ
+​
+(x) should not take values outside for classification.
+	T/F 238
+	Regression
+	The calculation of the cost function J(θ) in linear regression requires iterating over all m training examples.
+	True
+	J(θ)=
+2m
+1
+​
+∑
+i=1
+m
+​
+(h
+θ
+​
+(x
+(i)
+)−y
+(i)
+)
+2
+requires summing over all m training examples.
+	T/F 239
+	DT Evaluation
+	Underfitting typically occurs when the model complexity is too high relative to the underlying data structure.
+	False
+	Underfitting is associated with models that are too simple.
+	T/F 240
+	DT Evaluation
+	The Bias-Variance Tradeoff illustrates that highly complex models tend to have high bias and low variance.
+	False
+	More complex models have lower bias but higher variance.
+	Topic 5: Supervised Learning II (Bayes, k-NN, Logistic Regression, Regularization) (70 Questions)
+ID
+	Topic
+	Question
+	Answer
+	Reasoning
+	T/F 241
+	Bayesian Classif.
+	The Bayesian classifier calculates the posterior probability $P(H
+	X)$, which is the probability that a hypothesis holds given the observed data X.
+	True
+	T/F 242
+	Bayesian Classif.
+	P(H) in Bayes' theorem refers to the likelihood function.
+	False
+	P(H) is the prior probability, while $P(X
+	T/F 243
+	Bayesian Classif.
+	A practical difficulty in using the standard Bayes Rule is the computational complexity of determining the joint probability $P(X
+	C_i)$.
+	True
+	T/F 244
+	Bayesian Classif.
+	The Naïve Bayes classifier assumes that features are marginally independent of each other.
+	False
+	Naïve Bayes assumes features are conditionally independent given the class.
+	T/F 245
+	Bayesian Classif.
+	In practice, the conditional independence assumption of Naïve Bayes is usually accurate, especially in domains like credit card fraud detection.
+	False
+	The assumption is approximate and often inaccurate (e.g., features in credit card fraud are typically dependent), but it works surprisingly well in practice and simplifies computation.
+	T/F 246
+	Bayesian Classif.
+	In order to train the Naïve Bayes classifier, we primarily need to compute the conditional probability $P(X_k
+	C_i)$ for every feature X
+k
+​
+and class C
+i
+​
+, and the prior probability P(C
+i
+​
+) for every class.
+	True
+	T/F 247
+	Bayesian Classif.
+	For continuous features, $P(X_k
+	C_i)isoftenmodeledusingaGaussiandistributioncalculatedfromthemean(\mu)andstandarddeviation(\sigma$) of the examples for that feature within class C
+i
+​
+.
+	True
+	T/F 248
+	Bayesian Classif.
+	The zero probability problem in Naïve Bayes occurs if the product of conditional probabilities results in a value of zero, thereby zeroing out the entire posterior probability estimate.
+	True
+	If any conditional probability $P(X_k
+	T/F 249
+	Bayesian Classif.
+	Laplacian correction (or Laplacian estimator) solves the zero probability problem by subtracting 1 from the frequency count of each case.
+	False
+	Laplacian correction solves the problem by adding 1 to each case count.
+	T/F 250
+	Bayesian Classif.
+	The core decision of the Bayes Classifier is to select the class C
+i
+​
+that maximizes the prior probability P(C
+i
+​
+).
+	False
+	The classifier selects the class C
+i
+​
+that maximizes the posterior probability $P(C_i
+	T/F 251
+	Bayesian Classif.
+	The Bayesian classifier computes the probability of the data given the hypothesis that they belong to a certain class holds, $P(X
+	H)$.
+	False
+	T/F 252
+	Bayesian Classif.
+	Naïve Bayes performs fine even if we have a few zero probabilities because of the multiplication property.
+	False
+	Zero probabilities cause the product $P(X
+	T/F 253
+	k-NN
+	k-Nearest Neighbors (k-NN) is an example of an eager learning method.
+	False
+	k-NN is a lazy learning or instance-based method that delays processing until a test instance is given.
+	T/F 254
+	k-NN
+	Instance-based learning (lazy learning) is generally faster during training but slower during classification compared to eager learning.
+	True
+	Lazy methods spend less time in training but more time in predicting/classification.
+	T/F 255
+	k-NN
+	In the vanilla k-NN algorithm, the label assigned to a test point is determined by taking the average of the labels of the k nearest neighbors.
+	False
+	The vanilla k-NN returns the majority label of the k nearest neighbors for classification.
+	T/F 256
+	k-NN
+	The distance-weighted k-NN approach assigns equal weight to all k nearest neighbors regardless of their distance to the test point.
+	False
+	Distance-weighted k-NN weighs neighbors according to their distance, downplaying the labels of neighbors that are farther away.
+	T/F 257
+	k-NN
+	For real-valued prediction (regression), the k-NN approach returns the mean value of the k nearest neighbors.
+	True
+	k-NN for real-valued prediction returns the mean values of the k nearest neighbors.
+	T/F 258
+	k-NN
+	If the distance function used in k-NN is a metric, the Triangle Inequality property can be leveraged to speed up distance computations by eliminating some data points.
+	True
+	If using a metric, the Triangle Inequality property can be used to accelerate/approximate computations and eliminate points.
+	T/F 259
+	k-NN
+	The Curse of Dimensionality implies that in high-dimensional space, the distance between neighbors can be dominated by irrelevant attributes, negatively impacting k-NN performance.
+	True
+	The distance between neighbors can be dominated by irrelevant attributes in high dimensions.
+	T/F 260
+	k-NN
+	Dimensionality reduction techniques like PCA are irrelevant to k-NN performance since k-NN uses distance measures directly.
+	False
+	Dimensionality reduction techniques can be used to mitigate the Curse of Dimensionality and improve k-NN performance.
+	T/F 261
+	Logistic Regression
+	Logistic Regression is a regression method designed to predict continuous-valued output.
+	False
+	Logistic Regression is used when we want to "regress" variables to a binary classification output.
+	T/F 262
+	Logistic Regression
+	The logistic function g(z)=1/(1+e
+−z
+) is also known as the sigmoid function.
+	True
+	g(z) is called the logistic function or the sigmoid function.
+	T/F 263
+	Logistic Regression
+	The derivative of the sigmoid function g
+′
+(z) is g(z)(1−g(z)).
+	True
+	This is a useful property derived in the sources.
+	T/F 264
+	Logistic Regression
+	When training Logistic Regression, the objective function is maximized using gradient descent.
+	False
+	Since Logistic Regression maximizes the likelihood (or log-likelihood), it uses gradient ascent.
+	T/F 265
+	Logistic Regression
+	Logistic Regression learns the probability $P(Y
+	X)$ directly, unlike Naïve Bayes, which learns P(Y) and $P(X
+	Y)$.
+	T/F 266
+	Regularization
+	Regularization techniques are generally used to increase the complexity of a model to better fit the training data.
+	False
+	Regularization constrains a model to a less complex solution to avoid overfitting.
+	T/F 267
+	Regularization
+	Regularization is typically expressed as an additional term $ \lambda \cdot r(\theta) $ added to the objective/loss function, penalizing large parameter values.
+	True
+	Regularization is expressed as Original Loss Function+λ⋅r(θ), penalizing large parameters.
+	T/F 268
+	Regularization
+	Ridge regression utilizes L
+1
+​
+norm regularization to shrink coefficients towards zero.
+	False
+	Ridge regression uses L
+2
+​
+norm regularization.
+	T/F 269
+	Regularization
+	Lasso regression utilizes L
+1
+​
+norm regularization, which encourages sparsity by driving some coefficients exactly to zero.
+	True
+	Lasso uses the L
+1
+​
+norm penalty, which is more likely to intersect the error contours on the axes, resulting in exactly 0 coefficients (sparsity).
+	T/F 270
+	Regularization
+	Ridge regression (L2 penalty) is also known as weight decay, particularly in neural networks.
+	True
+	Penalizing by the sum-of-squares of parameters (L
+2
+​
+penalty) is known as weight decay in neural networks.
+	T/F 271
+	Regularization
+	L1 norm regularization (Lasso) is a convex relaxation of the L
+0
+​
+"pseudonorm," which counts the number of non-zero entries in a vector.
+	True
+	L
+1
+​
+norm is a convex relaxation of the L
+0
+​
+"pseudonorm" (number of non-zero entries).
+	T/F 272
+	Regularization
+	The λ parameter in regularization determines the maximum number of iterations the algorithm can run.
+	False
+	λ is the complexity parameter that controls the amount/intensity of regularization/shrinkage.
+	T/F 273
+	Regularization
+	If λ=0 in the regularization term, the model defaults back to minimizing the original loss function.
+	True
+	If λ=0, the regularization term disappears, defaulting to the original loss.
+	T/F 274
+	k-NN
+	Instance-based learning methods generally offer less flexibility with respect to decision boundaries compared to model-based learning.
+	False
+	Lazy learning (instance-based) offers more flexibility because it uses many local functions to form an implicit global approximation, compared to eager learning which commits to a single hypothesis.
+	T/F 275
+	k-NN
+	When comparing instance-based and model-based learning, efficiency during training and flexibility of decision boundaries are important dimensions to consider.
+	True
+	Efficiency (time spent in training/prediction) and flexibility of decision boundaries are key comparative dimensions.
+	T/F 276
+	Bayesian Classif.
+	Naïve Bayes classification only works for categorical features and is undefined for numerical features.
+	False
+	Naïve Bayes can handle continuous features, often by modeling $P(X_k
+	T/F 277
+	Bayesian Classif.
+	The Naïve Bayes assumption states that all features are conditionally independent of the class variable.
+	False
+	The assumption is that features are conditionally independent given the class.
+	T/F 278
+	Bayesian Classif.
+	The Naïve Bayes assumption allows us to simplify a very hard-to-compute joint probability $P(X_1, \dots, X_n
+	C_i)$ into a product of simpler conditional probabilities $\prod P(X_k
+	C_i)$.
+	T/F 279
+	Bayesian Classif.
+	To train the Naïve Bayes classifier, we must compute $P(X
+	C_i)$ (the joint probability of all features given the class) directly without simplifying assumptions.
+	False
+	T/F 280
+	k-NN
+	In k-NN, if we were to pre-compute the decision boundaries for 1-NN, the resulting structure would be a Decision Tree.
+	False
+	Pre-computing the decision boundaries for 1-NN results in a Voronoi Diagram.
+	T/F 281
+	Logistic Regression
+	Since h
+θ
+​
+(x) is non-linear in Logistic Regression, the decision boundary defined is necessarily non-linear.
+	False
+	The decision boundary defined by Logistic Regression is linear (derived from θ
+T
+x>0).
+	T/F 282
+	Regularization
+	L1 regularization is known for being computationally more stable and easier to optimize than L2 regularization due to its smoothness.
+	False
+	L2 regularization (Ridge) is smooth. L1 regularization (Lasso) involves the absolute value, which is not differentiable at zero, making optimization slightly more complex than L2, though still solvable by convex optimization.
+	T/F 283
+	k-NN
+	If using k-NN for classification, for discrete-valued features, the algorithm returns the mean value among the k nearest neighbors.
+	False
+	For discrete-valued prediction (classification), k-NN returns the most common value (majority label).
+	T/F 284
+	k-NN
+	In the context of SVD for k-NN dimensionality reduction, the mean of the training data must be subtracted from both training and test data before decomposition or projection.
+	True
+	The procedure requires centering the data (subtracting the mean) for both train and test sets.
+	T/F 285
+	Logistic Regression
+	In the probabilistic interpretation of linear regression, the term ϵ
+(i)
+captures only random noise, not unmodeled effects.
+	False
+	ϵ
+(i)
+captures both random noise and unmodeled effects (e.g., left out features).
+	T/F 286
+	Regularization
+	The L
+2
+​
+Lasso penalty is replaced by the L
+1
+​
+Ridge penalty in the equivalent Lagrangian form of the Lasso problem.
+	False
+	The L
+2
+​
+Ridge penalty is replaced by the L
+1
+​
+Lasso penalty.
+	T/F 287
+	Regularization
+	The goal of regularization is to prevent underfitting.
+	False
+	Regularization is a method for avoiding overfitting.
+	T/F 288
+	Logistic Regression
+	When deriving the log-likelihood for Logistic Regression, the assumption of IID training examples allows the joint likelihood L(θ) to be written as the product of individual probabilities $p(y^{(i)}
+	x^{(i)}; \theta)$.
+	True
+	T/F 289
+	k-NN
+	The use of k-NN implicitly uses a richer hypothesis space than eager learners, often relying on many local linear functions for approximation.
+	True
+	Lazy methods (like k-NN) use many local linear functions to form an implicit global approximation, resulting in a richer hypothesis space.
+	T/F 290
+	Logistic Regression
+	For continuous features, Logistic Regression models $P(X_i
+	Y = y_k)$ as Gaussian distribution N(μ
+ik
+​
+,σ
+ik
+​
+) and models P(Y) as Bernoulli Ber(π).
+	True
+	T/F 291
+	k-NN
+	In distance-weighted k-NN, if a neighbor is exactly zero distance away from the test point, it will have zero influence on the prediction.
+	False
+	If distance is zero, it should strongly influence the prediction; the weighting typically involves inverse distance, making the influence maximal.
+	T/F 292
+	Regularization
+	Ridge regression results in solutions that are nonlinear in the target variables y
+i
+​
+.
+	False
+	Lasso solutions are nonlinear in y
+i
+​
+, but Ridge regression has a closed form expression.
+	T/F 293
+	Regularization
+	Both Ridge and Lasso regression primarily shrink coefficients toward zero.
+	True
+	Ridge shrinks coefficients toward zero (and each other); Lasso drives coefficients exactly to zero (sparsity).
+	T/F 294
+	k-NN
+	The core idea of k-NN is to store the training data and immediately construct a complex decision boundary.
+	False
+	k-NN is a lazy learner that stores the data and delays processing until classification is needed.
+	T/F 295
+	Logistic Regression
+	Because Logistic Regression maximizes likelihood, the update rule for parameters uses gradient descent with a negative sign.
+	False
+	Maximizing likelihood requires gradient ascent, using a positive sign in the update rule.
+	T/F 296
+	k-NN
+	Indexing techniques like kd-Trees can be used to accelerate neighborhood search in k-NN, avoiding the need to compare against all neighbors.
+	True
+	Techniques like kd-Tree can be used to cleverly index data points and avoid comparing against all neighbors.
+	T/F 297
+	Bayesian Classif.
+	The Bayesian Classifier is primarily a discriminative model, learning a boundary separating classes.
+	False
+	Bayesian methods (like Naïve Bayes) are generative models that learn the distribution of data within each class, $P(X
+	T/F 298
+	Regularization
+	Ridge regression penalizes the Euclidean (L
+2
+​
+) norm of the regression coefficient vector θ.
+	True
+	Ridge regression penalizes the L
+2
+​
+norm of the coefficient vector.
+	T/F 299
+	Regularization
+	A major benefit of using L1 regularization (Lasso) over L2 regularization (Ridge) is the introduction of sparsity, effectively performing feature selection.
+	True
+	L1 regularization is more likely to yield exactly zero coefficients, providing sparse solutions.
+	T/F 300
+	Regularization
+	Ridge regression tends to prefer solutions where many coefficients are zero.
+	False
+	L2 regularization (Ridge) is more likely to give small but non-zero values.
+	T/F 301
+	Regularization
+	In deep learning, the concept of weight decay is equivalent to L1 norm regularization.
+	False
+	Weight decay is equivalent to L2 norm regularization (Ridge regression).
+	T/F 302
+	k-NN
+	Using the Euclidean distance function means k-NN clustering must be applied only to data objects in a continuous space.
+	True
+	K-Means (which uses Euclidean distance for centroid calculation/assignment) is applicable only to objects in a continuous n-dimensional space. k-NN also typically uses Euclidean distance.
+	T/F 303
+	Bayesian Classif.
+	When classifying a new data point using Naïve Bayes, the step $P(X
+	C_i) \cdot P(C_i)$ is computed, and the result must be normalized by P(X) to obtain the final posterior probability $P(C_i
+	X)$.
+	T/F 304
+	k-NN
+	Since k-NN is non-parametric, the computational cost to classify a test point increases linearly with the size of the training set.
+	True
+	Calculating distances to all training points scales with the size of the training set N.
+	T/F 305
+	k-NN
+	The main challenge addressed by the Curse of Dimensionality in k-NN is that irrelevant features can dominate the distance calculation between neighbors.
+	True
+	The distance between neighbors could be dominated by irrelevant attributes.
+	T/F 306
+	Bayesian Classif.
+	The formula for $P(X_k
+	C_i)$ for categorical features in Naïve Bayes is found by dividing the number of data points in C
+i
+​
+with value x
+k
+​
+by the total number of data points in C
+i
+​
+.
+	True
+	T/F 307
+	k-NN
+	Instance-based learning is effective because it forces the model to commit to a single hypothesis covering the entire instance space.
+	False
+	Eager learning commits to a single hypothesis; instance-based learning (lazy) uses a richer hypothesis space formed by many local approximations.
+	T/F 308
+	Regularization
+	Lasso regression typically leads to smaller, non-zero coefficient values compared to Ridge regression.
+	False
+	Ridge (L2) tends to give small, non-zero values; Lasso (L1) tends toward exactly zero coefficients.
+	T/F 309
+	Logistic Regression
+	The logistic function smoothly increases from 0 to 1, making it suitable for modeling class probabilities.
+	True
+	The sigmoid function g(z) plots smoothly from 0 to 1.
+	T/F 310
+	k-NN
+	The distance-weighted k-NN approach assigns higher weight to neighbors that are farther away from the query point.
+	False
+	It downplays the labels of neighbors that are far away.
+	Topic 6: Supervised Learning: Advanced & Evaluation (70 Questions)
+ID
+	Topic
+	Question
+	Answer
+	Reasoning
+	T/F 311
+	Evaluation
+	The Classifier Accuracy is defined as the percentage of test set instances that are correctly classified, calculated as (TP+TN)/All.
+	True
+	Accuracy is (TP+TN)/All.
+	T/F 312
+	Evaluation
+	The Error Rate is calculated as the sum of True Positives and False Negatives, divided by all instances.
+	False
+	Error rate is 1−accuracy, or (FP+FN)/All.
+	T/F 313
+	Evaluation
+	Sensitivity (True Positive recognition rate) is calculated as TN/N.
+	False
+	Sensitivity is TP/P. TN/N is Specificity.
+	T/F 314
+	Evaluation
+	Precision measures completeness—the percentage of positive instances the classifier labeled as positive.
+	False
+	Precision measures exactness (what % labeled positive are actually positive). Recall (or Sensitivity) measures completeness.
+	T/F 315
+	Evaluation
+	In classification evaluation, precision and recall typically have an inverse relationship.
+	True
+	There is an inverse relationship between precision & recall.
+	T/F 316
+	Evaluation
+	The F-score is the arithmetic mean of precision and recall.
+	False
+	The F-score is the harmonic mean of precision and recall.
+	T/F 317
+	Evaluation
+	In the Holdout method, the given data is partitioned into two independent sets: the training set and the validation set.
+	False
+	The partitions are the training set and the test set.
+	T/F 318
+	Evaluation
+	Random subsampling is a variation of the holdout method where the process is repeated k times and the accuracy is averaged.
+	True
+	Random sampling repeats the holdout k times, and the accuracy is averaged.
+	T/F 319
+	Evaluation
+	In k-fold cross-validation, the data is partitioned into k mutually exclusive subsets, and each subset is used once as the training set.
+	False
+	In k-fold cross-validation, the i-th subset D
+i
+​
+is used as the test set and the others are used as the training set.
+	T/F 320
+	Evaluation
+	Leave-one-out cross-validation is equivalent to k-fold cross-validation where k is the number of tuples in the dataset.
+	True
+	Leave-one-out sets k folds equal to the number of tuples.
+	T/F 321
+	Evaluation
+	Stratified cross-validation ensures that the class distribution in each fold is approximately the same as the distribution in the initial data.
+	True
+	Folds are stratified so that class distribution is approximately the same.
+	T/F 322
+	Evaluation
+	When comparing two classifiers, the null hypothesis states that the difference between the two error rates is statistically significant.
+	False
+	The null hypothesis typically states that the observed effect is random (e.g., "our two classifiers perform the same").
+	T/F 323
+	Evaluation
+	A t-test is used to compare the mean error rates of two classifiers by assuming the samples follow a Gaussian distribution.
+	False
+	The t-test assumes samples follow a t-distribution (Student's t-distribution).
+	T/F 324
+	Evaluation
+	If a t-test results in a p-value less than sig/2, the null hypothesis is rejected, concluding that the difference between classifiers is statistically significant.
+	True
+	If p-value < sig/2, the null hypothesis is rejected.
+	T/F 325
+	Evaluation
+	Error bars often visualize the mean ± standard deviation, or confidence intervals, of a performance measure.
+	True
+	Error bars visualize mean ± error (SEM, STD, or Confidence intervals).
+	T/F 326
+	Evaluation
+	If the error bars for the mean accuracies of two classifiers significantly overlap, this often points toward a problem in statistical significance.
+	True
+	When there is overlap, this may point to problems in significance (i.e., the difference is not significant).
+	T/F 327
+	Advanced Supervised
+	The Perceptron algorithm uses a sigmoid activation function to perform linear regression.
+	False
+	The Perceptron performs linear regression if the activation function is f(x)=x.
+	T/F 328
+	Advanced Supervised
+	If the perceptron uses the activation function f(x)=x, it performs linear regression.
+	True
+	When activation is f(x)=x, it performs linear regression.
+	T/F 329
+	Advanced Supervised
+	The standard Perceptron, using a linear decision surface, is capable of classifying non-linearly separable data.
+	False
+	The Perceptron still defines a linear decision surface and can only separate linearly separable data.
+	T/F 330
+	Advanced Supervised
+	The solution to handling non-linear data using neural networks is to add more units and layers, forming a Multi-layer Feed-Forward Neural Network.
+	True
+	Adding more Perceptron units and layers forms the Multi-layer Feed-Forward Neural Network, capable of handling non-linear functions.
+	T/F 331
+	Advanced Supervised
+	In a feed-forward neural network, the weights may cycle back to an input unit or a unit in a previous layer.
+	False
+	The network is feed-forward, meaning none of the weights cycle back to an input unit or to an output unit of a previous layer.
+	T/F 332
+	Advanced Supervised
+	Neural networks can approximate any function given enough hidden units and training data.
+	True
+	Given enough hidden units and training data, they can closely approximate any function.
+	T/F 333
+	Advanced Supervised
+	Training a neural network via Backpropagation involves modifying weights in the "backwards" direction, from the output layer down to the input layer.
+	True
+	Modifications are made in the "backwards" direction: from the output layer down to the first hidden layer.
+	T/F 334
+	Advanced Supervised
+	A major strength of neural networks is their high interpretability, as the symbolic meaning behind the learned weights is easy to understand.
+	False
+	A weakness of neural networks is their poor interpretability; it is difficult to interpret the symbolic meaning of weights/hidden units.
+	T/F 335
+	Advanced Supervised
+	Support Vector Machines (SVMs) aim to find the linear decision boundary that minimizes the distance from the nearest data points (support vectors).
+	False
+	SVMs aim to find the line that maximizes the distance (margin) from the Support Vectors.
+	T/F 336
+	Advanced Supervised
+	Maximizing the margin width in a linear SVM is equivalent to minimizing the magnitude of the weight vector, $
+	
+
+	w
+	T/F 337
+	Advanced Supervised
+	The linear SVM optimization problem is a Quadratically Constrained Quadratic Program (QCQP) that can be solved optimally.
+	True
+	Training a linear SVM involves solving a QCQP, which can be solved optimally.
+	T/F 338
+	Advanced Supervised
+	The decision boundary in a linear SVM is determined solely by the data points closest to the boundary, known as the support vectors.
+	True
+	The line can be determined solely by the support vectors.
+	T/F 339
+	Advanced Supervised
+	The Kernel Trick allows SVMs to classify non-linearly separable data by implicitly mapping the data to a high-dimensional space where separation might be linear.
+	True
+	The Kernel Trick allows SVM to handle non-linearly separable data by implicitly transforming it to a higher dimension.
+	T/F 340
+	Advanced Supervised
+	The complexity of a trained SVM classifier is characterized by the dimensionality of the data rather than the number of support vectors.
+	False
+	Complexity is characterized by the number of support vectors, independent of the data dimensionality.
+	T/F 341
+	Advanced Supervised
+	SVM algorithms are generally learned in batch mode using quadratic programming techniques.
+	True
+	SVM is a deterministic algorithm, expensive to learn, and learned in batch mode using quadratic programming.
+	T/F 342
+	Advanced Supervised
+	Neural networks are generally nondeterministic algorithms for learning.
+	True
+	Neural networks are typically non-deterministic algorithms.
+	T/F 343
+	Ensemble Methods
+	An ensemble method relies on combining predictions from a collection of "weak learners" to create a stronger overall model.
+	True
+	Ensemble methods combine models to increase accuracy, using a collection of weak learners to make a strong learner.
+	T/F 344
+	Ensemble Methods
+	Bootstrapping is a technique that involves sampling the training data with replacement to create multiple training sets of the same size as the original set.
+	True
+	Bootstrapping involves sampling the set D of d tuples with replacement to create training sets D
+i
+​
+of size d.
+	T/F 345
+	Ensemble Methods
+	Bagging (Bootstrap Aggregation) combines decisions by taking a simple arithmetic average of the predictions made by each classifier.
+	False
+	Bagging uses a majority vote based approach.
+	T/F 346
+	Ensemble Methods
+	Random Forests introduce randomness only through the bootstrap sampling of the training data.
+	False
+	Random Forests also introduce randomness through a random selection of features considered for splitting at each node.
+	T/F 347
+	Ensemble Methods
+	The out-of-bag error in Random Forest uses the training samples that were included in the bootstrap sample for evaluation.
+	False
+	Out-of-bag error uses only the trees that did not have x
+i
+​
+in their bootstrap sample.
+	T/F 348
+	Class Imbalance
+	Traditional classification methods are often poorly suited for class-imbalanced data because they assume a balanced distribution and equal error costs.
+	True
+	Traditional methods assume balanced distribution and equal error costs, making them unsuitable for imbalanced data.
+	T/F 349
+	Class Imbalance
+	Oversampling involves randomly eliminating tuples from the negative class (majority class).
+	False
+	Oversampling involves re-sampling data from the positive (minority) class. Under-sampling eliminates tuples from the negative class.
+	T/F 350
+	Class Imbalance
+	SMOTE (Synthetic Minority Oversampling Technique) works by generating synthetic data points along lines connecting nearest neighbors of minority class examples.
+	True
+	SMOTE generates synthetic data points along the lines connecting nearest neighbors of minority class examples.
+	T/F 351
+	Transfer Learning
+	In Transfer Learning, a new classifier is built for a target task by applying knowledge learned from one or more source tasks.
+	True
+	Transfer learning extracts knowledge from source tasks and applies it to a target task.
+	T/F 352
+	Transfer Learning
+	In deep transfer learning, an existing network trained on a large dataset (like ImageNet) can be repurposed by replacing the convolutional layers and retraining the fully connected layer.
+	False
+	The 'classifier' part (the last fully connected layers) is substituted/retrained, while the earlier layers (which learned features) are reused.
+	T/F 353
+	Explaining Black Box
+	LIME (Local Interpretable Model-Agnostic Explanations) works by globally approximating the complicated model with a complex neural network.
+	False
+	LIME locally approximates the complicated model with a linear one, then uses the linear model to explain local decisions.
+	T/F 354
+	Deep Learning
+	Convolutional Neural Networks (CNNs) reduce the number of parameters compared to fully connected layers because each pixel is written as a linear combination of its value and the convolution filter weights.
+	True
+	Conv filters reduce the number of parameters, leading to more efficient training than a gigantic fully-connected set of layers.
+	T/F 355
+	Deep Learning
+	The ImageNet challenge was instrumental in the revolution of computer vision research.
+	True
+	ImageNet created a benchmark challenge that helped revolutionize computer vision research.
+	T/F 356
+	Evaluation
+	The Bias-Variance Tradeoff suggests that if a model is complex, the bias tends to be high, and the variance tends to be low.
+	False
+	More complex models have lower bias, but the variance increases with complexity.
+	T/F 357
+	Evaluation
+	In the Bias-Variance decomposition, the "unavoidable error" can typically be eliminated by increasing the amount of training data.
+	False
+	The error is decomposed into bias
+2
+, variance, and unavoidable error.
+	T/F 358
+	Evaluation
+	When classifying instances with a Logistic Regression classifier, generating a Precision-Recall curve involves varying the classification probability threshold.
+	True
+	Generating the PR curve involves varying the threshold and recording precision and recall.
+	T/F 359
+	Evaluation
+	If a classifier increases its prediction threshold from 0.5 to 0.7, this generally results in higher recall and lower precision.
+	False
+	A higher threshold means the model is more confident, resulting in higher precision and lower recall.
+	T/F 360
+	Evaluation
+	When interpreting a Precision-Recall curve, a model that performs ideally would maintain high precision even as recall approaches 1.0.
+	True
+	The ideal curve shows high precision across all recall levels.
+	T/F 361
+	Evaluation
+	The F
+β
+​
+measure assigns β times as much weight to precision as to recall.
+	False
+	F
+β
+​
+assigns β times as much weight to recall as to precision.
+	T/F 362
+	Advanced Supervised
+	SVMs are generally more robust to noisy data than Neural Networks because they focus primarily on the support vectors.
+	False
+	The source states that Neural Networks have a high tolerance to noisy data.
+	T/F 363
+	Advanced Supervised
+	Using kernels in SVM allows the model to learn very complex functions.
+	True
+	Using kernels allows SVMs to learn very complex functions.
+	T/F 364
+	Advanced Supervised
+	SVM is often preferred over Neural Networks because it provides stronger generalization properties due to its mathematical foundation in maximizing the margin.
+	True
+	SVM has nice generalization properties.
+	T/F 365
+	Advanced Supervised
+	The Perceptron algorithm uses the LMS update rule, which is also called the Widrow-Hoff learning rule.
+	True
+	The Perceptron training update is essentially the LMS rule (Widrow-Hoff learning rule).
+	T/F 366
+	Advanced Supervised
+	Discriminative classifiers learn a boundary that separates positive and negative labels.
+	True
+	A discriminative classifier can be viewed as learning a boundary that separates "+" and "-" labels.
+	T/F 367
+	Advanced Supervised
+	The Perceptron performs logistic regression when using the sigmoid function as the activation function.
+	True
+	The Perceptron performs logistic regression when the activation function is the logistic/sigmoid function.
+	T/F 368
+	Advanced Supervised
+	The computational cost of finding the optimal separating hyperplane in linear SVM is generally solved using linear programming techniques.
+	False
+	It is solved using Quadratic Programming techniques (QCQP).
+	T/F 369
+	Evaluation
+	In the Bias-Variance Tradeoff, when a model is underfitting, both bias and variance are typically high.
+	False
+	Underfitting is characterized by high bias and low variance.
+	T/F 370
+	Ensemble Methods
+	Random Forest is known for being insensitive to the number of attributes selected for consideration at each split, and is generally faster than many other ensemble methods.
+	True
+	Random Forest is insensitive to the number of attributes chosen and generally faster than other methods.
+	T/F 371
+	Ensemble Methods
+	Random Forest can be used for feature selection by measuring the difference in out-of-bag error when a feature's values are randomly permuted.
+	True
+	Measuring the difference in out-of-bag error between original and permuted data gives a notion of importance.
+	T/F 372
+	Class Imbalance
+	One strategy for handling class imbalance is penalizing the algorithm more heavily when it makes a mistake on the majority class.
+	False
+	Penalization is used to penalize the algorithm more when it makes a mistake on the minority class.
+	T/F 373
+	Transfer Learning
+	Traditional learning frameworks typically assume that the training data and test data are drawn from the same feature space and distribution, regardless of the task.
+	True
+	Traditional learning builds a new classifier for each new task, relying on consistent data/task spaces.
+	T/F 374
+	Deep Learning
+	The key reasons for the recent resurgence of Neural Networks include the need for more complex algorithms and the decrease in data availability.
+	False
+	The comeback was fueled by the availability of a lot of data, computational power, and new algorithmic advances.
+	T/F 375
+	Evaluation
+	Purity and Normalized Mutual Information (NMI) are examples of intrinsic evaluation methods for clustering.
+	False
+	Purity and NMI are extrinsic (supervised) methods, comparing clustering against ground truth.
+	T/F 376
+	Evaluation
+	If a classifier uses a threshold of 0.5, it predicts class 1 if the probability p(x)≥0.5 and class 0 otherwise.
+	True
+	This is the normal operating procedure for logistic regression classifiers.
+	T/F 377
+	Advanced Supervised
+	The RBF (Radial Basis Function) is an example of a popular kernel function used in SVMs.
+	True
+	RBF is listed as a common kernel.
+	T/F 378
+	Advanced Supervised
+	SVM with a small number of support vectors can have poor generalization when the data dimensionality is high.
+	False
+	SVM with a small number of support vectors can have good generalization, even in high dimensions.
+	T/F 379
+	Evaluation
+	When performing leave-one-out cross-validation, the variance of the error estimate tends to be high compared to 10-fold cross-validation.
+	True
+	(Information from outside the source, but implicit in the model selection context.)
+	T/F 380
+	Advanced Supervised
+	The derivation of the gradient for logistic regression simplifies nicely because the derivative of the sigmoid function, g
+′
+(z), equals g(z)(1−g(z)).
+	True
+	This property is explicitly shown to simplify the derivative.
+	Topic 7: Unsupervised Learning I (Clustering Methods) (75 Questions)
+ID
+	Topic
+	Question
+	Answer
+	Reasoning
+	T/F 381
+	Clustering Intro
+	Clustering is a process that groups similar data objects together such that they are dissimilar to objects in other groups.
+	True
+	A cluster is a collection of objects similar within the group and dissimilar to objects in other groups.
+	T/F 382
+	Clustering Intro
+	High intra-class similarity means clusters are cohesive, while low inter-class similarity means they are distinctive.
+	True
+	Good clustering requires maximizing intra-class similarity (cohesive) and minimizing inter-class similarity (distinctive).
+	T/F 383
+	Clustering Intro
+	Clustering is generally only useful as a stand-alone tool for data distribution insight, not as a preprocessing step.
+	False
+	Clustering is useful both as a stand-alone tool and as a preprocessing step for other algorithms like regression or classification.
+	T/F 384
+	Clustering Intro
+	In the context of data mining, compression can be achieved by using cluster centroids instead of all the original data points.
+	True
+	Using cluster centroids instead of all data is an example of compression.
+	T/F 385
+	Clustering Intro
+	The partitioning approach to clustering constructs a hierarchical decomposition of the data based on some criterion.
+	False
+	The partitioning approach constructs various partitions evaluated by a criterion (e.g., k-means). Hierarchical approaches create a hierarchical decomposition.
+	T/F 386
+	K-Means
+	The K-means algorithm minimizes the Sum of Squared Errors (SSE), defined as the sum of squared Euclidean distances between each point and its assigned centroid.
+	True
+	K-means minimizes the sum of squared distances, E=∑∑
+p∈C
+i
+​
+​
+(p−c
+i
+​
+)
+2
+, where c
+i
+​
+is the centroid.
+	T/F 387
+	K-Means
+	The optimal solution for partitioning n objects into k clusters can be found efficiently using Lloyd's algorithm in polynomial time with respect to n.
+	False
+	Finding the optimal solution is NP-Hard; K-means is a heuristic method.
+	T/F 388
+	K-Means
+	The complexity of the K-means (Lloyd's algorithm) is O(tkn), where t is the number of iterations, k is the number of clusters, and n is the number of objects.
+	True
+	The efficiency is O(tkn), and normally k,t≪n.
+	T/F 389
+	K-Means
+	K-means is guaranteed to terminate at the global optimum of the SSE function.
+	False
+	K-means often terminates at a local optimum.
+	T/F 390
+	K-Means
+	If K-means is poorly initialized, it may result in empty clusters (centroids with no points assigned).
+	True
+	Empty clusters can occur due to a bad choice of K or a poor initialization.
+	T/F 391
+	K-Means
+	K-means++ is an initialization method designed to choose initial centroids that are close to each other.
+	False
+	K-means++ chooses the second centroid with probability proportional to D(x
+j
+​
+,c
+1
+​
+)
+2
+, which gives a point far enough from c
+1
+​
+.
+	T/F 392
+	K-Means
+	K-means is highly robust to noisy data and outliers because it uses the mean to calculate centroids.
+	False
+	K-means is sensitive to noisy data and outliers because the mean can be substantially distorted by extreme values.
+	T/F 393
+	K-Medoids
+	In K-medoids, the cluster center is represented by an artificial point that minimizes the squared Euclidean distance to all points in the cluster.
+	False
+	K-medoids uses a medoid, which is an actual data object in the cluster, whose average dissimilarity to all objects is minimal.
+	T/F 394
+	K-Medoids
+	The PAM (Partitioning Around Medoids) algorithm scales well for very large datasets due to its iterative optimization.
+	False
+	PAM does not scale well for large datasets because it checks all substitutions of medoids with non-medoids at every iteration.
+	T/F 395
+	Hierarchical
+	Hierarchical clustering requires the user to specify the number of clusters (k) in advance.
+	False
+	Hierarchical clustering does not require k as an input, but it requires a termination condition.
+	T/F 396
+	Hierarchical
+	Agglomerative hierarchical clustering follows a top-down (divisive) approach.
+	False
+	Agglomerative clustering (AGNES) is a bottom-up approach.
+	T/F 397
+	Hierarchical
+	In hierarchical clustering, a dendrogram represents the nested partitioning of data objects.
+	True
+	Hierarchical clustering results in a dendrogram, which is a tree of clusters.
+	T/F 398
+	Hierarchical
+	Cutting the dendrogram at the desired level results in a set of partitions, where each connected component forms a cluster.
+	True
+	A clustering is obtained by cutting the dendrogram at the desired level.
+	T/F 399
+	Hierarchical
+	Single linkage computes the distance between two clusters based on the largest distance between any element in one cluster and any element in the other.
+	False
+	Single link uses the smallest distance between elements. The largest distance is used by Complete link.
+	T/F 400
+	Hierarchical
+	Single linkage clustering tends to find clusters based on local proximities, whereas complete linkage relies on global proximities.
+	True
+	Single linkage finds local proximities; Complete linkage finds global proximities.
+	T/F 401
+	Hierarchical
+	AGNES (Agglomerative Nesting) starts with all objects in one cluster and recursively splits them.
+	False
+	AGNES starts with all points in different clusters and merges nodes (bottom-up).
+	T/F 402
+	Hierarchical
+	DIANA (Divisive Analysis) starts with all objects belonging to the same cluster and recursively splits them until a termination condition is met.
+	True
+	DIANA starts with all objects in the same cluster and splits them (top-down).
+	T/F 403
+	Hierarchical
+	Solving DIANA optimally involves considering 2
+n
+−1 ways of partitioning n objects, which is computationally inexpensive.
+	False
+	Considering 2
+n
+−1 ways is very expensive; DIANA uses greedy heuristics to reduce complexity.
+	T/F 404
+	Hierarchical
+	The single-linkage hierarchical clustering problem is mathematically equivalent to finding the Minimum Spanning Tree (MST) in a connected, weighted, and undirected graph.
+	True
+	Single-linkage and MST problems are equivalent.
+	T/F 405
+	K-Means
+	The K-means algorithm uses "greedy optimization," similar to Kruskal's algorithm for MST.
+	False
+	K-means uses "alternating optimization" or "block coordinate descent". Kruskal's is greedy optimization.
+	T/F 406
+	K-Means
+	The use of gradient descent is generally beneficial for solving K-means, allowing it to always converge to the optimal solution.
+	False
+	K-means (Lloyd's algorithm) uses alternating optimization, not typical gradient descent, and is not guaranteed to find the optimal solution.
+	T/F 407
+	K-Means
+	If random initialization of centroids for K-means is poor, this may result in empty clusters.
+	True
+	Empty clusters can result from a poor initialization.
+	T/F 408
+	K-Means
+	K-means clustering can be viewed as a form of compression of N data points to K centroids, minimizing the approximation error.
+	True
+	K-means minimizes approximation error of representing every data point by its nearest centroid.
+	T/F 409
+	K-Means
+	For K-means clustering, the error will always be exactly 0 if we set the number of clusters K equal to log(N), where N is the number of data points.
+	False
+	The error is only guaranteed to be 0 if K=N (each point is its own centroid).
+	T/F 410
+	K-Means
+	In practice, to achieve better performance in clustering accuracy for K-means, it is recommended to use the same initialization every time rather than initializing randomly.
+	False
+	Random initialization is used to explore different local optima; for better performance, one should not use the same initialization every time (e.g., using K-means++ or multiple random restarts).
+	T/F 411
+	Hierarchical
+	The DIANA (Divisive Analysis) hierarchical clustering algorithm traces exactly the same clusters as a bottom-up (agglomerative) approach would do.
+	False
+	DIANA and AGNES perform hierarchical decomposition, but DIANA is divisive (top-down) and AGNES is agglomerative (bottom-up). They may not trace the same clusters, especially since DIANA uses greedy heuristics.
+	T/F 412
+	K-Means
+	Solving K-means clustering optimally is an NP-Hard problem.
+	True
+	The optimal solution for partitioning is NP-Hard.
+	T/F 413
+	K-Means
+	If there are 3 actual clusters in the data and we choose K=10 for K-means, the algorithm will automatically return exactly 3 non-empty clusters.
+	False
+	K-means will attempt to find 10 clusters, and may result in more than 3 non-empty clusters or potentially empty clusters.
+	T/F 414
+	Clustering Intro
+	A key challenge in cluster analysis is scalability, requiring algorithms to work only on small samples of data instead of the entire dataset.
+	False
+	Scalability requires clustering all the data instead of only samples.
+	T/F 415
+	K-Medoids
+	K-Medoids minimizes the Manhattan distance, whereas K-Means minimizes the Euclidean distance.
+	True
+	The medoid minimizes the Manhattan distance (in 1D/median context, generalized to K-medoids). K-Means minimizes Euclidean distance.
+	T/F 416
+	Hierarchical
+	The centroid linkage method calculates the distance between two clusters by measuring the distance between their medoids.
+	False
+	Centroid linkage uses the distance between the centroids (means). Medoid linkage uses the distance between the medoids.
+	T/F 417
+	Hierarchical
+	The agglomerative clustering approach (AGNES) uses single-link distance by default, meaning it merges clusters with the least dissimilarity.
+	True
+	AGNES uses the single-link approach, merging nodes with the least dissimilarity (minimum distance).
+	T/F 418
+	Hierarchical
+	In DIANA, complexity is reduced by using a greedy heuristic that picks the object with maximum dissimilarity from the rest and moving it to a new cluster.
+	True
+	DIANA uses greedy heuristics, including picking the max dissimilarity object to start a new cluster.
+	T/F 419
+	Clustering Intro
+	An important partitioning criterion in clustering is the similarity measure used, which can be distance-based (e.g., Euclidean) or connectivity-based (e.g., density).
+	True
+	Similarity measures can be distance-based or connectivity-based.
+	T/F 420
+	K-Means
+	When performing K-means, the SSE necessarily decreases or stays the same with every iteration.
+	True
+	K-means uses an alternating optimization approach where each step (assignment or centroid recalculation) reduces or maintains the SSE until convergence to a local minimum.
+	T/F 421
+	K-Means
+	Because K-means utilizes random initialization, multiple runs are necessary to obtain a good estimate of the SSE and Silhouette score.
+	True
+	Because K-means uses randomized initialization, multiple iterations per K value are needed to get a good estimate.
+	T/F 422
+	K-Medoids
+	The medoid of a cluster is defined as the object whose minimum dissimilarity to all objects in the cluster is minimal.
+	False
+	The medoid is the data object whose average dissimilarity to all objects in the cluster is minimal.
+	T/F 423
+	Clustering Intro
+	Outlier detection is a possible application for clustering, where outliers are often viewed as points far away from any cluster.
+	True
+	Outlier detection is listed as a clustering application.
+	T/F 424
+	Clustering Intro
+	Soft clustering requires that every data object is exclusively assigned to exactly one cluster.
+	False
+	Hard clustering requires exclusive assignment. Soft clustering allows for soft or fuzzy boundaries.
+	T/F 425
+	K-Means
+	The efficiency of K-means is primarily dependent on the number of features (dimensions) rather than the number of data points.
+	False
+	Efficiency is O(tkn), dependent on iterations (t), clusters (k), and objects (n).
+	T/F 426
+	Hierarchical
+	Divisive hierarchical clustering is typically implemented by finding the single best split of a cluster into two parts to reduce computational complexity.
+	False
+	Finding the best split of a cluster into two is computationally expensive. Divisive methods (like DIANA) use greedy splits satisfying a threshold instead.
+	T/F 427
+	K-Means
+	If K-means is run on data containing a substantial outlier, the final SSE value is expected to be significantly larger compared to running K-means on the original data without the outlier.
+	True
+	K-means is sensitive to outliers, and the outlier will increase the SSE dramatically.
+	T/F 428
+	Clustering Intro
+	Dendrograms are graphs used to represent the results of partition-based clustering algorithms like K-means.
+	False
+	Dendrograms represent the results of Hierarchical clustering.
+	T/F 429
+	Hierarchical
+	Greedy algorithms, such as Kruskal's algorithm for Minimum Spanning Tree, are guaranteed to provide a globally optimal solution in some cases.
+	True
+	In some cases (like MST using Kruskal's), greedy optimization yields a global optimum.
+	T/F 430
+	K-Means
+	K-means should only be used if the data distribution is known to be Gaussian.
+	False
+	K-means is a heuristic method applicable to continuous n-dimensional space.
+	T/F 431
+	Clustering Intro
+	The quality of a clustering method relies solely on the similarity measure used and is independent of the resulting cluster patterns.
+	False
+	Quality depends on the similarity measure AND the method's ability to discover hidden patterns.
+	T/F 432
+	Hierarchical
+	The concept of single-linkage clustering relies on minimizing the maximum pairwise distance between two clusters.
+	False
+	Single-linkage minimizes the minimum pairwise distance (local patterns).
+	T/F 433
+	K-Means
+	Lloyd's algorithm for K-means is a form of block coordinate descent.
+	True
+	K-means (Lloyd's algorithm) uses "alternating optimization" or "block coordinate descent".
+	T/F 434
+	K-Means
+	In K-means, the term 'error' for a data point is defined as the absolute distance from that point to its nearest centroid.
+	False
+	Error per point is the Euclidean distance, and SSE sums the squared Euclidean distances.
+	T/F 435
+	K-Means
+	The K-means algorithm requires all features to be transformed to categorical variables before clustering can begin.
+	False
+	K-means operates on objects in a continuous n-dimensional space (numerical data).
+	Topic 8: Unsupervised Learning: Density & Evaluation (50 Questions)
+ID
+	Topic
+	Question
+	Answer
+	Reasoning
+	T/F 436
+	DBSCAN
+	Density-Based Clustering methods like DBSCAN are motivated by the need to discover clusters of arbitrary shapes and handle noise.
+	True
+	Density-based clustering (DBSCAN) aims to discover arbitrary shapes and handle noise.
+	T/F 437
+	DBSCAN
+	DBSCAN requires only one parameter: the maximum radius of the neighborhood (Eps).
+	False
+	DBSCAN requires two parameters: Eps (maximum radius) and MinPts (minimum number of points in Eps-neighborhood).
+	T/F 438
+	DBSCAN
+	A point q is a "core point" in DBSCAN if its Eps-neighborhood contains at least MinPts number of points.
+	True
+	The core point condition is $
+	T/F 439
+	DBSCAN
+	Point p is directly density-reachable from point q only if p belongs to N
+Eps
+​
+(q), regardless of whether q is a core point.
+	False
+	q must satisfy the core point condition: $
+	T/F 440
+	DBSCAN
+	The notion of "density-reachable" is symmetric in DBSCAN.
+	False
+	"Density-reachable" is not symmetric, as the starting point must be a core point.
+	T/F 441
+	DBSCAN
+	DBSCAN defines a cluster as a maximal set of density-connected points.
+	True
+	A cluster is defined as a maximal set of density-connected points.
+	T/F 442
+	DBSCAN
+	Points labeled as "noise" by DBSCAN are potential outliers.
+	True
+	All points marked as "noise" are potential outliers.
+	T/F 443
+	DBSCAN
+	DBSCAN does not require the number of clusters as a parameter, unlike K-means.
+	True
+	DBSCAN does not require the number of clusters as a parameter.
+	T/F 444
+	DBSCAN
+	The naïve implementation of DBSCAN has a time complexity of O(n
+2
+), where n is the number of data points.
+	True
+	Naïve implementation complexity is O(n
+2
+).
+	T/F 445
+	DBSCAN
+	The result of DBSCAN is entirely deterministic, regardless of the order in which points are processed.
+	False
+	The result is not entirely deterministic, as border points may end up in different clusters depending on the processing order.
+	T/F 446
+	DBSCAN
+	If a spatial index like an R*-Tree is used, the time complexity of DBSCAN can be improved by achieving logarithmic retrieval of neighborhood points.
+	True
+	Using a spatial index can lead to logarithmic retrieval of neighborhood points.
+	T/F 447
+	DBSCAN
+	A point p is a "border point" if it is density-reachable from a core point but is not a core point itself.
+	True
+	Border points are density-reachable but do not satisfy the core point condition.
+	T/F 448
+	LOF
+	The Local Outlier Factor (LOF) algorithm balances local density against how far away a point is from a dense neighborhood.
+	True
+	LOF involves a trade off between local density and how far away a point is from a dense neighborhood.
+	T/F 449
+	Evaluation
+	Intrinsic clustering evaluation methods use ground truth labels to assess the quality of the clusters.
+	False
+	Intrinsic methods (unsupervised) are used when ground truth is unavailable. Extrinsic methods (supervised) use ground truth.
+	T/F 450
+	Evaluation
+	The Silhouette Coefficient is an intrinsic measure that quantifies the similarity of an object to its own cluster (cohesion) versus other clusters (separation).
+	True
+	The Silhouette Coefficient measures cohesion versus separation and is an intrinsic measure.
+	T/F 451
+	Evaluation
+	The Hopkins Statistic is used to assess if a dataset has non-random structure by measuring how far the data is from being uniformly distributed.
+	True
+	Hopkins Statistic assesses spatial randomness by measuring how far away the data is from being uniformly distributed.
+	T/F 452
+	Evaluation
+	If the Hopkins Statistic H is close to 1, it suggests the data is highly clustered.
+	True
+	If data is highly clustered, H is close to 1.
+	T/F 453
+	Evaluation
+	The "elbow finding" technique uses the average Silhouette coefficient plotted against K to suggest the optimal number of clusters.
+	False
+	The "elbow finding" technique uses the SSE plotted against K to find the point of diminishing returns, which is a suggestion for K.
+	T/F 454
+	Evaluation
+	Cluster homogeneity requires that items belonging to the same category should be grouped in the same cluster.
+	False
+	Homogeneity requires that clusters should not mix items belonging to different categories (purer, the better).
+	T/F 455
+	Evaluation
+	Cluster completeness requires that objects belonging to the same category should be assigned to the same cluster.
+	True
+	Completeness requires assigning objects of the same category to the same cluster.
+	T/F 456
+	Evaluation
+	The "Rag bag" constraint suggests that mixing a heterogeneous object into a clean cluster should be penalized less than mixing it into a highly noisy cluster.
+	False
+	Mixing a heterogeneous object into a pure cluster should be penalized more than putting it into a rag bag.
+	T/F 457
+	Evaluation
+	Normalized Mutual Information (NMI) measures the overlap between two clusterings (our result and ground truth) using an information-theoretic approach.
+	True
+	NMI measures the overlap using an information theoretic way.
+	T/F 458
+	Evaluation
+	The Silhouette coefficient compares the nearest neighbor distances of data points in a cluster with the nearest neighbor distances of random points.
+	False
+	The Silhouette coefficient compares cohesion (similarity to own cluster a(i)) vs. separation (dissimilarity to other clusters b(i)).
+	T/F 459
+	Evaluation
+	The Silhouette coefficient ranges from 0 to 1, where 1 indicates perfect clustering.
+	False
+	The Silhouette coefficient ranges from -1 to 1.
+	T/F 460
+	Evaluation
+	Extrinsic clustering evaluation requires human judges to evaluate the coherence and quality of the generated clusters.
+	True
+	Evaluation can involve asking human judges (using HITs) to evaluate quality, such as in Word or Topic Intrusion tasks.
+	T/F 461
+	DBSCAN
+	If using R
+∗
+-Trees, the complexity of DBSCAN improves because distance computation becomes instantaneous.
+	False
+	The complexity improves because neighborhood points can be retrieved logarithmically, not because distance computation is instantaneous.
+	T/F 462
+	Evaluation
+	The 'elbow finding' method for determining K is reliable because the SSE value is typically invariant to the random initialization used in K-means.
+	False
+	Because K-means uses random initialization, multiple runs are needed to estimate SSE accurately.
+	T/F 463
+	Evaluation
+	The two constraints of cluster homogeneity and cluster completeness are the most fundamental restrictions required for any clustering evaluation metric.
+	True
+	Constraints 1 (Homogeneity) and 2 (Completeness) are the most basic restrictions.
+	T/F 464
+	LOF
+	The Local Outlier Factor score provides a local outlier score that is invariant to the local density of the neighborhood.
+	False
+	LOF involves a trade-off between local density and the distance from a dense neighborhood.
+	T/F 465
+	Evaluation
+	A highly clustered dataset results in a Hopkins Statistic H close to 0.5.
+	False
+	If D is uniformly distributed, H is close to 0.5; if highly clustered, H is close to 1.
+	T/F 466
+	Evaluation
+	In the Small Cluster Preservation constraint, splitting a small category into pieces is considered less harmful than splitting a large category into pieces.
+	False
+	Splitting a small category is considered more harmful.
+	T/F 467
+	Advanced Unsupervised
+	In Matrix Factorization, the rank of a matrix is the maximum number of rank-one matrices that add up to that matrix.
+	False
+	Rank is the minimum number of rank-one matrices that add up to that matrix.
+	T/F 468
+	Advanced Unsupervised
+	The SVD decomposition of data matrix X is UΣV
+T
+, where Σ holds the left singular vectors.
+	False
+	U and V hold the left and right singular vectors; Σ holds the singular values.
+	T/F 469
+	Advanced Unsupervised
+	The Eckart Young Theorem guarantees that the truncated SVD approximation X
+k
+​
+(using the first k singular vectors) is the best rank-k approximation that minimizes the squared error.
+	True
+	If k<rank(X), the truncated SVD gives the best rank k approximation minimizing squared error.
+	T/F 470
+	Advanced Unsupervised
+	Latent Semantic Indexing (LSI) uses SVD to map query vectors and documents into a lower-dimensional "concept space."
+	True
+	LSI maps query vectors into "concept space" using SVD.
+	T/F 471
+	Advanced Unsupervised
+	Non-Negative Matrix Factorization (NMF) requires that the matrix factors U and V must contain only non-positive elements.
+	False
+	NMF requires that U and V are element-wise ≥0 (non-negative).
+	T/F 472
+	Advanced Unsupervised
+	NMF is often preferred over SVD/PCA when interpretation requires a "sum-of-parts" representation.
+	True
+	NMF helps with interpretation and is good for "sum-of-parts" representation.
+	T/F 473
+	Advanced Unsupervised
+	Collaborative Filtering often uses matrix factorization to approximate the user-item interaction matrix X as UV
+T
+, where U represents users in latent space and V represents items in latent space.
+	True
+	Collaborative Filtering approximates X≈UV
+T
+.
+	T/F 474
+	Advanced Unsupervised
+	An Autoencoder is a neural network architecture designed primarily to predict a future value of a time series.
+	False
+	An autoencoder is a deep neural network used for dimensionality reduction by predicting its own input data (general encoder/decoder architecture).
+	T/F 475
+	Advanced Unsupervised
+	Co-clustering (or biclustering) is a technique used only in the context of biological data, such as gene expression matrices.
+	False
+	While commonly used in biological data, matrix representation (like User-Item or Gene-Experiment) can represent various data types.
+	T/F 476
+	DBSCAN
+	If DBSCAN is implemented using a spatial index, its theoretical worst-case complexity remains O(n
+2
+).
+	False
+	Using a spatial index can improve complexity by providing logarithmic retrieval.
+	T/F 477
+	Evaluation
+	The elbow method typically looks for an abrupt change in the Silhouette Coefficient plot to suggest the optimal K.
+	False
+	The elbow method looks for an abrupt change (knee) in the SSE plot.
+	T/F 478
+	Advanced Unsupervised
+	The singular values σ
+i
+​
+in SVD are non-negative and are typically sorted in ascending order.
+	False
+	Singular values are non-negative and sorted in descending order.
+	T/F 479
+	Advanced Unsupervised
+	In the context of fraud detection, dense blocks in a graph's adjacency matrix often correspond to highly fraudulent activity.
+	True
+	Fraud looks like dense blocks (bipartite cores) in the adjacency matrix.
+	T/F 480
+	Advanced Unsupervised
+	The autoencoder is a supervised learning method because it requires labeled data to predict the output.
+	False
+	Autoencoders are unsupervised, trained to predict the input data itself.
+	Topic 9: Frequent Pattern Mining & Association Rules (40 Questions)
+ID
+	Topic
+	Question
+	Answer
+	Reasoning
+	T/F 481
+	Freq. Patterns
+	An itemset is defined as frequent if its absolute support count is less than a minimum support threshold (minsup).
+	False
+	An itemset X is frequent if its support is no less than a minsup threshold.
+	T/F 482
+	Freq. Patterns
+	The confidence of an association rule X→Y is defined as the conditional probability that a transaction having X also contains Y, $P(Y
+	X)$.
+	True
+	T/F 483
+	Freq. Patterns
+	The support of an association rule X→Y is defined as the probability that a transaction contains X union Y, P(X∪Y).
+	True
+	Support s is the probability that a transaction contains X∪Y.
+	T/F 484
+	Freq. Patterns
+	The standard association rule mining process requires two steps: 1) finding all frequent itemsets, and 2) generating strong association rules from those sets.
+	True
+	This is the two-step process described.

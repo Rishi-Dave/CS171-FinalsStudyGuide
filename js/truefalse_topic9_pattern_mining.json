@@ -1,0 +1,34 @@
+{
+  "topic": "Frequent Pattern Mining & Association Rules",
+  "questionType": "truefalse",
+  "questions": [
+    {
+      "id": "T/F 481",
+      "topic": "Freq. Patterns",
+      "question": "An itemset is defined as frequent if its absolute support count is less than a minimum support threshold (minsup).",
+      "answer": false,
+      "reasoning": "An itemset X is frequent if its support is no less than a minsup threshold."
+    },
+    {
+      "id": "T/F 482",
+      "topic": "Freq. Patterns",
+      "question": "The confidence of an association rule X→Y is defined as the conditional probability that a transaction having X also contains Y, $P(Y X)$.",
+      "answer": true,
+      "reasoning": ""
+    },
+    {
+      "id": "T/F 483",
+      "topic": "Freq. Patterns",
+      "question": "The support of an association rule X→Y is defined as the probability that a transaction contains X union Y, P(X∪Y).",
+      "answer": true,
+      "reasoning": "Support s is the probability that a transaction contains X∪Y."
+    },
+    {
+      "id": "T/F 484",
+      "topic": "Freq. Patterns",
+      "question": "The standard association rule mining process requires two steps: 1) finding all frequent itemsets, and 2) generating strong association rules from those sets.",
+      "answer": true,
+      "reasoning": "This is the two-step process described."
+    }
+  ]
+}

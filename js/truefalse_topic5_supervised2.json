@@ -1,0 +1,496 @@
+{
+  "topic": "Supervised Learning II (Bayes, k-NN, Logistic Regression, Regularization)",
+  "questionType": "truefalse",
+  "questions": [
+    {
+      "id": "T/F 241",
+      "topic": "Bayesian Classif.",
+      "question": "The Bayesian classifier calculates the posterior probability $P(H X)$, which is the probability that a hypothesis holds given the observed data X.",
+      "answer": true,
+      "reasoning": ""
+    },
+    {
+      "id": "T/F 242",
+      "topic": "Bayesian Classif.",
+      "question": "P(H) in Bayes' theorem refers to the likelihood function.",
+      "answer": false,
+      "reasoning": "P(H) is the prior probability, while $P(X"
+    },
+    {
+      "id": "T/F 243",
+      "topic": "Bayesian Classif.",
+      "question": "A practical difficulty in using the standard Bayes Rule is the computational complexity of determining the joint probability $P(X C_i)$.",
+      "answer": true,
+      "reasoning": ""
+    },
+    {
+      "id": "T/F 244",
+      "topic": "Bayesian Classif.",
+      "question": "The Naïve Bayes classifier assumes that features are marginally independent of each other.",
+      "answer": false,
+      "reasoning": "Naïve Bayes assumes features are conditionally independent given the class."
+    },
+    {
+      "id": "T/F 245",
+      "topic": "Bayesian Classif.",
+      "question": "In practice, the conditional independence assumption of Naïve Bayes is usually accurate, especially in domains like credit card fraud detection.",
+      "answer": false,
+      "reasoning": "The assumption is approximate and often inaccurate (e.g., features in credit card fraud are typically dependent), but it works surprisingly well in practice and simplifies computation."
+    },
+    {
+      "id": "T/F 246",
+      "topic": "Bayesian Classif.",
+      "question": "In order to train the Naïve Bayes classifier, we primarily need to compute the conditional probability $P(X_k C_i)$ for every feature X k ​ and class C i ​ , and the prior probability P(C i ​ ) for every class.",
+      "answer": true,
+      "reasoning": ""
+    },
+    {
+      "id": "T/F 247",
+      "topic": "Bayesian Classif.",
+      "question": "For continuous features, $P(X_k C_i)isoftenmodeledusingaGaussiandistributioncalculatedfromthemean(\\mu)andstandarddeviation(\\sigma$) of the examples for that feature within class C i ​ .",
+      "answer": true,
+      "reasoning": ""
+    },
+    {
+      "id": "T/F 248",
+      "topic": "Bayesian Classif.",
+      "question": "The zero probability problem in Naïve Bayes occurs if the product of conditional probabilities results in a value of zero, thereby zeroing out the entire posterior probability estimate.",
+      "answer": true,
+      "reasoning": "If any conditional probability $P(X_k"
+    },
+    {
+      "id": "T/F 249",
+      "topic": "Bayesian Classif.",
+      "question": "Laplacian correction (or Laplacian estimator) solves the zero probability problem by subtracting 1 from the frequency count of each case.",
+      "answer": false,
+      "reasoning": "Laplacian correction solves the problem by adding 1 to each case count."
+    },
+    {
+      "id": "T/F 250",
+      "topic": "Bayesian Classif.",
+      "question": "The core decision of the Bayes Classifier is to select the class C i ​ that maximizes the prior probability P(C i ​ ).",
+      "answer": false,
+      "reasoning": "The classifier selects the class C i ​ that maximizes the posterior probability $P(C_i"
+    },
+    {
+      "id": "T/F 251",
+      "topic": "Bayesian Classif.",
+      "question": "The Bayesian classifier computes the probability of the data given the hypothesis that they belong to a certain class holds, $P(X H)$.",
+      "answer": false,
+      "reasoning": ""
+    },
+    {
+      "id": "T/F 252",
+      "topic": "Bayesian Classif.",
+      "question": "Naïve Bayes performs fine even if we have a few zero probabilities because of the multiplication property.",
+      "answer": false,
+      "reasoning": "Zero probabilities cause the product $P(X"
+    },
+    {
+      "id": "T/F 253",
+      "topic": "k-NN",
+      "question": "k-Nearest Neighbors (k-NN) is an example of an eager learning method.",
+      "answer": false,
+      "reasoning": "k-NN is a lazy learning or instance-based method that delays processing until a test instance is given."
+    },
+    {
+      "id": "T/F 254",
+      "topic": "k-NN",
+      "question": "Instance-based learning (lazy learning) is generally faster during training but slower during classification compared to eager learning.",
+      "answer": true,
+      "reasoning": "Lazy methods spend less time in training but more time in predicting/classification."
+    },
+    {
+      "id": "T/F 255",
+      "topic": "k-NN",
+      "question": "In the vanilla k-NN algorithm, the label assigned to a test point is determined by taking the average of the labels of the k nearest neighbors.",
+      "answer": false,
+      "reasoning": "The vanilla k-NN returns the majority label of the k nearest neighbors for classification."
+    },
+    {
+      "id": "T/F 256",
+      "topic": "k-NN",
+      "question": "The distance-weighted k-NN approach assigns equal weight to all k nearest neighbors regardless of their distance to the test point.",
+      "answer": false,
+      "reasoning": "Distance-weighted k-NN weighs neighbors according to their distance, downplaying the labels of neighbors that are farther away."
+    },
+    {
+      "id": "T/F 257",
+      "topic": "k-NN",
+      "question": "For real-valued prediction (regression), the k-NN approach returns the mean value of the k nearest neighbors.",
+      "answer": true,
+      "reasoning": "k-NN for real-valued prediction returns the mean values of the k nearest neighbors."
+    },
+    {
+      "id": "T/F 258",
+      "topic": "k-NN",
+      "question": "If the distance function used in k-NN is a metric, the Triangle Inequality property can be leveraged to speed up distance computations by eliminating some data points.",
+      "answer": true,
+      "reasoning": "If using a metric, the Triangle Inequality property can be used to accelerate/approximate computations and eliminate points."
+    },
+    {
+      "id": "T/F 259",
+      "topic": "k-NN",
+      "question": "The Curse of Dimensionality implies that in high-dimensional space, the distance between neighbors can be dominated by irrelevant attributes, negatively impacting k-NN performance.",
+      "answer": true,
+      "reasoning": "The distance between neighbors can be dominated by irrelevant attributes in high dimensions."
+    },
+    {
+      "id": "T/F 260",
+      "topic": "k-NN",
+      "question": "Dimensionality reduction techniques like PCA are irrelevant to k-NN performance since k-NN uses distance measures directly.",
+      "answer": false,
+      "reasoning": "Dimensionality reduction techniques can be used to mitigate the Curse of Dimensionality and improve k-NN performance."
+    },
+    {
+      "id": "T/F 261",
+      "topic": "Logistic Regression",
+      "question": "Logistic Regression is a regression method designed to predict continuous-valued output.",
+      "answer": false,
+      "reasoning": "Logistic Regression is used when we want to \"regress\" variables to a binary classification output."
+    },
+    {
+      "id": "T/F 262",
+      "topic": "Logistic Regression",
+      "question": "The logistic function g(z)=1/(1+e −z ) is also known as the sigmoid function.",
+      "answer": true,
+      "reasoning": "g(z) is called the logistic function or the sigmoid function."
+    },
+    {
+      "id": "T/F 263",
+      "topic": "Logistic Regression",
+      "question": "The derivative of the sigmoid function g ′ (z) is g(z)(1−g(z)).",
+      "answer": true,
+      "reasoning": "This is a useful property derived in the sources."
+    },
+    {
+      "id": "T/F 264",
+      "topic": "Logistic Regression",
+      "question": "When training Logistic Regression, the objective function is maximized using gradient descent.",
+      "answer": false,
+      "reasoning": "Since Logistic Regression maximizes the likelihood (or log-likelihood), it uses gradient ascent."
+    },
+    {
+      "id": "T/F 265",
+      "topic": "Logistic Regression",
+      "question": "Logistic Regression learns the probability $P(Y X)$ directly, unlike Naïve Bayes, which learns P(Y) and $P(X Y)$.",
+      "answer": null,
+      "reasoning": ""
+    },
+    {
+      "id": "T/F 266",
+      "topic": "Regularization",
+      "question": "Regularization techniques are generally used to increase the complexity of a model to better fit the training data.",
+      "answer": false,
+      "reasoning": "Regularization constrains a model to a less complex solution to avoid overfitting."
+    },
+    {
+      "id": "T/F 267",
+      "topic": "Regularization",
+      "question": "Regularization is typically expressed as an additional term $ \\lambda \\cdot r(\\theta) $ added to the objective/loss function, penalizing large parameter values.",
+      "answer": true,
+      "reasoning": "Regularization is expressed as Original Loss Function+λ⋅r(θ), penalizing large parameters."
+    },
+    {
+      "id": "T/F 268",
+      "topic": "Regularization",
+      "question": "Ridge regression utilizes L 1 ​ norm regularization to shrink coefficients towards zero.",
+      "answer": false,
+      "reasoning": "Ridge regression uses L 2 ​ norm regularization."
+    },
+    {
+      "id": "T/F 269",
+      "topic": "Regularization",
+      "question": "Lasso regression utilizes L 1 ​ norm regularization, which encourages sparsity by driving some coefficients exactly to zero.",
+      "answer": true,
+      "reasoning": "Lasso uses the L 1 ​ norm penalty, which is more likely to intersect the error contours on the axes, resulting in exactly 0 coefficients (sparsity)."
+    },
+    {
+      "id": "T/F 270",
+      "topic": "Regularization",
+      "question": "Ridge regression (L2 penalty) is also known as weight decay, particularly in neural networks.",
+      "answer": true,
+      "reasoning": "Penalizing by the sum-of-squares of parameters (L 2 ​ penalty) is known as weight decay in neural networks."
+    },
+    {
+      "id": "T/F 271",
+      "topic": "Regularization",
+      "question": "L1 norm regularization (Lasso) is a convex relaxation of the L 0 ​ \"pseudonorm,\" which counts the number of non-zero entries in a vector.",
+      "answer": true,
+      "reasoning": "L 1 ​ norm is a convex relaxation of the L 0 ​ \"pseudonorm\" (number of non-zero entries)."
+    },
+    {
+      "id": "T/F 272",
+      "topic": "Regularization",
+      "question": "The λ parameter in regularization determines the maximum number of iterations the algorithm can run.",
+      "answer": false,
+      "reasoning": "λ is the complexity parameter that controls the amount/intensity of regularization/shrinkage."
+    },
+    {
+      "id": "T/F 273",
+      "topic": "Regularization",
+      "question": "If λ=0 in the regularization term, the model defaults back to minimizing the original loss function.",
+      "answer": true,
+      "reasoning": "If λ=0, the regularization term disappears, defaulting to the original loss."
+    },
+    {
+      "id": "T/F 274",
+      "topic": "k-NN",
+      "question": "Instance-based learning methods generally offer less flexibility with respect to decision boundaries compared to model-based learning.",
+      "answer": false,
+      "reasoning": "Lazy learning (instance-based) offers more flexibility because it uses many local functions to form an implicit global approximation, compared to eager learning which commits to a single hypothesis."
+    },
+    {
+      "id": "T/F 275",
+      "topic": "k-NN",
+      "question": "When comparing instance-based and model-based learning, efficiency during training and flexibility of decision boundaries are important dimensions to consider.",
+      "answer": true,
+      "reasoning": "Efficiency (time spent in training/prediction) and flexibility of decision boundaries are key comparative dimensions."
+    },
+    {
+      "id": "T/F 276",
+      "topic": "Bayesian Classif.",
+      "question": "Naïve Bayes classification only works for categorical features and is undefined for numerical features.",
+      "answer": false,
+      "reasoning": "Naïve Bayes can handle continuous features, often by modeling $P(X_k"
+    },
+    {
+      "id": "T/F 277",
+      "topic": "Bayesian Classif.",
+      "question": "The Naïve Bayes assumption states that all features are conditionally independent of the class variable.",
+      "answer": false,
+      "reasoning": "The assumption is that features are conditionally independent given the class."
+    },
+    {
+      "id": "T/F 278",
+      "topic": "Bayesian Classif.",
+      "question": "The Naïve Bayes assumption allows us to simplify a very hard-to-compute joint probability $P(X_1, \\dots, X_n C_i)$ into a product of simpler conditional probabilities $\\prod P(X_k C_i)$.",
+      "answer": null,
+      "reasoning": ""
+    },
+    {
+      "id": "T/F 279",
+      "topic": "Bayesian Classif.",
+      "question": "To train the Naïve Bayes classifier, we must compute $P(X C_i)$ (the joint probability of all features given the class) directly without simplifying assumptions.",
+      "answer": false,
+      "reasoning": ""
+    },
+    {
+      "id": "T/F 280",
+      "topic": "k-NN",
+      "question": "In k-NN, if we were to pre-compute the decision boundaries for 1-NN, the resulting structure would be a Decision Tree.",
+      "answer": false,
+      "reasoning": "Pre-computing the decision boundaries for 1-NN results in a Voronoi Diagram."
+    },
+    {
+      "id": "T/F 281",
+      "topic": "Logistic Regression",
+      "question": "Since h θ ​ (x) is non-linear in Logistic Regression, the decision boundary defined is necessarily non-linear.",
+      "answer": false,
+      "reasoning": "The decision boundary defined by Logistic Regression is linear (derived from θ T x>0)."
+    },
+    {
+      "id": "T/F 282",
+      "topic": "Regularization",
+      "question": "L1 regularization is known for being computationally more stable and easier to optimize than L2 regularization due to its smoothness.",
+      "answer": false,
+      "reasoning": "L2 regularization (Ridge) is smooth. L1 regularization (Lasso) involves the absolute value, which is not differentiable at zero, making optimization slightly more complex than L2, though still solvable by convex optimization."
+    },
+    {
+      "id": "T/F 283",
+      "topic": "k-NN",
+      "question": "If using k-NN for classification, for discrete-valued features, the algorithm returns the mean value among the k nearest neighbors.",
+      "answer": false,
+      "reasoning": "For discrete-valued prediction (classification), k-NN returns the most common value (majority label)."
+    },
+    {
+      "id": "T/F 284",
+      "topic": "k-NN",
+      "question": "In the context of SVD for k-NN dimensionality reduction, the mean of the training data must be subtracted from both training and test data before decomposition or projection.",
+      "answer": true,
+      "reasoning": "The procedure requires centering the data (subtracting the mean) for both train and test sets."
+    },
+    {
+      "id": "T/F 285",
+      "topic": "Logistic Regression",
+      "question": "In the probabilistic interpretation of linear regression, the term ϵ (i) captures only random noise, not unmodeled effects.",
+      "answer": false,
+      "reasoning": "ϵ (i) captures both random noise and unmodeled effects (e.g., left out features)."
+    },
+    {
+      "id": "T/F 286",
+      "topic": "Regularization",
+      "question": "The L 2 ​ Lasso penalty is replaced by the L 1 ​ Ridge penalty in the equivalent Lagrangian form of the Lasso problem.",
+      "answer": false,
+      "reasoning": "The L 2 ​ Ridge penalty is replaced by the L 1 ​ Lasso penalty."
+    },
+    {
+      "id": "T/F 287",
+      "topic": "Regularization",
+      "question": "The goal of regularization is to prevent underfitting.",
+      "answer": false,
+      "reasoning": "Regularization is a method for avoiding overfitting."
+    },
+    {
+      "id": "T/F 288",
+      "topic": "Logistic Regression",
+      "question": "When deriving the log-likelihood for Logistic Regression, the assumption of IID training examples allows the joint likelihood L(θ) to be written as the product of individual probabilities $p(y^{(i)} x^{(i)}; \\theta)$.",
+      "answer": true,
+      "reasoning": ""
+    },
+    {
+      "id": "T/F 289",
+      "topic": "k-NN",
+      "question": "The use of k-NN implicitly uses a richer hypothesis space than eager learners, often relying on many local linear functions for approximation.",
+      "answer": true,
+      "reasoning": "Lazy methods (like k-NN) use many local linear functions to form an implicit global approximation, resulting in a richer hypothesis space."
+    },
+    {
+      "id": "T/F 290",
+      "topic": "Logistic Regression",
+      "question": "For continuous features, Logistic Regression models $P(X_i Y = y_k)$ as Gaussian distribution N(μ ik ​ ,σ ik ​ ) and models P(Y) as Bernoulli Ber(π).",
+      "answer": true,
+      "reasoning": ""
+    },
+    {
+      "id": "T/F 291",
+      "topic": "k-NN",
+      "question": "In distance-weighted k-NN, if a neighbor is exactly zero distance away from the test point, it will have zero influence on the prediction.",
+      "answer": false,
+      "reasoning": "If distance is zero, it should strongly influence the prediction; the weighting typically involves inverse distance, making the influence maximal."
+    },
+    {
+      "id": "T/F 292",
+      "topic": "Regularization",
+      "question": "Ridge regression results in solutions that are nonlinear in the target variables y i ​ .",
+      "answer": false,
+      "reasoning": "Lasso solutions are nonlinear in y i ​ , but Ridge regression has a closed form expression."
+    },
+    {
+      "id": "T/F 293",
+      "topic": "Regularization",
+      "question": "Both Ridge and Lasso regression primarily shrink coefficients toward zero.",
+      "answer": true,
+      "reasoning": "Ridge shrinks coefficients toward zero (and each other); Lasso drives coefficients exactly to zero (sparsity)."
+    },
+    {
+      "id": "T/F 294",
+      "topic": "k-NN",
+      "question": "The core idea of k-NN is to store the training data and immediately construct a complex decision boundary.",
+      "answer": false,
+      "reasoning": "k-NN is a lazy learner that stores the data and delays processing until classification is needed."
+    },
+    {
+      "id": "T/F 295",
+      "topic": "Logistic Regression",
+      "question": "Because Logistic Regression maximizes likelihood, the update rule for parameters uses gradient descent with a negative sign.",
+      "answer": false,
+      "reasoning": "Maximizing likelihood requires gradient ascent, using a positive sign in the update rule."
+    },
+    {
+      "id": "T/F 296",
+      "topic": "k-NN",
+      "question": "Indexing techniques like kd-Trees can be used to accelerate neighborhood search in k-NN, avoiding the need to compare against all neighbors.",
+      "answer": true,
+      "reasoning": "Techniques like kd-Tree can be used to cleverly index data points and avoid comparing against all neighbors."
+    },
+    {
+      "id": "T/F 297",
+      "topic": "Bayesian Classif.",
+      "question": "The Bayesian Classifier is primarily a discriminative model, learning a boundary separating classes.",
+      "answer": false,
+      "reasoning": "Bayesian methods (like Naïve Bayes) are generative models that learn the distribution of data within each class, $P(X"
+    },
+    {
+      "id": "T/F 298",
+      "topic": "Regularization",
+      "question": "Ridge regression penalizes the Euclidean (L 2 ​ ) norm of the regression coefficient vector θ.",
+      "answer": true,
+      "reasoning": "Ridge regression penalizes the L 2 ​ norm of the coefficient vector."
+    },
+    {
+      "id": "T/F 299",
+      "topic": "Regularization",
+      "question": "A major benefit of using L1 regularization (Lasso) over L2 regularization (Ridge) is the introduction of sparsity, effectively performing feature selection.",
+      "answer": true,
+      "reasoning": "L1 regularization is more likely to yield exactly zero coefficients, providing sparse solutions."
+    },
+    {
+      "id": "T/F 300",
+      "topic": "Regularization",
+      "question": "Ridge regression tends to prefer solutions where many coefficients are zero.",
+      "answer": false,
+      "reasoning": "L2 regularization (Ridge) is more likely to give small but non-zero values."
+    },
+    {
+      "id": "T/F 301",
+      "topic": "Regularization",
+      "question": "In deep learning, the concept of weight decay is equivalent to L1 norm regularization.",
+      "answer": false,
+      "reasoning": "Weight decay is equivalent to L2 norm regularization (Ridge regression)."
+    },
+    {
+      "id": "T/F 302",
+      "topic": "k-NN",
+      "question": "Using the Euclidean distance function means k-NN clustering must be applied only to data objects in a continuous space.",
+      "answer": true,
+      "reasoning": "K-Means (which uses Euclidean distance for centroid calculation/assignment) is applicable only to objects in a continuous n-dimensional space. k-NN also typically uses Euclidean distance."
+    },
+    {
+      "id": "T/F 303",
+      "topic": "Bayesian Classif.",
+      "question": "When classifying a new data point using Naïve Bayes, the step $P(X C_i) \\cdot P(C_i)$ is computed, and the result must be normalized by P(X) to obtain the final posterior probability $P(C_i X)$.",
+      "answer": null,
+      "reasoning": ""
+    },
+    {
+      "id": "T/F 304",
+      "topic": "k-NN",
+      "question": "Since k-NN is non-parametric, the computational cost to classify a test point increases linearly with the size of the training set.",
+      "answer": true,
+      "reasoning": "Calculating distances to all training points scales with the size of the training set N."
+    },
+    {
+      "id": "T/F 305",
+      "topic": "k-NN",
+      "question": "The main challenge addressed by the Curse of Dimensionality in k-NN is that irrelevant features can dominate the distance calculation between neighbors.",
+      "answer": true,
+      "reasoning": "The distance between neighbors could be dominated by irrelevant attributes."
+    },
+    {
+      "id": "T/F 306",
+      "topic": "Bayesian Classif.",
+      "question": "The formula for $P(X_k C_i)$ for categorical features in Naïve Bayes is found by dividing the number of data points in C i ​ with value x k ​ by the total number of data points in C i ​ .",
+      "answer": true,
+      "reasoning": ""
+    },
+    {
+      "id": "T/F 307",
+      "topic": "k-NN",
+      "question": "Instance-based learning is effective because it forces the model to commit to a single hypothesis covering the entire instance space.",
+      "answer": false,
+      "reasoning": "Eager learning commits to a single hypothesis; instance-based learning (lazy) uses a richer hypothesis space formed by many local approximations."
+    },
+    {
+      "id": "T/F 308",
+      "topic": "Regularization",
+      "question": "Lasso regression typically leads to smaller, non-zero coefficient values compared to Ridge regression.",
+      "answer": false,
+      "reasoning": "Ridge (L2) tends to give small, non-zero values; Lasso (L1) tends toward exactly zero coefficients."
+    },
+    {
+      "id": "T/F 309",
+      "topic": "Logistic Regression",
+      "question": "The logistic function smoothly increases from 0 to 1, making it suitable for modeling class probabilities.",
+      "answer": true,
+      "reasoning": "The sigmoid function g(z) plots smoothly from 0 to 1."
+    },
+    {
+      "id": "T/F 310",
+      "topic": "k-NN",
+      "question": "The distance-weighted k-NN approach assigns higher weight to neighbors that are farther away from the query point.",
+      "answer": false,
+      "reasoning": "It downplays the labels of neighbors that are far away. Topic 6: Supervised Learning: Advanced & Evaluation (70 Questions) ID Topic Question Answer Reasoning"
+    }
+  ]
+}

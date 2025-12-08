@@ -1,0 +1,120 @@
+{
+  "topic": "Unsupervised Learning Methods",
+  "questionType": "shortanswer",
+  "questions": [
+    {
+      "id": "SA 31",
+      "topic": "K-Means",
+      "question": "Describe the goal of the K-means clustering algorithm and specify the distance measure and cluster representative used.",
+      "reasoning": "The goal is to partition a database D into K clusters such that the Sum of Squared Errors (SSE) is minimized. K-means uses the Euclidean distance and represents each cluster by its centroid (the mean of all points in the cluster)."
+    },
+    {
+      "id": "SA 32",
+      "topic": "K-Means",
+      "question": "Explain the Elbow Method (Knee Finding) used to estimate the optimal number of clusters K.",
+      "reasoning": "The Elbow Method plots the SSE (Sum of Squared Errors) as a function of K. As K increases, SSE naturally decreases. The optimal K is typically found at the point where diminishing returns are observed—where the error starts decreasing at a much slower rate, forming a \"knee\" or \"elbow\" in the curve."
+    },
+    {
+      "id": "SA 33",
+      "topic": "Evaluation",
+      "question": "Define the Silhouette Coefficient and explain what its value indicates regarding the quality of clustering for a given object.",
+      "reasoning": "The Silhouette Coefficient is an intrinsic measure that quantifies the similarity of an object to objects within its own cluster (cohesion, a(i)) versus objects in other clusters (separation, b(i)). It ranges from -1 to 1. A score close to +1 indicates the object is well-clustered (high cohesion/good separation)."
+    },
+    {
+      "id": "SA 34",
+      "topic": "K-Means",
+      "question": "Explain why K-means clustering is generally considered highly sensitive to outliers, whereas K-medoids might be more robust.",
+      "reasoning": "K-means is sensitive to outliers because it uses the mean (centroid) as the cluster representative. Since the mean can be substantially distorted by extreme values (outliers), the resulting SSE will be dramatically increased. K-medoids uses the medoid (an actual data object minimizing average dissimilarity), which is inherently more robust to outliers than the mean."
+    },
+    {
+      "id": "SA 35",
+      "topic": "K-Medoids",
+      "question": "Describe the key operational difference between K-means (Lloyd's algorithm) and K-medoids (PAM).",
+      "reasoning": "K-means is a heuristic method where the cluster center is the centroid (the mean, which may not be an actual data point). K-medoids (PAM) is a heuristic method where the cluster center is the medoid, which is an actual data object in the cluster."
+    },
+    {
+      "id": "SA 36",
+      "topic": "Evaluation",
+      "question": "Define the constraints of Cluster Homogeneity and Cluster Completeness, and explain why they are considered fundamental restrictions for evaluation metrics.",
+      "reasoning": "Cluster Homogeneity requires that clusters should not mix items belonging to different categories (the purer, the better). Cluster Completeness requires that objects belonging to the same category should be grouped in the same cluster. They are considered the most basic restrictions that any evaluation metric must hold, referring to the goals of keeping same-category items together and different-category items apart."
+    },
+    {
+      "id": "SA 37",
+      "topic": "Hierarchical",
+      "question": "Outline the two main operational differences between Agglomerative (AGNES) and Divisive (DIANA) hierarchical clustering approaches.",
+      "reasoning": "1. Direction: AGNES is bottom-up (starts with all points in separate clusters and merges them). DIANA is top-down (starts with all objects in one cluster and recursively splits them). 2. Operation: AGNES merges nodes with the least dissimilarity. DIANA splits clusters based on criteria, typically using greedy heuristics to reduce complexity instead of searching for the optimal split."
+    },
+    {
+      "id": "SA 38",
+      "topic": "Hierarchical",
+      "question": "How is Single Linkage distance calculated between two clusters K_i and K_j, and what effect does this method have on the resulting clusters?",
+      "reasoning": "Single Linkage distance is the smallest distance between an element in cluster K_i and an element in cluster K_j. By focusing on local proximity, single linkage clustering tends to find clusters based on local similarities/patterns."
+    },
+    {
+      "id": "SA 39",
+      "topic": "Dim. Reduction",
+      "question": "Describe the role of Matrix Factorization (e.g., using SVD) in Dimensionality Reduction, relating it to the Eckart Young Theorem.",
+      "reasoning": "SVD decomposes the data matrix X into lower rank matrices, effectively projecting the data into a low-dimensional latent space. The Eckart Young Theorem guarantees that the truncated SVD (keeping the first r singular vectors/values) provides the best rank r approximation of the original data that minimizes the squared error."
+    },
+    {
+      "id": "SA 40",
+      "topic": "SVD",
+      "question": "Explain how Latent Semantic Indexing (LSI) uses SVD to handle queries against a document collection.",
+      "reasoning": "LSI uses SVD to map documents and queries into a lower-dimensional \"concept space\". A query vector, initially in keyword space, is transformed into a \"concept vector\" in the LSI space by multiplying it by the SVD matrices derived from the term-document matrix. Similarity (e.g., cosine similarity) is then calculated in this reduced concept space."
+    },
+    {
+      "id": "SA 41",
+      "topic": "Data Dist",
+      "question": "In the context of clustering, explain why the Jaccard similarity coefficient is preferred over the Simple Matching Coefficient (SMC) when comparing highly asymmetric binary attributes (e.g., two customer shopping carts).",
+      "reasoning": "The SMC is suitable for symmetric binary attributes. For highly asymmetric data (where most items are 0/0 matches), the SMC would be overwhelmed by the vast number of non-contained items (null entries), resulting in an artificially high, irrelevant similarity. The Jaccard similarity coefficient ignores 0/0 matches and focuses only on shared presence and total presence (non-zero entries), making it suitable for asymmetric data."
+    },
+    {
+      "id": "SA 42",
+      "topic": "Advanced Unsup.",
+      "question": "Describe the architecture and primary function of an Autoencoder.",
+      "reasoning": "An Autoencoder is a neural network used for dimensionality reduction. It follows a general Encoder/Decoder architecture. The Encoder maps the high-dimensional input to a low-dimensional representation (the bottleneck layer), and the Decoder attempts to reconstruct the original input from that low-dimensional representation."
+    },
+    {
+      "id": "SA 43",
+      "topic": "Evaluation",
+      "question": "Explain the purpose of the Hopkins Statistic and what a value close to 1 indicates.",
+      "reasoning": "The Hopkins Statistic is used to assess clustering tendency (if non-random structure exists in the data). It measures how far away the data distribution is from being uniformly distributed. If the statistic H is close to 1, it suggests the data is highly clustered."
+    },
+    {
+      "id": "SA 44",
+      "topic": "Neural Nets",
+      "question": "Why are Convolutional Neural Networks (CNNs) generally more efficient to train for image tasks than traditional fully-connected Multi-layer Perceptrons?",
+      "reasoning": "CNNs are more efficient because they drastically reduce the number of parameters compared to fully-connected layers. This parameter reduction occurs because convolutional filters share weights across spatial locations, whereas a fully connected layer would require a weight for every input unit connected to every output unit."
+    },
+    {
+      "id": "SA 45",
+      "topic": "Adv. Unsup.",
+      "question": "Describe the goal of Collaborative Filtering and how Matrix Factorization is used to achieve this goal.",
+      "reasoning": "The goal of Collaborative Filtering is to recommend new items based on a user's viewing or rating pattern (e.g., recommend new movies). Matrix Factorization approximates the User-Item interaction matrix X as X ≈ U V^T, where U and V hold low-rank representations of users and items, respectively. Predictions for unseen ratings are made by calculating the dot product of the corresponding user and item latent factor vectors."
+    },
+    {
+      "id": "SA 46",
+      "topic": "DBSCAN",
+      "question": "In the context of DBSCAN, explain what a point labeled as \"noise\" means.",
+      "reasoning": "A point labeled as \"noise\" is a point that is not a core point (does not meet the MinPts condition in its Eps-neighborhood) and is not density-reachable from any core point. Such points are considered potential outliers."
+    },
+    {
+      "id": "SA 47",
+      "topic": "Evaluation",
+      "question": "Describe the process of using crowdsourcing (Human Intelligence Tasks/HITs) to evaluate the quality of topics learned by a Topic Model (Extrinsic Evaluation).",
+      "reasoning": "This involves tasks like Word Intrusion or Topic Intrusion. Human judges are given a set of words/topics (e.g., extracted by the model) and are asked to detect an injected intruder word or topic. If judges can successfully detect the intruder, it indicates that the learned topics are coherent and of good quality."
+    },
+    {
+      "id": "SA 48",
+      "topic": "Supervised",
+      "question": "Why is Naive Bayes classification considered a generative model, while Logistic Regression is considered a discriminative model?",
+      "reasoning": "Naive Bayes is a generative model because it learns the joint probability distribution by modeling P(X|Y) and P(Y), allowing it to generate new samples. Logistic Regression is a discriminative model because it learns the boundary separating classes by directly modeling P(Y|X), the conditional probability of the label given the data."
+    },
+    {
+      "id": "SA 49",
+      "topic": "Hierarchical",
+      "question": "Explain why using Single Linkage hierarchical clustering is mathematically equivalent to solving the Minimum Spanning Tree (MST) problem.",
+      "reasoning": "It has been shown that the two problems are equivalent. The definition of distance in Single Linkage (minimum distance between elements in two clusters) links points based on the same local proximity criteria used to connect vertices with minimal weight edges to construct the Minimum Spanning Tree."
+    }
+  ]
+}
