@@ -1,0 +1,227 @@
+{
+  "topic": "Transformers and Pretrained Language Models",
+  "questionType": "multiplechoice",
+  "questions": [
+    {
+      "id": "MC 56",
+      "topic": "Transformers",
+      "question": "The core innovation that allowed the Transformer architecture to dispense with recurrent connections and enable parallel computation was:",
+      "options": {
+        "A": "The use of dense embeddings.",
+        "B": "The self-attention mechanism.",
+        "C": "The sigmoid activation function.",
+        "D": "The use of BPE tokenization."
+      },
+      "answer": "B",
+      "reasoning": "Self-attention enables parallel processing without recurrence."
+    },
+    {
+      "id": "MC 57",
+      "topic": "Self-Attention",
+      "question": "The Self-Attention formula includes a division by sqrt(d_k). What is the purpose of this scaling factor?",
+      "options": {
+        "A": "To normalize the final output probabilities.",
+        "B": "To introduce a non-linear activation.",
+        "C": "To stabilize the gradients during training.",
+        "D": "To define the dimensionality of the Value vectors."
+      },
+      "answer": "C",
+      "reasoning": "Scaling by √d_k prevents gradients from becoming too large."
+    },
+    {
+      "id": "MC 58",
+      "topic": "Transformers",
+      "question": "In the Transformer architecture, what specific role does the Positional Encoding play?",
+      "options": {
+        "A": "It calculates the similarity score between Query and Key.",
+        "B": "It introduces non-linearity via ReLU.",
+        "C": "It ensures the model retains information about the order of words in the sequence.",
+        "D": "It converts logits into probabilities."
+      },
+      "answer": "C",
+      "reasoning": "Positional encoding adds sequence order information to the model."
+    },
+    {
+      "id": "MC 59",
+      "topic": "Self-Attention",
+      "question": "What are the three main vector representations derived from each input word embedding during the self-attention calculation?",
+      "options": {
+        "A": "Input, Output, Hidden",
+        "B": "Word, Context, Value",
+        "C": "Query, Key, Value",
+        "D": "Score, Scale, Softmax"
+      },
+      "answer": "C",
+      "reasoning": "Self-attention uses Query, Key, and Value vectors."
+    },
+    {
+      "id": "MC 60",
+      "topic": "BERT",
+      "question": "Which type of pretrained model architecture is BERT (Bidirectional Encoder Representations from Transformers)?",
+      "options": {
+        "A": "Decoder-only",
+        "B": "Encoder-only",
+        "C": "Encoder-Decoder",
+        "D": "Simple RNN"
+      },
+      "answer": "B",
+      "reasoning": "BERT is an encoder-only architecture."
+    },
+    {
+      "id": "MC 61",
+      "topic": "BERT",
+      "question": "What is the primary pretraining objective used to train BERT (Encoder-only models) to learn bidirectional context?",
+      "options": {
+        "A": "Standard next-word prediction.",
+        "B": "Reinforcement Learning from Human Feedback (RLHF).",
+        "C": "Masked Language Modeling (Mask filling).",
+        "D": "Supervised fine-tuning."
+      },
+      "answer": "C",
+      "reasoning": "BERT uses Masked Language Modeling for pretraining."
+    },
+    {
+      "id": "MC 62",
+      "topic": "BERT",
+      "question": "What secondary pretraining objective was used for BERT to teach the model relationships between two contiguous text segments?",
+      "options": {
+        "A": "Next Token Prediction",
+        "B": "Next Word Prediction",
+        "C": "Next Sentence Prediction (NSP)",
+        "D": "Text Infilling"
+      },
+      "answer": "C",
+      "reasoning": "Next Sentence Prediction (NSP) was BERT's secondary objective."
+    },
+    {
+      "id": "MC 63",
+      "topic": "Architecture Types",
+      "question": "Which architecture type is considered best suited for sequence generation tasks like creative writing or dialogue?",
+      "options": {
+        "A": "Encoder-only",
+        "B": "Decoder-only",
+        "C": "Encoder-Decoder",
+        "D": "Convolutional Network"
+      },
+      "answer": "B",
+      "reasoning": "Decoder-only models are designed for autoregressive generation."
+    },
+    {
+      "id": "MC 64",
+      "topic": "GPT",
+      "question": "What describes the masking pattern used by GPT models (Decoder-only) during their pretraining objective?",
+      "options": {
+        "A": "Fully-visible mask.",
+        "B": "Causal mask (masking future tokens).",
+        "C": "Random deletion mask.",
+        "D": "Masked LM."
+      },
+      "answer": "B",
+      "reasoning": "GPT uses causal masking to prevent looking ahead in the sequence."
+    },
+    {
+      "id": "MC 65",
+      "topic": "Encoder-Decoder",
+      "question": "Which Transformer architecture type (e.g., BART, T5) contains a Multi-Head Cross-Attention mechanism that links the source input states (K, V) and the generated output state (Q)?",
+      "options": {
+        "A": "Encoder-only",
+        "B": "Decoder-only",
+        "C": "Encoder-Decoder",
+        "D": "RNN"
+      },
+      "answer": "C",
+      "reasoning": "Encoder-Decoder architectures use cross-attention between encoder and decoder."
+    },
+    {
+      "id": "MC 66",
+      "topic": "Transformers",
+      "question": "The Residual Connection in Transformer blocks serves what function?",
+      "options": {
+        "A": "It converts the vector to a probability distribution.",
+        "B": "It sums the input of a sub-layer with its output before layer normalization.",
+        "C": "It provides temporal ordering information.",
+        "D": "It calculates the dot product similarity."
+      },
+      "answer": "B",
+      "reasoning": "Residual connections add the input to the output of each sub-layer."
+    },
+    {
+      "id": "MC 140",
+      "topic": "Transformers",
+      "question": "What is the primary purpose of the Positional Encoding component in the Transformer architecture?",
+      "options": {
+        "A": "To calculate the dot product similarity between Query and Key.",
+        "B": "To incorporate information about the sequence order, compensating for the lack of recurrent structures.",
+        "C": "To normalize the residual connections.",
+        "D": "To determine which attention head to use."
+      },
+      "answer": "B",
+      "reasoning": "Positional encoding adds sequence position information."
+    },
+    {
+      "id": "MC 141",
+      "topic": "Multi-Head Attention",
+      "question": "The core benefit of using the Multi-Head Attention mechanism in a Transformer is that it allows the model to:",
+      "options": {
+        "A": "Only process input sequences of fixed length.",
+        "B": "Focus on different parts of the input for different tasks simultaneously.",
+        "C": "Eliminate the need for residual connections.",
+        "D": "Use only two main vectors: Query and Key."
+      },
+      "answer": "B",
+      "reasoning": "Multi-head attention learns multiple attention patterns in parallel."
+    },
+    {
+      "id": "MC 142",
+      "topic": "Self-Attention",
+      "question": "What is the defining characteristic of Self-Attention?",
+      "options": {
+        "A": "Query, Key, and Value vectors are derived from three different input sequences.",
+        "B": "The Query is derived from a separate sequence than the Key and Value vectors.",
+        "C": "The Query, Key, and Value vectors are all derived from the same sequence.",
+        "D": "The softmax function is replaced by the sigmoid function."
+      },
+      "answer": "C",
+      "reasoning": "Self-attention attends to the same sequence (Q, K, V from same source)."
+    },
+    {
+      "id": "MC 143",
+      "topic": "Self-Attention",
+      "question": "In the scaled dot-product attention formula Attention(Q,K,V) = softmax(QK^T / sqrt(d_k))V, why is the term sqrt(d_k) used?",
+      "options": {
+        "A": "It calculates the final output vector Z.",
+        "B": "It introduces non-linearity via ReLU.",
+        "C": "It acts as a scaling factor to stabilize gradients.",
+        "D": "It determines the number of heads."
+      },
+      "answer": "C",
+      "reasoning": "Scaling prevents dot products from growing too large."
+    },
+    {
+      "id": "MC 144",
+      "topic": "BERT",
+      "question": "Which category of pretrained Transformer architecture (BERT, GPT, or BART/T5) is primarily designed to excel at classification tasks by leveraging bidirectional context during its Masked LM pretraining phase?",
+      "options": {
+        "A": "Encoder-only (BERT)",
+        "B": "Decoder-only (GPT)",
+        "C": "Encoder-Decoder (BART/T5)",
+        "D": "Recurrent Neural Networks"
+      },
+      "answer": "A",
+      "reasoning": "BERT's bidirectional encoder is ideal for classification."
+    },
+    {
+      "id": "MC 145",
+      "topic": "GPT",
+      "question": "What is the primary method used to pretrain Decoder-only models (like GPT) on large datasets?",
+      "options": {
+        "A": "Masking out 15% of tokens.",
+        "B": "The permutation language modeling objective.",
+        "C": "Next word prediction (standard language modeling objective).",
+        "D": "Optimizing against a reward model."
+      },
+      "answer": "C",
+      "reasoning": "GPT is pretrained using standard autoregressive language modeling."
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "topic": "Deep Sequential Models (MLP, RNN, LSTM)",
+  "questionType": "multiplechoice",
+  "questions": [
+    {
+      "id": "MC 40",
+      "topic": "Neural Networks",
+      "question": "What feature does a Feedforward Neural Network (FNN) gain by adding a hidden layer compared to a simple logistic regression unit?",
+      "options": {
+        "A": "Faster training time.",
+        "B": "The ability to model non-linear interactions between input features.",
+        "C": "Guaranteed convexity of the loss function.",
+        "D": "Ability to process variable-length inputs."
+      },
+      "answer": "B",
+      "reasoning": "Hidden layers enable non-linear feature combinations."
+    },
+    {
+      "id": "MC 41",
+      "topic": "Activation Functions",
+      "question": "Which non-linear activation function outputs values in the range of -1 to 1?",
+      "options": {
+        "A": "Sigmoid (σ)",
+        "B": "Rectified Linear Unit (ReLU)",
+        "C": "Tanh",
+        "D": "Softmax"
+      },
+      "answer": "C",
+      "reasoning": "Tanh outputs values in the range [-1, 1]."
+    },
+    {
+      "id": "MC 42",
+      "topic": "RNN",
+      "question": "What is the primary characteristic of a Recurrent Neural Network (RNN) that allows it to process sequences of arbitrary length?",
+      "options": {
+        "A": "It uses self-attention mechanisms.",
+        "B": "It has connections that form loops, reapplying the same weights across time steps.",
+        "C": "It uses fixed-size context windows.",
+        "D": "It relies solely on positional encoding."
+      },
+      "answer": "B",
+      "reasoning": "RNNs use recurrent connections that process sequences step-by-step."
+    },
+    {
+      "id": "MC 43",
+      "topic": "RNN",
+      "question": "What issue is primarily responsible for preventing traditional RNNs from accessing information from many steps back in a long sequence?",
+      "options": {
+        "A": "The exploding gradient problem.",
+        "B": "The vanishing gradient problem.",
+        "C": "Lack of positional encoding.",
+        "D": "Use of the Sigmoid function."
+      },
+      "answer": "B",
+      "reasoning": "Vanishing gradients prevent RNNs from learning long-range dependencies."
+    },
+    {
+      "id": "MC 44",
+      "topic": "RNN Training",
+      "question": "What technique is used during RNN training to calculate the gradients of recurrent weights by unfolding the network through time and summing the derivatives at each time step?",
+      "options": {
+        "A": "Stochastic Gradient Descent (SGD).",
+        "B": "Maximum Likelihood Estimation (MLE).",
+        "C": "Backpropagation Through Time (BPTT).",
+        "D": "The Brevity Penalty (BP)."
+      },
+      "answer": "C",
+      "reasoning": "BPTT unfolds the RNN through time to compute gradients."
+    },
+    {
+      "id": "MC 45",
+      "topic": "RNN Language Models",
+      "question": "In training an RNN Language Model, how is the overall loss J(θ) for an input sequence calculated?",
+      "options": {
+        "A": "By multiplying the cross-entropy loss at each time step.",
+        "B": "By taking the minimum cross-entropy loss across all time steps.",
+        "C": "By taking the average of the cross-entropy loss computed at every time step.",
+        "D": "By applying the sigmoid function to the hidden state."
+      },
+      "answer": "C",
+      "reasoning": "Total loss is the average of per-timestep cross-entropy losses."
+    },
+    {
+      "id": "MC 46",
+      "topic": "LSTM",
+      "question": "Which component within an LSTM cell is responsible for regulating what information from the previous cell state should be discarded?",
+      "options": {
+        "A": "Input Gate",
+        "B": "Output Gate",
+        "C": "Forget Gate",
+        "D": "Candidate Gate"
+      },
+      "answer": "C",
+      "reasoning": "The Forget Gate controls what information to discard from the cell state."
+    },
+    {
+      "id": "MC 47",
+      "topic": "RNN Training",
+      "question": "In practice, BPTT is often truncated after approximately how many time steps for training efficiency reasons?",
+      "options": {
+        "A": "5",
+        "B": "20",
+        "C": "100",
+        "D": "1000"
+      },
+      "answer": "B",
+      "reasoning": "BPTT is typically truncated after about 20 time steps."
+    },
+    {
+      "id": "MC 48",
+      "topic": "Regularization",
+      "question": "What is the advantage of using dropout during neural network training?",
+      "options": {
+        "A": "It speeds up recurrent computation.",
+        "B": "It prevents feature co-adaptation (overfitting) by randomly setting some inputs to zero.",
+        "C": "It ensures all input features are strictly positive.",
+        "D": "It replaces the softmax function."
+      },
+      "answer": "B",
+      "reasoning": "Dropout prevents overfitting by randomly dropping neurons during training."
+    },
+    {
+      "id": "MC 129",
+      "topic": "Activation Functions",
+      "question": "What is the Rectified Linear Unit (ReLU) activation function defined as?",
+      "options": {
+        "A": "y = 1 / (1 + e^(-x))",
+        "B": "y = tanh(x)",
+        "C": "y = max(0, x)",
+        "D": "y = e^x / sum(e^j)"
+      },
+      "answer": "C",
+      "reasoning": "ReLU outputs the maximum of 0 and the input value."
+    },
+    {
+      "id": "MC 130",
+      "topic": "Neural Language Models",
+      "question": "In a simple Feedforward Neural Network Language Model (NNLM), the fixed window size is considered a limitation because:",
+      "options": {
+        "A": "It requires too many training examples.",
+        "B": "The window can never be large enough to capture all necessary long-distance dependencies.",
+        "C": "It prevents the use of embeddings as input.",
+        "D": "It results in vanishing gradients."
+      },
+      "answer": "B",
+      "reasoning": "Fixed windows cannot capture arbitrary long-range dependencies."
+    },
+    {
+      "id": "MC 131",
+      "topic": "RNN Language Models",
+      "question": "How does the training loss for an RNN Language Model across a sequence of words (w₁...wₜ) typically compute the total loss J(θ)?",
+      "options": {
+        "A": "By multiplying the cross-entropy loss at each time step.",
+        "B": "By taking the average of the cross-entropy loss J^(t)(θ) computed at each time step.",
+        "C": "By calculating the difference between the final output and the initial input.",
+        "D": "By summing the rewards obtained from human feedback."
+      },
+      "answer": "B",
+      "reasoning": "RNN loss is the average of losses at each time step."
+    },
+    {
+      "id": "MC 132",
+      "topic": "RNN",
+      "question": "What function is typically used in the hidden state update of a basic RNN?",
+      "options": {
+        "A": "Sigmoid",
+        "B": "Tanh",
+        "C": "Softmax",
+        "D": "ReLU"
+      },
+      "answer": "B",
+      "reasoning": "Tanh is commonly used for RNN hidden state updates."
+    },
+    {
+      "id": "MC 133",
+      "topic": "LSTM",
+      "question": "Long Short-Term Memory (LSTM) networks were primarily developed to address which issue inherent in basic RNNs?",
+      "options": {
+        "A": "Overfitting of training data.",
+        "B": "The vanishing and exploding gradient problems.",
+        "C": "Slow recurrent computation speed.",
+        "D": "The difficulty of using embeddings as input."
+      },
+      "answer": "B",
+      "reasoning": "LSTMs solve the vanishing/exploding gradient problem through gating mechanisms."
+    },
+    {
+      "id": "MC 134",
+      "topic": "LSTM",
+      "question": "What mechanism, often used in LSTMs and GRUs, helps control which past information is maintained and which is discarded?",
+      "options": {
+        "A": "The Positional Encoding vector",
+        "B": "The Reward Model",
+        "C": "Gating mechanisms",
+        "D": "Beam search"
+      },
+      "answer": "C",
+      "reasoning": "Gates (forget, input, output) control information flow in LSTMs."
+    }
+  ]
+}

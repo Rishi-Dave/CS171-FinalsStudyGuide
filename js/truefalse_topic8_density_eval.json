@@ -21,14 +21,14 @@
       "topic": "DBSCAN",
       "question": "A point q is a \"core point\" in DBSCAN if its Eps-neighborhood contains at least MinPts number of points.",
       "answer": true,
-      "reasoning": "The core point condition is $"
+      "reasoning": "The core point condition is"
     },
     {
       "id": "T/F 439",
       "topic": "DBSCAN",
-      "question": "Point p is directly density-reachable from point q only if p belongs to N Eps ​ (q), regardless of whether q is a core point.",
+      "question": "Point p is directly density-reachable from point q only if p belongs to N Eps (q), regardless of whether q is a core point.",
       "answer": false,
-      "reasoning": "q must satisfy the core point condition: $"
+      "reasoning": "q must satisfy the core point condition:"
     },
     {
       "id": "T/F 440",
@@ -61,9 +61,9 @@
     {
       "id": "T/F 444",
       "topic": "DBSCAN",
-      "question": "The naïve implementation of DBSCAN has a time complexity of O(n 2 ), where n is the number of data points.",
+      "question": "The naïve implementation of DBSCAN has a time complexity of O(n²), where n is the number of data points.",
       "answer": true,
-      "reasoning": "Naïve implementation complexity is O(n 2 )."
+      "reasoning": "Naïve implementation complexity is O(n²)."
     },
     {
       "id": "T/F 445",
@@ -161,7 +161,7 @@
       "topic": "Evaluation",
       "question": "The Silhouette coefficient compares the nearest neighbor distances of data points in a cluster with the nearest neighbor distances of random points.",
       "answer": false,
-      "reasoning": "The Silhouette coefficient compares cohesion (similarity to own cluster a(i)) vs. separation (dissimilarity to other clusters b(i))."
+      "reasoning": "The Silhouette coefficient compares cohesion (similarity to own cluster a⁽ⁱ⁾) vs. separation (dissimilarity to other clusters b⁽ⁱ⁾)."
     },
     {
       "id": "T/F 459",
@@ -196,7 +196,7 @@
       "topic": "Evaluation",
       "question": "The two constraints of cluster homogeneity and cluster completeness are the most fundamental restrictions required for any clustering evaluation metric.",
       "answer": true,
-      "reasoning": "Constraints 1 (Homogeneity) and 2 (Completeness) are the most basic restrictions."
+      "reasoning": "Constraints 1 (Homogeneity) and²(Completeness) are the most basic restrictions."
     },
     {
       "id": "T/F 464",
@@ -236,7 +236,7 @@
     {
       "id": "T/F 469",
       "topic": "Advanced Unsupervised",
-      "question": "The Eckart Young Theorem guarantees that the truncated SVD approximation X k ​ (using the first k singular vectors) is the best rank-k approximation that minimizes the squared error.",
+      "question": "The Eckart Young Theorem guarantees that the truncated SVD approximation Xₖ(using the first k singular vectors) is the best rank-k approximation that minimizes the squared error.",
       "answer": true,
       "reasoning": "If k<rank(X), the truncated SVD gives the best rank k approximation minimizing squared error."
     },
@@ -285,7 +285,7 @@
     {
       "id": "T/F 476",
       "topic": "DBSCAN",
-      "question": "If DBSCAN is implemented using a spatial index, its theoretical worst-case complexity remains O(n 2 ).",
+      "question": "If DBSCAN is implemented using a spatial index, its theoretical worst-case complexity remains O(n²).",
       "answer": false,
       "reasoning": "Using a spatial index can improve complexity by providing logarithmic retrieval."
     },
@@ -299,7 +299,7 @@
     {
       "id": "T/F 478",
       "topic": "Advanced Unsupervised",
-      "question": "The singular values σ i ​ in SVD are non-negative and are typically sorted in ascending order.",
+      "question": "The singular values σᵢin SVD are non-negative and are typically sorted in ascending order.",
       "answer": false,
       "reasoning": "Singular values are non-negative and sorted in descending order."
     },

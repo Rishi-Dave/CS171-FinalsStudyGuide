@@ -12,7 +12,7 @@
     {
       "id": "T/F 482",
       "topic": "Freq. Patterns",
-      "question": "The confidence of an association rule X→Y is defined as the conditional probability that a transaction having X also contains Y, $P(Y X)$.",
+      "question": "The confidence of an association rule X→Y is defined as the conditional probability that a transaction having X also contains Y, P(Y X).",
       "answer": true,
       "reasoning": ""
     },
@@ -26,7 +26,7 @@
     {
       "id": "T/F 484",
       "topic": "Freq. Patterns",
-      "question": "The standard association rule mining process requires two steps: 1) finding all frequent itemsets, and 2) generating strong association rules from those sets.",
+      "question": "The standard association rule mining process requires two steps: 1) finding all frequent itemsets, and²) generating strong association rules from those sets.",
       "answer": true,
       "reasoning": "This is the two-step process described."
     }

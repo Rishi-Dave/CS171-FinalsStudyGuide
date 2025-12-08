@@ -18,7 +18,7 @@
       "id": "SA 33",
       "topic": "Evaluation",
       "question": "Define the Silhouette Coefficient and explain what its value indicates regarding the quality of clustering for a given object.",
-      "reasoning": "The Silhouette Coefficient is an intrinsic measure that quantifies the similarity of an object to objects within its own cluster (cohesion, a(i)) versus objects in other clusters (separation, b(i)). It ranges from -1 to 1. A score close to +1 indicates the object is well-clustered (high cohesion/good separation)."
+      "reasoning": "The Silhouette Coefficient is an intrinsic measure that quantifies the similarity of an object to objects within its own cluster (cohesion, a⁽ⁱ⁾) versus objects in other clusters (separation, b⁽ⁱ⁾). It ranges from -1 to 1. A score close to +1 indicates the object is well-clustered (high cohesion/good separation)."
     },
     {
       "id": "SA 34",

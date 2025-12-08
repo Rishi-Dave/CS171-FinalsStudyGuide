@@ -1,0 +1,214 @@
+{
+  "topic": "N-gram Language Models, Smoothing, and Perplexity",
+  "questionType": "multiplechoice",
+  "questions": [
+    {
+      "id": "MC 12",
+      "topic": "N-gram Models",
+      "question": "In the formula for Maximum Likelihood Estimation (MLE) of a bigram P(wᵢ | wᵢ₋₁), the numerator is the count of the bigram C(wᵢ₋₁, wᵢ). What is the denominator?",
+      "options": {
+        "A": "The count of the unigram C(wᵢ).",
+        "B": "The total number of tokens N.",
+        "C": "The count of the unigram C(wᵢ₋₁).",
+        "D": "The vocabulary size V."
+      },
+      "answer": "C",
+      "reasoning": "MLE for bigrams is calculated as C(wᵢ₋₁, wᵢ) / C(wᵢ₋₁)."
+    },
+    {
+      "id": "MC 13",
+      "topic": "Language Modeling",
+      "question": "What mathematical concept is used to transform the product of probabilities P(p₁ × p₂ × ...) in language modeling into a sum of log probabilities (log(p₁) + log(p₂) + ...)?",
+      "options": {
+        "A": "The Markov Assumption.",
+        "B": "The Brevity Penalty.",
+        "C": "Log space calculation.",
+        "D": "The Chain Rule of Probability."
+      },
+      "answer": "C",
+      "reasoning": "Log space calculation converts products to sums, preventing numerical underflow."
+    },
+    {
+      "id": "MC 14",
+      "topic": "Smoothing",
+      "question": "Why is using Add-1 (Laplace) smoothing generally avoided for large N-gram models in practical NLP applications?",
+      "options": {
+        "A": "It is computationally slower than MLE.",
+        "B": "It fails to eliminate zero counts.",
+        "C": "It drastically changes the original probability distribution (a \"blunt instrument\").",
+        "D": "It leads to the vanishing gradient problem."
+      },
+      "answer": "C",
+      "reasoning": "Add-1 smoothing significantly distorts probability distributions in large vocabularies."
+    },
+    {
+      "id": "MC 15",
+      "topic": "Smoothing",
+      "question": "In the context of N-gram language models, what is the core issue that smoothing techniques are designed to address?",
+      "options": {
+        "A": "Overfitting on training data that leads to zero probabilities for unseen sequences in the test set.",
+        "B": "Underfitting the training data due to Markov assumptions.",
+        "C": "The necessity of parallel computation.",
+        "D": "The calculation of the Cross-Entropy Loss."
+      },
+      "answer": "A",
+      "reasoning": "Smoothing addresses the zero probability problem for unseen N-grams."
+    },
+    {
+      "id": "MC 16",
+      "topic": "N-gram Models",
+      "question": "How does the Bigram model (N=2) approximate the true probability P(wᵢ | w₁...wᵢ₋₁)?",
+      "options": {
+        "A": "P(wᵢ)",
+        "B": "P(wᵢ | wᵢ₋₁)",
+        "C": "P(wᵢ | wᵢ₋₂, wᵢ₋₁)",
+        "D": "P(wᵢ | w₁)"
+      },
+      "answer": "B",
+      "reasoning": "Bigram models use only the immediately preceding word: P(wᵢ | wᵢ₋₁)."
+    },
+    {
+      "id": "MC 17",
+      "topic": "Language Modeling",
+      "question": "If a sentence contains an N-gram that has a raw count of zero in the training data, what is the resulting joint probability of that entire sentence if no smoothing is applied?",
+      "options": {
+        "A": "1.0",
+        "B": "Undefined",
+        "C": "0.0",
+        "D": "The unigram probability"
+      },
+      "answer": "C",
+      "reasoning": "Any zero probability in the product makes the entire joint probability zero."
+    },
+    {
+      "id": "MC 18",
+      "topic": "Perplexity",
+      "question": "If Model A has a perplexity of 20 and Model B has a perplexity of 10, which statement is generally true about their performance on the test set?",
+      "options": {
+        "A": "Model A assigns a higher probability to the test set.",
+        "B": "Model B is the better model, assigning a higher probability to the test set.",
+        "C": "Perplexity cannot be compared across different model sizes.",
+        "D": "Both models are performing equally well."
+      },
+      "answer": "B",
+      "reasoning": "Lower perplexity indicates better model performance (higher probability assigned to test set)."
+    },
+    {
+      "id": "MC 19",
+      "topic": "Perplexity",
+      "question": "In a language model, what does the perplexity metric PP(W) represent mathematically?",
+      "options": {
+        "A": "The average negative log-likelihood of the sequence.",
+        "B": "The inverse probability of the test set, normalized by the number of words.",
+        "C": "The total number of unique words in the vocabulary.",
+        "D": "The geometric mean of all word probabilities."
+      },
+      "answer": "B",
+      "reasoning": "Perplexity is the inverse probability normalized by sequence length."
+    },
+    {
+      "id": "MC 20",
+      "topic": "Smoothing",
+      "question": "The smoothing technique known as \"Interpolation\" combines probability estimates from which sources?",
+      "options": {
+        "A": "Probability estimates from different contexts (unigram, bigram, trigram, etc.).",
+        "B": "Only the unigram distribution and the vocabulary size.",
+        "C": "Only the zero-count N-grams.",
+        "D": "Only the counts of words appearing more than 5 times."
+      },
+      "answer": "A",
+      "reasoning": "Interpolation combines multiple N-gram models (unigram, bigram, trigram, etc.)."
+    },
+    {
+      "id": "MC 109",
+      "topic": "N-gram Models",
+      "question": "An N-gram language model uses the Chain Rule of Probability and applies the Markov Assumption. How does the Markov Assumption simplify the conditional probability P(wᵢ | w₁...wᵢ₋₁) for a bigram model?",
+      "options": {
+        "A": "It simplifies to P(wᵢ | wᵢ).",
+        "B": "It simplifies to P(wᵢ).",
+        "C": "It simplifies to P(wᵢ | wᵢ₋₁).",
+        "D": "It simplifies to P(wᵢ | w₁, w₂)."
+      },
+      "answer": "C",
+      "reasoning": "The Markov assumption for bigrams assumes only the immediately preceding word matters."
+    },
+    {
+      "id": "MC 110",
+      "topic": "N-gram Models",
+      "question": "An N-gram that has never appeared in the training data is said to have a:",
+      "options": {
+        "A": "High perplexity.",
+        "B": "Modified precision.",
+        "C": "Zero count.",
+        "D": "Vanishing gradient."
+      },
+      "answer": "C",
+      "reasoning": "Unseen N-grams have a count of zero in the training corpus."
+    },
+    {
+      "id": "MC 111",
+      "topic": "N-gram Models",
+      "question": "In a corpus, the phrase \"want to\" appears 608 times, and the word \"want\" appears 927 times. What is the Maximum Likelihood Estimate (MLE) for P(to | want)?",
+      "options": {
+        "A": "927 / 608",
+        "B": "608 / 927",
+        "C": "927 / (608 + V)",
+        "D": "608 / (927 + V)"
+      },
+      "answer": "B",
+      "reasoning": "MLE is calculated as C(want, to) / C(want) = 608 / 927."
+    },
+    {
+      "id": "MC 112",
+      "topic": "Smoothing",
+      "question": "Given a vocabulary size V, what is the formula for the Add-1 (Laplace) smoothed estimate of a bigram P*(wᵢ | wᵢ₋₁)?",
+      "options": {
+        "A": "C(wᵢ₋₁, wᵢ) / C(wᵢ₋₁)",
+        "B": "(C(wᵢ₋₁, wᵢ) + 1) / (C(wᵢ₋₁) + V)",
+        "C": "(C(wᵢ₋₁, wᵢ) + V) / (C(wᵢ₋₁) + 1)",
+        "D": "log(C(wᵢ₋₁, wᵢ) / C(wᵢ₋₁))"
+      },
+      "answer": "B",
+      "reasoning": "Add-1 smoothing adds 1 to the numerator and V to the denominator."
+    },
+    {
+      "id": "MC 113",
+      "topic": "Smoothing",
+      "question": "If a trigram is assigned a zero count in a language model, the backoff smoothing approach suggests using the model's estimate for which lower-order model next?",
+      "options": {
+        "A": "Interpolation to the unigram model",
+        "B": "The bigram model",
+        "C": "The unigram model directly",
+        "D": "Maximum Likelihood Estimate (MLE)"
+      },
+      "answer": "B",
+      "reasoning": "Backoff moves from trigram to bigram to unigram sequentially."
+    },
+    {
+      "id": "MC 114",
+      "topic": "Perplexity",
+      "question": "In evaluating a language model, minimizing perplexity is mathematically equivalent to achieving what goal?",
+      "options": {
+        "A": "Maximizing the model complexity.",
+        "B": "Minimizing the size of the test set.",
+        "C": "Maximizing the probability of the unseen test set.",
+        "D": "Maximizing the training set likelihood."
+      },
+      "answer": "C",
+      "reasoning": "Lower perplexity equals higher probability assigned to the test set."
+    },
+    {
+      "id": "MC 115",
+      "topic": "Perplexity",
+      "question": "If Model A achieves a perplexity of 50 and Model B achieves a perplexity of 100 on the same test corpus, which statement is true?",
+      "options": {
+        "A": "Model B is better because higher perplexity means better generalization.",
+        "B": "Model A is better because lower perplexity means better prediction.",
+        "C": "Model A is more complex than Model B.",
+        "D": "Model B is less prone to the zero count problem."
+      },
+      "answer": "B",
+      "reasoning": "Lower perplexity indicates better model performance."
+    }
+  ]
+}

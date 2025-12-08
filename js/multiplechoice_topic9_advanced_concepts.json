@@ -1,0 +1,344 @@
+{
+  "topic": "Advanced Concepts and Applications",
+  "questionType": "multiplechoice",
+  "questions": [
+    {
+      "id": "MC 75",
+      "topic": "Course Logistics",
+      "question": "What is the penalty for plagiarism detected as AI generation in this course?",
+      "options": {
+        "A": "A warning.",
+        "B": "20% penalty.",
+        "C": "50%-100% penalty.",
+        "D": "Retaking the quiz/homework."
+      },
+      "answer": "C",
+      "reasoning": "AI-generated plagiarism carries a 50%-100% penalty."
+    },
+    {
+      "id": "MC 76",
+      "topic": "Course Logistics",
+      "question": "Where is the appropriate place to post general course questions about homework or quizzes?",
+      "options": {
+        "A": "Directly emailing the instructor.",
+        "B": "Publicly on Piazza or attending office hours.",
+        "C": "Only during lecture.",
+        "D": "Only to the TA via email."
+      },
+      "answer": "B",
+      "reasoning": "General questions should be posted publicly on Piazza or discussed in office hours."
+    },
+    {
+      "id": "MC 77",
+      "topic": "Course Logistics",
+      "question": "What is the status of attending lectures and tutorials in CS173?",
+      "options": {
+        "A": "Optional, but quizzes are recommended.",
+        "B": "Mandatory.",
+        "C": "Required only for graduate students.",
+        "D": "Required only for the first two weeks."
+      },
+      "answer": "B",
+      "reasoning": "Attendance at lectures and tutorials is mandatory."
+    },
+    {
+      "id": "MC 78",
+      "topic": "Course Logistics",
+      "question": "What is the benefit of submitting homework up to 2 days late on eLearn?",
+      "options": {
+        "A": "Receiving 100% credit.",
+        "B": "Receiving 80% credit.",
+        "C": "Receiving prior permission.",
+        "D": "Waiving the mandatory attendance requirement."
+      },
+      "answer": "B",
+      "reasoning": "Late submissions within 2 days receive 80% credit."
+    },
+    {
+      "id": "MC 79",
+      "topic": "NLP Terminology",
+      "question": "In the context of NLP, what is the distinction between a Type and a Token?",
+      "options": {
+        "A": "Type is the number of tokens (N); Token is the size of the vocabulary (V).",
+        "B": "Type is a distinct word (vocabulary entry); Token is an instance of a word (including duplicates).",
+        "C": "Type is the embedding; Token is the character.",
+        "D": "They are synonyms."
+      },
+      "answer": "B",
+      "reasoning": "Types are unique words; tokens are all word instances (with duplicates)."
+    },
+    {
+      "id": "MC 80",
+      "topic": "Perplexity Calculation",
+      "question": "If the probability of a 3-word test sequence W=(w₁, w₂, w₃) is P(W) = 0.5 × 0.25 × 0.5, and N=3. Assuming log₂, what is the calculated Perplexity PP(W)?",
+      "options": {
+        "A": "1.5",
+        "B": "2",
+        "C": "4",
+        "D": "8"
+      },
+      "answer": "B",
+      "reasoning": "Based on calculation: average negative log-likelihood gives perplexity around 2."
+    },
+    {
+      "id": "MC 81",
+      "topic": "Word2Vec",
+      "question": "When training Word2Vec SGNS, the classifier attempts to convert the dot product similarity score into a probability P(+ | w,c) using which function?",
+      "options": {
+        "A": "Softmax",
+        "B": "ReLU",
+        "C": "Sigmoid (σ)",
+        "D": "Tanh"
+      },
+      "answer": "C",
+      "reasoning": "SGNS uses sigmoid to convert similarity scores to probabilities."
+    },
+    {
+      "id": "MC 82",
+      "topic": "Machine Translation Evaluation",
+      "question": "What is the primary method used to evaluate Machine Translation (MT) quality, measuring the n-gram overlap between a candidate translation and one or more reference translations?",
+      "options": {
+        "A": "Perplexity",
+        "B": "Cross-Entropy Loss",
+        "C": "BLEU Score",
+        "D": "Cosine Similarity"
+      },
+      "answer": "C",
+      "reasoning": "BLEU score measures n-gram overlap with reference translations."
+    },
+    {
+      "id": "MC 83",
+      "topic": "Chain Rule",
+      "question": "Which phrase correctly describes the goal of the Chain Rule of Probability when applied to calculating the joint probability of a sentence P(w₁w₂...wₙ)?",
+      "options": {
+        "A": "It requires the Markov assumption.",
+        "B": "It rewrites the joint probability as ∏ᵢ P(wᵢ | w₁w₂...wᵢ₋₁).",
+        "C": "It assumes that P(wᵢ) is independent of context.",
+        "D": "It calculates the perplexity of the sentence."
+      },
+      "answer": "B",
+      "reasoning": "Chain rule decomposes joint probability into conditional probabilities."
+    },
+    {
+      "id": "MC 84",
+      "topic": "Multi-class Classification",
+      "question": "In a multi-class classification problem (e.g., 5 categories), if a model output 5 logit scores z, what output function is required to normalize these scores into probabilities that sum to 1?",
+      "options": {
+        "A": "Sigmoid",
+        "B": "ReLU",
+        "C": "Softmax",
+        "D": "Tanh"
+      },
+      "answer": "C",
+      "reasoning": "Softmax normalizes logits into a probability distribution."
+    },
+    {
+      "id": "MC 85",
+      "topic": "BERT Pretraining",
+      "question": "In the original BERT pretraining formula, 80% of masked tokens are replaced by [MASK]. The remaining 20% are split. What happens to 10% of the masked tokens?",
+      "options": {
+        "A": "They are left unchanged (but still predicted).",
+        "B": "They are deleted entirely.",
+        "C": "They are replaced by a random token.",
+        "D": "They are skipped."
+      },
+      "answer": "C",
+      "reasoning": "10% of masked positions use random tokens to prevent overfitting."
+    },
+    {
+      "id": "MC 86",
+      "topic": "Model Architectures",
+      "question": "Which model type (BERT, GPT, or BART) is generally not suitable for text generation tasks because its encoder architecture does not naturally support autoregressive (word-by-word) generation?",
+      "options": {
+        "A": "GPT",
+        "B": "BART",
+        "C": "BERT (Encoder-only)",
+        "D": "RNN"
+      },
+      "answer": "C",
+      "reasoning": "BERT is an encoder-only model not designed for generation."
+    },
+    {
+      "id": "MC 87",
+      "topic": "Few-shot Learning",
+      "question": "What is the central difference between traditional few-shot learning (often involving parameter updates) and few-shot in-context learning (ICL)?",
+      "options": {
+        "A": "Few-shot ICL uses only zero examples.",
+        "B": "Few-shot ICL performs gradient updates on the provided examples.",
+        "C": "Few-shot ICL uses only the prompt structure without gradient updates.",
+        "D": "Traditional few-shot learning uses many more parameters."
+      },
+      "answer": "C",
+      "reasoning": "ICL learns from examples in the prompt without parameter updates."
+    },
+    {
+      "id": "MC 88",
+      "topic": "Heaps' Law",
+      "question": "Which law describes how the vocabulary size (V) of a corpus grows sub-linearly with respect to the total number of running words (tokens N)?",
+      "options": {
+        "A": "Zipf's Law",
+        "B": "Heaps' Law",
+        "C": "The Law of Conservation",
+        "D": "Moore's Law"
+      },
+      "answer": "B",
+      "reasoning": "Heaps' Law: V = kN^β where β < 1."
+    },
+    {
+      "id": "MC 89",
+      "topic": "RNN",
+      "question": "In the equation h(t) = σ(Wₕ h(t-1) + Wₑ e(t) + b₁) describing the hidden state update in a simple RNN, what determines the previous information carried forward?",
+      "options": {
+        "A": "Wₑ e(t)",
+        "B": "Wₕ h(t-1)",
+        "C": "b₁",
+        "D": "σ"
+      },
+      "answer": "B",
+      "reasoning": "Wₕ h(t-1) carries information from the previous hidden state."
+    },
+    {
+      "id": "MC 90",
+      "topic": "Word2Vec",
+      "question": "What is the effect of using a large context window (e.g., c=+/-5) during Word2Vec training?",
+      "options": {
+        "A": "It only captures syntactic information.",
+        "B": "It tends to capture semantic or topical similarity.",
+        "C": "It leads to the vanishing gradient problem.",
+        "D": "It ensures all embeddings are sparse."
+      },
+      "answer": "B",
+      "reasoning": "Larger windows capture broader semantic/topical relationships."
+    },
+    {
+      "id": "MC 91",
+      "topic": "Self-Attention",
+      "question": "The final step in Self-Attention calculation is:",
+      "options": {
+        "A": "Applying the sigmoid function.",
+        "B": "Multiplying the Value vectors by the softmax-normalized attention weights and summing them.",
+        "C": "Calculating the positional encoding.",
+        "D": "Applying the ReLU activation."
+      },
+      "answer": "B",
+      "reasoning": "Final step is weighted sum of Values using attention weights."
+    },
+    {
+      "id": "MC 92",
+      "topic": "NLP Terminology",
+      "question": "What is the term for a word (like je in j'ai) that cannot stand on its own and attaches to another word during tokenization?",
+      "options": {
+        "A": "Morpheme",
+        "B": "Clitic",
+        "C": "Lemma",
+        "D": "Affix"
+      },
+      "answer": "B",
+      "reasoning": "A clitic is a word that cannot stand independently."
+    },
+    {
+      "id": "MC 93",
+      "topic": "Gradient Descent",
+      "question": "In the SGD update rule w(t+1) = w(t) - η(d/dw)L(f(x;w), y), what term dictates the magnitude of the update step?",
+      "options": {
+        "A": "The weight w(t).",
+        "B": "The loss L.",
+        "C": "The learning rate η.",
+        "D": "The input x."
+      },
+      "answer": "C",
+      "reasoning": "Learning rate η controls the step size."
+    },
+    {
+      "id": "MC 94",
+      "topic": "LLM Training",
+      "question": "The initial step of the entire LLM training pipeline (before alignment or fine-tuning) is usually what?",
+      "options": {
+        "A": "Reinforcement Learning from Human Feedback.",
+        "B": "Pre-training on massive generic data sets via self-supervised learning (e.g., language modeling).",
+        "C": "Collecting human preferences for the Reward Model.",
+        "D": "Supervised fine-tuning on task-specific data."
+      },
+      "answer": "B",
+      "reasoning": "Pre-training on large corpora is the first step."
+    },
+    {
+      "id": "MC 95",
+      "topic": "T5",
+      "question": "In the T5 pretraining objective, text spans are corrupted and replaced by what?",
+      "options": {
+        "A": "The [MASK] token.",
+        "B": "A single sentinel token (token ID).",
+        "C": "A random word.",
+        "D": "A clitic."
+      },
+      "answer": "B",
+      "reasoning": "T5 uses sentinel tokens for span corruption."
+    },
+    {
+      "id": "MC 96",
+      "topic": "RLHF",
+      "question": "When training a policy in RLHF, what kind of data is collected for Step 2 (Reward Model training)?",
+      "options": {
+        "A": "Raw text corpus.",
+        "B": "Demonstration data (prompt, ideal output).",
+        "C": "Comparison data where human labelers rank model outputs.",
+        "D": "Gradient vectors."
+      },
+      "answer": "C",
+      "reasoning": "Step 2 collects human preference rankings for reward model training."
+    },
+    {
+      "id": "MC 97",
+      "topic": "Language Models",
+      "question": "Which type of knowledge have modern language models been shown to contain?",
+      "options": {
+        "A": "Semantic knowledge only.",
+        "B": "Syntactic knowledge only.",
+        "C": "Semantic, syntactic, and world knowledge.",
+        "D": "Knowledge about BPE tokenization exclusively."
+      },
+      "answer": "C",
+      "reasoning": "Modern LMs contain diverse types of knowledge."
+    },
+    {
+      "id": "MC 98",
+      "topic": "Window-based Models",
+      "question": "Which model type utilizes a fixed window size for context input and is limited by its inability to capture long-distance dependencies?",
+      "options": {
+        "A": "Simple RNN.",
+        "B": "N-gram language models.",
+        "C": "Window-based Feedforward Neural Language Models (NNLMs).",
+        "D": "Transformers."
+      },
+      "answer": "C",
+      "reasoning": "Window-based NNLMs are limited by fixed context windows."
+    },
+    {
+      "id": "MC 99",
+      "topic": "Text Processing",
+      "question": "The use of an abbreviation dictionary is suggested for which text processing stage?",
+      "options": {
+        "A": "Regular expression creation.",
+        "B": "Sentence segmentation.",
+        "C": "BPE token merging.",
+        "D": "N-gram probability smoothing."
+      },
+      "answer": "B",
+      "reasoning": "Abbreviation dictionaries help with sentence boundary detection."
+    },
+    {
+      "id": "MC 100",
+      "topic": "Attention Mechanisms",
+      "question": "What is the key difference between Self-Attention and Encoder-Decoder Attention in the Transformer architecture?",
+      "options": {
+        "A": "Self-attention uses Query and Key; Encoder-Decoder attention uses only Query.",
+        "B": "Self-attention operates only in the decoder; Encoder-Decoder attention operates only in the encoder.",
+        "C": "Self-attention operates on the same sequence; Encoder-Decoder attention links input and output sequences.",
+        "D": "Self-attention uses a fixed context vector; Encoder-Decoder attention uses positional encoding."
+      },
+      "answer": "C",
+      "reasoning": "Self-attention attends within one sequence; cross-attention links encoder and decoder."
+    }
+  ]
+}

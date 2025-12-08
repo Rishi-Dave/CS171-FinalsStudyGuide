@@ -12,23 +12,23 @@
     {
       "id": "T/F 172",
       "topic": "Regression",
-      "question": "The hypothesis function for linear regression h θ ​ (x) is defined as a linear combination of input features x i ​ and parameters θ i ​ .",
+      "question": "The hypothesis function for linear regression h θ (x) is defined as a linear combination of input features xᵢand parameters θᵢ.",
       "answer": true,
-      "reasoning": "The hypothesis h θ ​ (x) is approximated as a linear function of x: h θ ​ (x)=θ 0 ​ +θ 1 ​ x 1 ​ +θ 2 ​ x 2 ​ +…."
+      "reasoning": "The hypothesis h θ (x) is approximated as a linear function of x: h θ (x)=θ₀+θ₁x₁+θ₂x₂+…."
     },
     {
       "id": "T/F 173",
       "topic": "Regression",
-      "question": "In linear regression notation, the parameter θ 0 ​ is often referred to as the bias term.",
+      "question": "In linear regression notation, the parameter θ₀is often referred to as the bias term.",
       "answer": true,
-      "reasoning": "θ 0 ​ is the bias term."
+      "reasoning": "θ₀is the bias term."
     },
     {
       "id": "T/F 174",
       "topic": "Regression",
-      "question": "The convention of setting x 0 ​ =1 is used in linear regression to incorporate the bias term θ 0 ​ into the vector product θ T x.",
+      "question": "The convention of setting x₀=1 is used in linear regression to incorporate the bias term θ₀into the vector product θ T x.",
       "answer": true,
-      "reasoning": "Setting x 0 ​ =1 allows h(x) to be written as θ T x, incorporating θ 0 ​ ."
+      "reasoning": "Setting x₀=1 allows h(x) to be written as θ T x, incorporating θ₀."
     },
     {
       "id": "T/F 175",
@@ -84,7 +84,7 @@
       "topic": "Gradient Descent",
       "question": "The LMS update rule (Widrow-Hoff learning rule) states that the magnitude of the update is inversely proportional to the error term.",
       "answer": false,
-      "reasoning": "The magnitude of the update is proportional to the error term (y (i) −h θ ​ (x (i) ))."
+      "reasoning": "The magnitude of the update is proportional to the error term (y ⁽ⁱ⁾ −h θ (x ⁽ⁱ⁾ ))."
     },
     {
       "id": "T/F 183",
@@ -133,7 +133,7 @@
       "topic": "Decision Trees",
       "question": "Information Gain (ID3) measures how informative a split is by calculating the difference between the entropy of the parent node and the average entropy of the children nodes.",
       "answer": true,
-      "reasoning": "Information gained by branching on attribute A is calculated as Gain(A)=Info(D)−Info A ​ (D)."
+      "reasoning": "Information gained by branching on attribute A is calculated as Gain(A)=Info(D)−Info A (D)."
     },
     {
       "id": "T/F 190",
@@ -161,7 +161,7 @@
       "topic": "Decision Trees",
       "question": "The Gini Index (used in CART) aims to minimize impurity, where impurity is calculated based on the relative frequency of each class in the dataset.",
       "answer": true,
-      "reasoning": "gini(D) is defined based on the relative frequency p j ​ of class j in D."
+      "reasoning": "gini(D) is defined based on the relative frequency pⱼof class j in D."
     },
     {
       "id": "T/F 194",
@@ -187,9 +187,9 @@
     {
       "id": "T/F 197",
       "topic": "Regression",
-      "question": "Linear Regression can only be applied when there is a single feature x 1 ​ predicting the target variable y.",
+      "question": "Linear Regression can only be applied when there is a single feature x₁predicting the target variable y.",
       "answer": false,
-      "reasoning": "Linear regression can handle multiple features (e.g., x 1 ​ ,x 2 ​ ,…x n ​ )."
+      "reasoning": "Linear regression can handle multiple features (e.g., x₁,x₂,…xₙ)."
     },
     {
       "id": "T/F 198",
@@ -231,7 +231,7 @@
       "topic": "Decision Trees",
       "question": "The Gini Index aims to maximize the purity of the resulting partition D ′ (reduction in impurity Δgini(A)) when splitting on attribute A.",
       "answer": true,
-      "reasoning": "The objective is to minimize gini(D A ​ ) or maximize the reduction in impurity Δgini(A)=gini(D)−gini A ​ (D)."
+      "reasoning": "The objective is to minimize gini(D A ) or maximize the reduction in impurity Δgini(A)=gini(D)−gini A (D)."
     },
     {
       "id": "T/F 204",
@@ -278,14 +278,14 @@
     {
       "id": "T/F 210",
       "topic": "Regression",
-      "question": "If you include the number of bedrooms (x 2 ​ ) as an input feature alongside living area (x 1 ​ ) in a linear regression model predicting housing prices, the coefficient θ 2 ​ will necessarily be positive.",
+      "question": "If you include the number of bedrooms (x₂) as an input feature alongside living area (x₁) in a linear regression model predicting housing prices, the coefficient θ₂will necessarily be positive.",
       "answer": false,
-      "reasoning": "In the source example, θ 2 ​ (for the number of bedrooms) was found to be −8.738."
+      "reasoning": "In the source example, θ₂(for the number of bedrooms) was found to be −8.738."
     },
     {
       "id": "T/F 211",
       "topic": "Regression",
-      "question": "The derivation of the gradient for J(θ) for a single training example (x,y) requires calculating the derivative of 2 1 ​ (h θ ​ (x)−y) 2 with respect to θ j ​ .",
+      "question": "The derivation of the gradient for J(θ) for a single training example (x,y) requires calculating the derivative of² 1 (h θ (x)−y) 2 with respect to θⱼ.",
       "answer": true,
       "reasoning": "This derivative calculation is shown in the derivation steps."
     },
@@ -320,23 +320,23 @@
     {
       "id": "T/F 216",
       "topic": "Regression",
-      "question": "The choice of the Least Mean Squares cost function in linear regression is fundamentally decided by the underlying assumption that the noise term ϵ (i) is independent, identically distributed (IID) according to a Gaussian distribution.",
+      "question": "The choice of the Least Mean Squares cost function in linear regression is fundamentally decided by the underlying assumption that the noise term ϵ ⁽ⁱ⁾ is independent, identically distributed (IID) according to a Gaussian distribution.",
       "answer": true,
       "reasoning": "Assuming Gaussian IID noise leads directly to the optimization objective of minimizing J(θ), the LMS function."
     },
     {
       "id": "T/F 217",
       "topic": "Regression",
-      "question": "If Linear Regression is successful, the residual errors y (i) −h θ ​ (x (i) ) should ideally follow a Bernoulli distribution.",
+      "question": "If Linear Regression is successful, the residual errors y ⁽ⁱ⁾ −h θ (x ⁽ⁱ⁾ ) should ideally follow a Bernoulli distribution.",
       "answer": false,
-      "reasoning": "The underlying probabilistic assumption is that the error term ϵ (i) follows a Gaussian distribution."
+      "reasoning": "The underlying probabilistic assumption is that the error term ϵ ⁽ⁱ⁾ follows a Gaussian distribution."
     },
     {
       "id": "T/F 218",
       "topic": "Gradient Descent",
-      "question": "Gradient ascent, which maximizes an objective function, uses the update rule θ j ​ :=θ j ​ +α ∂θ j ​ ∂ ​ J(θ).",
+      "question": "Gradient ascent, which maximizes an objective function, uses the update rule θⱼ:=θⱼ+α ∂θⱼ∂ J(θ).",
       "answer": true,
-      "reasoning": "Gradient ascent involves moving in the positive direction of the gradient: θ:=θ+α∇ θ ​ l(θ)."
+      "reasoning": "Gradient ascent involves moving in the positive direction of the gradient: θ:=θ+α∇ θ l(θ)."
     },
     {
       "id": "T/F 219",
@@ -390,9 +390,9 @@
     {
       "id": "T/F 226",
       "topic": "Regression",
-      "question": "The LMS update rule (for linear regression) and the stochastic gradient ascent update rule (for logistic regression) are mathematically identical in form, although the hypothesis function h θ ​ (x) differs.",
+      "question": "The LMS update rule (for linear regression) and the stochastic gradient ascent update rule (for logistic regression) are mathematically identical in form, although the hypothesis function h θ (x) differs.",
       "answer": true,
-      "reasoning": "The update rules look identical, but h θ ​ (x) is non-linear for Logistic Regression."
+      "reasoning": "The update rules look identical, but h θ (x) is non-linear for Logistic Regression."
     },
     {
       "id": "T/F 227",
@@ -439,9 +439,9 @@
     {
       "id": "T/F 233",
       "topic": "Regression",
-      "question": "The calculation of the gradient descent update for the j-th parameter, θ j ​ , depends on all input features x i ​ , including those where i =j.",
+      "question": "The calculation of the gradient descent update for the j-th parameter, θⱼ, depends on all input features xᵢ, including those where i =j.",
       "answer": false,
-      "reasoning": "The derivative ∂θ j ​ ∂ ​ J(θ) zeros out all terms θ i ​ x i ​ for i =j because they are constant with respect to θ j ​ ."
+      "reasoning": "The derivative ∂θⱼ∂ J(θ) zeros out all terms θᵢxᵢfor i =j because they are constant with respect to θⱼ."
     },
     {
       "id": "T/F 234",
@@ -453,9 +453,9 @@
     {
       "id": "T/F 235",
       "topic": "Decision Trees",
-      "question": "For a nominal attribute with K distinct values, the CART algorithm needs to examine all 2 K −2 possible partitions into two subsets D 1 ​ and D 2 ​ .",
+      "question": "For a nominal attribute with K distinct values, the CART algorithm needs to examine all²K −2 possible partitions into two subsets D₁and D₂.",
       "answer": true,
-      "reasoning": "For categorical attributes, the CART algorithm needs to examine all partitions into two subsets D 1 ​ and D 2 ​ ."
+      "reasoning": "For categorical attributes, the CART algorithm needs to examine all partitions into two subsets D₁and D₂."
     },
     {
       "id": "T/F 236",
@@ -469,14 +469,14 @@
       "topic": "Regression",
       "question": "If y is discrete-valued (e.g., 0 or 1), it is generally acceptable to use linear regression to predict y given x.",
       "answer": false,
-      "reasoning": "It is easy to construct examples where linear regression performs poorly for discrete outcomes, and h θ ​ (x) should not take values outside for classification."
+      "reasoning": "It is easy to construct examples where linear regression performs poorly for discrete outcomes, and h θ (x) should not take values outside for classification."
     },
     {
       "id": "T/F 238",
       "topic": "Regression",
       "question": "The calculation of the cost function J(θ) in linear regression requires iterating over all m training examples.",
       "answer": true,
-      "reasoning": "J(θ)= 2m 1 ​ ∑ i=1 m ​ (h θ ​ (x (i) )−y (i) ) 2 requires summing over all m training examples."
+      "reasoning": "J(θ)= 2m₁∑ i=1 m (h θ (x ⁽ⁱ⁾ )−y ⁽ⁱ⁾ ) 2 requires summing over all m training examples."
     },
     {
       "id": "T/F 239",

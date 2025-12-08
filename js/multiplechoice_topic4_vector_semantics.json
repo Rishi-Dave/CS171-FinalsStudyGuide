@@ -1,0 +1,214 @@
+{
+  "topic": "Vector Semantics and Embeddings",
+  "questionType": "multiplechoice",
+  "questions": [
+    {
+      "id": "MC 30",
+      "topic": "Vector Semantics",
+      "question": "Which similarity metric tends to incorrectly favor frequent words (long vectors) when used on raw count vectors derived from a term-context matrix?",
+      "options": {
+        "A": "Cosine similarity.",
+        "B": "Inverse Document Frequency (IDF).",
+        "C": "Dot product.",
+        "D": "Perplexity."
+      },
+      "answer": "C",
+      "reasoning": "Dot product is biased toward longer vectors (more frequent words)."
+    },
+    {
+      "id": "MC 31",
+      "topic": "TF-IDF",
+      "question": "A word appears 8 times in a 50-word document. What is its Term Frequency (TF)?",
+      "options": {
+        "A": "8.0",
+        "B": "50/8",
+        "C": "0.16",
+        "D": "log(8/50)"
+      },
+      "answer": "C",
+      "reasoning": "TF = 8/50 = 0.16"
+    },
+    {
+      "id": "MC 32",
+      "topic": "TF-IDF",
+      "question": "In a corpus of 10,000 documents, a word appears in 1,000 documents. Using log_{10}, what is the Inverse Document Frequency (IDF) for that word?",
+      "options": {
+        "A": "4",
+        "B": "2",
+        "C": "1",
+        "D": "0"
+      },
+      "answer": "C",
+      "reasoning": "IDF = log_{10}(10000/1000) = log_{10}(10) = 1"
+    },
+    {
+      "id": "MC 33",
+      "topic": "Word2Vec",
+      "question": "What is the key advantage of Word2Vec's short, dense embeddings over TF-IDF's long, sparse vectors?",
+      "options": {
+        "A": "Dense vectors generalize better to similar, unseen words.",
+        "B": "Dense vectors eliminate the need for training data.",
+        "C": "Sparse vectors are easier to use as features in machine learning.",
+        "D": "Dense vectors ensure lower IDF scores."
+      },
+      "answer": "A",
+      "reasoning": "Dense embeddings capture semantic similarity and generalize better."
+    },
+    {
+      "id": "MC 34",
+      "topic": "Word2Vec",
+      "question": "In Skip-Gram with Negative Sampling (SGNS), what purpose do the randomly sampled negative examples serve?",
+      "options": {
+        "A": "They determine the size of the context window.",
+        "B": "They ensure the sigmoid function maps to 1.",
+        "C": "They teach the model what pairs not to predict (pulling the target vector away from non-neighbor words).",
+        "D": "They calculate the final word embedding vector."
+      },
+      "answer": "C",
+      "reasoning": "Negative samples train the model to distinguish true context from random words."
+    },
+    {
+      "id": "MC 35",
+      "topic": "Word2Vec",
+      "question": "SGNS learns two embedding matrices, W (target embeddings) and C (context embeddings). What is the common method for representing a word after training?",
+      "options": {
+        "A": "Only the W vector is used.",
+        "B": "The average of the W vector and a randomly selected vector.",
+        "C": "The sum of its W vector and its C vector.",
+        "D": "The subtraction of its C vector from its W vector."
+      },
+      "answer": "C",
+      "reasoning": "Common practice is to sum or average W and C vectors for the final embedding."
+    },
+    {
+      "id": "MC 36",
+      "topic": "Word2Vec",
+      "question": "When a small context window (e.g., c=+/-2) is used to train Word2Vec, what kind of similarity tends to be captured?",
+      "options": {
+        "A": "Semantic/topical similarity.",
+        "B": "Syntactic similarity (words in the same taxonomy).",
+        "C": "General world knowledge.",
+        "D": "Negative sample similarity."
+      },
+      "answer": "B",
+      "reasoning": "Small windows capture syntactic and functional similarity."
+    },
+    {
+      "id": "MC 37",
+      "topic": "Vector Semantics",
+      "question": "What principle underlies vector semantics, stating that words are defined by their environments?",
+      "options": {
+        "A": "The Recurrent principle.",
+        "B": "The Distributional Hypothesis.",
+        "C": "The Brevity Penalty.",
+        "D": "The Markov Assumption."
+      },
+      "answer": "B",
+      "reasoning": "The Distributional Hypothesis states that words in similar contexts have similar meanings."
+    },
+    {
+      "id": "MC 38",
+      "topic": "Word Embeddings",
+      "question": "The parallelogram method, used to demonstrate analogical relations (e.g., King - Man + Woman approximately equals Queen), relies on vectors having structure in which space?",
+      "options": {
+        "A": "Wordform space.",
+        "B": "Dense embedding space.",
+        "C": "Sparse TF-IDF space.",
+        "D": "Raw count space."
+      },
+      "answer": "B",
+      "reasoning": "Dense embeddings capture analogical relationships through vector arithmetic."
+    },
+    {
+      "id": "MC 39",
+      "topic": "TF-IDF",
+      "question": "Why does TF-IDF assign a value of zero to words that appear in every single document in the corpus?",
+      "options": {
+        "A": "The Term Frequency (TF) must be zero.",
+        "B": "The IDF component becomes log(N/N) = log(1) = 0.",
+        "C": "The document is too long.",
+        "D": "It indicates a grammatical error."
+      },
+      "answer": "B",
+      "reasoning": "IDF = log(N/N) = 0 for words appearing in all documents, making them non-distinctive."
+    },
+    {
+      "id": "MC 123",
+      "topic": "Vector Semantics",
+      "question": "In vector semantics, why is the dot product often an insufficient measure for calculating word similarity based on raw frequency counts (like in a term-context matrix)?",
+      "options": {
+        "A": "It only works if all vectors are sparse.",
+        "B": "It favors long vectors (frequent words), resulting in high scores even if the words are not semantically related.",
+        "C": "It always returns a value between 0 and 1.",
+        "D": "It requires the use of the sigmoid function."
+      },
+      "answer": "B",
+      "reasoning": "Dot product is biased toward vector magnitude, favoring frequent words."
+    },
+    {
+      "id": "MC 124",
+      "topic": "TF-IDF",
+      "question": "In the TF-IDF formula, Term Frequency (TF) measures how often a term appears in a document, and Inverse Document Frequency (IDF) measures:",
+      "options": {
+        "A": "The total number of unique words in the corpus.",
+        "B": "The uniqueness/distinctiveness of a word across the entire document collection.",
+        "C": "The cosine similarity between documents.",
+        "D": "The length of the word embedding vector."
+      },
+      "answer": "B",
+      "reasoning": "IDF measures how distinctive or rare a word is across the corpus."
+    },
+    {
+      "id": "MC 125",
+      "topic": "TF-IDF",
+      "question": "If a word \"X\" appears 3 times in a 10-word document, what is the Term Frequency (TF) of \"X\"?",
+      "options": {
+        "A": "30",
+        "B": "10 / 3",
+        "C": "0.3",
+        "D": "log(10/3)"
+      },
+      "answer": "C",
+      "reasoning": "TF = 3/10 = 0.3"
+    },
+    {
+      "id": "MC 126",
+      "topic": "Word2Vec",
+      "question": "What type of vectors does Word2Vec learn, in contrast to the long and sparse vectors produced by TF-IDF?",
+      "options": {
+        "A": "Character-based vectors",
+        "B": "Long and dense vectors",
+        "C": "Short and dense embeddings",
+        "D": "Short and sparse embeddings"
+      },
+      "answer": "C",
+      "reasoning": "Word2Vec produces short, dense embedding vectors."
+    },
+    {
+      "id": "MC 127",
+      "topic": "Word2Vec",
+      "question": "In the Skip-Gram architecture of Word2Vec, the classifier is trained to predict:",
+      "options": {
+        "A": "The target word given the context words.",
+        "B": "Whether a given word-context pair co-occurs within a window.",
+        "C": "The lemma of the target word.",
+        "D": "The optimal learning rate."
+      },
+      "answer": "B",
+      "reasoning": "Skip-Gram predicts whether word-context pairs are actual neighbors."
+    },
+    {
+      "id": "MC 128",
+      "topic": "Word2Vec",
+      "question": "Why does the Skip-Gram Negative Sampling (SGNS) model maintain two separate embedding matrices, W (target embeddings) and C (context embeddings)?",
+      "options": {
+        "A": "One matrix is for normalization, and the other is for probability calculation.",
+        "B": "Both matrices are used only for initialization, then discarded.",
+        "C": "They represent different embedding spaces, and after training, a word is often represented by combining its W and C vectors.",
+        "D": "One matrix stores the negative samples, and the other stores the positive samples."
+      },
+      "answer": "C",
+      "reasoning": "Separate matrices for target and context improve training; final embeddings combine both."
+    }
+  ]
+}

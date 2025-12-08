@@ -63,7 +63,7 @@
       "topic": "Evaluation",
       "question": "In k-fold cross-validation, the data is partitioned into k mutually exclusive subsets, and each subset is used once as the training set.",
       "answer": false,
-      "reasoning": "In k-fold cross-validation, the i-th subset D i ​ is used as the test set and the others are used as the training set."
+      "reasoning": "In k-fold cross-validation, the i-th subset Dᵢis used as the test set and the others are used as the training set."
     },
     {
       "id": "T/F 320",
@@ -180,7 +180,7 @@
     {
       "id": "T/F 336",
       "topic": "Advanced Supervised",
-      "question": "Maximizing the margin width in a linear SVM is equivalent to minimizing the magnitude of the weight vector, $ w",
+      "question": "Maximizing the margin width in a linear SVM is equivalent to minimizing the magnitude of the weight vector, w",
       "answer": null,
       "reasoning": ""
     },
@@ -238,7 +238,7 @@
       "topic": "Ensemble Methods",
       "question": "Bootstrapping is a technique that involves sampling the training data with replacement to create multiple training sets of the same size as the original set.",
       "answer": true,
-      "reasoning": "Bootstrapping involves sampling the set D of d tuples with replacement to create training sets D i ​ of size d."
+      "reasoning": "Bootstrapping involves sampling the set D of d tuples with replacement to create training sets Dᵢof size d."
     },
     {
       "id": "T/F 345",
@@ -259,7 +259,7 @@
       "topic": "Ensemble Methods",
       "question": "The out-of-bag error in Random Forest uses the training samples that were included in the bootstrap sample for evaluation.",
       "answer": false,
-      "reasoning": "Out-of-bag error uses only the trees that did not have x i ​ in their bootstrap sample."
+      "reasoning": "Out-of-bag error uses only the trees that did not have xᵢin their bootstrap sample."
     },
     {
       "id": "T/F 348",
@@ -329,7 +329,7 @@
       "topic": "Evaluation",
       "question": "In the Bias-Variance decomposition, the \"unavoidable error\" can typically be eliminated by increasing the amount of training data.",
       "answer": false,
-      "reasoning": "The error is decomposed into bias 2 , variance, and unavoidable error."
+      "reasoning": "The error is decomposed into bias², variance, and unavoidable error."
     },
     {
       "id": "T/F 358",
@@ -355,9 +355,9 @@
     {
       "id": "T/F 361",
       "topic": "Evaluation",
-      "question": "The F β ​ measure assigns β times as much weight to precision as to recall.",
+      "question": "The F β measure assigns β times as much weight to precision as to recall.",
       "answer": false,
-      "reasoning": "F β ​ assigns β times as much weight to recall as to precision."
+      "reasoning": "F β assigns β times as much weight to recall as to precision."
     },
     {
       "id": "T/F 362",

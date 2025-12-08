@@ -385,7 +385,7 @@
       "topic": "Data Types",
       "question": "t-Distributed Stochastic Neighbor Embedding (t-SNE) is a linear projection method that respects distances between points.",
       "answer": false,
-      "reasoning": "t-SNE is a non-linear projection of points to a low-dimensional space. Topic 2: Basic Statistics and Visualization (55 Questions) ID Topic Question Answer Reasoning"
+      "reasoning": "t-SNE is a non-linear projection of points to a low-dimensional space. Topic²: Basic Statistics and Visualization (55 Questions) ID Topic Question Answer Reasoning"
     }
   ]
 }

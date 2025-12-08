@@ -1,0 +1,656 @@
+{
+  "topic": "Comprehensive Review - All Topics",
+  "questionType": "multiplechoice",
+  "questions": [
+    {
+      "id": "MC 151",
+      "topic": "N-gram Models",
+      "question": "Which N-gram model makes a 0th-order Markov assumption?",
+      "options": {
+        "A": "Unigram model",
+        "B": "Bigram model",
+        "C": "Trigram model",
+        "D": "4-gram model"
+      },
+      "answer": "A",
+      "reasoning": "Unigram assumes P(wᵢ) depends on nothing (0th-order)."
+    },
+    {
+      "id": "MC 152",
+      "topic": "Language Models",
+      "question": "What kind of linguistic knowledge has been shown to be embedded within modern language models?",
+      "options": {
+        "A": "Semantic knowledge only.",
+        "B": "Syntactic knowledge only.",
+        "C": "Semantic, syntactic, and world knowledge.",
+        "D": "Pragmatic knowledge only."
+      },
+      "answer": "C",
+      "reasoning": "Modern LMs capture multiple types of linguistic and world knowledge."
+    },
+    {
+      "id": "MC 153",
+      "topic": "Transformers",
+      "question": "Which component in the Transformer architecture is primarily responsible for calculating the alignment scores between the query and key vectors?",
+      "options": {
+        "A": "Feed-Forward Network",
+        "B": "Softmax",
+        "C": "Multi-Head Attention",
+        "D": "Layer Normalization"
+      },
+      "answer": "B",
+      "reasoning": "Softmax normalizes the dot product scores into attention weights."
+    },
+    {
+      "id": "MC 154",
+      "topic": "Text Processing",
+      "question": "When might an abbreviation dictionary be useful during text processing?",
+      "options": {
+        "A": "For calculating TF-IDF scores.",
+        "B": "For implementing the BPE algorithm.",
+        "C": "For accurately classifying periods as either sentence boundaries or part of a word.",
+        "D": "For performing gradient descent."
+      },
+      "answer": "C",
+      "reasoning": "Helps distinguish abbreviation periods from sentence boundaries."
+    },
+    {
+      "id": "MC 155",
+      "topic": "Language Modeling",
+      "question": "Why is performing calculations in log space a practical issue when dealing with the product of probabilities in language modeling?",
+      "options": {
+        "A": "It introduces the vanishing gradient problem.",
+        "B": "It avoids underflow (extremely small numbers) and allows summation instead of multiplication.",
+        "C": "It removes the need for smoothing.",
+        "D": "It eliminates the need for a vocabulary list."
+      },
+      "answer": "B",
+      "reasoning": "Log space prevents numerical underflow in probability products."
+    },
+    {
+      "id": "MC 156",
+      "topic": "BERT",
+      "question": "If you are fine-tuning a BERT model for a classification task, what kind of language model (LM) type are you primarily working with?",
+      "options": {
+        "A": "Decoder-only",
+        "B": "Encoder-Decoder",
+        "C": "Encoder-only",
+        "D": "Simple RNN"
+      },
+      "answer": "C",
+      "reasoning": "BERT is an encoder-only architecture."
+    },
+    {
+      "id": "MC 157",
+      "topic": "Logistic Regression",
+      "question": "In logistic regression, what is the role of the bias (b)?",
+      "options": {
+        "A": "It dictates the direction of the weight updates.",
+        "B": "It introduces non-linearity.",
+        "C": "It is summed with the weighted features w · x to calculate the input z.",
+        "D": "It is the training loss."
+      },
+      "answer": "C",
+      "reasoning": "Bias is added to the weighted sum: z = w·x + b."
+    },
+    {
+      "id": "MC 158",
+      "topic": "Neural Networks",
+      "question": "How does a multi-layer perceptron (MLP) differ conceptually from a single logistic regression unit?",
+      "options": {
+        "A": "MLP utilizes gradient descent, while logistic regression uses MLE.",
+        "B": "MLP adds a hidden layer to allow for non-linear interactions between features.",
+        "C": "MLP can only handle binary classification.",
+        "D": "MLP replaces the sigmoid with Softmax."
+      },
+      "answer": "B",
+      "reasoning": "MLP's hidden layers enable non-linear feature combinations."
+    },
+    {
+      "id": "MC 159",
+      "topic": "NLP Terminology",
+      "question": "What is the term for the smallest meaning-bearing unit of a language?",
+      "options": {
+        "A": "Token",
+        "B": "Wordform",
+        "C": "Lemma",
+        "D": "Morpheme"
+      },
+      "answer": "D",
+      "reasoning": "Morpheme is the smallest unit that carries meaning."
+    },
+    {
+      "id": "MC 160",
+      "topic": "RLHF",
+      "question": "In the RLHF alignment process, after the Reward Model (RM) is trained, what is the next step?",
+      "options": {
+        "A": "Collect demonstration data for SFT.",
+        "B": "Optimize a policy (the LM) against the RM using reinforcement learning (PPO).",
+        "C": "Begin inference using zero-shot prompting.",
+        "D": "Train the reward model again using new human preferences."
+      },
+      "answer": "B",
+      "reasoning": "After RM training, the policy is optimized using PPO."
+    },
+    {
+      "id": "MC 161",
+      "topic": "BPE",
+      "question": "In BPE training, when processing a corpus, what symbol is commonly added before the space separating words?",
+      "options": {
+        "A": "<UNK>",
+        "B": "\\b",
+        "C": "_ (end-of-word symbol)",
+        "D": "`"
+      },
+      "answer": "C",
+      "reasoning": "Underscore marks word boundaries in BPE."
+    },
+    {
+      "id": "MC 162",
+      "topic": "Emergent Abilities",
+      "question": "What term describes the ability of an LLM to perform tasks it was not explicitly trained on, observed only when the model reaches a certain scale?",
+      "options": {
+        "A": "Parameter efficiency",
+        "B": "Alignment",
+        "C": "Emergent ability",
+        "D": "Token normalization"
+      },
+      "answer": "C",
+      "reasoning": "Emergent abilities appear at sufficient model scale."
+    },
+    {
+      "id": "MC 163",
+      "topic": "Decoding",
+      "question": "Which decoding strategy attempts to optimize the probability of the entire output sequence by tracking multiple likely paths, delaying commitment to a single token?",
+      "options": {
+        "A": "Sampling",
+        "B": "Greedy decoding",
+        "C": "Exhaustive search",
+        "D": "Beam search"
+      },
+      "answer": "D",
+      "reasoning": "Beam search maintains multiple candidate sequences."
+    },
+    {
+      "id": "MC 164",
+      "topic": "BPTT",
+      "question": "What issue in traditional RNNs did the introduction of Backpropagation Through Time (BPTT) address?",
+      "options": {
+        "A": "The inability to use parallel computation.",
+        "B": "The method for calculating and summing gradients over recurrently used weights across all time steps.",
+        "C": "The problem of tokenizing variable-length inputs.",
+        "D": "The tendency for sequences to contain zero-count n-grams."
+      },
+      "answer": "B",
+      "reasoning": "BPTT computes gradients through the recurrent structure."
+    },
+    {
+      "id": "MC 165",
+      "topic": "Activation Functions",
+      "question": "Which activation function outputs values in the range of -1 to 1?",
+      "options": {
+        "A": "Sigmoid",
+        "B": "ReLU",
+        "C": "Tanh",
+        "D": "Softmax"
+      },
+      "answer": "C",
+      "reasoning": "Tanh outputs in [-1, 1]."
+    },
+    {
+      "id": "MC 166",
+      "topic": "Word2Vec",
+      "question": "When comparing the Word2Vec Skip-Gram model trained with a small context window (c=+/-2) versus a large window (c=+/-5), what tends to be captured by the smaller window?",
+      "options": {
+        "A": "Semantic or topical similarity.",
+        "B": "Analogical relations (e.g., King - Man + Woman = Queen).",
+        "C": "Syntactically similar words in the same taxonomy.",
+        "D": "Negative samples only."
+      },
+      "answer": "C",
+      "reasoning": "Small windows capture syntactic/functional similarity."
+    },
+    {
+      "id": "MC 167",
+      "topic": "TF-IDF",
+      "question": "Why is the IDF value for the word \"cat\" zero in the example where \"cat\" appeared in both documents of a 2-document corpus?",
+      "options": {
+        "A": "The term frequency was calculated incorrectly.",
+        "B": "IDF assigns low scores to words that appear in every document, neutralizing its significance.",
+        "C": "The IDF calculation used log base 10.",
+        "D": "The IDF was not smoothed."
+      },
+      "answer": "B",
+      "reasoning": "IDF = log(N/N) = 0 for words in all documents."
+    },
+    {
+      "id": "MC 168",
+      "topic": "NLP Terminology",
+      "question": "The core difference between a token's lemma and its wordform is:",
+      "options": {
+        "A": "Wordform is the dictionary headword form (e.g., 'car'), while lemma is the full inflected surface form (e.g., 'cars').",
+        "B": "Lemma is the dictionary headword form (e.g., 'car'), while wordform is the full inflected surface form (e.g., 'cars').",
+        "C": "Lemma deals with non-words, while wordform deals with words.",
+        "D": "They are synonyms in text processing."
+      },
+      "answer": "B",
+      "reasoning": "Lemma is the base form; wordform is the inflected form."
+    },
+    {
+      "id": "MC 169",
+      "topic": "BERT",
+      "question": "What objective does BERT's training process use to allow the encoder to learn bidirectional context?",
+      "options": {
+        "A": "Standard language modeling (left-to-right prediction).",
+        "B": "Masked LM (mask filling).",
+        "C": "Next Sentence Prediction (NSP).",
+        "D": "Both B and C."
+      },
+      "answer": "D",
+      "reasoning": "BERT uses both Masked LM and NSP for pretraining."
+    },
+    {
+      "id": "MC 170",
+      "topic": "RLHF",
+      "question": "When training an LLM using RLHF, what is the prerequisite step before the Reward Model (RM) can be trained?",
+      "options": {
+        "A": "The policy must be optimized using PPO.",
+        "B": "The RM must first pass a perplexity test.",
+        "C": "Comparison data must be collected where human labelers rank several model outputs from best to worst.",
+        "D": "The model must reach 175 billion parameters."
+      },
+      "answer": "C",
+      "reasoning": "Comparison data is collected before training the reward model."
+    },
+    {
+      "id": "MC 171",
+      "topic": "Transformers",
+      "question": "If a token in a Transformer Encoder is attending only to itself and all tokens that came before it in the sequence, which type of attention is being used?",
+      "options": {
+        "A": "Encoder-Decoder Attention",
+        "B": "Scaled Dot-Product Attention",
+        "C": "Masked Multi-Head Self-Attention",
+        "D": "Concatenated Attention"
+      },
+      "answer": "C",
+      "reasoning": "Masked self-attention prevents attending to future tokens."
+    },
+    {
+      "id": "MC 172",
+      "topic": "Word Embeddings",
+      "question": "In a dense embedding space, what tends to be true about the vectors for semantically similar words?",
+      "options": {
+        "A": "They are orthogonal.",
+        "B": "They are close together (nearby in semantic space).",
+        "C": "They have a dot product of zero.",
+        "D": "They are sparse."
+      },
+      "answer": "B",
+      "reasoning": "Similar words have nearby vectors in embedding space."
+    },
+    {
+      "id": "MC 173",
+      "topic": "Neural Networks",
+      "question": "Why is the loss function for neural networks generally non-convex?",
+      "options": {
+        "A": "Because they are restricted to two layers.",
+        "B": "Because they use sigmoid activation.",
+        "C": "Because they incorporate many weights and complex interactions, which may result in multiple local minima (unlike logistic regression).",
+        "D": "Because they use mini-batch training."
+      },
+      "answer": "C",
+      "reasoning": "Neural networks have non-convex loss landscapes with multiple minima."
+    },
+    {
+      "id": "MC 174",
+      "topic": "Backpropagation",
+      "question": "The calculation of the gradient ∂L/∂wᵢ for weights deep within a multi-layer neural network relies fundamentally on what mathematical principle?",
+      "options": {
+        "A": "Maximum Likelihood Estimation",
+        "B": "The definition of Perplexity",
+        "C": "The Chain Rule of differentiation (Backpropagation)",
+        "D": "The Markov Assumption"
+      },
+      "answer": "C",
+      "reasoning": "Backpropagation uses the chain rule to compute gradients."
+    },
+    {
+      "id": "MC 175",
+      "topic": "Multi-Head Attention",
+      "question": "What key property of a Transformer allows it to focus on different types of information (e.g., syntactic vs. semantic relationships) from the input simultaneously?",
+      "options": {
+        "A": "Positional Encoding",
+        "B": "Multi-Head Attention",
+        "C": "The Sigmoid function",
+        "D": "The brevity penalty"
+      },
+      "answer": "B",
+      "reasoning": "Multiple attention heads capture different relationship types."
+    },
+    {
+      "id": "MC 176",
+      "topic": "N-gram Models",
+      "question": "What does an N-gram count of zero imply about the probability of a sentence containing that N-gram if no smoothing is applied?",
+      "options": {
+        "A": "The probability is 1.",
+        "B": "The probability is undefined.",
+        "C": "The joint probability of the entire sentence is 0.",
+        "D": "The sentence is guaranteed to be grammatical."
+      },
+      "answer": "C",
+      "reasoning": "Zero count means zero probability, making the entire sentence probability zero."
+    },
+    {
+      "id": "MC 177",
+      "topic": "NLP Terminology",
+      "question": "What are tokens defined as, relative to types?",
+      "options": {
+        "A": "Tokens are the number of distinct words (V), while types are the total number of running words (N).",
+        "B": "Tokens are the total number of running words (N, allowing duplicates), while types are the number of distinct words (V).",
+        "C": "Tokens and types are the same thing.",
+        "D": "Tokens are embeddings; types are characters."
+      },
+      "answer": "B",
+      "reasoning": "Tokens include all word instances; types are unique words."
+    },
+    {
+      "id": "MC 178",
+      "topic": "Chain-of-Thought",
+      "question": "When an LLM uses Chain-of-Thought (CoT) prompting, what effect does this technique typically have on solving complex reasoning tasks (like math word problems)?",
+      "options": {
+        "A": "It dramatically decreases performance due to prompt length limitations.",
+        "B": "It significantly enhances performance, especially on larger models.",
+        "C": "It limits the model to only performing zero-shot tasks.",
+        "D": "It requires extensive gradient updates."
+      },
+      "answer": "B",
+      "reasoning": "CoT prompting improves reasoning performance on complex tasks."
+    },
+    {
+      "id": "MC 179",
+      "topic": "Optimization",
+      "question": "Which optimization algorithm is often used when training a complex NN, as it attempts to scale the adjustment to individual parameters by accumulating past gradient information?",
+      "options": {
+        "A": "Plain SGD",
+        "B": "Adam",
+        "C": "Maximum Likelihood Estimation",
+        "D": "Backpropagation Through Time"
+      },
+      "answer": "B",
+      "reasoning": "Adam is an adaptive optimizer that accumulates gradient information."
+    },
+    {
+      "id": "MC 180",
+      "topic": "Smoothing",
+      "question": "If the probability of an N-gram is calculated using smoothing, the process is conceptually likened to:",
+      "options": {
+        "A": "Maximize the likelihood of the test set.",
+        "B": "Steal from the rich, give to the poor (probability mass).",
+        "C": "Training a reward model.",
+        "D": "Truncating the calculation."
+      },
+      "answer": "B",
+      "reasoning": "Smoothing redistributes probability mass from frequent to rare events."
+    },
+    {
+      "id": "MC 181",
+      "topic": "BERT Fine-tuning",
+      "question": "A model trained using the Masked LM objective (like BERT) is generally required to undergo what step before being deployed for a specific downstream task (e.g., sentiment analysis)?",
+      "options": {
+        "A": "Next Sentence Prediction.",
+        "B": "Zero-shot Chain-of-Thought prompting.",
+        "C": "Fine-tuning with supervised data.",
+        "D": "Recursive tokenization."
+      },
+      "answer": "C",
+      "reasoning": "BERT requires task-specific fine-tuning after pretraining."
+    },
+    {
+      "id": "MC 182",
+      "topic": "Loss Functions",
+      "question": "What is the purpose of the loss function in a supervised machine learning setting?",
+      "options": {
+        "A": "To calculate the learning rate.",
+        "B": "To define the magnitude of the weight updates.",
+        "C": "To estimate the distance/difference between the model's estimate (ŷ) and the true gold label (y).",
+        "D": "To initialize the weight matrix W."
+      },
+      "answer": "C",
+      "reasoning": "Loss measures the difference between predictions and true labels."
+    },
+    {
+      "id": "MC 183",
+      "topic": "LSTM",
+      "question": "Which component of the LSTM cell is responsible for deciding what information to forget from the previous cell state?",
+      "options": {
+        "A": "Input Gate",
+        "B": "Output Gate",
+        "C": "Forget Gate",
+        "D": "Cell State"
+      },
+      "answer": "C",
+      "reasoning": "The Forget Gate controls what to discard from cell state."
+    },
+    {
+      "id": "MC 184",
+      "topic": "BERT",
+      "question": "Why are two separate sentences fed into the BERT encoder during the Next Sentence Prediction (NSP) pretraining objective?",
+      "options": {
+        "A": "To teach the model grammatical syntax.",
+        "B": "To teach the model relationships between two contiguous segments of text.",
+        "C": "To calculate the perplexity of the entire corpus.",
+        "D": "To determine the correct BPE subwords."
+      },
+      "answer": "B",
+      "reasoning": "NSP teaches relationships between consecutive text segments."
+    },
+    {
+      "id": "MC 185",
+      "topic": "Word2Vec",
+      "question": "What is the main idea behind using the negative samples in Word2Vec SGNS?",
+      "options": {
+        "A": "They represent the actual context words.",
+        "B": "They are non-neighbor words used to pull the target vector away from them during training.",
+        "C": "They determine the size of the vocabulary.",
+        "D": "They are used for fine-tuning after pretraining."
+      },
+      "answer": "B",
+      "reasoning": "Negative samples teach the model to distinguish true context from noise."
+    },
+    {
+      "id": "MC 186",
+      "topic": "Smoothing",
+      "question": "What is the drawback of using Add-1 smoothing for N-gram models in NLP applications?",
+      "options": {
+        "A": "It is computationally too complex.",
+        "B": "It fails to generalize to any unseen data.",
+        "C": "It changes the original distribution significantly, making it a \"blunt instrument\" generally avoided for N-grams.",
+        "D": "It causes the probability of sequences to become zero."
+      },
+      "answer": "C",
+      "reasoning": "Add-1 smoothing overly distorts probability distributions."
+    },
+    {
+      "id": "MC 187",
+      "topic": "BART",
+      "question": "What category of LLM architecture does BART fall under?",
+      "options": {
+        "A": "Encoder-only",
+        "B": "Decoder-only",
+        "C": "Encoder-Decoder",
+        "D": "RNN"
+      },
+      "answer": "C",
+      "reasoning": "BART is an encoder-decoder architecture."
+    },
+    {
+      "id": "MC 188",
+      "topic": "RNN",
+      "question": "A core advantage of RNNs over fixed-window Feedforward NNLMs is that RNNs:",
+      "options": {
+        "A": "Always converge faster.",
+        "B": "Can process inputs of any length.",
+        "C": "Are less susceptible to bias.",
+        "D": "Only process information left-to-right."
+      },
+      "answer": "B",
+      "reasoning": "RNNs handle variable-length sequences through recurrence."
+    },
+    {
+      "id": "MC 189",
+      "topic": "Heaps' Law",
+      "question": "According to Heaps' Law, how does the vocabulary size (V) of a corpus grow relative to the total number of tokens (N)?",
+      "options": {
+        "A": "Linearly (V proportional to N)",
+        "B": "Sub-linearly (V = kN^beta where beta < 1)",
+        "C": "Exponentially (V = k^N)",
+        "D": "It remains constant"
+      },
+      "answer": "B",
+      "reasoning": "Heaps' Law shows sub-linear vocabulary growth."
+    },
+    {
+      "id": "MC 190",
+      "topic": "BPTT",
+      "question": "In the RNN Backpropagation Through Time (BPTT) implementation, the network is often unfolded through time and then:",
+      "options": {
+        "A": "The gradient is truncated after about 20 timesteps for efficiency.",
+        "B": "The weights are randomly reinitialized.",
+        "C": "The process is reversed to perform MLE.",
+        "D": "The Sigmoid function is replaced by Softmax."
+      },
+      "answer": "A",
+      "reasoning": "BPTT is typically truncated for computational efficiency."
+    },
+    {
+      "id": "MC 191",
+      "topic": "In-Context Learning",
+      "question": "The concept of \"In-Context Learning\" (ICL) is often confused with \"few-shot learning.\" What key distinction exists in the context of LLMs as defined in the sources?",
+      "options": {
+        "A": "ICL always uses Chain-of-Thought prompting, while few-shot does not.",
+        "B": "ICL refers to learning without parameter updates (prompting), while few-shot often implies performing gradient updates on few examples.",
+        "C": "ICL uses zero-shot prompting, while few-shot uses multiple examples.",
+        "D": "ICL requires a Reward Model, while few-shot requires only SFT."
+      },
+      "answer": "B",
+      "reasoning": "ICL learns from prompts without updates; traditional few-shot may involve training."
+    },
+    {
+      "id": "MC 192",
+      "topic": "Word2Vec",
+      "question": "When performing Word2Vec training, the similarity Sim(w,c) is approximated by the dot product w · c, and this score is converted into a probability P(+ | w,c) using which function?",
+      "options": {
+        "A": "tanh(w · c)",
+        "B": "σ(w · c)",
+        "C": "max(0, w · c)",
+        "D": "Softmax(w · c)"
+      },
+      "answer": "B",
+      "reasoning": "Sigmoid converts dot product to probability in SGNS."
+    },
+    {
+      "id": "MC 193",
+      "topic": "Course Logistics",
+      "question": "What task must a student complete to receive partial credit for late homework submissions on eLearn?",
+      "options": {
+        "A": "Submit the homework up to 2 days late.",
+        "B": "Submit the homework 3 days late with instructor permission.",
+        "C": "Obtain prior permission from the instructor, regardless of submission time.",
+        "D": "Show proof of completing the practice final."
+      },
+      "answer": "A",
+      "reasoning": "Submissions within 2 days late receive 80% credit."
+    },
+    {
+      "id": "MC 194",
+      "topic": "TF-IDF",
+      "question": "If a word has a high Inverse Document Frequency (IDF), what does this imply about the word?",
+      "options": {
+        "A": "It is a stop word.",
+        "B": "It is extremely unique and rare across the corpus.",
+        "C": "It appears in nearly all documents.",
+        "D": "It has a high Term Frequency (TF)."
+      },
+      "answer": "B",
+      "reasoning": "High IDF indicates a rare, distinctive word."
+    },
+    {
+      "id": "MC 195",
+      "topic": "RLHF",
+      "question": "When training an LLM, the initial supervised policy used in Step 1 of RLHF (InstructGPT process) is created by:",
+      "options": {
+        "A": "Training a reward model.",
+        "B": "Collecting demonstration data where a labeler provides the desired output behavior.",
+        "C": "Using zero-shot prompting.",
+        "D": "Calculating the perplexity on the target data."
+      },
+      "answer": "B",
+      "reasoning": "Step 1 involves supervised learning from human demonstrations."
+    },
+    {
+      "id": "MC 196",
+      "topic": "Smoothing",
+      "question": "What problem is Interpolation designed to solve in N-gram models?",
+      "options": {
+        "A": "How to combine information from multiple N-gram orders (e.g., unigram, bigram, trigram) when context varies.",
+        "B": "How to remove stop words from a corpus.",
+        "C": "How to segment tokens using BPE.",
+        "D": "How to calculate the dot product similarity."
+      },
+      "answer": "A",
+      "reasoning": "Interpolation combines different N-gram orders with weights."
+    },
+    {
+      "id": "MC 197",
+      "topic": "Multi-class Classification",
+      "question": "In a multi-class classification problem (where k > 2), the output layer typically uses which activation function?",
+      "options": {
+        "A": "Sigmoid",
+        "B": "ReLU",
+        "C": "Tanh",
+        "D": "Softmax"
+      },
+      "answer": "D",
+      "reasoning": "Softmax is used for multi-class probability distributions."
+    },
+    {
+      "id": "MC 198",
+      "topic": "Vector Semantics",
+      "question": "Which vector semantic approach uses explicit counts of nearby words, resulting in long and sparse vectors?",
+      "options": {
+        "A": "Word2Vec",
+        "B": "TF-IDF",
+        "C": "Skip-Gram",
+        "D": "LSTM"
+      },
+      "answer": "B",
+      "reasoning": "TF-IDF creates sparse, high-dimensional vectors based on word counts."
+    },
+    {
+      "id": "MC 199",
+      "topic": "Course Logistics",
+      "question": "The use of Google Docs or other tools with version tracking is recommended for keeping a writing log to help avoid:",
+      "options": {
+        "A": "The exploding gradient problem.",
+        "B": "Plagiarism detected as AI generation.",
+        "C": "Low perplexity scores.",
+        "D": "Zero counts."
+      },
+      "answer": "B",
+      "reasoning": "Version tracking helps demonstrate original work and avoid plagiarism accusations."
+    },
+    {
+      "id": "MC 200",
+      "topic": "Transformers",
+      "question": "What is the purpose of the Encoder block in the Transformer Encoder-Decoder architecture?",
+      "options": {
+        "A": "To predict the next token based on previous tokens.",
+        "B": "To learn a representation/context of the input/source sequence.",
+        "C": "To calculate the reward model score.",
+        "D": "To perform word boundary tokenization."
+      },
+      "answer": "B",
+      "reasoning": "The encoder creates contextual representations of the input sequence."
+    }
+  ]
+}

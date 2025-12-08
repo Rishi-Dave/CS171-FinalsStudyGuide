@@ -1,0 +1,214 @@
+{
+  "topic": "Classification, Loss, and Gradient Descent",
+  "questionType": "multiplechoice",
+  "questions": [
+    {
+      "id": "MC 21",
+      "topic": "Classification",
+      "question": "Which statement describes the primary function of the Sigmoid activation function in binary classification?",
+      "options": {
+        "A": "It calculates the raw logit score z.",
+        "B": "It maps the logit score z to a probability y-hat between 0 and 1.",
+        "C": "It normalizes scores to sum to 1 in multi-class problems.",
+        "D": "It guarantees the loss function is convex."
+      },
+      "answer": "B",
+      "reasoning": "Sigmoid maps any real-valued logit score to a probability between 0 and 1."
+    },
+    {
+      "id": "MC 22",
+      "topic": "Classification",
+      "question": "Binary logistic regression is mathematically equivalent to a neural network with how many layers?",
+      "options": {
+        "A": "Zero layers",
+        "B": "One layer",
+        "C": "Two layers",
+        "D": "Three layers"
+      },
+      "answer": "B",
+      "reasoning": "Logistic regression is equivalent to a single-layer neural network."
+    },
+    {
+      "id": "MC 23",
+      "topic": "Loss Functions",
+      "question": "Given an actual label y=1 and a model's predicted probability y-hat=0.99. What is the resulting Cross-Entropy Loss L_CE(y-hat, y)?",
+      "options": {
+        "A": "Very large (high penalty).",
+        "B": "Very small (low penalty).",
+        "C": "Zero.",
+        "D": "Undefined."
+      },
+      "answer": "B",
+      "reasoning": "Loss is -log(0.99), which is near zero, indicating a good prediction."
+    },
+    {
+      "id": "MC 24",
+      "topic": "Loss Functions",
+      "question": "For a binary classification problem, if the actual label y=0, the cross-entropy loss formula L_CE(y-hat, y) simplifies to what expression?",
+      "options": {
+        "A": "-log(y-hat)",
+        "B": "-log(1 - y-hat)",
+        "C": "-[y log(y-hat)]",
+        "D": "-log(y × y-hat)"
+      },
+      "answer": "B",
+      "reasoning": "When y=0, the loss becomes -log(1 - y-hat)."
+    },
+    {
+      "id": "MC 25",
+      "topic": "Classification",
+      "question": "What is the primary purpose of the Softmax function?",
+      "options": {
+        "A": "To calculate cosine similarity.",
+        "B": "To normalize logit scores into a probability distribution summing to 1 for multi-class problems.",
+        "C": "To introduce non-linearity in hidden layers.",
+        "D": "To prevent exploding gradients."
+      },
+      "answer": "B",
+      "reasoning": "Softmax converts logits into a probability distribution for multi-class classification."
+    },
+    {
+      "id": "MC 26",
+      "topic": "Optimization",
+      "question": "What characteristic of the logistic regression loss function ensures that Gradient Descent is guaranteed to find the minimum loss?",
+      "options": {
+        "A": "It is multi-layered.",
+        "B": "It uses the sigmoid activation.",
+        "C": "It is convex (having only one global minimum).",
+        "D": "It uses stochastic mini-batches."
+      },
+      "answer": "C",
+      "reasoning": "Convexity guarantees a single global minimum that gradient descent will find."
+    },
+    {
+      "id": "MC 27",
+      "topic": "Gradient Descent",
+      "question": "In Stochastic Gradient Descent (SGD), the update rule moves the parameters (Θ) in which direction relative to the gradient of the loss function?",
+      "options": {
+        "A": "The direction of the gradient (steepest increase).",
+        "B": "The opposite direction of the gradient (steepest decrease).",
+        "C": "Tangential to the gradient.",
+        "D": "Orthogonal to the gradient."
+      },
+      "answer": "B",
+      "reasoning": "SGD moves in the opposite direction of the gradient to minimize loss."
+    },
+    {
+      "id": "MC 28",
+      "topic": "Gradient Descent",
+      "question": "The formula used to calculate the partial derivative of the Cross-Entropy loss with respect to a weight wⱼ in a logistic regression model is:",
+      "options": {
+        "A": "[σ(w · x + b)]xⱼ",
+        "B": "[σ(w · x + b) - y]xⱼ",
+        "C": "y log(y-hat)",
+        "D": "wⱼ - η"
+      },
+      "answer": "B",
+      "reasoning": "The gradient is (prediction - actual) times the input feature."
+    },
+    {
+      "id": "MC 29",
+      "topic": "Hyperparameters",
+      "question": "What is the term for a parameter (like the learning rate η) that is selected by the algorithm designer rather than being learned by the optimization algorithm during training?",
+      "options": {
+        "A": "Weight",
+        "B": "Bias",
+        "C": "Hyperparameter",
+        "D": "Gradient"
+      },
+      "answer": "C",
+      "reasoning": "Hyperparameters are set before training and not learned from data."
+    },
+    {
+      "id": "MC 116",
+      "topic": "Classification",
+      "question": "What is the primary purpose of the Softmax activation function?",
+      "options": {
+        "A": "To map an arbitrary value to a probability between 0 and 1 (binary classification).",
+        "B": "To introduce non-linearity via Rectified Linear Units.",
+        "C": "To normalize a vector of arbitrary logit scores into a probability distribution that sums to 1 (multi-class classification).",
+        "D": "To prevent the exploding gradient problem in recurrent networks."
+      },
+      "answer": "C",
+      "reasoning": "Softmax is used for multi-class classification to create a valid probability distribution."
+    },
+    {
+      "id": "MC 117",
+      "topic": "Classification",
+      "question": "A logistic regression model generates a linear score z = w · x + b. To turn this into a classification decision boundary, the prediction y-hat=1 is chosen if the resulting probability P(y=1 | x) is greater than:",
+      "options": {
+        "A": "1.0",
+        "B": "0.5",
+        "C": "e^(-z)",
+        "D": "The learning rate (η)"
+      },
+      "answer": "B",
+      "reasoning": "The decision threshold for binary classification is typically 0.5."
+    },
+    {
+      "id": "MC 118",
+      "topic": "Loss Functions",
+      "question": "If the actual label y=1 and a model predicts a probability y-hat=0.1 (incorrect and confident), what does the Cross-Entropy Loss, L_CE(y-hat, y), do?",
+      "options": {
+        "A": "The loss value will be very small, indicating good performance.",
+        "B": "The loss value will be very large, highly penalizing the misclassification.",
+        "C": "The loss value will be 0.",
+        "D": "The term (1-y) × log(1 - y-hat) dominates the calculation."
+      },
+      "answer": "B",
+      "reasoning": "Large penalty for confident wrong predictions: -log(0.1) is very large."
+    },
+    {
+      "id": "MC 119",
+      "topic": "Loss Functions",
+      "question": "For a single training example where the actual label y=0, what is the simplified version of the binary Cross-Entropy loss formula?",
+      "options": {
+        "A": "-log(y-hat)",
+        "B": "-log(1 - y-hat)",
+        "C": "-[y × log(y-hat)]",
+        "D": "-σ(w · x + b)"
+      },
+      "answer": "B",
+      "reasoning": "When y=0, the loss simplifies to -log(1 - y-hat)."
+    },
+    {
+      "id": "MC 120",
+      "topic": "Optimization",
+      "question": "The optimization goal in training a classifier using Cross-Entropy Loss is to find weights Θ that achieve what?",
+      "options": {
+        "A": "Maximizing the number of features.",
+        "B": "Minimizing the loss, averaged over all training examples.",
+        "C": "Maximizing the softmax output score.",
+        "D": "Maximizing the gradient vector."
+      },
+      "answer": "B",
+      "reasoning": "Training aims to minimize average loss across all training examples."
+    },
+    {
+      "id": "MC 121",
+      "topic": "Gradient Descent",
+      "question": "In Stochastic Gradient Descent (SGD), the learning rate (η) is important because:",
+      "options": {
+        "A": "It defines the dimensionality of the hidden layer.",
+        "B": "It dictates the magnitude of the step taken in the opposite direction of the gradient.",
+        "C": "It determines the initial random weight values.",
+        "D": "It specifies the number of epochs to train for."
+      },
+      "answer": "B",
+      "reasoning": "Learning rate controls the step size in gradient descent updates."
+    },
+    {
+      "id": "MC 122",
+      "topic": "Optimization",
+      "question": "For a convex loss function (like logistic regression loss), a gradient descent algorithm is guaranteed to find the minimum because:",
+      "options": {
+        "A": "The function is non-linear.",
+        "B": "The function has exactly one minimum.",
+        "C": "The learning rate is set to zero.",
+        "D": "The gradients always vanish."
+      },
+      "answer": "B",
+      "reasoning": "Convex functions have a single global minimum, guaranteeing convergence."
+    }
+  ]
+}

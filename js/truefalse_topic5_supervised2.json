@@ -5,7 +5,7 @@
     {
       "id": "T/F 241",
       "topic": "Bayesian Classif.",
-      "question": "The Bayesian classifier calculates the posterior probability $P(H X)$, which is the probability that a hypothesis holds given the observed data X.",
+      "question": "The Bayesian classifier calculates the posterior probability P(H X), which is the probability that a hypothesis holds given the observed data X.",
       "answer": true,
       "reasoning": ""
     },
@@ -14,12 +14,12 @@
       "topic": "Bayesian Classif.",
       "question": "P(H) in Bayes' theorem refers to the likelihood function.",
       "answer": false,
-      "reasoning": "P(H) is the prior probability, while $P(X"
+      "reasoning": "P(H) is the prior probability, while P(X"
     },
     {
       "id": "T/F 243",
       "topic": "Bayesian Classif.",
-      "question": "A practical difficulty in using the standard Bayes Rule is the computational complexity of determining the joint probability $P(X C_i)$.",
+      "question": "A practical difficulty in using the standard Bayes Rule is the computational complexity of determining the joint probability P(X C_i).",
       "answer": true,
       "reasoning": ""
     },
@@ -40,14 +40,14 @@
     {
       "id": "T/F 246",
       "topic": "Bayesian Classif.",
-      "question": "In order to train the Naïve Bayes classifier, we primarily need to compute the conditional probability $P(X_k C_i)$ for every feature X k ​ and class C i ​ , and the prior probability P(C i ​ ) for every class.",
+      "question": "In order to train the Naïve Bayes classifier, we primarily need to compute the conditional probability P(X_k C_i) for every feature Xₖand class Cᵢ, and the prior probability P(Cᵢ) for every class.",
       "answer": true,
       "reasoning": ""
     },
     {
       "id": "T/F 247",
       "topic": "Bayesian Classif.",
-      "question": "For continuous features, $P(X_k C_i)isoftenmodeledusingaGaussiandistributioncalculatedfromthemean(\\mu)andstandarddeviation(\\sigma$) of the examples for that feature within class C i ​ .",
+      "question": "For continuous features, P(X_k C_i)isoftenmodeledusingaGaussiandistributioncalculatedfromthemean(\\mu)andstandarddeviation(\\sigma) of the examples for that feature within class Cᵢ.",
       "answer": true,
       "reasoning": ""
     },
@@ -56,7 +56,7 @@
       "topic": "Bayesian Classif.",
       "question": "The zero probability problem in Naïve Bayes occurs if the product of conditional probabilities results in a value of zero, thereby zeroing out the entire posterior probability estimate.",
       "answer": true,
-      "reasoning": "If any conditional probability $P(X_k"
+      "reasoning": "If any conditional probability P(X_k"
     },
     {
       "id": "T/F 249",
@@ -68,14 +68,14 @@
     {
       "id": "T/F 250",
       "topic": "Bayesian Classif.",
-      "question": "The core decision of the Bayes Classifier is to select the class C i ​ that maximizes the prior probability P(C i ​ ).",
+      "question": "The core decision of the Bayes Classifier is to select the class Cᵢthat maximizes the prior probability P(Cᵢ).",
       "answer": false,
-      "reasoning": "The classifier selects the class C i ​ that maximizes the posterior probability $P(C_i"
+      "reasoning": "The classifier selects the class Cᵢthat maximizes the posterior probability P(C_i"
     },
     {
       "id": "T/F 251",
       "topic": "Bayesian Classif.",
-      "question": "The Bayesian classifier computes the probability of the data given the hypothesis that they belong to a certain class holds, $P(X H)$.",
+      "question": "The Bayesian classifier computes the probability of the data given the hypothesis that they belong to a certain class holds, P(X H).",
       "answer": false,
       "reasoning": ""
     },
@@ -84,7 +84,7 @@
       "topic": "Bayesian Classif.",
       "question": "Naïve Bayes performs fine even if we have a few zero probabilities because of the multiplication property.",
       "answer": false,
-      "reasoning": "Zero probabilities cause the product $P(X"
+      "reasoning": "Zero probabilities cause the product P(X"
     },
     {
       "id": "T/F 253",
@@ -173,7 +173,7 @@
     {
       "id": "T/F 265",
       "topic": "Logistic Regression",
-      "question": "Logistic Regression learns the probability $P(Y X)$ directly, unlike Naïve Bayes, which learns P(Y) and $P(X Y)$.",
+      "question": "Logistic Regression learns the probability P(Y X) directly, unlike Naïve Bayes, which learns P(Y) and P(X Y).",
       "answer": null,
       "reasoning": ""
     },
@@ -187,37 +187,37 @@
     {
       "id": "T/F 267",
       "topic": "Regularization",
-      "question": "Regularization is typically expressed as an additional term $ \\lambda \\cdot r(\\theta) $ added to the objective/loss function, penalizing large parameter values.",
+      "question": "Regularization is typically expressed as an additional term \\lambda \\cdot r(\\theta) added to the objective/loss function, penalizing large parameter values.",
       "answer": true,
       "reasoning": "Regularization is expressed as Original Loss Function+λ⋅r(θ), penalizing large parameters."
     },
     {
       "id": "T/F 268",
       "topic": "Regularization",
-      "question": "Ridge regression utilizes L 1 ​ norm regularization to shrink coefficients towards zero.",
+      "question": "Ridge regression utilizes L₁norm regularization to shrink coefficients towards zero.",
       "answer": false,
-      "reasoning": "Ridge regression uses L 2 ​ norm regularization."
+      "reasoning": "Ridge regression uses L₂norm regularization."
     },
     {
       "id": "T/F 269",
       "topic": "Regularization",
-      "question": "Lasso regression utilizes L 1 ​ norm regularization, which encourages sparsity by driving some coefficients exactly to zero.",
+      "question": "Lasso regression utilizes L₁norm regularization, which encourages sparsity by driving some coefficients exactly to zero.",
       "answer": true,
-      "reasoning": "Lasso uses the L 1 ​ norm penalty, which is more likely to intersect the error contours on the axes, resulting in exactly 0 coefficients (sparsity)."
+      "reasoning": "Lasso uses the L₁norm penalty, which is more likely to intersect the error contours on the axes, resulting in exactly 0 coefficients (sparsity)."
     },
     {
       "id": "T/F 270",
       "topic": "Regularization",
       "question": "Ridge regression (L2 penalty) is also known as weight decay, particularly in neural networks.",
       "answer": true,
-      "reasoning": "Penalizing by the sum-of-squares of parameters (L 2 ​ penalty) is known as weight decay in neural networks."
+      "reasoning": "Penalizing by the sum-of-squares of parameters (L₂penalty) is known as weight decay in neural networks."
     },
     {
       "id": "T/F 271",
       "topic": "Regularization",
-      "question": "L1 norm regularization (Lasso) is a convex relaxation of the L 0 ​ \"pseudonorm,\" which counts the number of non-zero entries in a vector.",
+      "question": "L1 norm regularization (Lasso) is a convex relaxation of the L₀\"pseudonorm,\" which counts the number of non-zero entries in a vector.",
       "answer": true,
-      "reasoning": "L 1 ​ norm is a convex relaxation of the L 0 ​ \"pseudonorm\" (number of non-zero entries)."
+      "reasoning": "L₁norm is a convex relaxation of the L₀\"pseudonorm\" (number of non-zero entries)."
     },
     {
       "id": "T/F 272",
@@ -252,7 +252,7 @@
       "topic": "Bayesian Classif.",
       "question": "Naïve Bayes classification only works for categorical features and is undefined for numerical features.",
       "answer": false,
-      "reasoning": "Naïve Bayes can handle continuous features, often by modeling $P(X_k"
+      "reasoning": "Naïve Bayes can handle continuous features, often by modeling P(X_k"
     },
     {
       "id": "T/F 277",
@@ -264,14 +264,14 @@
     {
       "id": "T/F 278",
       "topic": "Bayesian Classif.",
-      "question": "The Naïve Bayes assumption allows us to simplify a very hard-to-compute joint probability $P(X_1, \\dots, X_n C_i)$ into a product of simpler conditional probabilities $\\prod P(X_k C_i)$.",
+      "question": "The Naïve Bayes assumption allows us to simplify a very hard-to-compute joint probability P(X_1, \\dots, X_n C_i) into a product of simpler conditional probabilities \\prod P(X_k C_i).",
       "answer": null,
       "reasoning": ""
     },
     {
       "id": "T/F 279",
       "topic": "Bayesian Classif.",
-      "question": "To train the Naïve Bayes classifier, we must compute $P(X C_i)$ (the joint probability of all features given the class) directly without simplifying assumptions.",
+      "question": "To train the Naïve Bayes classifier, we must compute P(X C_i) (the joint probability of all features given the class) directly without simplifying assumptions.",
       "answer": false,
       "reasoning": ""
     },
@@ -285,7 +285,7 @@
     {
       "id": "T/F 281",
       "topic": "Logistic Regression",
-      "question": "Since h θ ​ (x) is non-linear in Logistic Regression, the decision boundary defined is necessarily non-linear.",
+      "question": "Since h θ (x) is non-linear in Logistic Regression, the decision boundary defined is necessarily non-linear.",
       "answer": false,
       "reasoning": "The decision boundary defined by Logistic Regression is linear (derived from θ T x>0)."
     },
@@ -313,16 +313,16 @@
     {
       "id": "T/F 285",
       "topic": "Logistic Regression",
-      "question": "In the probabilistic interpretation of linear regression, the term ϵ (i) captures only random noise, not unmodeled effects.",
+      "question": "In the probabilistic interpretation of linear regression, the term ϵ ⁽ⁱ⁾ captures only random noise, not unmodeled effects.",
       "answer": false,
-      "reasoning": "ϵ (i) captures both random noise and unmodeled effects (e.g., left out features)."
+      "reasoning": "ϵ ⁽ⁱ⁾ captures both random noise and unmodeled effects (e.g., left out features)."
     },
     {
       "id": "T/F 286",
       "topic": "Regularization",
-      "question": "The L 2 ​ Lasso penalty is replaced by the L 1 ​ Ridge penalty in the equivalent Lagrangian form of the Lasso problem.",
+      "question": "The L₂Lasso penalty is replaced by the L₁Ridge penalty in the equivalent Lagrangian form of the Lasso problem.",
       "answer": false,
-      "reasoning": "The L 2 ​ Ridge penalty is replaced by the L 1 ​ Lasso penalty."
+      "reasoning": "The L₂Ridge penalty is replaced by the L₁Lasso penalty."
     },
     {
       "id": "T/F 287",
@@ -334,7 +334,7 @@
     {
       "id": "T/F 288",
       "topic": "Logistic Regression",
-      "question": "When deriving the log-likelihood for Logistic Regression, the assumption of IID training examples allows the joint likelihood L(θ) to be written as the product of individual probabilities $p(y^{(i)} x^{(i)}; \\theta)$.",
+      "question": "When deriving the log-likelihood for Logistic Regression, the assumption of IID training examples allows the joint likelihood L(θ) to be written as the product of individual probabilities p(y^{⁽ⁱ⁾} x^{⁽ⁱ⁾}; \\theta).",
       "answer": true,
       "reasoning": ""
     },
@@ -348,7 +348,7 @@
     {
       "id": "T/F 290",
       "topic": "Logistic Regression",
-      "question": "For continuous features, Logistic Regression models $P(X_i Y = y_k)$ as Gaussian distribution N(μ ik ​ ,σ ik ​ ) and models P(Y) as Bernoulli Ber(π).",
+      "question": "For continuous features, Logistic Regression models P(X_i Y = y_k) as Gaussian distribution N(μ ik ,σ ik ) and models P(Y) as Bernoulli Ber(π).",
       "answer": true,
       "reasoning": ""
     },
@@ -362,9 +362,9 @@
     {
       "id": "T/F 292",
       "topic": "Regularization",
-      "question": "Ridge regression results in solutions that are nonlinear in the target variables y i ​ .",
+      "question": "Ridge regression results in solutions that are nonlinear in the target variables yᵢ.",
       "answer": false,
-      "reasoning": "Lasso solutions are nonlinear in y i ​ , but Ridge regression has a closed form expression."
+      "reasoning": "Lasso solutions are nonlinear in yᵢ, but Ridge regression has a closed form expression."
     },
     {
       "id": "T/F 293",
@@ -399,14 +399,14 @@
       "topic": "Bayesian Classif.",
       "question": "The Bayesian Classifier is primarily a discriminative model, learning a boundary separating classes.",
       "answer": false,
-      "reasoning": "Bayesian methods (like Naïve Bayes) are generative models that learn the distribution of data within each class, $P(X"
+      "reasoning": "Bayesian methods (like Naïve Bayes) are generative models that learn the distribution of data within each class, P(X"
     },
     {
       "id": "T/F 298",
       "topic": "Regularization",
-      "question": "Ridge regression penalizes the Euclidean (L 2 ​ ) norm of the regression coefficient vector θ.",
+      "question": "Ridge regression penalizes the Euclidean (L₂) norm of the regression coefficient vector θ.",
       "answer": true,
-      "reasoning": "Ridge regression penalizes the L 2 ​ norm of the coefficient vector."
+      "reasoning": "Ridge regression penalizes the L₂norm of the coefficient vector."
     },
     {
       "id": "T/F 299",
@@ -439,7 +439,7 @@
     {
       "id": "T/F 303",
       "topic": "Bayesian Classif.",
-      "question": "When classifying a new data point using Naïve Bayes, the step $P(X C_i) \\cdot P(C_i)$ is computed, and the result must be normalized by P(X) to obtain the final posterior probability $P(C_i X)$.",
+      "question": "When classifying a new data point using Naïve Bayes, the step P(X C_i) \\cdot P(C_i) is computed, and the result must be normalized by P(X) to obtain the final posterior probability P(C_i X).",
       "answer": null,
       "reasoning": ""
     },
@@ -460,7 +460,7 @@
     {
       "id": "T/F 306",
       "topic": "Bayesian Classif.",
-      "question": "The formula for $P(X_k C_i)$ for categorical features in Naïve Bayes is found by dividing the number of data points in C i ​ with value x k ​ by the total number of data points in C i ​ .",
+      "question": "The formula for P(X_k C_i) for categorical features in Naïve Bayes is found by dividing the number of data points in Cᵢwith value xₖby the total number of data points in Cᵢ.",
       "answer": true,
       "reasoning": ""
     },

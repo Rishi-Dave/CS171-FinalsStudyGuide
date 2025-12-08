@@ -208,7 +208,7 @@
     {
       "id": "T/F 135",
       "topic": "Transformation",
-      "question": "The term frequency weight (tf ij ​ ) measures the importance of a term in the entire collection of documents.",
+      "question": "The term frequency weight (tf ij ) measures the importance of a term in the entire collection of documents.",
       "answer": false,
       "reasoning": "Term frequency weight measures the importance of a term in a document. Inverse document frequency (IDF) measures importance in the collection."
     },
@@ -453,7 +453,7 @@
     {
       "id": "T/F 170",
       "topic": "Data Reduction",
-      "question": "In the context of the Iris dataset in the assignments, PCA showed worse separability of the classes than t-SNE in the resulting 2D scatterplots.",
+      "question": "In the context of the Iris dataset in the assignments, PCA showed worse separability of the classes than t-SNE in the resulting²D scatterplots.",
       "answer": false,
       "reasoning": "Both PCA and t-SNE showed good separability in the visualization plots for the Iris dataset. Topic 4: Supervised Learning I (Regression, Classification Intro, DTs) (70 Questions) ID Topic Question Answer Reasoning"
     }

@@ -54,7 +54,7 @@
       "id": "SA 21",
       "topic": "Logistic Regr.",
       "question": "Describe how Logistic Regression is trained using maximum likelihood estimation. Why is the resulting update rule similar to the LMS rule for Linear Regression?",
-      "reasoning": "Logistic Regression is trained by maximizing the log-likelihood ℓ(θ) of the observed data. Since it maximizes, it uses gradient ascent (θ := θ + α ∇_θ ℓ(θ)). The resulting update rule for a single training example, θ_j := θ_j + α (y^(i) - h_θ(x^(i))) x_j, is identical in form to the LMS (Widrow-Hoff) learning rule for Linear Regression, although the hypothesis function h_θ(x) is non-linear."
+      "reasoning": "Logistic Regression is trained by maximizing the log-likelihood ℓ(θ) of the observed data. Since it maximizes, it uses gradient ascent (θ := θ + α ∇_θ ℓ(θ)). The resulting update rule for a single training example, θ_j := θ_j + α (y^⁽ⁱ⁾ - h_θ(x^⁽ⁱ⁾)) x_j, is identical in form to the LMS (Widrow-Hoff) learning rule for Linear Regression, although the hypothesis function h_θ(x) is non-linear."
     },
     {
       "id": "SA 22",

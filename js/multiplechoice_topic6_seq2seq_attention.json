@@ -1,0 +1,162 @@
+{
+  "topic": "Seq2Seq, Decoding, and Attention",
+  "questionType": "multiplechoice",
+  "questions": [
+    {
+      "id": "MC 49",
+      "topic": "Seq2Seq",
+      "question": "Why did the standard RNN Encoder-Decoder model struggle with long input sequences in machine translation tasks prior to the introduction of attention?",
+      "options": {
+        "A": "The model lacked sufficient pretraining.",
+        "B": "The encoder had to compress the entire source sequence into a single fixed-size context vector (information bottleneck).",
+        "C": "Decoding was always performed using greedy search.",
+        "D": "The model utilized the ReLU activation function."
+      },
+      "answer": "B",
+      "reasoning": "The fixed-size context vector created an information bottleneck for long sequences."
+    },
+    {
+      "id": "MC 50",
+      "topic": "Decoding",
+      "question": "What defines the process of Greedy Decoding?",
+      "options": {
+        "A": "Randomly sampling the next word based on probability distribution.",
+        "B": "Tracking the top k candidate sequences across time steps.",
+        "C": "Always picking the single token with the highest predicted probability at each step.",
+        "D": "Calculating the BLEU score before generating the sequence."
+      },
+      "answer": "C",
+      "reasoning": "Greedy decoding selects the highest probability token at each step."
+    },
+    {
+      "id": "MC 51",
+      "topic": "Beam Search",
+      "question": "Beam Search improves sequence generation over greedy decoding by aiming to optimize which criterion?",
+      "options": {
+        "A": "The speed of generation.",
+        "B": "The joint probability of the overall sequence.",
+        "C": "The length of the candidate translation.",
+        "D": "The precision of unigrams."
+      },
+      "answer": "B",
+      "reasoning": "Beam search optimizes the overall sequence probability, not just local decisions."
+    },
+    {
+      "id": "MC 52",
+      "topic": "BLEU Score",
+      "question": "What is the primary purpose of the Brevity Penalty (BP) in the BLEU score calculation?",
+      "options": {
+        "A": "To reward translations that match the n-grams of the reference perfectly.",
+        "B": "To prevent short candidate translations from achieving artificially high precision scores.",
+        "C": "To normalize the score by the total vocabulary size.",
+        "D": "To ensure computation occurs in log space."
+      },
+      "answer": "B",
+      "reasoning": "Brevity Penalty penalizes translations that are shorter than the reference."
+    },
+    {
+      "id": "MC 53",
+      "topic": "Attention",
+      "question": "In the Attention mechanism of a Seq2Seq model, what mathematical operation combines the encoder hidden states (Values) using the attention scores?",
+      "options": {
+        "A": "Max pooling.",
+        "B": "Element-wise subtraction.",
+        "C": "A weighted sum.",
+        "D": "Dot product."
+      },
+      "answer": "C",
+      "reasoning": "Attention creates a weighted sum of encoder hidden states based on attention scores."
+    },
+    {
+      "id": "MC 54",
+      "topic": "Attention",
+      "question": "What are the inputs to the Query vector in the Encoder-Decoder Attention component of a Seq2Seq model?",
+      "options": {
+        "A": "The hidden states of the encoder.",
+        "B": "The hidden state of the decoder at the previous time step.",
+        "C": "The embeddings of all source words.",
+        "D": "The final context vector."
+      },
+      "answer": "B",
+      "reasoning": "The decoder's previous hidden state serves as the Query in attention."
+    },
+    {
+      "id": "MC 55",
+      "topic": "BLEU Score",
+      "question": "If a candidate translation has a length c=8 and the reference translation length is r=10, how is the Brevity Penalty (BP) calculated?",
+      "options": {
+        "A": "BP = 1",
+        "B": "BP = e^(1 - 10/8)",
+        "C": "BP = e^(1 - 8/10)",
+        "D": "BP = log(10/8)"
+      },
+      "answer": "B",
+      "reasoning": "Since c < r, BP = exp(1 - r/c) = exp(1 - 10/8)."
+    },
+    {
+      "id": "MC 135",
+      "topic": "Decoding",
+      "question": "Why is Greedy Decoding generally suboptimal for generating a sequence, even though it chooses the locally optimal token at each step?",
+      "options": {
+        "A": "It requires too much memory and computational power.",
+        "B": "It fails to optimize the joint probability of the overall sequence.",
+        "C": "It introduces too much randomness into the output.",
+        "D": "It results in a strong brevity penalty in the BLEU score."
+      },
+      "answer": "B",
+      "reasoning": "Greedy decoding optimizes locally, not the overall sequence probability."
+    },
+    {
+      "id": "MC 136",
+      "topic": "Beam Search",
+      "question": "Beam search improves sequence generation by maintaining a set of possible continuations, known as the beam. If the beam size is k=5, how many candidate sequences are tracked at each time step?",
+      "options": {
+        "A": "Exactly 100 sequences",
+        "B": "The top 5 highest-scoring sequences",
+        "C": "5^T sequences, where T is the current time step",
+        "D": "Only the single best sequence"
+      },
+      "answer": "B",
+      "reasoning": "Beam search tracks k (5) best sequences at each step."
+    },
+    {
+      "id": "MC 137",
+      "topic": "BLEU Score",
+      "question": "A candidate machine translation output has a length of c=5, and the reference translation has a length of r=10. This translation will incur a Brevity Penalty (BP) in the BLEU score calculation. Why is this penalty applied?",
+      "options": {
+        "A": "To punish translations that are too long.",
+        "B": "To ensure the candidate matches all n-grams in the reference.",
+        "C": "Because short outputs can inflate precision by matching a few correct words and quitting early.",
+        "D": "Because a fixed-size context vector was used."
+      },
+      "answer": "C",
+      "reasoning": "Short translations can achieve high precision by stopping early; BP addresses this."
+    },
+    {
+      "id": "MC 138",
+      "topic": "Seq2Seq",
+      "question": "In the Seq2Seq architecture (with attention), which component often serves as the \"information bottleneck\" that attention mechanisms were introduced to alleviate?",
+      "options": {
+        "A": "The Decoder RNN.",
+        "B": "The fixed-size context vector that captures the entire source sentence.",
+        "C": "The input word embeddings.",
+        "D": "The softmax layer."
+      },
+      "answer": "B",
+      "reasoning": "The fixed-size context vector was a bottleneck that attention solved."
+    },
+    {
+      "id": "MC 139",
+      "topic": "Attention",
+      "question": "In the context of attention mechanisms, the resulting context vector is calculated as a:",
+      "options": {
+        "A": "Cosine similarity score.",
+        "B": "Sum of Query, Key, and Value vectors.",
+        "C": "Weighted sum of the encoder hidden states (Values), where the weights are the attention scores.",
+        "D": "Single, non-linear activation output."
+      },
+      "answer": "C",
+      "reasoning": "Context vector is a weighted sum of Values using attention weights."
+    }
+  ]
+}

@@ -42,7 +42,7 @@
       "topic": "K-Means",
       "question": "The K-means algorithm minimizes the Sum of Squared Errors (SSE), defined as the sum of squared Euclidean distances between each point and its assigned centroid.",
       "answer": true,
-      "reasoning": "K-means minimizes the sum of squared distances, E=∑∑ p∈C i ​ ​ (p−c i ​ ) 2 , where c i ​ is the centroid."
+      "reasoning": "K-means minimizes the sum of squared distances, E=∑∑ p∈Cᵢ (p−cᵢ) 2 , where cᵢis the centroid."
     },
     {
       "id": "T/F 387",
@@ -77,7 +77,7 @@
       "topic": "K-Means",
       "question": "K-means++ is an initialization method designed to choose initial centroids that are close to each other.",
       "answer": false,
-      "reasoning": "K-means++ chooses the second centroid with probability proportional to D(x j ​ ,c 1 ​ ) 2 , which gives a point far enough from c 1 ​ ."
+      "reasoning": "K-means++ chooses the second centroid with probability proportional to D(xⱼ,c₁) 2 , which gives a point far enough from c₁."
     },
     {
       "id": "T/F 392",
@@ -103,7 +103,7 @@
     {
       "id": "T/F 395",
       "topic": "Hierarchical",
-      "question": "Hierarchical clustering requires the user to specify the number of clusters (k) in advance.",
+      "question": "Hierarchical clustering requires the user to specify the number of clusters ⁽ᵏ⁾ in advance.",
       "answer": false,
       "reasoning": "Hierarchical clustering does not require k as an input, but it requires a termination condition."
     },
@@ -159,9 +159,9 @@
     {
       "id": "T/F 403",
       "topic": "Hierarchical",
-      "question": "Solving DIANA optimally involves considering 2 n −1 ways of partitioning n objects, which is computationally inexpensive.",
+      "question": "Solving DIANA optimally involves considering²n −1 ways of partitioning n objects, which is computationally inexpensive.",
       "answer": false,
-      "reasoning": "Considering 2 n −1 ways is very expensive; DIANA uses greedy heuristics to reduce complexity."
+      "reasoning": "Considering²n −1 ways is very expensive; DIANA uses greedy heuristics to reduce complexity."
     },
     {
       "id": "T/F 404",
@@ -315,7 +315,7 @@
       "topic": "K-Means",
       "question": "The efficiency of K-means is primarily dependent on the number of features (dimensions) rather than the number of data points.",
       "answer": false,
-      "reasoning": "Efficiency is O(tkn), dependent on iterations (t), clusters (k), and objects (n)."
+      "reasoning": "Efficiency is O(tkn), dependent on iterations (t), clusters ⁽ᵏ⁾, and objects (n)."
     },
     {
       "id": "T/F 426",

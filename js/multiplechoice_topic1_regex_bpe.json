@@ -1,0 +1,253 @@
+{
+  "topic": "Regular Expressions, Text Processing, and BPE",
+  "questionType": "multiplechoice",
+  "questions": [
+    {
+      "id": "MC 1",
+      "topic": "Regular Expressions",
+      "question": "Which character, when used as the first character inside square brackets ([^A]), changes the meaning of the bracketed expression to negation?",
+      "options": {
+        "A": "Backtick (`)",
+        "B": "Caret (^)",
+        "C": "Question mark (?)",
+        "D": "Period (.)"
+      },
+      "answer": "B",
+      "reasoning": "The caret (^) when placed as the first character inside square brackets negates the character class."
+    },
+    {
+      "id": "MC 2",
+      "topic": "Regular Expressions",
+      "question": "Which sequence of characters matches any non-digit character?",
+      "options": {
+        "A": "\\d",
+        "B": "\\w",
+        "C": "\\D",
+        "D": "\\b"
+      },
+      "answer": "C",
+      "reasoning": "\\D is the negation of \\d and matches any non-digit character."
+    },
+    {
+      "id": "MC 3",
+      "topic": "Regular Expressions",
+      "question": "A regular expression uses the Kleene star operator (*). If the previous character appeared 5 times, how many times will the * operator match?",
+      "options": {
+        "A": "Exactly 5 times",
+        "B": "1 or more times",
+        "C": "0 or more times",
+        "D": "Exactly 0 times"
+      },
+      "answer": "C",
+      "reasoning": "The Kleene star (*) matches the preceding element zero or more times, regardless of how many times it already appeared."
+    },
+    {
+      "id": "MC 4",
+      "topic": "Text Processing",
+      "question": "In the context of Heaps' Law, what does the exponent beta typically fall between?",
+      "options": {
+        "A": "0 and 0.5",
+        "B": "0.67 and 0.75",
+        "C": "1 and 2",
+        "D": "Exactly 1"
+      },
+      "answer": "B",
+      "reasoning": "Heaps' Law describes how vocabulary size grows with corpus size, with beta typically between 0.67 and 0.75."
+    },
+    {
+      "id": "MC 5",
+      "topic": "Text Processing",
+      "question": "Which process reduces inflected words (like cars or ran) to their dictionary headword form (like car or run)?",
+      "options": {
+        "A": "Stemming",
+        "B": "Case Folding",
+        "C": "Tokenization",
+        "D": "Lemmatization"
+      },
+      "answer": "D",
+      "reasoning": "Lemmatization reduces words to their dictionary headword form (lemma), unlike stemming which just removes affixes."
+    },
+    {
+      "id": "MC 6",
+      "topic": "BPE",
+      "question": "In the BPE learning process, after merging the most frequent pair, how is this new merged token used in the next iteration?",
+      "options": {
+        "A": "It is assigned a fixed probability.",
+        "B": "It is treated as a single character/symbol for finding new adjacent pairs.",
+        "C": "It is discarded from the vocabulary.",
+        "D": "It is only used for out-of-vocabulary handling."
+      },
+      "answer": "B",
+      "reasoning": "After merging, the new token is treated as a single unit for finding adjacent pairs in subsequent iterations."
+    },
+    {
+      "id": "MC 7",
+      "topic": "Text Processing",
+      "question": "What defines a morpheme?",
+      "options": {
+        "A": "A unit of text defined by whitespace.",
+        "B": "The smallest meaning-bearing unit of a language.",
+        "C": "The total count of running words in a corpus.",
+        "D": "A word that does not stand on its own (a clitic)."
+      },
+      "answer": "B",
+      "reasoning": "A morpheme is the smallest meaning-bearing unit in a language."
+    },
+    {
+      "id": "MC 8",
+      "topic": "Regular Expressions",
+      "question": "If the test string is \"look up a^b now\", which segment matches the regex pattern /a^b/?",
+      "options": {
+        "A": "up",
+        "B": "a",
+        "C": "a^b",
+        "D": "now"
+      },
+      "answer": "C",
+      "reasoning": "The pattern /a^b/ literally matches the string 'a^b' (^ is not at the start of the pattern, so it's treated as a literal character)."
+    },
+    {
+      "id": "MC 9",
+      "topic": "BPE",
+      "question": "In the BPE training steps demonstrated in the course, what purpose does the _ symbol serve?",
+      "options": {
+        "A": "It represents a masked token.",
+        "B": "It marks a word boundary (end-of-word symbol).",
+        "C": "It represents an unseen character.",
+        "D": "It denotes a clitic."
+      },
+      "answer": "B",
+      "reasoning": "The underscore symbol marks word boundaries in BPE tokenization."
+    },
+    {
+      "id": "MC 10",
+      "topic": "Regular Expressions",
+      "question": "When a regex pattern ends with \\.$, what specific sequence is it designed to match?",
+      "options": {
+        "A": "A line ending with any punctuation mark.",
+        "B": "A single word boundary.",
+        "C": "A period that occurs immediately before the end of a line.",
+        "D": "A period that matches any single character."
+      },
+      "answer": "C",
+      "reasoning": "\\. matches a literal period and $ anchors to the end of the line."
+    },
+    {
+      "id": "MC 11",
+      "topic": "Text Processing",
+      "question": "Why does text normalization often include consulting an abbreviation dictionary before sentence segmentation?",
+      "options": {
+        "A": "To calculate the document frequency.",
+        "B": "To classify a period (.) correctly as either part of a word (e.g., Dr.) or a sentence boundary.",
+        "C": "To find the lemma of each word.",
+        "D": "To determine if a sequence contains only alphanumeric characters."
+      },
+      "answer": "B",
+      "reasoning": "An abbreviation dictionary helps distinguish between periods that are part of abbreviations versus sentence boundaries."
+    },
+    {
+      "id": "MC 101",
+      "topic": "Regular Expressions",
+      "question": "In a regular expression, the pattern \\b represents what concept?",
+      "options": {
+        "A": "Matching a single whitespace character",
+        "B": "Matching the start or end of a line",
+        "C": "Matching a word boundary",
+        "D": "Matching any non-digit character"
+      },
+      "answer": "C",
+      "reasoning": "\\b matches a word boundary position between a word character and a non-word character."
+    },
+    {
+      "id": "MC 102",
+      "topic": "Regular Expressions",
+      "question": "Which regular expression pattern would successfully match both \"bagel\" and \"bagels\"?",
+      "options": {
+        "A": "bagel+",
+        "B": "bagel*",
+        "C": "bagel?s",
+        "D": "bagels|bagel"
+      },
+      "answer": "D",
+      "reasoning": "The pipe operator | creates an OR condition to match either 'bagels' or 'bagel'."
+    },
+    {
+      "id": "MC 103",
+      "topic": "Regular Expressions",
+      "question": "What fundamental function does the asterisk character (*) perform in regular expressions?",
+      "options": {
+        "A": "Matches the preceding item exactly one time.",
+        "B": "Matches the preceding item zero or more times.",
+        "C": "Matches the preceding item one or more times.",
+        "D": "Represents an OR operation between two items."
+      },
+      "answer": "B",
+      "reasoning": "The asterisk (*) is the Kleene star operator that matches zero or more occurrences."
+    },
+    {
+      "id": "MC 104",
+      "topic": "Regular Expressions",
+      "question": "The regex pattern [e^] would match:",
+      "options": {
+        "A": "Neither 'e' nor '^'",
+        "B": "The pattern e^ followed by nothing",
+        "C": "Either the character 'e' or the character '^'",
+        "D": "Only the start of a line containing 'e'"
+      },
+      "answer": "C",
+      "reasoning": "Inside square brackets but not as the first character, ^ is treated as a literal character."
+    },
+    {
+      "id": "MC 105",
+      "topic": "Regular Expressions",
+      "question": "Which alias for character sets matches any alphanumeric character or underscore?",
+      "options": {
+        "A": "\\d",
+        "B": "\\s",
+        "C": "\\w",
+        "D": "\\b"
+      },
+      "answer": "C",
+      "reasoning": "\\w matches word characters (alphanumeric plus underscore)."
+    },
+    {
+      "id": "MC 106",
+      "topic": "BPE",
+      "question": "What is the main objective of the Byte Pair Encoding (BPE) algorithm in tokenization?",
+      "options": {
+        "A": "To perform morphological parsing on word stems.",
+        "B": "To generate dense, semantic embeddings.",
+        "C": "To reduce the vocabulary size while retaining frequent subwords.",
+        "D": "To ensure every token is exactly one byte long."
+      },
+      "answer": "C",
+      "reasoning": "BPE aims to create a compact vocabulary by iteratively merging the most frequent character pairs."
+    },
+    {
+      "id": "MC 107",
+      "topic": "BPE",
+      "question": "In the BPE training process, after initializing the vocabulary to all unique characters, what step is repeated until k merges are completed?",
+      "options": {
+        "A": "Calculating the perplexity of the current vocabulary.",
+        "B": "Choosing the two symbols that are most frequently adjacent and merging them.",
+        "C": "Replacing all infrequent symbols with an <UNK> token.",
+        "D": "Applying a supervised loss function to the token boundaries."
+      },
+      "answer": "B",
+      "reasoning": "BPE iteratively finds and merges the most frequent adjacent character pair."
+    },
+    {
+      "id": "MC 108",
+      "topic": "BPE",
+      "question": "If a test word is encountered that is not explicitly in the learned BPE vocabulary, how is it typically handled?",
+      "options": {
+        "A": "It is assigned a probability of zero and discarded.",
+        "B": "It is replaced entirely by the end-of-word symbol (_).",
+        "C": "The word is split into smaller subword tokens available in the vocabulary.",
+        "D": "The BPE learner is run again to incorporate the new word."
+      },
+      "answer": "C",
+      "reasoning": "Unknown words are broken down into known subword tokens from the BPE vocabulary."
+    }
+  ]
+}

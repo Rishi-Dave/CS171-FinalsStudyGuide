@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS171 Machine Learning Final Exam Simulator</title>
+    <title>CS173 NLP Final Exam Simulator</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
@@ -21,32 +21,32 @@
         <!-- Header -->
         <header class="header">
             <div class="header-content">
-                <div class="header-icon">🎓</div>
+                <div class="header-icon">🧠</div>
                 <div class="header-text">
-                    <h1>CS171 Machine Learning Final Exam Simulator</h1>
-                    <p class="header-subtitle">Master your ML concepts with 500+ practice questions</p>
+                    <h1>CS173 Natural Language Processing Exam Simulator</h1>
+                    <p class="header-subtitle">Master NLP concepts with 200+ practice questions</p>
                 </div>
             </div>
             <div class="header-stats" id="headerStats">
                 <div class="stat-pill">
                     <span class="stat-icon">📊</span>
-                    <span class="stat-text">500+ Questions</span>
+                    <span class="stat-text">200 Questions</span>
                 </div>
                 <div class="stat-pill">
                     <span class="stat-icon">🎯</span>
                     <span class="stat-text">All Topics</span>
                 </div>
                 <div class="stat-pill">
-                    <span class="stat-icon">⚡</span>
-                    <span class="stat-text">Real Exam Format</span>
+                    <span class="stat-icon">✓</span>
+                    <span class="stat-text">Multiple Choice</span>
                 </div>
                 <button class="stat-pill" onclick="showInsightsPage()" style="cursor: pointer; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
                     <span class="stat-icon">📊</span>
                     <span class="stat-text">View Insights</span>
                 </button>
-                <a href="cs173.html" class="stat-pill" style="cursor: pointer; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; text-decoration: none;">
-                    <span class="stat-icon">🧠</span>
-                    <span class="stat-text">CS173 NLP</span>
+                <a href="index.html" class="stat-pill" style="cursor: pointer; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; text-decoration: none;">
+                    <span class="stat-icon">🎓</span>
+                    <span class="stat-text">CS171 ML</span>
                 </a>
             </div>
         </header>
@@ -64,31 +64,31 @@
                         <div class="option-card selected" data-type="full">
                             <div class="option-icon">🎯</div>
                             <h3>Test Simulation</h3>
-                            <p class="option-desc">30 True/False + 5 Short Answer</p>
+                            <p class="option-desc">30 Multiple Choice Questions</p>
                             <div class="option-badge">Real Exam Format</div>
                             <div class="option-details">
-                                <span>⏱️ 90 minutes</span>
+                                <span>⏱️ 60 minutes</span>
                                 <span>📈 Timed exam</span>
                             </div>
                         </div>
-                        <div class="option-card" data-type="tf-practice">
+                        <div class="option-card" data-type="mc-practice-short">
                             <div class="option-icon">✓</div>
-                            <h3>T/F Practice</h3>
-                            <p class="option-desc">20 adaptive True/False questions</p>
+                            <h3>Quick Practice</h3>
+                            <p class="option-desc">15 adaptive multiple choice questions</p>
                             <div class="option-badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">Smart Selection</div>
                             <div class="option-details">
                                 <span>🧠 Focuses on weak areas</span>
-                                <span>⏱️ ~20 min</span>
+                                <span>⏱️ ~15 min</span>
                             </div>
                         </div>
-                        <div class="option-card" data-type="sa-practice">
-                            <div class="option-icon">✍️</div>
-                            <h3>Short Answer Practice</h3>
-                            <p class="option-desc">5 adaptive conceptual questions</p>
+                        <div class="option-card" data-type="mc-practice-long">
+                            <div class="option-icon">📚</div>
+                            <h3>Extended Practice</h3>
+                            <p class="option-desc">50 adaptive multiple choice questions</p>
                             <div class="option-badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">Smart Selection</div>
                             <div class="option-details">
                                 <span>🧠 Focuses on weak areas</span>
-                                <span>⏱️ ~30 min</span>
+                                <span>⏱️ ~45 min</span>
                             </div>
                         </div>
                     </div>
@@ -127,7 +127,7 @@
                         <div class="option-card selected" data-setting="timed">
                             <div class="option-icon">⏱️</div>
                             <h3>Timed Mode</h3>
-                            <p class="option-desc">90 minutes - Real exam conditions</p>
+                            <p class="option-desc">60 minutes - Real exam conditions</p>
                             <div class="option-details">
                                 <span>⚠️ Time pressure</span>
                                 <span>📊 Realistic</span>
@@ -143,7 +143,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Practice Mode Toggle -->
                     <div class="practice-mode-toggle" style="margin-top: 20px; padding: 20px; background: #f8f9ff; border-radius: 10px; border: 2px solid #e5e7eb;">
                         <label style="display: flex; align-items: center; gap: 15px; cursor: pointer; font-size: 1.1rem;">
@@ -175,13 +175,13 @@
             <div class="exam-header">
                 <div class="exam-progress">
                     <div class="progress-text">
-                        Question <span id="currentQuestionNum">1</span> of <span id="totalQuestions">35</span>
+                        Question <span id="currentQuestionNum">1</span> of <span id="totalQuestions">30</span>
                     </div>
                     <div class="progress-bar-container">
                         <div class="progress-bar" id="progressBar"></div>
                     </div>
                 </div>
-                <div class="exam-timer" id="examTimer">90:00</div>
+                <div class="exam-timer" id="examTimer">60:00</div>
                 <div class="exam-actions">
                     <button class="action-button" onclick="showQuestionGrid()">
                         <span class="action-icon">📋</span>
@@ -206,7 +206,7 @@
                         <span class="nav-icon">←</span>
                         <span class="nav-text">Previous</span>
                     </button>
-                    
+
                     <button class="nav-button flag" id="flagButton" onclick="toggleFlag()">
                         <span class="nav-icon">🚩</span>
                         <span class="nav-text">Flag for Review</span>
@@ -230,7 +230,7 @@
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">Remaining:</span>
-                        <span class="stat-value" id="remainingCount">35</span>
+                        <span class="stat-value" id="remainingCount">30</span>
                     </div>
                 </div>
             </div>
@@ -297,9 +297,9 @@
     </div>
 
     <!-- Scripts -->
-    <script src="js/progress-tracker.js"></script>
-    <script src="js/questions.js"></script>
-    <script src="js/exam.js"></script>
+    <script src="js/progress-tracker-cs173.js"></script>
+    <script src="js/questions-cs173.js"></script>
+    <script src="js/exam-cs173.js"></script>
     <script src="js/ui.js"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@
       "topic": "Stats",
       "question": "The sample mean is the weighted arithmetic mean when all weights are equal.",
       "answer": true,
-      "reasoning": "The arithmetic mean is the weighted mean where all weights w i ​ are 1."
+      "reasoning": "The arithmetic mean is the weighted mean where all weights wᵢare 1."
     },
     {
       "id": "T/F 57",
@@ -49,7 +49,7 @@
       "topic": "Stats",
       "question": "The standard deviation is the square of the variance.",
       "answer": false,
-      "reasoning": "Standard deviation (s or σ) is the square root of the variance (s 2 or σ 2 )."
+      "reasoning": "Standard deviation (s or σ) is the square root of the variance (s²or σ²)."
     },
     {
       "id": "T/F 63",
@@ -175,7 +175,7 @@
       "topic": "Stats",
       "question": "The formula for variance involves squaring the difference between each data point and the mean of the distribution.",
       "answer": true,
-      "reasoning": "Variance σ 2 is n 1 ​ ∑ i=1 n ​ (x i ​ −μ) 2 ."
+      "reasoning": "Variance σ²is n₁∑ i=1 n (xᵢ−μ) 2 ."
     },
     {
       "id": "T/F 81",
@@ -215,16 +215,16 @@
     {
       "id": "T/F 86",
       "topic": "Stats",
-      "question": "Minkowski distance is also known as L p ​ Norm.",
+      "question": "Minkowski distance is also known as LₚNorm.",
       "answer": true,
-      "reasoning": "Minkowski distance is known as L p ​ Norm."
+      "reasoning": "Minkowski distance is known as LₚNorm."
     },
     {
       "id": "T/F 87",
       "topic": "Stats",
-      "question": "The Euclidean distance is an example of the L 1 ​ norm.",
+      "question": "The Euclidean distance is an example of the L₁norm.",
       "answer": false,
-      "reasoning": "Euclidean distance is the L 2 ​ norm."
+      "reasoning": "Euclidean distance is the L₂norm."
     },
     {
       "id": "T/F 88",
@@ -308,7 +308,7 @@
       "topic": "Stats",
       "question": "The Mean Squared Error (MSE) of an estimator h(x) can be decomposed into bias, variance, and irreducible (unavoidable) error.",
       "answer": true,
-      "reasoning": "E[(y−h(x)) 2 ]=bias 2 +variance+unavoidable error."
+      "reasoning": "E[(y−h(x)) 2 ]=bias²+variance+unavoidable error."
     },
     {
       "id": "T/F 100",
@@ -336,7 +336,7 @@
       "topic": "Stats",
       "question": "The standard error of the mean (SEM) is calculated as the standard deviation divided by the square root of the number of samples.",
       "answer": true,
-      "reasoning": "SEM is defined as σ/ n ​ ."
+      "reasoning": "SEM is defined as σ/ n ."
     },
     {
       "id": "T/F 104",

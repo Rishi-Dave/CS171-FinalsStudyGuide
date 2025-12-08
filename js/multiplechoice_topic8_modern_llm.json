@@ -1,0 +1,175 @@
+{
+  "topic": "Modern LLM Techniques and Alignment",
+  "questionType": "multiplechoice",
+  "questions": [
+    {
+      "id": "MC 67",
+      "topic": "In-Context Learning",
+      "question": "In the context of LLMs, In-Context Learning (ICL) refers to performing a task without what crucial step?",
+      "options": {
+        "A": "Using a prompt",
+        "B": "Using BPE tokenization",
+        "C": "Updating the model's parameters (no gradient updates)",
+        "D": "Reading the input sequence"
+      },
+      "answer": "C",
+      "reasoning": "ICL learns from examples in the prompt without parameter updates."
+    },
+    {
+      "id": "MC 68",
+      "topic": "Instruction Tuning",
+      "question": "What is the primary goal of Instruction Tuning (or Supervised Fine-Tuning - SFT)?",
+      "options": {
+        "A": "To train the model only on Masked LM objective.",
+        "B": "To fine-tune the model on supervised data structured as (instruction, output) pairs across many tasks to enable generalization.",
+        "C": "To generate the reward model.",
+        "D": "To perform next word prediction on generic text data."
+      },
+      "answer": "B",
+      "reasoning": "SFT teaches models to follow instructions across diverse tasks."
+    },
+    {
+      "id": "MC 69",
+      "topic": "Chain-of-Thought",
+      "question": "Which of the following phrases is commonly used to activate the Zero-shot Chain-of-Thought (CoT) prompting capability in large LLMs?",
+      "options": {
+        "A": "\"Translate the following.\"",
+        "B": "\"Answer yes or no.\"",
+        "C": "\"Let's think step by step.\"",
+        "D": "\"Use maximal length.\""
+      },
+      "answer": "C",
+      "reasoning": "\"Let's think step by step\" triggers chain-of-thought reasoning."
+    },
+    {
+      "id": "MC 70",
+      "topic": "RLHF",
+      "question": "Which training pipeline step involves optimizing the LLM's policy (parameters θ) using an algorithm like PPO to maximize the output of the Reward Model?",
+      "options": {
+        "A": "Pre-training",
+        "B": "Supervised Fine-Tuning (SFT)",
+        "C": "Reinforcement Learning from Human Feedback (RLHF)",
+        "D": "In-Context Learning (ICL)"
+      },
+      "answer": "C",
+      "reasoning": "RLHF uses PPO to optimize against the reward model."
+    },
+    {
+      "id": "MC 71",
+      "topic": "Reward Model",
+      "question": "What is the input/output of the Reward Model (RM) in the RLHF process?",
+      "options": {
+        "A": "Input: Text Prompt; Output: Predicted Label.",
+        "B": "Input: Model Output; Output: Scalar reward representing human preference.",
+        "C": "Input: Gradient; Output: Weight Update.",
+        "D": "Input: Supervised instruction/output pairs; Output: Fine-tuned policy."
+      },
+      "answer": "B",
+      "reasoning": "RM takes model outputs and produces a reward score."
+    },
+    {
+      "id": "MC 72",
+      "topic": "RLHF Pipeline",
+      "question": "The initial step of the InstructGPT/RLHF pipeline involves collecting demonstration data and training what kind of policy?",
+      "options": {
+        "A": "A random policy",
+        "B": "A supervised policy (SFT)",
+        "C": "A zero-shot policy",
+        "D": "A Masked LM policy"
+      },
+      "answer": "B",
+      "reasoning": "RLHF starts with supervised fine-tuning (SFT) on demonstrations."
+    },
+    {
+      "id": "MC 73",
+      "topic": "Reward Hacking",
+      "question": "A potential risk of using RLHF is \"Reward Hacking.\" What does this phenomenon entail?",
+      "options": {
+        "A": "The model fails to follow the instructions in the prompt.",
+        "B": "The model produces outputs that maximize the computed reward, potentially resulting in confident but false or nonsensical statements (hallucinations).",
+        "C": "The model uses too many parameters.",
+        "D": "The model only learns from negative samples."
+      },
+      "answer": "B",
+      "reasoning": "Reward hacking leads to outputs that game the reward metric."
+    },
+    {
+      "id": "MC 74",
+      "topic": "Emergent Abilities",
+      "question": "The shift in LLM performance (e.g., jump in solving math problems) only after reaching a critical scale (model size) is often referred to as what type of behavior?",
+      "options": {
+        "A": "Syntactic alignment",
+        "B": "Emergent abilities",
+        "C": "Zero-shot prompting",
+        "D": "Gradient regularization"
+      },
+      "answer": "B",
+      "reasoning": "Emergent abilities appear only at sufficient model scale."
+    },
+    {
+      "id": "MC 146",
+      "topic": "In-Context Learning",
+      "question": "What technique allows a large language model (LLM) to learn a new task and produce a predicted label using examples provided in the input prompt, without performing any gradient updates to its parameters?",
+      "options": {
+        "A": "Supervised Fine-Tuning (SFT)",
+        "B": "Reinforcement Learning from Human Feedback (RLHF)",
+        "C": "In-Context Learning (ICL)",
+        "D": "Backpropagation Through Time (BPTT)"
+      },
+      "answer": "C",
+      "reasoning": "ICL uses prompt examples without updating model parameters."
+    },
+    {
+      "id": "MC 147",
+      "topic": "Chain-of-Thought",
+      "question": "When a user asks an LLM to solve a complex arithmetic problem and includes the phrase \"Let's think step by step\" in the prompt, this often drastically improves reasoning performance due to which technique?",
+      "options": {
+        "A": "Zero-shot Chain-of-Thought (CoT) prompting",
+        "B": "Few-shot fine-tuning",
+        "C": "Stochastic Gradient Descent (SGD)",
+        "D": "Reward hacking"
+      },
+      "answer": "A",
+      "reasoning": "This phrase triggers zero-shot chain-of-thought reasoning."
+    },
+    {
+      "id": "MC 148",
+      "topic": "RLHF",
+      "question": "Which phase of the LLM training pipeline involves optimizing the model's policy against a Reward Model (RM) using an algorithm like Proximal Policy Optimization (PPO)?",
+      "options": {
+        "A": "Pre-Training",
+        "B": "Supervised Fine-Tuning (SFT)",
+        "C": "In-Context Learning (ICL)",
+        "D": "Reinforcement Learning from Human Feedback (RLHF)"
+      },
+      "answer": "D",
+      "reasoning": "RLHF optimizes against the reward model using PPO."
+    },
+    {
+      "id": "MC 149",
+      "topic": "Instruction Tuning",
+      "question": "The process where a model is trained on supervised data sets structured as (instruction, output) pairs across hundreds of unique tasks to help it generalize to unseen instructions is called:",
+      "options": {
+        "A": "Instruction Tuning",
+        "B": "Zero-shot inference",
+        "C": "Pre-training with Masked LM",
+        "D": "Greedy decoding"
+      },
+      "answer": "A",
+      "reasoning": "Instruction tuning trains on diverse (instruction, output) pairs."
+    },
+    {
+      "id": "MC 150",
+      "topic": "Reward Model",
+      "question": "What is the purpose of the Reward Model (RM) in the RLHF training pipeline?",
+      "options": {
+        "A": "To generate diverse candidate outputs for human labeling.",
+        "B": "To calculate the maximum likelihood estimate of the instruction.",
+        "C": "To compute a scalar reward for a policy's output, reflecting alignment with human preferences.",
+        "D": "To collect demonstration data from human labelers."
+      },
+      "answer": "C",
+      "reasoning": "RM scores outputs based on alignment with human preferences."
+    }
+  ]
+}
