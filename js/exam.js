@@ -194,56 +194,34 @@ function generateQuestions() {
 
     try {
         if (examState.examType === 'full') {
+            // Test Simulation: 30 T/F + 5 SA (random selection for exam simulation)
             selectedTF = shuffleArray([...tfQuestions]).slice(0, 30);
             selectedSA = shuffleArray([...shortAnswerQuestions]).slice(0, 5);
         } else if (examState.examType === 'tf-practice') {
-            selectedTF = shuffleArray([...tfQuestions]).slice(0, 50);
-        } else if (examState.examType === 'sa-practice') {
-            selectedSA = shuffleArray([...shortAnswerQuestions]).slice(0, 10);
-        } else if (examState.examType === 'topic') {
-            if (examState.selectedTopics.size === 0) {
-                console.warn('No topics selected for topic-specific exam');
-                examState.questions = [];
-                return;
-            }
-            const topicArray = Array.from(examState.selectedTopics);
-            selectedTF = shuffleArray(tfQuestions.filter(q => topicArray.includes(q.topic))).slice(0, 30);
-            selectedSA = shuffleArray(shortAnswerQuestions.filter(q => topicArray.includes(q.topic))).slice(0, 5);
-        } else if (examState.examType === 'smart') {
-            // Smart selection using progress tracker
+            // T/F Practice: 20 questions with intelligent selection
             if (window.ProgressTracker) {
-                const allQuestions = [...tfQuestions, ...shortAnswerQuestions];
-                const smartQuestions = ProgressTracker.selectQuestions(allQuestions, 35, {
+                selectedTF = ProgressTracker.selectQuestions(tfQuestions, 20, {
                     favorWeakTopics: true,
                     excludeRecent: true
                 });
-                selectedTF = smartQuestions.filter((q, i) => i < 30);
-                selectedSA = smartQuestions.filter((q, i) => i >= 30);
-                console.log('🧠 Smart Practice: Selected questions based on your weak areas');
+                console.log('🧠 T/F Practice: Selected 20 questions targeting your weak areas');
             } else {
-                // Fallback to random
-                selectedTF = shuffleArray([...tfQuestions]).slice(0, 30);
-                selectedSA = shuffleArray([...shortAnswerQuestions]).slice(0, 5);
+                // Fallback to random if no history
+                selectedTF = shuffleArray([...tfQuestions]).slice(0, 20);
+                console.log('📝 T/F Practice: Random selection (no history yet)');
             }
-        } else if (examState.examType === 'review-mistakes') {
-            // Review incorrectly answered questions
+        } else if (examState.examType === 'sa-practice') {
+            // Short Answer Practice: 5 questions with intelligent selection
             if (window.ProgressTracker) {
-                const incorrectTF = ProgressTracker.getIncorrectQuestions(tfQuestions, 30);
-                const incorrectSA = ProgressTracker.getIncorrectQuestions(shortAnswerQuestions, 10);
-
-                if (incorrectTF.length === 0 && incorrectSA.length === 0) {
-                    alert('No previously incorrect questions found! Take some practice exams first.');
-                    examState.questions = [];
-                    return;
-                }
-
-                selectedTF = incorrectTF;
-                selectedSA = incorrectSA;
-                console.log('🔄 Review Mistakes: ' + (incorrectTF.length + incorrectSA.length) + ' questions to review');
+                selectedSA = ProgressTracker.selectQuestions(shortAnswerQuestions, 5, {
+                    favorWeakTopics: true,
+                    excludeRecent: true
+                });
+                console.log('🧠 SA Practice: Selected 5 questions targeting your weak areas');
             } else {
-                alert('Progress tracking not available. Try a different exam type.');
-                examState.questions = [];
-                return;
+                // Fallback to random if no history
+                selectedSA = shuffleArray([...shortAnswerQuestions]).slice(0, 5);
+                console.log('📝 SA Practice: Random selection (no history yet)');
             }
         }
 

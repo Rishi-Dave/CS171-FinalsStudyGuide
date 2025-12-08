@@ -40,9 +40,9 @@
                     <span class="stat-icon">⚡</span>
                     <span class="stat-text">Real Exam Format</span>
                 </div>
-                <button class="stat-pill" onclick="toggleProgressDashboard()" style="cursor: pointer; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
-                    <span class="stat-icon">📈</span>
-                    <span class="stat-text">View Progress</span>
+                <button class="stat-pill" onclick="showInsightsPage()" style="cursor: pointer; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
+                    <span class="stat-icon">📊</span>
+                    <span class="stat-text">View Insights</span>
                 </button>
             </div>
         </header>
@@ -56,61 +56,35 @@
                         <span class="title-icon">📝</span>
                         Select Exam Type
                     </h2>
-                    <div class="option-grid">
+                    <div class="option-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); max-width: 1000px; margin: 0 auto;">
                         <div class="option-card selected" data-type="full">
                             <div class="option-icon">🎯</div>
-                            <h3>Full Exam</h3>
+                            <h3>Test Simulation</h3>
                             <p class="option-desc">30 True/False + 5 Short Answer</p>
-                            <div class="option-badge">Recommended</div>
+                            <div class="option-badge">Real Exam Format</div>
                             <div class="option-details">
-                                <span>⏱️ ~90 min</span>
-                                <span>📈 Real format</span>
+                                <span>⏱️ 90 minutes</span>
+                                <span>📈 Timed exam</span>
                             </div>
                         </div>
                         <div class="option-card" data-type="tf-practice">
                             <div class="option-icon">✓</div>
-                            <h3>True/False Practice</h3>
-                            <p class="option-desc">50 random T/F questions</p>
+                            <h3>T/F Practice</h3>
+                            <p class="option-desc">20 adaptive True/False questions</p>
+                            <div class="option-badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">Smart Selection</div>
                             <div class="option-details">
-                                <span>⏱️ ~45 min</span>
-                                <span>🎲 Randomized</span>
+                                <span>🧠 Focuses on weak areas</span>
+                                <span>⏱️ ~20 min</span>
                             </div>
                         </div>
                         <div class="option-card" data-type="sa-practice">
                             <div class="option-icon">✍️</div>
                             <h3>Short Answer Practice</h3>
-                            <p class="option-desc">10 conceptual questions</p>
+                            <p class="option-desc">5 adaptive conceptual questions</p>
+                            <div class="option-badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">Smart Selection</div>
                             <div class="option-details">
-                                <span>⏱️ ~60 min</span>
-                                <span>🧠 Deep dive</span>
-                            </div>
-                        </div>
-                        <div class="option-card" data-type="topic">
-                            <div class="option-icon">🎨</div>
-                            <h3>Topic-Specific</h3>
-                            <p class="option-desc">Choose your focus areas</p>
-                            <div class="option-details">
-                                <span>🎯 Targeted</span>
-                                <span>📚 Custom</span>
-                            </div>
-                        </div>
-                        <div class="option-card" data-type="smart">
-                            <div class="option-icon">🧠</div>
-                            <h3>Smart Practice</h3>
-                            <p class="option-desc">AI-powered question selection</p>
-                            <div class="option-badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">Personalized</div>
-                            <div class="option-details">
-                                <span>🎯 Your weak areas</span>
-                                <span>📊 Adaptive</span>
-                            </div>
-                        </div>
-                        <div class="option-card" data-type="review-mistakes">
-                            <div class="option-icon">🔄</div>
-                            <h3>Review Mistakes</h3>
-                            <p class="option-desc">Focus on incorrectly answered questions</p>
-                            <div class="option-details">
-                                <span>❌ Previous errors</span>
-                                <span>💡 Learn from mistakes</span>
+                                <span>🧠 Focuses on weak areas</span>
+                                <span>⏱️ ~30 min</span>
                             </div>
                         </div>
                     </div>
@@ -261,6 +235,22 @@
         <!-- Results Screen -->
         <div id="resultsScreen" class="screen">
             <!-- Results will be populated dynamically -->
+        </div>
+
+        <!-- Insights Screen -->
+        <div id="insightsScreen" class="screen">
+            <div class="results-container">
+                <div class="results-header">
+                    <h2>📊 Learning Insights</h2>
+                    <p>Track your progress and identify areas for improvement</p>
+                    <button onclick="closeInsightsPage()" style="margin-top: 15px; padding: 10px 20px; background: #667eea; color: white; border: none; border-radius: 8px; cursor: pointer;">
+                        ← Back to Home
+                    </button>
+                </div>
+                <div id="insightsContent">
+                    <!-- Insights will be populated dynamically -->
+                </div>
+            </div>
         </div>
     </div>
 

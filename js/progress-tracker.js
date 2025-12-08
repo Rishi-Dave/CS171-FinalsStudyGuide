@@ -214,7 +214,8 @@ const ProgressTracker = {
     },
 
     /**
-     * Get smart question selection weights
+     * Get smart question selection weights using improved mathematics
+     * Uses continuous function instead of discrete buckets for smoother weighting
      * Returns multiplier for each topic (higher = more likely to be selected)
      */
     getTopicWeights() {
@@ -222,20 +223,29 @@ const ProgressTracker = {
 
         for (const [topic, performance] of Object.entries(this.data.topicPerformance)) {
             if (performance.total === 0) {
-                // Never seen - high priority
+                // Never seen - high priority (with uncertainty factor)
                 weights[topic] = 3.0;
-            } else if (performance.avgScore < 50) {
-                // Weak area - highest priority
-                weights[topic] = 5.0;
-            } else if (performance.avgScore < 70) {
-                // Needs improvement - high priority
-                weights[topic] = 3.0;
-            } else if (performance.avgScore < 85) {
-                // Moderate - normal priority
-                weights[topic] = 1.5;
             } else {
-                // Mastered - lower priority (but still review)
-                weights[topic] = 0.5;
+                // Use sigmoid-based continuous weighting function
+                // This creates a smooth curve that heavily weights weak areas
+                // while still providing some practice on mastered topics
+
+                const score = performance.avgScore / 100; // Normalize to 0-1
+                const confidence = Math.min(performance.total / 10, 1); // Confidence based on sample size
+
+                // Inverse sigmoid function: higher weight for lower scores
+                // Formula: weight = 5 * (1 / (1 + e^(10*(score - 0.5)))) + 0.3
+                // This creates a smooth S-curve that:
+                // - Gives weight ~5.0 for scores near 0%
+                // - Gives weight ~2.5 for scores near 50%
+                // - Gives weight ~0.5 for scores near 100%
+                const baseWeight = 5 / (1 + Math.exp(10 * (score - 0.5))) + 0.3;
+
+                // Adjust for confidence: less confident estimates get bonus weight
+                // This ensures new topics get adequate coverage
+                const confidenceBonus = (1 - confidence) * 1.5;
+
+                weights[topic] = baseWeight + confidenceBonus;
             }
         }
 
@@ -256,40 +266,60 @@ const ProgressTracker = {
         const now = new Date().getTime();
         const ONE_HOUR = 60 * 60 * 1000;
 
-        // Filter and score questions
+        // Filter and score questions using improved algorithm
         const scoredQuestions = allQuestions.map(q => {
             const qid = String(q.id);
             const history = this.data.questionHistory[qid];
 
             let score = 1.0;
 
-            // Topic weight
+            // Factor 1: Topic weight (continuous sigmoid function)
             if (favorWeakTopics && weights[q.topic]) {
                 score *= weights[q.topic];
             }
 
-            // Penalize recently answered questions
+            // Factor 2: Spaced repetition - exponential decay based on time
+            // Implements research-backed spaced repetition timing
             if (excludeRecent && history && history.lastAttempt) {
-                const timeSinceAttempt = now - new Date(history.lastAttempt).getTime();
-                if (timeSinceAttempt < ONE_HOUR) {
-                    score *= 0.1; // Heavy penalty for very recent
-                } else if (timeSinceAttempt < 24 * ONE_HOUR) {
-                    score *= 0.5; // Moderate penalty for recent
-                }
+                const hoursSinceAttempt = (now - new Date(history.lastAttempt).getTime()) / ONE_HOUR;
+
+                // Exponential recovery: penalty = e^(-hours/12)
+                // This creates smooth transition:
+                // - 0 hours: 100% penalty (multiplier = 0)
+                // - 6 hours: 60% penalty (multiplier = 0.4)
+                // - 12 hours: 37% penalty (multiplier = 0.63)
+                // - 24 hours: 14% penalty (multiplier = 0.86)
+                // - 48 hours: 2% penalty (multiplier = 0.98)
+                const recencyMultiplier = 1 - Math.exp(-hoursSinceAttempt / 12);
+                score *= recencyMultiplier;
             }
 
-            // Favor questions never attempted or frequently missed
+            // Factor 3: Error rate with Bayesian confidence adjustment
             if (!history) {
-                score *= 2.0; // Never seen
+                // Never seen - high priority with exploration bonus
+                score *= 2.5;
             } else if (history.attempts > 0) {
-                const errorRate = history.incorrect / history.attempts;
-                if (errorRate > 0.5) {
-                    score *= 2.5; // Frequently missed
-                } else if (errorRate > 0.3) {
-                    score *= 1.5; // Sometimes missed
-                } else if (errorRate === 0) {
-                    score *= 0.8; // Always correct (lower priority)
-                }
+                // Use Wilson score interval for better error rate estimation
+                // This accounts for small sample sizes more accurately
+                const p = history.incorrect / history.attempts; // Raw error rate
+                const n = history.attempts;
+
+                // Wilson score lower bound (conservative estimate)
+                // For small n, this shrinks extreme values toward 0.5
+                const z = 1.96; // 95% confidence
+                const denominator = 1 + z * z / n;
+                const adjustedError = (p + z * z / (2 * n) - z * Math.sqrt((p * (1 - p) + z * z / (4 * n)) / n)) / denominator;
+
+                // Convert error rate to multiplier:
+                // - 100% error: 3.0x
+                // - 50% error: 1.5x
+                // - 0% error: 0.5x
+                const errorMultiplier = 0.5 + 2.5 * adjustedError;
+                score *= errorMultiplier;
+
+                // Bonus for questions with low sample size (exploration)
+                const explorationBonus = 1 + (5 / (n + 2)); // Decreases as n increases
+                score *= explorationBonus;
             }
 
             return { question: q, score: score };

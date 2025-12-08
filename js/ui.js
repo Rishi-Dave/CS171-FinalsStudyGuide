@@ -225,61 +225,110 @@ window.addEventListener('beforeunload', function(e) {
 });
 
 // ============================================
-// Progress Dashboard Functions
+// Insights Page Functions
 // ============================================
 
 /**
- * Toggle progress dashboard visibility
+ * Show the dedicated insights page
  */
-function toggleProgressDashboard() {
-    const dashboard = document.getElementById('progressDashboard');
-    if (!dashboard) return;
+function showInsightsPage() {
+    // Hide all other screens
+    document.getElementById('setupScreen').classList.remove('active');
+    document.getElementById('examScreen').classList.remove('active');
+    document.getElementById('resultsScreen').classList.remove('active');
 
-    const isVisible = dashboard.style.display !== 'none';
+    // Show insights screen
+    const insightsScreen = document.getElementById('insightsScreen');
+    insightsScreen.classList.add('active');
 
-    if (isVisible) {
-        dashboard.style.display = 'none';
-    } else {
-        dashboard.style.display = 'block';
-        renderProgressDashboard();
-    }
+    // Render insights
+    renderInsights();
 }
 
 /**
- * Render the progress dashboard
+ * Close insights page and return to home
  */
-function renderProgressDashboard() {
+function closeInsightsPage() {
+    document.getElementById('insightsScreen').classList.remove('active');
+    document.getElementById('setupScreen').classList.add('active');
+}
+
+/**
+ * Render comprehensive insights
+ */
+function renderInsights() {
     if (typeof ProgressTracker === 'undefined') {
         console.error('ProgressTracker not loaded');
         return;
     }
 
     const analytics = ProgressTracker.getAnalytics();
-    const content = document.getElementById('progressContent');
+    const content = document.getElementById('insightsContent');
 
     if (!content) return;
+
+    // Calculate additional insights
+    const totalQuestionsSeen = Object.keys(ProgressTracker.data.questionHistory).length;
+    const totalQuestionsAvailable = (window.tfQuestions?.length || 0) + (window.shortAnswerQuestions?.length || 0);
+    const coveragePercent = totalQuestionsAvailable > 0 ? (totalQuestionsSeen / totalQuestionsAvailable * 100) : 0;
+
+    // Calculate questions per topic
+    const questionsByTopic = {};
+    for (const [qid, history] of Object.entries(ProgressTracker.data.questionHistory)) {
+        const topic = history.topic || 'Unknown';
+        questionsByTopic[topic] = (questionsByTopic[topic] || 0) + 1;
+    }
 
     let html = `
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px;">
             <div class="stat-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-                <h3 style="color: white; opacity: 0.9;">Total Questions</h3>
-                <div class="value" style="color: white;">${analytics.overall.totalQuestions}</div>
-                <div class="description" style="color: rgba(255,255,255,0.8);">Attempted</div>
+                <h3 style="color: white; opacity: 0.9;">Questions Seen</h3>
+                <div class="value" style="color: white;">${totalQuestionsSeen}</div>
+                <div class="description" style="color: rgba(255,255,255,0.8);">out of ${totalQuestionsAvailable} total</div>
+                <div style="background: rgba(255,255,255,0.2); height: 6px; border-radius: 3px; margin-top: 10px; overflow: hidden;">
+                    <div style="background: rgba(255,255,255,0.9); height: 100%; width: ${coveragePercent}%;"></div>
+                </div>
             </div>
             <div class="stat-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;">
-                <h3 style="color: white; opacity: 0.9;">Correct</h3>
-                <div class="value" style="color: white;">${analytics.overall.totalCorrect}</div>
-                <div class="description" style="color: rgba(255,255,255,0.8);">${analytics.overall.totalIncorrect} Incorrect</div>
+                <h3 style="color: white; opacity: 0.9;">Accuracy</h3>
+                <div class="value" style="color: white;">${analytics.overall.averageScore.toFixed(1)}%</div>
+                <div class="description" style="color: rgba(255,255,255,0.8);">${analytics.overall.totalCorrect} correct, ${analytics.overall.totalIncorrect} incorrect</div>
             </div>
             <div class="stat-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white;">
-                <h3 style="color: white; opacity: 0.9;">Average Score</h3>
-                <div class="value" style="color: white;">${analytics.overall.averageScore.toFixed(1)}%</div>
-                <div class="description" style="color: rgba(255,255,255,0.8);">Overall Performance</div>
+                <h3 style="color: white; opacity: 0.9;">Study Progress</h3>
+                <div class="value" style="color: white;">${coveragePercent.toFixed(1)}%</div>
+                <div class="description" style="color: rgba(255,255,255,0.8);">Question bank coverage</div>
             </div>
             <div class="stat-card" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white;">
                 <h3 style="color: white; opacity: 0.9;">Sessions</h3>
                 <div class="value" style="color: white;">${analytics.overall.totalSessions}</div>
-                <div class="description" style="color: rgba(255,255,255,0.8);">Practice Sessions</div>
+                <div class="description" style="color: rgba(255,255,255,0.8);">Practice sessions completed</div>
+            </div>
+        </div>
+
+        <!-- Questions Seen Per Topic -->
+        <div style="margin-bottom: 30px;">
+            <h3 style="color: #667eea; margin-bottom: 15px;">📚 Questions Attempted Per Topic</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+    `;
+
+    // Add topic coverage cards
+    const sortedTopics = Object.entries(questionsByTopic).sort((a, b) => b[1] - a[1]);
+    sortedTopics.forEach(([topic, count]) => {
+        const topicPerf = analytics.topicPerformance.find(t => t.topic === topic);
+        const accuracy = topicPerf ? topicPerf.avgScore : 0;
+        const color = accuracy >= 80 ? '#10b981' : accuracy >= 60 ? '#f59e0b' : '#f5576c';
+
+        html += `
+            <div style="background: white; border: 1px solid #e5e7eb; padding: 15px; border-radius: 8px;">
+                <div style="font-weight: 600; color: #374151; margin-bottom: 8px;">${topic}</div>
+                <div style="font-size: 1.5rem; font-weight: bold; color: ${color};">${count}</div>
+                <div style="font-size: 0.85rem; color: #6b7280; margin-top: 4px;">${accuracy.toFixed(1)}% accuracy</div>
+            </div>
+        `;
+    });
+
+    html += `
             </div>
         </div>
     `;
